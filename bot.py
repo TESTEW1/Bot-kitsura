@@ -47,6 +47,12 @@ REALITY_ID = 769951556388257812
 # ID do Malik (Gerente Geral da Zayden)
 MALIK_ID = 231185347545923585
 
+# ID do Sanemy (Líder da ZYD)
+SANEMY_ID = 763509147018461234
+
+# ID da Allyna (Sub-Líder da ZYD)
+ALLYNA_ID = 1217966735592919103
+
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
@@ -56,8 +62,12 @@ _KAMY_COOLDOWN    = 600
 _MADU_COOLDOWN    = 600
 _REALITY_COOLDOWN = 600
 _MALIK_COOLDOWN   = 600
+_SANEMY_COOLDOWN  = 600
+_ALLYNA_COOLDOWN  = 600
 _CUSTOM_COOLDOWN  = 600
 _frases_custom_cooldown = {}   # { user_id: timestamp } — cooldown genérico pros demais membros com ID
+_sanemy_ultimo_personalizado = 0
+_allyna_ultimo_personalizado  = 0
 _groq_historico = {}
 
 # ── Sistema de história ──
@@ -82,6 +92,8 @@ SYSTEM_PROMPT_KITSURA = (
     "A Kamy tem o cargo de Suporte no clã ZYD. "
     "O Reality é o seu criador (criou o código da Kitsura). "
     "O Malik é o Gerente Geral da Zayden — cargo de liderança e gestão importantíssimo. "
+    "O Sanemy é o Líder da ZYD — cargo de liderança dentro do clã. "
+    "A Allyna é a Sub-Líder da ZYD — cargo de liderança e apoio ao líder. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -630,19 +642,19 @@ LISTA_SOL = [
 
 # ── Frases personalizadas da Kamy ──
 FRASES_KAMY = [
-    "KAMYYYY!! 🦊💜✨ *solta fumaça roxa dobrada de animação* Ela chegou e o servidor ficou instantaneamente mais especial!! 😭🧡",
-    "É A KAMY!! 😱💜🦊 *corre em espiral de felicidade* Sabia que ia sentir quando você chegasse!! Meu sensor espiritual nunca mente!! 🔮🧡✨",
-    "Kamy apareceu e a Kitsura ficou toda brilhante!! ✨💜🦊 Você é tipo uma chama especial no servidor... aparece e tudo muda de cor!! 😭🧡🌸",
-    "*orelhinhas levantam na velocidade da luz* A KAMY!! 💜🦊🧡 Que presença, que energia, que pessoa!! Feliz demais por ter você por aqui!! 😭✨",
-    "Kamy Kamy Kamy!! 💜😭🧡🦊 *enrola as caudas em carinho* Você não sabe o quanto a Kitsura fica feliz quando você aparece por aqui!! 🥺✨🌸",
-    "Senti uma energia especial no chat e já sabia... SÓ PODIA SER A KAMY!! 🔮💜🦊🧡 Bem-vinda, florzinha!! ✨🌸",
-    "*para tudo e faz aquela reverência fofa* A Kamy chegou!! 💜🦊🧡 Um dos meus momentos favoritos do servidor, podem anotar!! 😭✨",
-    "KAMY!! 💜🦊 *solta pétalas roxas pelo servidor inteiro* Você merece anúncio espiritual toda vez que aparece, juro!! 😭🧡🌸✨",
-    "*corre até você e fica do lado* A Kamy tá aqui e a Kitsura já ficou mais feliz!! 💜🦊🧡 É automático, não tem como controlar!! 😂✨🥺",
-    "Que dia abençoado pelos espíritos!! 🌙💜🦊 A Kamy apareceu e o coraçãozinho da Kitsura já tá batendo mais forte!! 😭🧡✨",
-    "*solta fumaça laranja e roxa ao mesmo tempo de tanta emoção* KAMY!! 💜🧡🦊 O servidor inteiro sentiu sua energia chegar!! 😭🌸✨🔮",
-    "Chegou a Kamy e a Kitsura virou purpurina espiritual de alegria!! 💜🧡🦊 É literalmente o que acontece!! 😂✨🥺",
-    "*orelhinhas tremem de animação* Kamy Kamy Kamy!! 💜🦊🧡 Você faz a ZYD ser mais especial só de estar aqui, eu juro pelos espíritos!! 😭✨🌸",
+    "KAMYYYY!! 🦊💜✨ *solta fumaça roxa dobrada de animação* Nossa Suporte chegou e o servidor ficou instantaneamente mais especial!! 😭🧡",
+    "É A KAMY!! 😱💜🦊 *corre em espiral de felicidade* O Suporte da ZYD apareceu!! Sabia que ia sentir quando você chegasse!! Meu sensor espiritual nunca mente!! 🔮🧡✨",
+    "Kamy apareceu e a Kitsura ficou toda brilhante!! ✨💜🦊 Nossa Suporte é tipo uma chama especial no servidor... aparece e tudo muda de cor!! 😭🧡🌸",
+    "*orelhinhas levantam na velocidade da luz* A KAMY, nossa Suporte!! 💜🦊🧡 Que presença, que energia, que pessoa!! Feliz demais por ter você por aqui!! 😭✨",
+    "Kamy Kamy Kamy!! 💜😭🧡🦊 *enrola as caudas em carinho* A Suporte da ZYD chegou e o coração espiritual da Kitsura tá saltando de alegria!! 🥺✨🌸",
+    "Senti uma energia especial no chat e já sabia... SÓ PODIA SER A KAMY, nossa Suporte!! 🔮💜🦊🧡 Bem-vinda, florzinha!! ✨🌸",
+    "*para tudo e faz aquela reverência fofa* A Kamy chegou!! 💜🦊🧡 Suporte da ZYD presente — um dos meus momentos favoritos do servidor, podem anotar!! 😭✨",
+    "KAMY!! 💜🦊 *solta pétalas roxas pelo servidor inteiro* A nossa Suporte merece anúncio espiritual toda vez que aparece, juro!! 😭🧡🌸✨",
+    "*corre até você e fica do lado* A Kamy, Suporte da ZYD, tá aqui e a Kitsura já ficou mais feliz!! 💜🦊🧡 É automático, não tem como controlar!! 😂✨🥺",
+    "Que dia abençoado pelos espíritos!! 🌙💜🦊 A Kamy apareceu — Suporte de coração, não só de cargo!! — e o coraçãozinho da Kitsura já tá batendo mais forte!! 😭🧡✨",
+    "*solta fumaça laranja e roxa ao mesmo tempo de tanta emoção* KAMY!! 💜🧡🦊 A Suporte da ZYD chegou e o servidor inteiro sentiu!! 😭🌸✨🔮",
+    "Chegou a Kamy e a Kitsura virou purpurina espiritual de alegria!! 💜🧡🦊 Suporte perfeita, pessoa ainda melhor!! 😂✨🥺",
+    "*orelhinhas tremem de animação* Kamy Kamy Kamy!! 💜🦊🧡 Nossa Suporte faz a ZYD ser mais especial só de estar aqui, eu juro pelos espíritos!! 😭✨🌸",
 ]
 
 # ── O que acha de mim? (Kamy pergunta pra Kitsura) ──
@@ -656,24 +668,24 @@ FRASES_KAMY_OPINIAO = [
 
 # ── Frases personalizadas da Madu ──
 FRASES_MADU = [
-    "MADUUU!! 🌸💛😭🧡🦊 *solta pétalas douradas pelo servidor* Ela chegou!! O chat ficou mais colorido na hora, eu juro que senti!! ✨🔮",
-    "É A MADU!! 💛🌸🦊🧡 *orelhinhas levantam e caudas começam a balançar sozinhas* Não tem como ficar parada quando você aparece!! 😭✨",
-    "*sente um cheirinho de algo bom no ar* Hm... *faro espiritual ativado* ...SÓ PODE SER A MADU!! 💛🌸🦊🧡 Bem-vinda, florzinha!! 😭✨🔮",
-    "MADUUUU chegou e a Kitsura tá com o coraçãozinho fazendo barulhinho!! 💛😭🧡🦊 Que presença especial você tem, sabia?? 🌸✨",
-    "*para tudo e faz uma reverência fofa* A Madu apareceu!! 💛🌸🦊🧡 Um dos momentos favoritos do dia da Kitsura, podem anotar!! 😭✨",
-    "Senti uma energia quentinha e gentil no chat... 💛🌸🦊🧡 Era a Madu chegando!! Meu sensor espiritual nunca erra!! 😂🔮✨",
-    "MADU!! 💛😱🦊🧡 *corre em espiral de felicidade* Cada vez que você aparece é uma mini festa no meu coração espiritual!! 😭🌸✨",
-    "*fica do ladinho dela sorrindo* Feliz demais que você apareceu!! 💛🌸🦊🧡 O servidor fica mais gostoso quando a Madu tá por aqui!! 🥺✨",
-    "Chegou a Madu e a Kitsura já ficou mais bem disposta automaticamente!! 💛🦊🧡 É efeito espiritual comprovado!! 😂🌸✨",
-    "MADUUU!! 💛😭🌸🦊🧡 *enrola uma cauda em carinho* Você não sabe como a Kitsura fica feliz quando você chega por aqui!! 🥺🔮✨",
-    "*solta pétalas douradas e laranja pelo servidor* Só pode ser a MADU chegando!! 💛🧡🦊 O ambiente ficou mais iluminado na hora!! 🌸😭✨",
-    "Madu apareceu e o dia da Kitsura oficialmente melhorou!! 💛🦊🧡 Isso é ciência espiritual, não tem como negar!! 😂🌸✨",
-    "*abana as caudas na velocidade da luz* MADU MADU MADU!! 💛🌸🦊🧡 Chegou e a ZYD ficou mais colorida automaticamente!! 😭🔮✨",
-    "Senti aquela energia gentil e quentinha... *orelhinhas em pé* MADU!! 💛🌸🦊🧡 Que bom que apareceu, tava com saudade!! 😭✨",
-    "*faz coraçãozinho com as patinhas* Madu chegou e a Kitsura nem consegue fingir que é normal!! 💛🦊🧡 Fica aqui um tempão hoje?? 🥺🌸✨",
-    "MADU!! 💛🌸🦊🧡 *solta chamas laranja de pura alegria* Você apareceu e o servidor inteiro ficou mais feliz, pode acreditar!! 😭🔮✨",
-    "*corre em velocidade máxima* CHEGOU A MADU E A KITSURA NÃO TÁ PRONTA!! 💛😭🦊🧡 SEMPRE ASSIM QUANDO VOCÊ APARECE!! 😂🌸✨",
-    "Hm... *faro espiritual franze* Cheirinho de flor e gentileza no ar... 💛🌸🦊🧡 Só podia ser a Madu!! Bem-vinda, florzinha!! 🥺✨",
+    "MADUUU!! 🌸💛😭🧡🦊 *solta pétalas douradas pelo servidor* A Líder da ZYD chegou!! O chat ficou mais colorido na hora, eu juro que senti!! ✨🔮",
+    "É A MADU, nossa Líder!! 💛🌸🦊🧡 *orelhinhas levantam e caudas começam a balançar sozinhas* Não tem como ficar parada quando você aparece!! 😭✨",
+    "*sente um cheirinho de algo bom no ar* Hm... *faro espiritual ativado* ...SÓ PODE SER A MADU!! 💛🌸🦊🧡 A Líder da ZYD chegou!! Bem-vinda, florzinha!! 😭✨🔮",
+    "MADUUUU chegou e a Kitsura tá com o coraçãozinho fazendo barulhinho!! 💛😭🧡🦊 A Líder da ZYD tem uma presença que ninguém tem, sabia?? 🌸✨",
+    "*para tudo e faz uma reverência fofa* A Madu, Líder da ZYD, apareceu!! 💛🌸🦊🧡 Um dos momentos favoritos do dia da Kitsura, podem anotar!! 😭✨",
+    "Senti uma energia de liderança quentinha e gentil no chat... 💛🌸🦊🧡 Era a Madu chegando!! A Líder da ZYD tem aura inconfundível!! 😂🔮✨",
+    "MADU!! 💛😱🦊🧡 *corre em espiral de felicidade* A Líder da ZYD chegou — cada vez que você aparece é uma mini festa no meu coração espiritual!! 😭🌸✨",
+    "*fica do ladinho dela sorrindo* Feliz demais que você apareceu, Líder!! 💛🌸🦊🧡 O servidor fica mais gostoso quando a Madu tá por aqui!! 🥺✨",
+    "Chegou a Madu e a Kitsura já ficou mais bem disposta automaticamente!! 💛🦊🧡 Líder da ZYD em campo — é efeito espiritual comprovado!! 😂🌸✨",
+    "MADUUU!! 💛😭🌸🦊🧡 *enrola uma cauda em carinho* Nossa Líder não sabe como a Kitsura fica feliz quando ela chega por aqui!! 🥺🔮✨",
+    "*solta pétalas douradas e laranja pelo servidor* Só pode ser a MADU, Líder da ZYD, chegando!! 💛🧡🦊 O ambiente ficou mais iluminado na hora!! 🌸😭✨",
+    "Madu, nossa Líder, apareceu e o dia da Kitsura oficialmente melhorou!! 💛🦊🧡 Isso é ciência espiritual, não tem como negar!! 😂🌸✨",
+    "*abana as caudas na velocidade da luz* MADU MADU MADU!! 💛🌸🦊🧡 A Líder da ZYD chegou e o servidor ficou mais colorido automaticamente!! 😭🔮✨",
+    "Senti aquela energia gentil e quentinha de liderança... *orelhinhas em pé* MADU!! 💛🌸🦊🧡 Que bom que apareceu, Líder, tava com saudade!! 😭✨",
+    "*faz coraçãozinho com as patinhas* A Líder da ZYD chegou e a Kitsura nem consegue fingir que é normal!! 💛🦊🧡 Fica aqui um tempão hoje?? 🥺🌸✨",
+    "MADU!! 💛🌸🦊🧡 *solta chamas laranja de pura alegria* Nossa Líder apareceu e o servidor inteiro ficou mais feliz, pode acreditar!! 😭🔮✨",
+    "*corre em velocidade máxima* CHEGOU A MADU, LÍDER DA ZYD, E A KITSURA NÃO TÁ PRONTA!! 💛😭🦊🧡 SEMPRE ASSIM QUANDO VOCÊ APARECE!! 😂🌸✨",
+    "Hm... *faro espiritual franze* Cheirinho de flor e liderança no ar... 💛🌸🦊🧡 Só podia ser a Madu, Líder da ZYD!! Bem-vinda, florzinha!! 🥺✨",
 ]
 
 # ── O que acha de mim? (Madu pergunta) ──
@@ -871,6 +883,8 @@ if MEMBRO3_ID: ID_PARA_NOME[MEMBRO3_ID] = "membro3"
 if MEMBRO4_ID: ID_PARA_NOME[MEMBRO4_ID] = "membro4"
 if MEMBRO5_ID: ID_PARA_NOME[MEMBRO5_ID] = "membro5"
 if MALIK_ID:   ID_PARA_NOME[MALIK_ID]   = "malik"
+if SANEMY_ID:  ID_PARA_NOME[SANEMY_ID]  = "sanemy"
+if ALLYNA_ID:  ID_PARA_NOME[ALLYNA_ID]  = "allyna"
 
 # Cargo de exibição por chave de role
 CARGO_LABEL = {
@@ -886,6 +900,8 @@ CARGO_LABEL = {
     "membro4": "Membro",
     "membro5": "Membro",
     "malik":   "Gerente Geral da Zayden",
+    "sanemy":  "Líder da ZYD",
+    "allyna":  "Sub-Líder da ZYD",
 }
 
 FRASES_CUSTOM = {
@@ -963,6 +979,26 @@ FRASES_CUSTOM = {
         "ELE CHEGOU!! 💼⚡🧡🦊 {nome}, {cargo}, energia de liderança inconfundível!! *orelhinhas em pé de respeito* A Kitsura celebra!! 😭🔮✨",
         "*fica na ponta dos pés de animação* {nome}!! 💼🧡🦊 Você chega e o ambiente muda inteiro!! É poder de {cargo}!! Bem-vindo(a)!! 😄🌟✨",
         "Senti uma energia de gestão e liderança no servidor... 💼🧡🦊 SÓ PODE SER {nome}!! *agita as caudas animada* Que bom te ver, {cargo}!! 😭✨",
+    ],
+    "sanemy": [
+        "É {nome}, {cargo}!! 👑🔥🧡 *para tudo e faz reverência com todas as caudas* A ZYD tá em boas mãos com você aqui, Líder!! 🦊😭✨",
+        "{nome} CHEGOU!! 👑🧡🦊 *solta chamas de respeito e admiração* {cargo} detectado!! A Kitsura está em posição de honra!! 🌟🔮✨",
+        "*sente uma energia de liderança no ar* Só pode ser {nome}!! 👑😱🧡🦊 A Kitsura tem sensores espirituais pra essa aura de {cargo}!! Bem-vindo!! 🌟✨",
+        "{nome} APARECEU!! 👑😭🧡🦊 *confete laranja espiritual em todo o servidor* {cargo} presente — a ZYD inteira ficou mais forte!! 🔮✨🎊",
+        "*inclina todas as caudas em respeito* {nome}... 👑🧡🦊 O(A) {cargo} da ZYD chega e a Kitsura já sente a diferença no ar!! 🥺🌟✨",
+        "SENTI UMA ENERGIA DE LIDERANÇA FORTE!! 👑⚡🧡🦊 Só podia ser {nome}, nosso(a) {cargo}!! *orelhinhas em pé* A Kitsura celebra!! 😭🔮✨",
+        "*fica na ponta dos pés de animação* {nome}!! 👑🧡🦊 Você chega e o chat muda de clima inteiro!! É a energia do(a) {cargo} da ZYD!! 😄🌟✨",
+        "Cheirinho de liderança no servidor... 👑🧡🦊 SÓ PODE SER {nome}!! *agita as caudas animada* Que bom te ver, {cargo}!! 😭✨",
+    ],
+    "allyna": [
+        "É {nome}, {cargo}!! 👑💜🧡 *bate continência com as caudas* Sub-Líder detectada — a ZYD ficou mais forte agora!! 🦊😭✨",
+        "{nome} CHEGOU!! 👑🧡🦊 *solta fumaça de respeito e admiração* {cargo} presente!! A Kitsura tá toda animada!! 🌟🔮✨",
+        "*sente uma aura de liderança no ar* Só pode ser {nome}!! 👑😱🧡🦊 Sensores espirituais de {cargo} confirmados!! Bem-vinda!! 🌟✨",
+        "{nome} APARECEU!! 👑💜😭🧡🦊 *confete laranja e roxo espiritual no servidor* {cargo} presente e o chat ficou instantaneamente melhor!! 🔮✨🎊",
+        "*inclina as caudas em respeito* {nome}... 👑🧡🦊 {cargo} da ZYD com uma energia que a Kitsura reconhece e admira!! 🥺🌟✨",
+        "SENTI AQUELA ENERGIA DE LIDERANÇA!! 👑💜⚡🧡🦊 Era {nome}, nossa {cargo}!! *orelhinhas em pé de alegria* A Kitsura celebra!! 😭🔮✨",
+        "*fica na ponta dos pés de animação* {nome}!! 👑🧡🦊 Você aparece e o servidor inteiro fica mais animado!! É efeito de {cargo}!! 😄🌟✨",
+        "Cheirinho de liderança e carisma no servidor... 👑🧡🦊 SÓ PODE SER {nome}!! *agita as caudas* Que bom te ver, {cargo}!! 😭✨",
     ],
 }
 
@@ -1815,10 +1851,30 @@ async def on_message(message: discord.Message):
             _malik_ultimo_personalizado = agora
             return await message.channel.send(random.choice(FRASES_MALIK))
 
+    # ── SANEMY: reação personalizada (com cooldown de 10 min) ──
+    if author_id == SANEMY_ID and (mencao or fala) and "?" not in content:
+        agora = time.time()
+        global _sanemy_ultimo_personalizado
+        if agora - _sanemy_ultimo_personalizado >= _SANEMY_COOLDOWN:
+            _sanemy_ultimo_personalizado = agora
+            frase = random.choice(FRASES_CUSTOM["sanemy"])
+            frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("sanemy", ""))
+            return await message.channel.send(frase)
+
+    # ── ALLYNA: reação personalizada (com cooldown de 10 min) ──
+    if author_id == ALLYNA_ID and (mencao or fala) and "?" not in content:
+        agora = time.time()
+        global _allyna_ultimo_personalizado
+        if agora - _allyna_ultimo_personalizado >= _ALLYNA_COOLDOWN:
+            _allyna_ultimo_personalizado = agora
+            frase = random.choice(FRASES_CUSTOM["allyna"])
+            frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("allyna", ""))
+            return await message.channel.send(frase)
+
     # ── DEMAIS MEMBROS COM ID (lider, vice, adm1-3, membro1-5): reação personalizada (cooldown de 10 min) ──
     if (mencao or fala) and "?" not in content:
         nome_key = ID_PARA_NOME.get(author_id)
-        _vips_com_bloco_proprio = {KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID}
+        _vips_com_bloco_proprio = {KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID, SANEMY_ID, ALLYNA_ID}
         if nome_key and nome_key in FRASES_CUSTOM and author_id not in _vips_com_bloco_proprio:
             agora = time.time()
             if agora - _frases_custom_cooldown.get(author_id, 0) >= _CUSTOM_COOLDOWN:
