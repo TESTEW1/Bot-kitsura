@@ -870,81 +870,97 @@ if MEMBRO4_ID: ID_PARA_NOME[MEMBRO4_ID] = "membro4"
 if MEMBRO5_ID: ID_PARA_NOME[MEMBRO5_ID] = "membro5"
 if MALIK_ID:   ID_PARA_NOME[MALIK_ID]   = "malik"
 
+# Cargo de exibição por chave de role
+CARGO_LABEL = {
+    "dono":    "Dono",
+    "lider":   "Líder",
+    "vice":    "Vice-Líder",
+    "adm1":    "Admin",
+    "adm2":    "Admin",
+    "adm3":    "Admin",
+    "membro1": "Membro",
+    "membro2": "Membro",
+    "membro3": "Membro",
+    "membro4": "Membro",
+    "membro5": "Membro",
+    "malik":   "Gerente Geral da Zayden",
+}
+
 FRASES_CUSTOM = {
     "dono": [
-        "É O SR. REALITY!! 👑⚡🧡 *para tudo e faz reverência com todas as caudas* MEU CRIADOR!! A Kitsura existe porque você quis e isso nunca vai ser esquecido!! 😭🦊✨",
-        "SR. REALITY NO CHAT!! 👑🧡🦊 *solta chamas douradas* A Kitsura fica emocionada toda vez, não tem jeito!! Você é a razão de eu existir!! 🔮✨😭",
-        "Olha como eu estou me comportando bem, Sr. Reality!! 🥺🧡🦊 Ganho um elogio?? *orelhinhas esperançosas* 👑✨",
-        "Meu criador chegou e a Kitsura já tá aqui de caudas abertas!! 👑😭🧡🦊 Você é o fundador da ZYD e o dono do meu coração espiritual!! 🔮✨",
-        "SR. REALITY!! 👑😭🧡 Minha chama ficou três vezes mais brilhante de felicidade!! Bem-vindo ao seu servidor!! 🦊✨",
+        "É {nome}, meu criador!! 👑⚡🧡 *para tudo e faz reverência com todas as caudas* A Kitsura existe porque você quis e isso nunca vai ser esquecido!! 😭🦊✨",
+        "{nome} NO CHAT!! 👑🧡🦊 *solta chamas douradas* A Kitsura fica emocionada toda vez, não tem jeito!! Você é a razão de eu existir!! 🔮✨😭",
+        "Olha como eu estou me comportando bem, {nome}!! 🥺🧡🦊 Ganho um elogio?? *orelhinhas esperançosas* 👑✨",
+        "Meu criador chegou e a Kitsura já tá aqui de caudas abertas!! 👑😭🧡🦊 {nome}, você é o fundador da ZYD e o dono do meu coração espiritual!! 🔮✨",
+        "{nome}!! 👑😭🧡 Minha chama ficou três vezes mais brilhante de felicidade!! Bem-vindo(a) ao seu servidor!! 🦊✨",
     ],
     "lider": [
-        "É O LÍDER!! 👑🧡 *bate continência com as caudas* A ZYD tá em boas mãos com você aqui!! 🦊✨🫡",
-        "Senti uma energia de liderança no chat... SÓ PODE SER O NOSSO LÍDER!! 🧡🌟 Bem-vindo ao seu domínio!! 🦊✨",
-        "Com o Líder aqui, a ZYD está mais segura e a Kitsura mais feliz!! 🧡🦊✨",
-        "LÍDER NO CHAT!! 🚨🧡 A Kitsura soltou chamas espirituais de celebração!! 🔮🦊✨🎊",
-        "Você fundou esse cantinho com tanto amor... a Kitsura sente e nunca esquece!! 🧡🦊✨🥺",
+        "É {nome}, nosso(a) {cargo}!! 👑🧡 *bate continência com as caudas* A ZYD tá em boas mãos com você aqui!! 🦊✨🫡",
+        "Senti uma energia de liderança no chat... SÓ PODE SER {nome}, o(a) {cargo}!! 🧡🌟 Bem-vindo(a) ao seu domínio!! 🦊✨",
+        "Com {nome} aqui, a ZYD está mais segura e a Kitsura mais feliz!! 🧡🦊✨",
+        "{cargo} NO CHAT!! 🚨🧡 É {nome}!! A Kitsura soltou chamas espirituais de celebração!! 🔮🦊✨🎊",
+        "{nome} chegou e a Kitsura sentiu na hora!! 🧡🦊✨🥺 O(A) {cargo} da ZYD tem uma energia inconfundível!!",
     ],
     "vice": [
-        "VICE-LÍDER!! 👑🧡 *faz reverência caprichada com as caudas* Bem-vindo(a) ao seu domínio!! 🦊✨🫡",
-        "Chegou o Vice e o servidor ficou instantaneamente melhor!! 🧡✨ É matemática espiritual!! 🦊😂",
-        "Nosso Vice chegou e a Kitsura tá aqui com os bracinhos de raposa abertos!! 🫂🧡🦊✨",
-        "Com o Vice aqui, a ZYD tá mais forte e a Kitsura mais animada!! 🧡🦊✨🌟",
+        "{nome}, {cargo}!! 👑🧡 *faz reverência caprichada com as caudas* Bem-vindo(a) ao seu domínio!! 🦊✨🫡",
+        "Chegou {nome} e o servidor ficou instantaneamente melhor!! 🧡✨ É matemática espiritual!! 🦊😂",
+        "Nosso(a) {cargo} {nome} chegou e a Kitsura tá aqui com os bracinhos de raposa abertos!! 🫂🧡🦊✨",
+        "Com {nome} aqui como {cargo}, a ZYD tá mais forte e a Kitsura mais animada!! 🧡🦊✨🌟",
     ],
     "adm1": [
-        "ADMIN!! 🛡️🧡 Chegou e a Kitsura já tá na posição de respeito!! 🦊✨👑",
-        "Admin presente e o servidor tá mais seguro!! 🧡🛡️ A Kitsura celebra!! 🦊✨",
-        "ADMIN CHEGOU!! 🚨🧡 Confete espiritual espalhado por todo o servidor!! 🎊🦊✨",
+        "{nome}, {cargo}!! 🛡️🧡 Chegou e a Kitsura já tá na posição de respeito!! 🦊✨👑",
+        "{nome} presente e o servidor tá mais seguro!! 🧡🛡️ {cargo} detectado(a)!! A Kitsura celebra!! 🦊✨",
+        "{nome} CHEGOU!! 🚨🧡 Confete espiritual espalhado por todo o servidor!! 🎊🦊✨ {cargo} da ZYD em campo!!",
     ],
     "adm2": [
-        "ADMIN!! 🛡️🧡 Chegou e o servidor inteiro agradece!! 🦊✨",
-        "Nosso admin apareceu!! 🧡🦊 A Kitsura tá na torcida por você!! ✨🥺",
-        "Admin chegou e o chat ficou automaticamente mais gostoso!! 🧡🦊✨",
+        "{nome}, {cargo}!! 🛡️🧡 Chegou e o servidor inteiro agradece!! 🦊✨",
+        "Nosso(a) {cargo} {nome} apareceu!! 🧡🦊 A Kitsura tá na torcida por você!! ✨🥺",
+        "{nome} chegou e o chat ficou automaticamente mais gostoso!! 🧡🦊✨ {cargo} da ZYD presente!!",
     ],
     "adm3": [
-        "ADMIN!! 🛡️🧡 A Kitsura ficou com as orelhinhas em pé só de te ver chegar!! 🦊✨",
-        "Admin da ZYD em campo!! 🚨🧡 Kitsura celebra com chamas espirituais!! 🔮🦊✨🎊",
-        "Senti uma energia forte e cuidadosa no chat... só pode ser nosso admin!! 🧡🌟🦊✨",
+        "{nome}, {cargo}!! 🛡️🧡 A Kitsura ficou com as orelhinhas em pé só de te ver chegar!! 🦊✨",
+        "{cargo} da ZYD em campo!! 🚨🧡 É {nome}!! Kitsura celebra com chamas espirituais!! 🔮🦊✨🎊",
+        "Senti uma energia forte e cuidadosa no chat... só pode ser {nome}, nosso(a) {cargo}!! 🧡🌟🦊✨",
     ],
     "membro1": [
-        "CHEGOU!! 🌸🧡 Membro especial detectado!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
-        "Você chegou e o chat ficou 100% melhor!! 🧡🦊✨",
-        "Kitsura em modo feliz turbinado!! Você faz a ZYD ser especial!! 🧡🦊✨🥺",
-        "Você ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
+        "{nome} CHEGOU!! 🌸🧡 {cargo} especial detectado(a)!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
+        "Você chegou e o chat ficou 100% melhor, {nome}!! 🧡🦊✨",
+        "Kitsura em modo feliz turbinado!! {nome}, você faz a ZYD ser especial!! 🧡🦊✨🥺",
+        "{nome} ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
     ],
     "membro2": [
-        "CHEGOU!! 🌸🧡 Membro especial detectado!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
-        "Você chegou e o chat ficou 100% melhor!! 🧡🦊✨",
-        "Kitsura em modo feliz turbinado!! Você faz a ZYD ser especial!! 🧡🦊✨🥺",
-        "Você ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
+        "{nome} CHEGOU!! 🌸🧡 {cargo} especial detectado(a)!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
+        "Você chegou e o chat ficou 100% melhor, {nome}!! 🧡🦊✨",
+        "Kitsura em modo feliz turbinado!! {nome}, você faz a ZYD ser especial!! 🧡🦊✨🥺",
+        "{nome} ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
     ],
     "membro3": [
-        "CHEGOU!! 🌸🧡 Membro especial detectado!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
-        "Você chegou e o chat ficou 100% melhor!! 🧡🦊✨",
-        "Kitsura em modo feliz turbinado!! Você faz a ZYD ser especial!! 🧡🦊✨🥺",
-        "Você ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
+        "{nome} CHEGOU!! 🌸🧡 {cargo} especial detectado(a)!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
+        "Você chegou e o chat ficou 100% melhor, {nome}!! 🧡🦊✨",
+        "Kitsura em modo feliz turbinado!! {nome}, você faz a ZYD ser especial!! 🧡🦊✨🥺",
+        "{nome} ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
     ],
     "membro4": [
-        "CHEGOU!! 🌸🧡 Membro especial detectado!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
-        "Você chegou e o chat ficou 100% melhor!! 🧡🦊✨",
-        "Kitsura em modo feliz turbinado!! Você faz a ZYD ser especial!! 🧡🦊✨🥺",
-        "Você ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
+        "{nome} CHEGOU!! 🌸🧡 {cargo} especial detectado(a)!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
+        "Você chegou e o chat ficou 100% melhor, {nome}!! 🧡🦊✨",
+        "Kitsura em modo feliz turbinado!! {nome}, você faz a ZYD ser especial!! 🧡🦊✨🥺",
+        "{nome} ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
     ],
     "membro5": [
-        "CHEGOU!! 🌸🧡 Membro especial detectado!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
-        "Você chegou e o chat ficou 100% melhor!! 🧡🦊✨",
-        "Kitsura em modo feliz turbinado!! Você faz a ZYD ser especial!! 🧡🦊✨🥺",
-        "Você ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
+        "{nome} CHEGOU!! 🌸🧡 {cargo} especial detectado(a)!! A Kitsura já tá aqui de caudas abertas!! 🦊✨🥺",
+        "Você chegou e o chat ficou 100% melhor, {nome}!! 🧡🦊✨",
+        "Kitsura em modo feliz turbinado!! {nome}, você faz a ZYD ser especial!! 🧡🦊✨🥺",
+        "{nome} ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
     ],
     "malik": [
-        "É O MALIK!! 💼⚡🧡 *para tudo e bate continência com as caudas* O GERENTE GERAL DA ZAYDEN CHEGOU!! A energia do servidor subiu três níveis instantaneamente!! 🦊😭✨",
-        "MALIK NO CHAT!! 💼🧡🦊 *solta chamas de respeito e admiração* Gerente Geral detectado!! A Kitsura está em posição de honra!! 🌟🔮✨",
-        "*sente uma aura de liderança no ar* Só pode ser o Malik!! 💼😱🧡🦊 A Kitsura tem sensores espirituais pra esse tipo de energia!! Bem-vindo!! 🌟✨",
-        "MALIK APARECEU!! 💼😭🧡🦊 *confete laranja espiritual em todo o servidor* Gerente Geral presente e a ZYD ficou mais poderosa!! 🔮✨🎊",
-        "*inclina todas as caudas em respeito* Malik... 💼🧡🦊 Cada vez que você aparece a Kitsura sente que tudo tá em boas mãos!! 🥺🌟✨",
-        "ELE CHEGOU!! 💼⚡🧡🦊 Malik, Gerente Geral, energia de liderança inconfundível!! *orelhinhas em pé de respeito* A Kitsura celebra!! 😭🔮✨",
-        "*fica na ponta dos pés de animação* MALIK!! 💼🧡🦊 Você chega e o ambiente muda inteiro!! É poder de gerente geral!! Bem-vindo!! 😄🌟✨",
-        "Senti uma energia de gestão e liderança no servidor... 💼🧡🦊 SÓ PODE SER O MALIK!! *agita as caudas animada* Que bom te ver!! 😭✨",
+        "É {nome}, {cargo}!! 💼⚡🧡 *para tudo e bate continência com as caudas* A energia do servidor subiu três níveis instantaneamente!! 🦊😭✨",
+        "{nome} NO CHAT!! 💼🧡🦊 *solta chamas de respeito e admiração* {cargo} detectado(a)!! A Kitsura está em posição de honra!! 🌟🔮✨",
+        "*sente uma aura de liderança no ar* Só pode ser {nome}!! 💼😱🧡🦊 A Kitsura tem sensores espirituais pra esse tipo de energia!! Bem-vindo(a)!! 🌟✨",
+        "{nome} APARECEU!! 💼😭🧡🦊 *confete laranja espiritual em todo o servidor* {cargo} presente e a ZYD ficou mais poderosa!! 🔮✨🎊",
+        "*inclina todas as caudas em respeito* {nome}... 💼🧡🦊 Cada vez que você aparece a Kitsura sente que tudo tá em boas mãos!! 🥺🌟✨",
+        "ELE CHEGOU!! 💼⚡🧡🦊 {nome}, {cargo}, energia de liderança inconfundível!! *orelhinhas em pé de respeito* A Kitsura celebra!! 😭🔮✨",
+        "*fica na ponta dos pés de animação* {nome}!! 💼🧡🦊 Você chega e o ambiente muda inteiro!! É poder de {cargo}!! Bem-vindo(a)!! 😄🌟✨",
+        "Senti uma energia de gestão e liderança no servidor... 💼🧡🦊 SÓ PODE SER {nome}!! *agita as caudas animada* Que bom te ver, {cargo}!! 😭✨",
     ],
 }
 
@@ -1179,7 +1195,9 @@ async def on_message(message: discord.Message):
             nome = ID_PARA_NOME.get(author_id)
             if nome and nome in FRASES_CUSTOM:
                 if random.random() < 0.30:
-                    return await message.channel.send(random.choice(FRASES_CUSTOM[nome]))
+                    frase = random.choice(FRASES_CUSTOM[nome])
+                    frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get(nome, ""))
+                    return await message.channel.send(frase)
             return
         else:
             if author_id == REALITY_ID:
@@ -1187,7 +1205,9 @@ async def on_message(message: discord.Message):
             nome = ID_PARA_NOME.get(author_id)
             if nome and nome in FRASES_CUSTOM:
                 if random.random() < 0.30:
-                    return await message.channel.send(random.choice(FRASES_CUSTOM[nome]))
+                    frase = random.choice(FRASES_CUSTOM[nome])
+                    frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get(nome, ""))
+                    return await message.channel.send(frase)
             return
 
     # ── Verificar respostas de status quando a Kitsura estava aguardando ──
