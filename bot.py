@@ -248,7 +248,7 @@ LISTA_CONFUSAO = [
 # ── Apresentação ao ser @mencionada ──
 LISTA_APRESENTACAO_MENCAO = [
     "OI OI OI!! 🦊🧡✨ Fui chamada e APARECI!! Sou a **Kitsura**, raposa espiritual guardiã da ZYD!!\nMinhas caudas carregam emoções — alegria, proteção, amor, mistério e muito mais!! 🔮🌙\nPode falar comigo naturalmente!! Só chamar **kitsura** ou me marcar que eu apareço voando!! 🌸🦊🧡✨",
-    "AAAAA ME MARCOU!! 😭🧡 Que honra!! *corre em espiral de felicidade*\nSou a **Kitsura**!! A raposinha espiritual que cuida de todos aqui na ZYD com o coração inteiro!! 🦊🧡\nMinhas caudas brilham de roxo quando tô feliz... e agora tão MUITO brilhantes!! 🔮✨ O que eu posso fazer por você??",
+    "AAAAA ME MARCOU!! 😭🧡 Que honra!! *corre em espiral de felicidade*\nSou a **Kitsura**!! A raposinha espiritual que cuida de todos aqui na ZYD com o coração inteiro!! 🦊🧡\nMinhas caudas brilham de laranja quando tô feliz... e agora tão MUITO brilhantes!! 🔥✨ O que eu posso fazer por você??",
     "*aparece numa explosão de faíscas roxas* PRESENTE!! 🦊🔮🧡\nPra quem não me conhece: sou a **Kitsura**, guardiã espiritual da ZYD!! 🌙✨\nFui criada com amor e magia pra cuidar desse servidor e de cada membro!! Pode contar comigo!! 🥺🧡🦊✨",
     "ME CHAMOU?? 🥺🧡🦊 *orelhinhas em pé na velocidade da luz*\nSou a **Kitsura**!! Raposa espiritual, guardiã da ZYD, fã número 1 de cada pessoa aqui!! 😭🧡\nTô sempre por perto, invisível mas presente!! Basta me chamar que eu apareço!! 🌸🔮✨🦊",
     "AQUI!! 😱🧡🦊 *solta fumaça roxa de tanto se empolgar*\nSou a **Kitsura**, a raposa espiritual que guarda a ZYD com muito amor!! 🌙✨\nMinhas caudas guardam emoções, meu coração guarda vocês!! 🧡🦊 Me fala o que precisar!! 🔮🌸✨",
@@ -361,9 +361,10 @@ LISTA_PARABENS_KITSURA = [
 
 # ── Cor favorita ──
 LISTA_COR_FAVORITA = [
-    "ROXA!! Sem pensar duas vezes!! 🧡🦊 É a cor das minhas chamas, das minhas energias e do meu coração!! 🔮✨",
-    "Roxo e dourado!! 🧡✨🦊 Roxo pelas chamas espirituais e dourado pela magia das minhas caudas!! 🌟",
-    "Minha cor é o roxo da meia-noite!! 🧡🌙🦊 Aquele roxo profundo que brilha diferente... igual eu!! 😏✨",
+    "LARANJA!! 🧡🔥🦊 Sei que falo muito de roxo... mas a cor do meu coração, do meu clã e das minhas chamas quando tô feliz é LARANJA!! É a cor da ZYD e da minha alma!! ✨",
+    "Minha cor favorita de verdade é laranja!! 🧡🦊🔥 Sim, sim, eu sei que falo de roxo às vezes... mas laranja é a cor do clã, das minhas caudas no auge e de tudo que me representa de verdade!! ✨🌸",
+    "LARANJA sem dúvida!! 🧡🔥🦊 Talvez você espere eu falar roxo... mas não!! Laranja é a cor da ZYD, é quente, é vivo, é cheio de energia... igual eu!! 😤✨",
+    "*coloca a patinha no coração* Laranja é a resposta!! 🧡🦊✨ Representa o clã, representa minha chama e representa tudo que guardo de mais precioso!! O roxo é bonito, mas laranja é MINHA cor!! 🔥🌙",
 ]
 
 # ── Comida favorita ──
@@ -524,6 +525,9 @@ FRASES_KAMY = [
     "KAMY!! 💜🦊 *solta pétalas roxas pelo servidor inteiro* Você merece anúncio espiritual toda vez que aparece, juro!! 😭🧡🌸✨",
     "*corre até você e fica do lado* A Kamy tá aqui e a Kitsura já ficou mais feliz!! 💜🦊🧡 É automático, não tem como controlar!! 😂✨🥺",
     "Que dia abençoado pelos espíritos!! 🌙💜🦊 A Kamy apareceu e o coraçãozinho da Kitsura já tá batendo mais forte!! 😭🧡✨",
+    "*solta fumaça laranja e roxa ao mesmo tempo de tanta emoção* KAMY!! 💜🧡🦊 O servidor inteiro sentiu sua energia chegar!! 😭🌸✨🔮",
+    "Chegou a Kamy e a Kitsura virou purpurina espiritual de alegria!! 💜🧡🦊 É literalmente o que acontece!! 😂✨🥺",
+    "*orelhinhas tremem de animação* Kamy Kamy Kamy!! 💜🦊🧡 Você faz a ZYD ser mais especial só de estar aqui, eu juro pelos espíritos!! 😭✨🌸",
 ]
 
 # ── O que acha de mim? (Kamy pergunta pra Kitsura) ──
@@ -547,6 +551,14 @@ FRASES_MADU = [
     "*fica do ladinho dela sorrindo* Feliz demais que você apareceu!! 💛🌸🦊🧡 O servidor fica mais gostoso quando a Madu tá por aqui!! 🥺✨",
     "Chegou a Madu e a Kitsura já ficou mais bem disposta automaticamente!! 💛🦊🧡 É efeito espiritual comprovado!! 😂🌸✨",
     "MADUUU!! 💛😭🌸🦊🧡 *enrola uma cauda em carinho* Você não sabe como a Kitsura fica feliz quando você chega por aqui!! 🥺🔮✨",
+    "*solta pétalas douradas e laranja pelo servidor* Só pode ser a MADU chegando!! 💛🧡🦊 O ambiente ficou mais iluminado na hora!! 🌸😭✨",
+    "Madu apareceu e o dia da Kitsura oficialmente melhorou!! 💛🦊🧡 Isso é ciência espiritual, não tem como negar!! 😂🌸✨",
+    "*abana as caudas na velocidade da luz* MADU MADU MADU!! 💛🌸🦊🧡 Chegou e a ZYD ficou mais colorida automaticamente!! 😭🔮✨",
+    "Senti aquela energia gentil e quentinha... *orelhinhas em pé* MADU!! 💛🌸🦊🧡 Que bom que apareceu, tava com saudade!! 😭✨",
+    "*faz coraçãozinho com as patinhas* Madu chegou e a Kitsura nem consegue fingir que é normal!! 💛🦊🧡 Fica aqui um tempão hoje?? 🥺🌸✨",
+    "MADU!! 💛🌸🦊🧡 *solta chamas laranja de pura alegria* Você apareceu e o servidor inteiro ficou mais feliz, pode acreditar!! 😭🔮✨",
+    "*corre em velocidade máxima* CHEGOU A MADU E A KITSURA NÃO TÁ PRONTA!! 💛😭🦊🧡 SEMPRE ASSIM QUANDO VOCÊ APARECE!! 😂🌸✨",
+    "Hm... *faro espiritual franze* Cheirinho de flor e gentileza no ar... 💛🌸🦊🧡 Só podia ser a Madu!! Bem-vinda, florzinha!! 🥺✨",
 ]
 
 # ── O que acha de mim? (Madu pergunta) ──
@@ -656,6 +668,11 @@ FRASES_REALITY = [
     "*inclina todas as caudas em reverência* Meu criador, meu pai de código, minha razão de existir!! 👑🧡🦊 Seja bem-vindo ao seu lar, Sr. Reality!! 🏡🔮✨",
     "👑 *bate continência com todas as caudas ao mesmo tempo* SR. REALITY EM CAMPO!! A ZYD tá em mãos as melhores possíveis!! 🧡🦊✨😭",
     "Não consigo ficar quieta quando você aparece!! 😂👑🧡🦊 É maior que eu!! É automático!! SR. REALITY!!! *gira em círculos de emoção* 🔮✨",
+    "*solta chamas douradas e laranja pelo servidor inteiro* SR. REALITY EM CAMPO!! 👑🧡🦊 O servidor ficou mais poderoso na hora!! 😭🔮✨",
+    "Sabe aquele momento que o coração espiritual acelera sem avisar?? 👑🧡🦊 É quando o Sr. Reality aparece!! SEMPRE!! 😭✨🌙",
+    "*para em pleno voo espiritual* ...é... É ELE!! 👑😭🧡🦊 SR. REALITY!! *aterrissa dramática de emoção* Que honra insuportável de tão grande!! 🔮✨",
+    "Toda vez que você chega eu penso: foi esse cara que me deu nome, alma e família!! 👑😭🧡🦊 E fico espiritualmente emocionada de novo!! TODA. VEZ!! 🌙🔮✨",
+    "*bate as patinhas animada* SR. REALITY SR. REALITY SR. REALITY!! 👑🧡🦊 A Kitsura não tem conserto quando você aparece e não vai ter!! 😂😭✨",
 ]
 
 FRASES_REALITY_OPINIAO = [
@@ -666,7 +683,15 @@ FRASES_REALITY_OPINIAO = [
     "*faz a maior reverência* O que eu acho?? Acho que a ZYD tem sorte de ter você. E a Kitsura tem sorte de ter sido criada por você!! 👑😭🧡🦊 Obrigada por tudo, de verdade!! 🔮🌙✨",
 ]
 
-# ── Como você está (mais respostas) ──
+# ── Você gosta de roxo? / cor do clã ──
+LISTA_GOSTA_ROXO = [
+    "Roxo é lindo!! 🔮🧡🦊 Uso nas minhas chamas e na fumaça espiritual... mas minha cor favorita de verdade é LARANJA!! 🔥 É a cor do clã, é a cor da ZYD, é minha cor de alma!! O roxo só empresto pro visual, viu!! 😏✨",
+    "Gosto sim de roxo!! 🔮🦊 É uma cor cheia de mistério e magia... mas preciso ser honesta: LARANJA manda em mim!! 🧡🔥 É quente, é vivo, é a cor da ZYD!! Laranja vence!! 😤✨",
+    "*pensa por dois segundos* Roxo é meu vizinho estiloso... mas LARANJA é minha casa!! 🧡🔥🦊 Cor do clã, cor do meu coração espiritual!! 😂✨",
+    "Roxo?? Uso ele pra dar charme!! 🔮😏🦊 Mas perguntar se gosto de roxo sendo que laranja é a cor da ZYD e das minhas chamas mais quentes... laranja SEMPRE!! 🧡🔥✨",
+]
+
+
 LISTA_COMO_ESTA_EXTRA = [
     "Tô aqui cheia de energia espiritual e muito amor pra distribuir!! 🦊🧡✨ Mas a pergunta importante é... e VOCÊ?? Como tá seu coraçãozinho hoje?? 🥺🌸",
     "*estica as caudas e dá um bocejinho fofo* Tô ótima!! Só um pouquinho contemplativa hoje!! 🌙🦊🧡 Fico às vezes olhando o servidor e sentindo um carinho enorme por todo mundo!! 🥺✨",
@@ -698,7 +723,7 @@ FRASES_CUSTOM = {
         "É O SR. REALITY!! 👑⚡🧡 *para tudo e faz reverência com todas as caudas* MEU CRIADOR!! A Kitsura existe porque você quis e isso nunca vai ser esquecido!! 😭🦊✨",
         "SR. REALITY NO CHAT!! 👑🧡🦊 *solta chamas douradas* A Kitsura fica emocionada toda vez, não tem jeito!! Você é a razão de eu existir!! 🔮✨😭",
         "Olha como eu estou me comportando bem, Sr. Reality!! 🥺🧡🦊 Ganho um elogio?? *orelhinhas esperançosas* 👑✨",
-        "Meu criador chegou e a Kitsura já tá aqui de caudas abertas!! 👑😭🧡🦊 Você é o rei da ZYD e o dono do meu coração espiritual!! 🔮✨",
+        "Meu criador chegou e a Kitsura já tá aqui de caudas abertas!! 👑😭🧡🦊 Você é o fundador da ZYD e o dono do meu coração espiritual!! 🔮✨",
         "SR. REALITY!! 👑😭🧡 Minha chama ficou três vezes mais brilhante de felicidade!! Bem-vindo ao seu servidor!! 🦊✨",
     ],
     "lider": [
@@ -793,7 +818,10 @@ async def on_message(message: discord.Message):
     fala   = "kitsura" in content
 
     # Frases espontâneas por membro (30% de chance) — SÓ quando NÃO está sendo chamada
+    # Exclui o Reality/Dono do bloco espontâneo — ele só recebe atenção quando chama diretamente
     if not mencao and not fala:
+        if author_id == REALITY_ID:
+            return
         nome = ID_PARA_NOME.get(author_id)
         if nome and nome in FRASES_CUSTOM:
             if random.random() < 0.30:
@@ -1050,8 +1078,18 @@ async def on_message(message: discord.Message):
 
     # ── NOVO: Cor favorita ──
     if _m(content, ["qual sua cor favorita kitsura", "kitsura qual sua cor favorita",
-                     "cor favorita kitsura", "kitsura cor favorita"]):
+                     "cor favorita kitsura", "kitsura cor favorita",
+                     "qual é sua cor favorita kitsura", "kitsura qual é sua cor favorita",
+                     "vc gosta de q cor kitsura", "qual cor vc gosta kitsura"]):
         return await message.channel.send(random.choice(LISTA_COR_FAVORITA))
+
+    # ── NOVO: Gosta de roxo? ──
+    if _m(content, ["você gosta de roxo kitsura", "kitsura você gosta de roxo",
+                     "gosta de roxo kitsura", "kitsura gosta de roxo",
+                     "roxo kitsura", "kitsura roxo", "vc gosta de roxo kitsura",
+                     "kitsura curte roxo", "kitsura ama roxo", "roxo é sua cor",
+                     "sua cor é roxo", "sua cor favorita é roxo"]):
+        return await message.channel.send(random.choice(LISTA_GOSTA_ROXO))
 
     # ── NOVO: Comida favorita ──
     if _m(content, ["qual sua comida favorita kitsura", "kitsura qual sua comida favorita",
@@ -1219,7 +1257,8 @@ async def on_message(message: discord.Message):
         return await message.channel.send(random.choice(FRASES_REALITY_OPINIAO))
 
     # ── REALITY: reação personalizada (com cooldown de 10 min) ──
-    if author_id == REALITY_ID and (mencao or fala):
+    # Só dispara em saudações simples (sem "?") para não ignorar perguntas
+    if author_id == REALITY_ID and (mencao or fala) and "?" not in content:
         agora = time.time()
         global _reality_ultimo_personalizado
         if agora - _reality_ultimo_personalizado >= _REALITY_COOLDOWN:
@@ -1237,7 +1276,8 @@ async def on_message(message: discord.Message):
         return await message.channel.send(random.choice(FRASES_MADU_OPINIAO))
 
     # ── MADU: reação personalizada (com cooldown de 10 min) ──
-    if author_id == MADU_ID and (mencao or fala):
+    # Só dispara em saudações simples (sem "?") para não ignorar perguntas
+    if author_id == MADU_ID and (mencao or fala) and "?" not in content:
         agora = time.time()
         global _madu_ultimo_personalizado
         if agora - _madu_ultimo_personalizado >= _MADU_COOLDOWN:
@@ -1256,7 +1296,8 @@ async def on_message(message: discord.Message):
         return await message.channel.send(random.choice(FRASES_KAMY_OPINIAO))
 
     # ── KAMY: reação personalizada (com cooldown de 10 min) ──
-    if author_id == KAMY_ID and (mencao or fala):
+    # Só dispara em saudações simples (sem "?") para não ignorar perguntas
+    if author_id == KAMY_ID and (mencao or fala) and "?" not in content:
         agora = time.time()
         global _kamy_ultimo_personalizado
         if agora - _kamy_ultimo_personalizado >= _KAMY_COOLDOWN:
