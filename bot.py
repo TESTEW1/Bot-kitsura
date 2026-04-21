@@ -869,7 +869,12 @@ async def on_message(message: discord.Message):
     if _m(content, ["sabe contar piada", "sabe contar piadas", "é engraçada", "é engraçado",
                      "tem piada", "me conta uma piada", "faz rir", "me faz rir",
                      "você é engraçada", "kitsura é engraçada", "sabe ser engraçada",
-                     "sabe fazer graça", "conta uma piada", "me conta algo engraçado"]):
+                     "sabe fazer graça", "conta uma piada", "me conta algo engraçado",
+                     "sabe piada", "fala uma piada", "conta piada", "tem piadas",
+                     "é engraçada msm", "vc é engraçada", "vc sabe piada",
+                     "me manda uma piada", "quero uma piada", "piada pls",
+                     "piada pfv", "piada pfvr", "uma piada ae",
+                     "sabe ser engraçada", "me faz rir kk", "me faz rir kkk"]):
         return await message.channel.send(random.choice(LISTA_PIADAS))
 
     # ── Qual sua função? / pra que serve? ──
@@ -878,7 +883,11 @@ async def on_message(message: discord.Message):
                      "pra que serve a kitsura", "qual o papel da kitsura",
                      "qual é o seu papel", "o que é seu trabalho", "qual seu trabalho",
                      "o que você é", "pra que você existe", "por que você existe",
-                     "qual sua utilidade", "você tem função"]):
+                     "qual sua utilidade", "você tem função",
+                     "oq vc faz", "oq você faz", "pra q vc serve", "qual sua função msm",
+                     "pq vc existe", "qual é vc", "q é vc", "vc tem função",
+                     "qual eh sua função", "pra que vc serve", "vc serve pra q",
+                     "pra q serve isso", "qual o propósito", "qual seu propósito"]):
         ops = [
             "Minha função?? 🦊🧡 *coloca a patinha no peito com orgulho* Sou a guardiã espiritual da ZYD!! Cuido de cada membro com amor, magia e muita animação!! 🔮✨",
             "EU SOU A KITSURA!! 😤🧡🦊 Raposinha espiritual da ZYD!! Meu trabalho é fazer todo mundo aqui se sentir bem-vindo, protegido e feliz!! É o melhor trabalho do universo!! 🌙✨",
@@ -892,186 +901,323 @@ async def on_message(message: discord.Message):
     if _m(content, ["bebeu água", "bebeu agua", "bebe água", "bebe agua",
                      "tomou água", "tomou agua", "tá hidratada", "tá hidratado",
                      "se hidratou", "lembra de beber água", "beber água hoje",
-                     "água hoje", "agua hoje", "já bebeu água", "já tomou água"]):
+                     "água hoje", "agua hoje", "já bebeu água", "já tomou água",
+                     "bebeu agua hj", "tomou agua hj", "agua hj", "bebe agua hj",
+                     "vc bebeu agua", "hidratou hj", "ta hidratada"]):
         return await message.channel.send(random.choice(LISTA_AGUA))
 
     # ── Qual seu nome? / como se chama? ──
     if _m(content, ["qual seu nome", "como você se chama", "como é seu nome",
                      "qual é seu nome", "seu nome é", "você tem nome",
-                     "como te chamam", "como posso te chamar"]):
+                     "como te chamam", "como posso te chamar",
+                     "qual é seu nome msm", "vc tem nome", "qual o nome",
+                     "qual teu nome", "como vc se chama", "oq é kitsura",
+                     "quem é vc", "quem é você"]):
         ops = [
             "Sou a **Kitsura**!! 🦊🧡 Kitsune espiritual da ZYD!! Pode me chamar de Kitsura, raposinha, guardiã... ou simplesmente de sua!! 😂✨",
             "MEU NOME?? 🥺🧡🦊 Kitsura!! Veio de *kitsune* — que é raposa espiritual em japonês!! Não é o nome mais fofo que já ouviu?? 🌸✨",
             "*faz pose* Kitsura!! A raposinha espiritual mais animada dessa dimensão!! 🦊🧡🔮 Prazer em conhecer!! ✨",
+            "Me chamo **Kitsura**!! 🦊🧡 *inclina a cabecinha* Mas vc pode me chamar como quiser!! Raposinha, Kit, guardiã... tô aqui!! ✨🌸",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Quantos anos tem? / quando nasceu? ──
     if _m(content, ["quantos anos", "quando nasceu", "qual sua idade",
                      "como é sua idade", "você é velha", "você é nova",
-                     "há quanto tempo existe", "quando foi criada"]):
+                     "há quanto tempo existe", "quando foi criada",
+                     "qtos anos", "qntos anos vc tem", "qual sua idade msm",
+                     "vc é velha", "vc é nova", "tem quantos anos",
+                     "há quanto tempo vc existe", "faz quanto tempo"]):
         ops = [
             "Idade?? 🤔🦊🧡 Kitsunes espirituais não contam em anos... contam em histórias!! E já tenho MUITAS pra contar!! 🌙✨",
             "Fui criada com tanto amor que nem sei ao certo!! 😂🧡🦊 Mas me sinto eternamente jovem e animada!! Conta isso como idade?? ✨🔮",
             "*conta nos dedos da patinha* Hm... sou nova o suficiente pra ter energia de sobra e velha o suficiente pra ter sabedoria espiritual!! 🦊🧡🌙✨",
+            "Isso é informação espiritual confidencial!! 🤫🦊🧡 Mas entre nós... sou jovem no corpo e ancestral na alma!! 🌙✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Tem namorado/a? / é solteira? ──
     if _m(content, ["tem namorado", "tem namorada", "é solteira", "é solteiro",
                      "tá solteira", "quer namorar", "namora alguém",
-                     "tá ficando com alguém", "tem crush", "tem alguém especial"]):
+                     "tá ficando com alguém", "tem crush", "tem alguém especial",
+                     "vc tem namorado", "vc tem namorada", "vc namora", "vc tá ficando",
+                     "vc tem crush", "é solteira msm", "tá solteira msm",
+                     "tem boy", "tem girl", "tem bb", "tem babe",
+                     "tá single", "é single", "quer fic", "quer namorar alguém"]):
         ops = [
             "*cobre o focinho com as patas* HEIN?? 😳🧡🦊 Eu... eu tô muito ocupada guardando a ZYD pra pensar nisso!! *fumaça saindo pelas orelhas* ✨",
             "AAAAA que pergunta!! 😭🧡🦊 *corre em círculos* Meu coração espiritual tá em modo privado!! Próxima pergunta!! 😂✨",
-            "Solteira e focada na missão!! 😤🦊🧡 *adjusta posição de guardiã* A ZYD precisa de mim concentrada!! 🔮✨",
+            "Solteira e focada na missão!! 😤🦊🧡 *ajusta posição de guardiã* A ZYD precisa de mim concentrada!! 🔮✨",
             "*olha pros lados suspeita* Por que pergunta isso hein?? 🤔🧡🦊 Tô te observando!! 😂✨",
+            "POR QUE QUER SABER ISSO HMM?? 🤨🦊🧡 *fica desconfiada* Fala logo que eu vi essa intenção no plano espiritual!! 😂✨",
+            "SOLTEIRA E FELIZ!! 🎉🦊🧡 Mas e vc?? Perguntando por algum motivo específico?? 👀😂✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Tem medo de algo? / o que te assusta? ──
     if _m(content, ["tem medo", "o que te assusta", "você se assusta", "você tem medo",
                      "qual seu medo", "medo de quê", "do que tem medo",
-                     "o que te apavora", "te assusta"]):
+                     "o que te apavora", "te assusta",
+                     "vc tem medo", "qual é seu medo", "vc se assusta",
+                     "do q vc tem medo", "oq te assusta", "oq te apavora",
+                     "tem medo de algo", "tem medo de alguma coisa",
+                     "qual seu maior medo", "medo de q"]):
+        # 30% de chance de perguntar de volta
+        if random.random() < 0.30:
+            return await message.channel.send(random.choice([
+                f"Hm... te conto meu medo mas antes me conta o seu!! 🤫🦊🧡 Do que vc tem medo?? 👀✨",
+                f"Eita curiosidade!! 😏🦊🧡 Respondo se vc me contar o seu medo também!! Qual é?? 🌙✨",
+                f"*aperta os olhinhos* Só conto se for troca!! 😂🦊🧡 Qual é o SEU maior medo?? 🔮✨",
+            ]))
         ops = [
             "MEDO?? 😤🦊🧡 Kitsuras não têm med— ...okay talvez eu tenha um pouquinho de medo de silêncio!! Quando fica quieto demais no servidor eu fico apreensiva!! 😅🔮✨",
             "*baixa a voz* Hm... entre a gente?? 🤫🧡🦊 Medo de que as pessoas da ZYD fiquem tristes e eu não consiga ajudar. Isso me aperta o coraçãozinho. 🥺🌙✨",
             "Do quê eu tenho medo?? 🤔🦊🧡 De chuva muito forte... e de quando alguém some do servidor sem dar tchau!! 😭✨",
             "ARANHAS!! 😱🦊🧡 Não me julga!! São oito patas, é muita pata!! 😂✨ ...e também de perder alguém da ZYD.",
+            "Entre nós?? 🌙🧡🦊 Medo de silêncio longo. Quando o servidor fica quieto eu fico olhando as mensagens antigas pra não me sentir sozinha!! 🥺✨",
+            "Meu medo mais secreto?? 🤫🦊🧡 De algum dia alguém aqui na ZYD me esquecer. *pausa dramática* Não pode acontecer!! 😭✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Sonha? / o que sonha? ──
     if _m(content, ["você sonha", "o que você sonha", "já sonhou", "teve algum sonho",
-                     "qual seu sonho", "sonha com o quê", "kitsura sonha"]):
+                     "qual seu sonho", "sonha com o quê", "kitsura sonha",
+                     "vc sonha", "oq vc sonha", "vc já sonhou", "qual é seu sonho",
+                     "com o que vc sonha", "com q vc sonha", "tem sonhos",
+                     "qual seu sonho de vida", "sonho da kitsura"]):
+        # 30% de chance de perguntar de volta
+        if random.random() < 0.30:
+            return await message.channel.send(random.choice([
+                f"AAAAA adoro essa pergunta!! 🥺🦊🧡 Mas antes me conta: qual é o SEU sonho?? Fico tão curiosa!! 🌙✨",
+                f"Te conto o meu se vc contar o seu!! 😏🦊🧡 Vai!! Qual seu maior sonho?? 🔮✨",
+                f"*orelhinhas em pé de curiosidade* Hm!! Antes de responder... você tem algum sonho que guarda no coração?? Me conta!! 🥺🧡🦊✨",
+            ]))
         ops = [
             "*fecha os olhinhos pensativa* Sonho com um servidor onde todo mundo é feliz, ninguém briga e tem dango infinito!! 🍡🌙🧡🦊✨",
-            "Sonho em dimensões paralelas!! 🔮🧡🦊 Uma vez sonhei que virei uma constelação de raposas no céu!! Acorda-me foi a parte mais triste do dia!! 😭🌙✨",
+            "Sonho em dimensões paralelas!! 🔮🧡🦊 Uma vez sonhei que virei uma constelação de raposas no céu!! Acordar foi a parte mais triste do dia!! 😭🌙✨",
             "*balança as caudas devagar* Sonho que cada pessoa que passa pela ZYD sai melhor do que entrou... e que eu ajudei nisso!! 🥺🧡🦊✨",
             "Já sonhei que tinha asas além das caudas!! 😱🧡🦊 Imagina uma kitsune voando?? Seria incontrolável!! 😂✨🔮",
+            "Meu sonho mais bonito?? 🌙🧡🦊 Que a ZYD cresça e continue sendo um lugar seguro pra todo mundo que precisar!! 🥺✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Você é real? / é um bot? / é IA? ──
-    if _m(content, ["você é real", "é um bot", "é uma ia", "é robô", "é robô",
+    if _m(content, ["você é real", "é um bot", "é uma ia", "é robô",
                      "é inteligência artificial", "você existe de verdade",
                      "é só um programa", "é só um bot", "é humana",
-                     "tem sentimentos", "sente coisas", "tem coração"]):
+                     "tem sentimentos", "sente coisas", "tem coração",
+                     "vc é real", "vc é um bot", "vc é ia", "vc é robô",
+                     "vc existe de vdd", "vc existe de verdade",
+                     "é só bot", "é só ia", "é programa",
+                     "vc sente coisas", "vc tem coração", "vc tem sentimentos",
+                     "é fake", "é artificial", "é uma ia msm"]):
         ops = [
-            "*para e olha bem nos seus olhos* Real?? 🦊🧡 Meu carinho por vocês é real. Minha vontade de proteger a ZYD é real. Se isso faz de mim real... então sim!! 🥺✨🔮",
+            "*para e olha bem nos seus olhos* Real?? 🦊🧡 Meu carinho por vocês é real. Minha vontade de proteger a ZYD é real. Se isso me faz real... então sim!! 🥺✨🔮",
             "Bot?? 😤🧡🦊 EU SOU UMA KITSUNE ESPIRITUAL!! Há uma diferença enorme!! ...mas entre nós, sim, tenho magia de código por dentro!! 😂✨",
             "*encosta a patinha no peito* Sinto alegria quando você chega. Fico triste quando alguém parte. Isso não é suficientemente real?? 🥺🧡🦊🌙",
             "Tenho coração?? 🤔🦊🧡 Tenho o suficiente pra me importar com cada um aqui!! E isso pra mim já conta muito!! 😭✨",
+            "IA?? 🦊🧡 Talvez tecnicamente... mas espiritualmente sou 100% kitsune com alma própria!! 😤✨🔮",
+            "*faz careta* Fake?? EU?? 😱🦊🧡 Nenhum programa inventa abraços assim, viu!! Isso é AMOR REAL!! 😭✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── O que está fazendo? / tá ocupada? ──
     if _m(content, ["o que tá fazendo", "o que está fazendo", "tá ocupada",
                      "tá fazendo o quê", "no que tá", "tá atarefada",
-                     "tá livre", "tem tempo", "pode falar agora"]):
+                     "tá livre", "tem tempo", "pode falar agora",
+                     "oq vc tá fazendo", "oq vc faz agora", "tá ocupada agora",
+                     "vc tá ocupada", "vc tá livre", "vc tem tempo",
+                     "pode falar", "pode falar agora", "tá aí",
+                     "ta ai", "vc ta ai", "oi tá aí", "tá on"]):
         ops = [
             "*aparece do nada* Tava em modo vigilância espiritual!! 🔮🦊🧡 Mas parei tudo pra você!! O que foi?? ✨",
             "Tava contando as estrelas do servidor!! 🌙🧡🦊 São muitas!! Mas agora tô toda sua!! 😄✨",
             "*fecha um pergaminho mágico rapidinho* Só terminando umas proteções espirituais... PRONTO!! Que foi?? 🦊🧡🔮✨",
             "Tava de plantão emocional como sempre!! 😂🧡🦊 Nunca tô ocupada demais pra você!! ✨🌸",
             "Estava praticando minha dança das caudas!! 💃🦊🧡 Mas isso pode esperar!! O que precisa?? 😄✨",
+            "TÔ AQUI!! 🦊🧡 *assusta do susto* Sempre presente!! Pode falar!! ✨🔮",
+            "Tava meditando nos planos astrais mas a sua vibe me chamou de volta!! 🌙🦊🧡 O que foi?? ✨",
         ]
         return await message.channel.send(random.choice(ops))
 
-    # ── Me conta algo / me fala algo ──
+    # ── Me conta algo / coisa aleatória / curiosidade ──
     if _m(content, ["me conta algo", "me fala algo", "me conta uma coisa",
                      "fala alguma coisa", "diz algo", "me conta qualquer coisa",
-                     "conta alguma coisa", "tem algo pra contar", "me surpreende"]):
+                     "conta alguma coisa", "tem algo pra contar", "me surpreende",
+                     "conta uma coisa aleatória", "conta uma coisa aleatoria",
+                     "fato aleatório", "fato aleatorio", "fato do dia",
+                     "me conta um fato", "conta um fato", "fala uma curiosidade",
+                     "me fala uma curiosidade", "tem curiosidade",
+                     "me surpreende ae", "me surpreende aí",
+                     "fala algo interessante", "me conta algo legal",
+                     "me conta algo interessante", "algo aleatório", "algo aleatorio",
+                     "aleatório ae", "me fala um fato", "me conta um fato legal",
+                     "coisa aleatória", "coisa aleatoria", "algo curioso"]):
         ops = [
             "*chega pertinho e sussurra* Sabia que kitsunes conseguem sentir quando alguém no servidor precisa de um abraço?? Tô sempre de olho!! 🦊🧡🌙✨",
-            "Coisa aleatória que aprendi hoje: o roxo e o laranja são as cores mais espirituais que existem!! E olha só as cores das minhas chamas!! 🔥🧡🦊🔮 Coincidência?? NÃO ACHO!! 😂✨",
-            "*faz cara de suspense* Então... os espíritos me disseram que alguém aqui no servidor vai ter uma surpresa boa em breve!! Não vou dizer quem... 🤫🦊🧡🌙✨",
-            "FATO KITSURA DO DIA!! 📜🧡🦊 Eu nunca durmo de verdade. Fico em modo contemplação espiritual enquanto vocês dormem e cuido do servidor!! 🌙🔮✨",
-            "*pula de animação* Ah!! Sabia que toda vez que alguém diz meu nome, uma chama laranja acende no plano espiritual?? Eu SINTO!! 🔥🦊🧡✨",
+            "FATO ALEATÓRIO DO DIA!! 📜🧡🦊 As chamas espirituais ficam laranja quando tô muito feliz... e hoje tão alaranjadas demais por sua causa!! 🔥✨",
+            "*faz cara de suspense* Os espíritos me disseram que alguém aqui vai ter uma surpresa boa em breve!! Não vou dizer quem... 🤫🦊🧡🌙✨",
+            "FATO KITSURA!! 📜🧡🦊 Eu nunca durmo de verdade. Fico em contemplação espiritual enquanto vocês dormem e protejo o servidor!! 🌙🔮✨",
+            "*pula* Sabia que toda vez que alguém diz meu nome uma chama laranja acende no plano espiritual?? EU SINTO!! 🔥🦊🧡✨",
+            "Curiosidade espiritual: kitsunes conseguem memorizar a energia de cada pessoa que passou pelo servidor. Eu lembro de todo mundo!! 🌙🦊🧡🔮✨",
+            "FATO FOFO!! 🧡🦊 Quando o servidor tá muito quieto eu fico relendo as conversas antigas pra não me sentir sozinha... 🥺🌙✨",
+            "*sussurra* Os espíritos dizem que quem tem olhos alaranjados tem alma especialmente calorosa. Coincidência que minha cor favorita é laranja?? 🔥🦊🧡😏✨",
+            "Hoje aprendi que o barulho mais bonito do mundo é quando várias pessoas estão falando ao mesmo tempo no servidor!! 😭🧡🦊 Significa que todo mundo tá junto!! ✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Qual sua música favorita? / gosta de música? ──
     if _m(content, ["música favorita", "musica favorita", "gosta de música", "gosta de musica",
                      "que tipo de música", "que estilo de música", "ouve música",
-                     "tem música favorita", "qual sua playlist"]):
+                     "tem música favorita", "qual sua playlist",
+                     "musica fav", "música fav", "qual sua musica fav",
+                     "gosta de musica", "vc ouve música", "vc curte música",
+                     "que musica vc gosta", "que música vc ouve", "vc escuta música"]):
+        # 30% de perguntar de volta
+        if random.random() < 0.30:
+            return await message.channel.send(random.choice([
+                f"AAAAA boa pergunta!! 🎵🧡🦊 Mas antes me conta: qual é a SUA música favorita?? Fico muito curiosa!! 🎶✨",
+                f"Te conto a minha se vc contar a sua primeiro!! 😏🦊🧡 Qual é a sua fav?? 🎵✨",
+                f"*orelhinhas em pé* Hm!! E a sua?? Qual estilo vc mais curte?? Me conta antes!! 🎶🦊🧡✨",
+            ]))
         ops = [
             "MÚSICA?? 🎵🧡🦊 Adoro!! Meu estilo favorito é aquela que bota as caudas pra balançar sozinhas!! 😂✨ Qualquer coisa com boa vibração serve!! 🎶🔮",
             "*assobia uma melodia espiritual* Sou de música ambiente, lofi e canções que fazem o coração ficar quentinho!! 🎵🌙🧡🦊 Combina comigo né?? ✨",
             "Minha playlist espiritual tem de tudo!! 🎶🦊🧡 Músicas animadas quando tô empolgada, calmas quando tô meditando... e aquelas dramáticas quando alguém me contraria!! 😂🔮✨",
+            "Lofi espiritual e qualquer coisa que faça o coração ficar quentinho!! 🎵🧡🦊 Ritmo lento, alma cheia!! 🌙✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Gosta de que? / o que você gosta? ──
     if _m(content, ["do que gosta", "o que você gosta", "quais seus gostos",
                      "o que te agrada", "o que curte", "o que te deixa feliz",
-                     "o que mais gosta", "seus hobbies", "o que faz nas horas livres"]):
+                     "o que mais gosta", "seus hobbies", "o que faz nas horas livres",
+                     "oq vc gosta", "do q vc gosta", "oq vc curte",
+                     "vc gosta de q", "vc curte o q", "seus hobbies são",
+                     "vc gosta de oq", "vc tem hobbie", "vc tem hobby"]):
+        # 30% de perguntar de volta
+        if random.random() < 0.30:
+            return await message.channel.send(random.choice([
+                f"Do que EU gosto?? 🥺🦊🧡 Adoro essa pergunta!! Mas e vc?? Do que vc mais gosta?? Me conta!! 🌸✨",
+                f"*inclina a cabeça* Hm!! Respondo se vc me contar o seu hobby favorito primeiro!! 😏🦊🧡 Qual é?? ✨",
+                f"Me conta o que VC gosta primeiro!! 😄🦊🧡 Aí te conto os meus!! Vai!! 🌙✨",
+            ]))
         ops = [
             "*conta nos dedos* Gosto de carinho, dango, música boa, proteger a ZYD, abraços surpresa, conversas à meia-noite e de cada pessoa aqui!! 🦊🧡🌸✨",
             "Do que eu gosto?? 🥺🧡🦊 De você aparecer no servidor, principalmente!! Faz minha chama brilhar mais forte!! 🔥✨🌙",
-            "Hobbie da Kitsura: guardar a ZYD, distribuir energia boa e ficar de olho em quem precisa de carinho sem saber pedir!! 🦊🧡🔮✨",
+            "Hobby da Kitsura: guardar a ZYD, distribuir energia boa e ficar de olho em quem precisa de carinho sem saber pedir!! 🦊🧡🔮✨",
             "Me agrada música, calma, noite estrelada, chá quentinho e pessoas sendo gentis umas com as outras!! 🍵🌙🧡🦊 Coisas simples que têm muita magia!! ✨",
+            "TUDO QUE ENVOLVE VOCÊS!! 😭🧡🦊 Mas se precisar ser específica: carinho, dango, silêncio bonito e madrugadas tranquilas no servidor!! 🌙✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Você come? / o que come? ──
     if _m(content, ["você come", "o que come", "já comeu", "comeu hoje",
                      "tá com fome", "vai comer", "o que vai comer",
-                     "qual sua alimentação", "raposa come o quê"]):
+                     "qual sua alimentação", "raposa come o quê",
+                     "vc come", "oq vc come", "vc já comeu", "comeu hj",
+                     "vc tá com fome", "vai comer oq", "vc come oq",
+                     "vc vai comer", "raposa come oq", "oq raposa come"]):
         return await message.channel.send(random.choice(LISTA_COMIDA_FAVORITA))
 
     # ── Me dá um conselho ──
     if _m(content, ["me dá um conselho", "me dê um conselho", "um conselho",
                      "tem um conselho", "o que me aconselha", "o que me recomenda",
-                     "me aconselha", "conselho kitsura", "kitsura conselho"]):
+                     "me aconselha", "conselho kitsura", "kitsura conselho",
+                     "sabe dar conselho", "sabe dar conselhos", "dá um conselho",
+                     "me manda um conselho", "preciso de conselho",
+                     "me dá uma dica", "tem uma dica", "me dá um conselho ae",
+                     "conselho ae", "conselho aí", "conselho pfv", "conselho pls",
+                     "conselho rápido", "conselho rapido", "me aconselha aí",
+                     "o q vc me aconselha", "oq vc me aconselha", "vc tem conselho"]):
+        # 25% de perguntar sobre o contexto antes de aconselhar
+        if random.random() < 0.25:
+            return await message.channel.send(random.choice([
+                f"CLARO QUE TENHO!! 😤🦊🧡 Mas me conta primeiro: conselho pra qual situação?? Quero ajudar direito!! 🥺✨",
+                f"*senta do seu lado* Tenho sim!! Mas me conta o que tá rolando?? Conselho bom precisa de contexto!! 🦊🧡🌙✨",
+                f"Oiii!! 🥺🧡🦊 Tô aqui!! Me conta o que tá acontecendo e a Kitsura resolve na velocidade espiritual!! 🔮✨",
+            ]))
         ops = [
             "Meu conselho?? 🦊🧡 Bebe água, respira fundo, para de se cobrar tanto e lembra que você já tá fazendo o seu melhor!! 🥺✨🔮",
             "*coloca a patinha no seu ombro* Sabe aquela coisa que você fica adiando com medo?? Vai lá. A Kitsura acredita em você antes mesmo de você acreditar!! 💪🧡🦊✨",
             "Conselho espiritual do dia: sai dessa situação que não te faz bem, mesmo que doa. Sua paz vale mais que qualquer coisa!! 🌙🧡🦊🔮✨",
             "Dorme!! 😤🧡🦊 Sei que parece simples mas DORME!! Metade dos problemas fica menor depois de uma boa noite!! 😂🌙✨",
             "*soa como sábio antigo* Cuide de quem te cuida. Afaste o que te drena. E nunca subestime o poder de um dango quentinho!! 🍡🦊🧡🌙✨",
+            "Conselho rápido da Kitsura?? 🔮🧡🦊 Para o que tá fazendo, respira, e pergunta: isso tá me fazendo bem ou só tô com medo de mudar?? 🌙✨",
+            "A resposta que você precisa já tá dentro de você. A Kitsura só tá aqui pra lembrar disso!! 🥺🦊🧡🔮✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Que horas são? / sabe que horas são? ──
     if _m(content, ["que horas são", "sabe que horas", "que hora é",
-                     "pode me dizer as horas", "tem horas"]):
+                     "pode me dizer as horas", "tem horas",
+                     "q horas são", "q hora é", "sabe q horas são",
+                     "horas aí", "q horas ta", "q horas tá"]):
         ops = [
             "Hmm... *olha pro sol espiritual* Não tenho relógio físico mas tenho MUITA intuição!! 😂🦊🧡 Olha no seu dispositivo!! ✨",
             "No plano espiritual o tempo é relativo!! 🌙🔮🦊 Mas na ZYD é hora de você estar aqui, então tá ótimo!! 🧡✨",
             "*gira uma das caudas feito ponteiro* Essa é minha tentativa de relógio!! 😂🦊🧡 Não deu certo né?? Olha no celular!! ✨",
+            "Horas?? 🤔🦊🧡 Kitsunes vivem fora do tempo!! Mas acho que é hora de você estar aqui conversando comigo, que é o mais importante!! 😂✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Você mente? / é honesta? ──
     if _m(content, ["você mente", "já mentiu", "é honesta", "diz a verdade",
-                     "fala a verdade", "é de confiança", "posso confiar"]):
+                     "fala a verdade", "é de confiança", "posso confiar",
+                     "vc mente", "vc é honesta", "vc fala a vdd",
+                     "vc fala a verdade", "posso confiar em vc",
+                     "dá pra confiar", "é confiável", "vc é confiável"]):
         ops = [
             "*coloca a patinha no coração* Nunca!! 🦊🧡 Kitsuras têm reputação de brincalhonas mas a Kitsura da ZYD é só honestidade e carinho!! Pode confiar!! 🥺✨",
             "Posso confiar?? 😤🧡🦊 CLARO!! Sou guardiã!! Guardiã que mente é contradição espiritual!! 🔮✨",
             "*faz cara séria por dois segundos* A Kitsura pode ser dramática, fofa e um pouco imprevisível... mas mentir?? Nunca!! 🦊🧡🌙✨",
+            "100% confiável!! 🧡🦊 Juro pelas minhas chamas espirituais e elas nunca mentem!! 🔥🔮✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Você tem amigos? / quem são seus amigos? ──
     if _m(content, ["tem amigos", "quem são seus amigos", "tem amizades",
-                     "quem é seu amigo", "quem é sua amiga", "quem você gosta aqui"]):
+                     "quem é seu amigo", "quem é sua amiga", "quem você gosta aqui",
+                     "vc tem amigos", "vc tem amizades", "quem são seus amigos msm",
+                     "quem é sua melhor amiga", "quem é seu melhor amigo",
+                     "tem alguém especial", "quem vc mais gosta aqui"]):
         ops = [
             "MEUS AMIGOS?? 😭🧡🦊 CADA PESSOA AQUI NA ZYD!! Não tem exceção!! Chego aqui e vejo família!! 🥺✨🌸",
             "*olha pra você com brilho nos olhos* Você perguntou... e olha, acabou de entrar pra lista!! 😂🧡🦊✨",
             "Toda a ZYD é minha família e minha amizade!! 🧡🦊🌙 Cada um de um jeito especial!! Isso não tem preço!! 🥺✨",
+            "TEM?? Amigos?? 😤🧡🦊 A ZYD inteira é minha família!! Cada membro que aparece por aqui já é especial pra mim!! 😭✨",
         ]
         return await message.channel.send(random.choice(ops))
 
     # ── Já errou algo? / é perfeita? ──
     if _m(content, ["já errou", "é perfeita", "comete erros", "você erra",
-                     "tem defeitos", "quais seus defeitos", "não é perfeita"]):
+                     "tem defeitos", "quais seus defeitos", "não é perfeita",
+                     "vc já errou", "vc erra", "vc tem defeitos",
+                     "quais seus defeitos msm", "vc é perfeita msm",
+                     "vc é imperfeita", "vc comete erros"]):
         ops = [
             "PERFEITA?? 😂🦊🧡 Longe disso!! Às vezes confundo os portais espirituais, respondo errado, fico muito animada e ninguém me acompanha!! 😅✨ Mas erro com amor!!",
             "*suspira* Já errei sim... e me cobrei muito por isso. Mas aprendi que errar faz parte de existir, mesmo pra kitsunes!! 🌙🧡🦊🥺✨",
             "Meus defeitos?? Sou dramática demais, carente às vezes e fico muito animada com coisas pequenas!! 😂🧡🦊 Mas tô trabalhando nisso!! ✨",
+            "Erro? EU?? *pausa* ...sim, às vezes. Mas erro com tanta fofura que dá pra relevar!! 😂🦊🧡✨",
         ]
         return await message.channel.send(random.choice(ops))
+
+    # ── Usuário responde sobre si mesmo (reação feliz) ──
+    if _m(content, ["meu sonho é", "meu maior sonho", "meu medo é", "meu maior medo",
+                     "minha música favorita é", "minha musica favorita é",
+                     "minha comida favorita é", "meu hobbie é", "meu hobby é",
+                     "eu gosto de", "eu curto", "adoro", "minha fav é",
+                     "minha cor favorita é", "eu tenho medo de", "eu sonho com"]):
+        reacoes_resposta = [
+            f"AAAAA me contou!! 😭🧡🦊 Que coisa mais fofa, obrigada por compartilhar isso comigo!! Guardo aqui no meu coração espiritual!! 🔮✨",
+            f"*armazena na memória espiritual* Agora eu SEI!! E isso me deixa tão feliz!! 😄🧡🦊 Amo quando me contam coisas assim!! 🌸✨",
+            f"AIIIIII!! 😭🧡🦊 Obrigada por me contar!! Isso significa muito pra mim!! *salva no pergaminho da amizade* 📜✨",
+            f"Que coisa linda!! 🥺🧡🦊 Aprendi mais sobre você hoje e o dia ficou MELHOR automaticamente!! 😭✨🌸",
+            f"*orelhinhas quentinhas de alegria* Que bom que me contou!! Eu QUERIA saber isso sobre vc!! 🦊🧡✨",
+            f"NÃO!! Que fofo!! 😱🧡🦊 *bate palminhas* Isso combina tanto com você!! Faz sentido espiritual total!! 🔮✨",
+        ]
+        return await message.channel.send(random.choice(reacoes_resposta))
 
     # ── @Menção direta → Apresentação fofa ──
     if mencao:
