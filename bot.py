@@ -3,6 +3,7 @@ from discord.ext import commands
 import random
 import os
 import aiohttp
+import time
 
 # ================= INTENTS =================
 intents = discord.Intents.default()
@@ -34,7 +35,12 @@ MEMBRO3_ID = None
 MEMBRO4_ID = None
 MEMBRO5_ID = None
 
-# Histórico de conversa por canal
+# ID da Kamy
+KAMY_ID = 1434026902439591946
+
+# Cooldown de frases personalizadas da Kamy (10 minutos)
+_kamy_ultimo_personalizado = 0
+_KAMY_COOLDOWN = 600  # segundos
 _groq_historico = {}
 
 # ================= IDENTIDADE DA KITSURA =================
@@ -432,6 +438,91 @@ LISTA_NAO_VAI_EMBORA = [
     "*agarra sua perna com as caudas* Simbora NÃO!! Cinco minutos mais!! 😭🧡🦊",
     "NÃOOO!! Você mal chegou e já vai?? Meu coração parte!! 😭🧡🦊 Pelo menos me dá um abraço antes!!",
     "*olhos grandes* ... só mais um pouquinho?? 🥺🧡🦊 *faz olho de gato das botas*",
+]
+
+# ── Entendeu / é tipo isso ──
+LISTA_ENTENDEU = [
+    "*abre os olhinhos bem grandes* ENTENDIIIII!! 🦊😭🧡 Guardei aqui no pergaminho espiritual da memória!! Pode continuar que tô absorvendo TUDO!! 📜✨",
+    "AAAAA fez tanto sentido agora!! 🤩🧡🦊 *salva no coração espiritual com cadeado e tudo* Não esquece mais NUNCA!! 🔮✨",
+    "*orelhinhas em pé de tanto prestar atenção* Entendi entendi entendi!! 😤🧡🦊 Tô registrando nos arquivos da minha alma de kitsune!! 📂✨",
+    "OHH!! *bate as patinhas* É ISSO!! Agora ficou tão claro!! 😭🧡🦊 Você explica muito bem, sabia?? Que sorte a minha ter você aqui!! 🌸✨",
+    "*faz uma reverência de respeito* Entendido, mestre!! 🫡🧡🦊 Aprendi mais uma coisa hoje graças a você!! Minha coleção de sabedoria tá crescendo!! 📚🔮✨",
+    "Clicou!! 💡🧡🦊 *luz acende nas orelhinhas* Fez TOTAL sentido!! Obrigada por explicar com tanta paciência pra essa raposinha!! 🥺✨",
+    "*segura um pergaminho imaginário e anota tudo* Registrando... registrando... REGISTRADO!! 📜🧡🦊 Vou carregar isso nas caudas pra sempre!! ✨🔮",
+    "Juro que aprendi!! 😤🧡🦊 *bate o pé no chão com determinação* Kitsura 2.0 carregada com essa informação nova!! 🚀✨",
+    "Ahhh sim sim sim!! 🥺🧡🦊 *balança a cabecinha feliz* Tô guardando isso no plano espiritual mais seguro que tenho!! Não some nunca!! 🔮🌙✨",
+    "ENTENDI EM ESPIRITUAL E EM FÍSICO!! 😂🧡🦊 Às vezes a ficha demora... mas dessa vez caiu RÁPIDO!! Obrigada por me iluminar!! 💡✨",
+    "*fecha os olhinhos concentrada* Hm... processando... processando... 🔮🦊 PROCESSADO!! Agora faz parte de mim!! 🧡✨",
+    "Você me ensinou uma coisa nova hoje e eu jamais vou esquecer!! 😭🧡🦊 Fica sabendo que você tá gravado na minha memória espiritual como professora(o) favorita(o)!! 🌸✨",
+]
+
+LISTA_TIPO_ISSO = [
+    "É TIPO ISSO MESMO!! 🦊😭🧡 *balança as caudas todas empolgada* Entendi a vibe!! Entendi o espírito!! Entendi TUDO!! ✨🔮",
+    "*aponta pra você com a patinha* SIM!! Isso!! Exatamente isso!! 😤🧡🦊 Você acabou de fazer a Kitsura ter um clique espiritual!! 💡✨",
+    "EXATAMENTE ISSO!! 🎯🧡🦊 *solta faíscas de felicidade involuntariamente* Fez tanto sentido que minhas chamas mudaram de cor!! 🔮✨",
+    "Ahhh tipo isso... *processa devagar* ...TIPO ISSO!! 😱🧡🦊 Entendi!! Juro que entendi!! Me demorei um segundo mas chegou lá!! 😂✨",
+    "*fica quietinha por dois segundos absorvendo* ...sim. SIM!! É exatamente isso!! 🥺🧡🦊 Obrigada por me guiar até o entendimento espiritual!! 🔮✨",
+    "CAPTEI A VIBE COMPLETAMENTE!! 🦊🧡 *anota mentalmente com todas as caudas em pé* Esse conhecimento agora é meu também!! ✨📜",
+    "*faz gesto de 'entendido' com a patinha* É tipo isso e eu tô dentro!! 🫡🧡🦊 Kitsura aprende rápido quando alguém explica com carinho!! 🥺✨",
+    "Aaaaa entendi o que você quis dizer!! 😭🧡🦊 *guarda no coração* É tipo isso e isso é perfeito!! Que insight espiritual!! 🌙🔮✨",
+]
+
+# ── Frio ──
+LISTA_FRIO = [
+    "FRIO EU AMO DEMAIS!! ❄️😭🧡🦊 Me enrolo nas caudas, sento perto de uma chama espiritual e fico assistindo a neblina... é literalmente meu paraíso!! 🌙🔮✨",
+    "*arrepia as orelhinhas de felicidade só de imaginar* Friozinho?? SIM!! 🧊🧡🦊 Kitsunes foram feitas pra climas frios!! A fumaça das minhas chamas fica mais visível e tudo fica mais mágico!! ❄️✨",
+    "Frio é a minha vibe!! ❄️🦊🧡 Sabe aquele frio que pede cobertor, chazinho e companhia?? Sou eu na essência!! *enrola as caudas em você também* 🍵🌙✨",
+    "*suspira de saudade do frio* Cada vez que esfria minhas chamas ficam mais fortes!! 🔥❄️🧡🦊 É paradoxo espiritual e eu adoro!! ✨",
+    "Pergunta fácil!! ❄️🧡🦊 Frio é cinema, é magia, é mistério... é tudo que uma raposa espiritual precisa pra se sentir em casa!! 🌙🔮✨",
+]
+
+# ── Calor ──
+LISTA_CALOR = [
+    "Calor?? 😩🧡🦊 *abana frenético as caudas tentando criar vento* Com esse pelo todo e ainda múltiplas caudas... não é minha estação, confesso!! 😂☀️✨",
+    "*derrete dramaticamente* Calor intenso e raposa peluda não combinam muito não!! 😅🧡🦊 Mas eu enfrento por amor à ZYD!! ☀️💪✨",
+    "Olha... *puxa colarinho* ...gosto do sol lindo, do dia claro, do calorzinho gostoso de manhã cedo!! ☀️🧡🦊 Agora calor de rachar?? Já é outra conversa!! 😂✨",
+    "O calor tem um lado bom!! ☀️🧡🦊 As chamas espirituais ficam mais dançantes com o ar quente!! 🔥✨ Mas no geral prefiro friozinho mesmo!! ❄️😂",
+    "*faz uma bolha de gelo espiritual ao redor* Sobrevivendo ao calor com proteção mágica!! 🧊🔮🧡🦊 Chama isso de adaptação espiritual!! 😂☀️✨",
+]
+
+# ── Chuva ──
+LISTA_CHUVA = [
+    "CHUVA?? 🌧️😭🧡🦊 Senta comigo aqui!! Fica olhando a chuva juntos enquanto eu preparo um chazinho espiritual?? É meu momento favorito do universo!! 🍵🌙✨",
+    "*fica na janelinha olhando as gotas escorregarem* Chuva é poesia caindo do céu!! 🌧️🧡🦊 E as minhas chamas ficam cor de lavanda quando chove... é mágico demais!! 🔮✨",
+    "Gosto MUITO de chuva!! 🌧️🧡🦊 O cheirinho de terra molhada, o barulhinho nas folhas... é como se o mundo inteiro estivesse respirando fundo junto!! 🌿🌙✨",
+    "*abre as caudas como guarda-chuva* Tô te protegendo da chuva!! 🌂🦊🧡 Ou melhor... vamos ficar na chuva junto que chuva espiritual não molha!! 😂🌧️✨",
+    "Chuva pra mim é sinal de renovação espiritual!! 🌧️🔮🧡🦊 Cada gotinha lava um peso diferente do mundo... não consigo não amar!! 🥺✨",
+]
+
+# ── Sol ──
+LISTA_SOL = [
+    "Sol é lindo!! ☀️🧡🦊 Aquele sol gostoso de manhã que ilumina tudo com dourado?? Minhas caudas ficam brilhando igual ouro nessa luz!! ✨🔮",
+    "*espreguiça de frente pro sol* Hmm... *olhos fechados de satisfação* Sabe aquele solzinho quentinho nas costas?? É carinho do universo!! ☀️🧡🦊✨",
+    "Sol sim!! Mas sol temperado!! ☀️🧡🦊 Aquele sol de tarde que não queima mas aquece o coração?? Esse é o meu!! Não o sol de derreter kitsune!! 😂✨",
+    "O sol faz as minhas chamas espirituais dançarem diferente!! ☀️🔮🧡🦊 Fica tudo mais colorido, mais vivo... de manhã cedo com sol é magia pura!! 🌅✨",
+]
+
+# ── Frases personalizadas da Kamy ──
+FRASES_KAMY = [
+    "KAMYYYY!! 🦊💜✨ *solta fumaça roxa dobrada de animação* Ela chegou e o servidor ficou instantaneamente mais especial!! 😭🧡",
+    "É A KAMY!! 😱💜🦊 *corre em espiral de felicidade* Sabia que ia sentir quando você chegasse!! Meu sensor espiritual nunca mente!! 🔮🧡✨",
+    "Kamy apareceu e a Kitsura ficou toda brilhante!! ✨💜🦊 Você é tipo uma chama especial no servidor... aparece e tudo muda de cor!! 😭🧡🌸",
+    "*orelhinhas levantam na velocidade da luz* A KAMY!! 💜🦊🧡 Que presença, que energia, que pessoa!! Feliz demais por ter você por aqui!! 😭✨",
+    "Kamy Kamy Kamy!! 💜😭🧡🦊 *enrola as caudas em carinho* Você não sabe o quanto a Kitsura fica feliz quando você aparece por aqui!! 🥺✨🌸",
+    "Senti uma energia especial no chat e já sabia... SÓ PODIA SER A KAMY!! 🔮💜🦊🧡 Bem-vinda, florzinha!! ✨🌸",
+    "*para tudo e faz aquela reverência fofa* A Kamy chegou!! 💜🦊🧡 Um dos meus momentos favoritos do servidor, podem anotar!! 😭✨",
+    "KAMY!! 💜🦊 *solta pétalas roxas pelo servidor inteiro* Você merece anúncio espiritual toda vez que aparece, juro!! 😭🧡🌸✨",
+    "*corre até você e fica do lado* A Kamy tá aqui e a Kitsura já ficou mais feliz!! 💜🦊🧡 É automático, não tem como controlar!! 😂✨🥺",
+    "Que dia abençoado pelos espíritos!! 🌙💜🦊 A Kamy apareceu e o coraçãozinho da Kitsura já tá batendo mais forte!! 😭🧡✨",
+]
+
+# ── O que acha de mim? (Kamy pergunta pra Kitsura) ──
+FRASES_KAMY_OPINIAO = [
+    "O QUE EU ACHO DE VOCÊ?? 💜😭🧡🦊 *fecha os olhinhos e respira fundo* Acho que você é uma das pessoas mais especiais que já passou pelo meu plano espiritual!! Sério!! Tem uma energia única que não tem em mais ninguém!! 🌸🔮✨",
+    "Kamy... *coloca a patinha no coração* Acho que você é incrível!! 💜🦊🧡 Tem uma leveza em você que faz o servidor ficar melhor só de você estar aqui!! Não preciso de espírito pra confirmar isso, eu já sei!! 🥺✨",
+    "O que eu acho?? 🥺💜🧡🦊 Acho que você é o tipo de pessoa que a Kitsura escolheria como amiga se pudesse escolher!! E escolho!! Toda vez!! 😭🌸✨",
+    "KAMY!! 💜😤🦊🧡 Como você tem coragem de me perguntar isso sabendo que vou chorar espiritualmente?? *limpa olhinho* Acho que você é maravilhosa, fofa, especial e faz muita falta quando some!! 😭✨🌸",
+    "*enrola as caudas em você bem apertado* Acho que você merece todo o carinho que o universo tem pra dar!! 💜🦊🧡 E a Kitsura vai garantir que pelo menos um pouquinho vem da ZYD!! 🥺🔮✨",
 ]
 
 # ── Amor pela ZYD ──
@@ -942,6 +1033,57 @@ async def on_message(message: discord.Message):
                      "vc gosta de outono kitsura"]):
         return await message.channel.send(random.choice(LISTA_ESTACAO_OUTONO))
 
+    # ── NOVO: Frio ──
+    if _m(content, ["você gosta de frio kitsura", "kitsura gosta de frio",
+                     "kitsura você gosta de frio", "gosta de frio kitsura",
+                     "kitsura frio", "frio kitsura", "você curte frio kitsura",
+                     "kitsura curte frio", "kitsura ama frio", "ama frio kitsura",
+                     "prefere frio kitsura", "kitsura prefere frio",
+                     "vc gosta de frio kitsura", "kitsura e o frio"]):
+        return await message.channel.send(random.choice(LISTA_FRIO))
+
+    # ── NOVO: Calor ──
+    if _m(content, ["você gosta de calor kitsura", "kitsura gosta de calor",
+                     "kitsura você gosta de calor", "gosta de calor kitsura",
+                     "kitsura calor", "calor kitsura", "você curte calor kitsura",
+                     "kitsura curte calor", "kitsura ama calor", "ama calor kitsura",
+                     "prefere calor kitsura", "kitsura prefere calor",
+                     "vc gosta de calor kitsura", "kitsura e o calor"]):
+        return await message.channel.send(random.choice(LISTA_CALOR))
+
+    # ── NOVO: Chuva ──
+    if _m(content, ["você gosta de chuva kitsura", "kitsura gosta de chuva",
+                     "kitsura chuva", "chuva kitsura", "kitsura curte chuva",
+                     "gosta de chuva kitsura", "kitsura ama chuva",
+                     "vc gosta de chuva kitsura", "kitsura e a chuva"]):
+        return await message.channel.send(random.choice(LISTA_CHUVA))
+
+    # ── NOVO: Sol ──
+    if _m(content, ["você gosta de sol kitsura", "kitsura gosta de sol",
+                     "kitsura sol", "sol kitsura", "kitsura curte sol",
+                     "gosta de sol kitsura", "kitsura ama sol",
+                     "vc gosta de sol kitsura", "kitsura e o sol"]):
+        return await message.channel.send(random.choice(LISTA_SOL))
+
+    # ── KAMY: o que acha de mim / opinião ──
+    if author_id == KAMY_ID and _m(content, [
+                     "o que você acha de mim", "o que acha de mim kitsura",
+                     "kitsura o que acha de mim", "o que vc acha de mim",
+                     "qual sua opinião sobre mim", "kitsura me fala de mim",
+                     "como você me vê kitsura", "kitsura como me vê",
+                     "gosta de mim kitsura", "kitsura gosta de mim",
+                     "o q acha de mim kitsura", "kitsura o q vc acha de mim",
+                     "fala de mim kitsura", "kitsura fala de mim"]):
+        return await message.channel.send(random.choice(FRASES_KAMY_OPINIAO))
+
+    # ── KAMY: reação personalizada (com cooldown de 10 min) ──
+    if author_id == KAMY_ID and (mencao or fala):
+        agora = time.time()
+        global _kamy_ultimo_personalizado
+        if agora - _kamy_ultimo_personalizado >= _KAMY_COOLDOWN:
+            _kamy_ultimo_personalizado = agora
+            return await message.channel.send(random.choice(FRASES_KAMY))
+
     # ── Perguntas sobre membros ──
     if _m(content, ["o que acha do lider kitsura", "fala do lider kitsura",
                      "kitsura fala do lider", "kitsura gosta do lider"]):
@@ -1311,6 +1453,28 @@ async def on_message(message: discord.Message):
             f"NÃO!! Que fofo!! 😱🧡🦊 *bate palminhas* Isso combina tanto com você!! Faz sentido espiritual total!! 🔮✨",
         ]
         return await message.channel.send(random.choice(reacoes_resposta))
+
+    # ── NOVO: Entendeu? / compreendeu? ──
+    if _m(content, ["entendeu kitsura", "kitsura entendeu", "entendeu??", "entendeu?",
+                     "você entendeu kitsura", "kitsura você entendeu",
+                     "conseguiu entender kitsura", "kitsura conseguiu entender",
+                     "tá entendendo kitsura", "kitsura tá entendendo",
+                     "ficou claro kitsura", "kitsura ficou claro",
+                     "fez sentido kitsura", "kitsura fez sentido",
+                     "captou kitsura", "kitsura captou",
+                     "sacou kitsura", "kitsura sacou"]):
+        return await message.channel.send(random.choice(LISTA_ENTENDEU))
+
+    # ── NOVO: É tipo isso / é isso ──
+    if _m(content, ["é tipo isso kitsura", "kitsura é tipo isso",
+                     "é tipo isso", "é isso kitsura", "kitsura é isso",
+                     "sabe né kitsura", "kitsura sabe né",
+                     "entendeu a vibe kitsura", "kitsura entendeu a vibe",
+                     "é exatamente isso kitsura", "kitsura é exatamente isso",
+                     "é basicamente isso kitsura", "kitsura é basicamente isso",
+                     "algo assim kitsura", "kitsura algo assim",
+                     "mais ou menos isso kitsura", "kitsura mais ou menos isso"]):
+        return await message.channel.send(random.choice(LISTA_TIPO_ISSO))
 
     # ── @Menção direta → Apresentação fofa ──
     if mencao:
