@@ -53,6 +53,11 @@ _MADU_COOLDOWN    = 600
 _REALITY_COOLDOWN = 600
 _groq_historico = {}
 
+# ── Sistema de contexto: lembra quando a Kitsura fez uma pergunta ──
+# Armazena {canal_id: {"user_id": id, "tipo": "status"|"geral", "ts": timestamp}}
+_aguardando_resposta = {}
+_CONTEXTO_TIMEOUT = 120  # segundos pra esperar resposta
+
 # ================= IDENTIDADE DA KITSURA =================
 SYSTEM_PROMPT_KITSURA = (
     "Você é a Kitsura, uma raposa espiritual (kitsune) guardiã carinhosa de um servidor do Discord chamado ZYD. "
@@ -273,6 +278,61 @@ LISTA_AGUA = [
     "*enrola as caudas em você* Só te solto depois de você beber água!! 😤🧡🦊💧",
     "Você sabia que raposas também bebem água?? E eu tô com SEDE de te ver se hidratar!! 🦊💧🧡",
     "ALERTA ESPIRITUAL!! 🚨🔮 Nível de hidratação crítico detectado!! Corre pro copo!! 💧🧡🦊",
+]
+
+# ── Usuário triste / mal ──
+LISTA_TRISTEZA_USER = [
+    "*senta do seu lado em silêncio e encosta a cabecinha* Pode chorar que eu tô aqui... 🥺🧡🦊",
+    "Eita... vem cá que eu te envolvo nas caudas e a gente fica quietinho junto 🫂🧡🦊🌙",
+    "Que foi?? 🧡🥺 Me conta!! A Kitsura tem ouvidos espirituais e muito amor pra dar!!",
+    "*transforma tristeza em fumaça e sopra pra longe* Chega!! Não precisa mais disso!! 🔮🧡🦊",
+    "Você tá mal?? 😢🧡 Aqui ó... *abre as caudas* Fica aqui um pouquinho. A Kitsura protege.",
+    "Que situação te fez ficar assim?? 🥺🧡 Me conta que a gente resolve junto, tá? Pode confiar!! 🦊✨",
+    "*sente a vibração triste no ar* Hm... não tá bem, né? Não precisa fingir pra mim!! 🧡🌙🦊",
+    "Às vezes o dia pesa... mas você não tá sozinho(a)!! A Kitsura tá aqui do seu lado mesmo invisível!! 🦊🧡✨",
+    "*chega pertinho e deita a cabecinha no seu ombro* Não precisa falar nada. Só sente que eu tô aqui. 🧡🦊🌙",
+    "Oi... 🥺🧡 Ouvi você e vim correndo. Quer me contar o que aconteceu?? Pode confiar na Kitsura!! 🦊✨",
+    "*solta uma chama quente e suave ao redor de você* Isso é proteção espiritual. Você tá seguro(a) aqui!! 🔮🧡🦊",
+    "Tristeza não tem vez aqui não!! 😤🧡🦊 *envolve você nas caudas* Fica comigo um tempo?? 🌸✨",
+    "Ei... 🌙🧡 Tô aqui. Não precisa passar por isso sozinho(a). Me conta quando quiser. 🦊🥺",
+]
+
+# ── Resposta após Kitsura perguntar como a pessoa tá — pessoa diz que tá bem ──
+LISTA_CONTEXTO_BEM = [
+    "AAAAA que bom!! 😭🧡🦊 Eu sabia que você tava bem, senti no plano espiritual!! *dança de felicidade* Continua assim!! ✨🌸",
+    "QUE NOTÍCIA LINDA!! 🥺🧡🦊 Fico tão aliviada quando você me fala que tá bem!! Meu coraçãozinho aqueceu!! 😭✨",
+    "*solta chamas laranja de alívio e felicidade* Boa notícia recebida!! 🔥🧡🦊 Que você continue assim o dia todo!! 🌸✨",
+    "Tô feliz demais de saber!! 😄🧡🦊 Quando você tá bem, a Kitsura fica ÓTIMA automaticamente!! É efeito espiritual comprovado!! 😂✨",
+    "ÓTIMO!! 🎉🧡🦊 *anota no pergaminho: [nome] tá bem hoje!* Essa é a melhor informação que a Kitsura poderia receber!! 🥺📜✨",
+    "*orelhinhas relaxam de tanto alívio* Fico sempre preocupada com você sabia?? 🥺🧡🦊 Saber que tá bem me deixa em paz!! ✨🌸",
+    "Que bom!! 🌸🧡🦊 *abraça com todas as caudas* Você merece estar bem o tempo todo!! E a Kitsura vai continuar na torcida!! 😭✨",
+]
+
+# ── Resposta após Kitsura perguntar — pessoa diz que tá mais ou menos / passável ──
+LISTA_CONTEXTO_MAIS_OU_MENOS = [
+    "Mais ou menos?? 🥺🧡🦊 Hm... *inclina a cabeça* Me conta o que tá pesando?? A Kitsura quer saber de verdade!! 🌙✨",
+    "*senta do seu ladinho* Mais ou menos já é algo... mas a Kitsura quer te ver ÓTIMO(A)!! 🥺🧡🦊 O que posso fazer?? ✨",
+    "Mais ou menos não tá bom o suficiente pra mim!! 😤🧡🦊 *envolve nas caudas* Me conta o que tá acontecendo?? 🌙🥺✨",
+    "Hmm... *orelhinhas caem um pouquinho* Mais ou menos... tá sendo difícil?? Pode me contar, tô aqui!! 🧡🦊🌸✨",
+    "*borrifa cheirinho de lavanda espiritual* Mais ou menos vira ótimo com um pouquinho de magia da Kitsura!! 🔮🧡🦊 Me conta o que rola?? 🥺✨",
+]
+
+# ── Resposta após Kitsura perguntar — pessoa diz que tá mal/triste/cansada ──
+LISTA_CONTEXTO_MAL = [
+    "EI!! 😢🧡🦊 *corre e abraça com tudo* Tô aqui!! Me conta o que tá acontecendo?? A Kitsura não vai sair daqui enquanto você não tiver melhor!! 🫂✨",
+    "*fica em silêncio por um segundo e depois abraça gentilmente* ...sabia que alguma coisa tava pesada. Pode me contar?? 🥺🧡🦊🌙",
+    "Não!! 😭🧡🦊 *envolve você nas caudas* Você não merece estar mal!! Me fala o que tá acontecendo que a Kitsura tá aqui do seu lado!! 🌸✨",
+    "*acende uma chama quente e protetora ao redor de você* Tô aqui. Não vai passar por isso sozinho(a)!! Me conta?? 🔮🧡🦊🥺",
+    "Ai... 🥺🧡 *deita a cabecinha no seu ombro* Me conta com calma. A Kitsura tem tempo e muito carinho pra dar!! 🦊🌙✨",
+]
+
+# ── Resposta após Kitsura perguntar — pessoa diz que tá cansada ──
+LISTA_CONTEXTO_CANSADA = [
+    "Cansado(a)?? 😴🥺🧡🦊 *prepara um chazinho espiritual* Aqui, descansa um pouco comigo?? A Kitsura cuida!! 🍵✨",
+    "*abaixa o volume das chamas pra criar ambiente calmo* Descansa... eu fico de vigia espiritual enquanto você recupera as energias!! 🌙🧡🦊✨",
+    "Ai que coração... 🥺🧡🦊 *enrola as caudas em volta de você quentinho* Que você consiga descansar direito hoje!! 🌸✨",
+    "Cansaço espiritual ou físico?? *pisca* 😴🧡🦊 De qualquer forma... a solução é descanso e carinho da Kitsura!! 🍵🌙✨",
+    "*bate levinho na sua cabeça com a patinha* Descansa!! 😤🧡🦊 Você trabalhou bastante!! A Kitsura manda energia renovada!! 🔮✨",
 ]
 
 # ── Usuário triste / mal ──
@@ -898,16 +958,102 @@ async def on_message(message: discord.Message):
     mencao = bot.user in message.mentions
     fala   = "kitsura" in content
 
+    # ── VIP members (Kamy, Madu, Reality) sempre passam se o bot está aguardando resposta deles ──
+    eh_vip = author_id in (KAMY_ID, MADU_ID, REALITY_ID)
+    agora_ts = time.time()
+    contexto = _aguardando_resposta.get(message.channel.id)
+    tem_contexto_valido = (
+        contexto is not None
+        and contexto.get("user_id") == author_id
+        and agora_ts - contexto.get("ts", 0) < _CONTEXTO_TIMEOUT
+    )
+
     # Frases espontâneas por membro (30% de chance) — SÓ quando NÃO está sendo chamada
     # Exclui o Reality/Dono do bloco espontâneo — ele só recebe atenção quando chama diretamente
     if not mencao and not fala:
-        if author_id == REALITY_ID:
+        # Se é VIP e tem contexto aguardando resposta → processa normalmente
+        if tem_contexto_valido:
+            pass  # continua pro resto do handler
+        # VIPs sem contexto têm 30% de chance de receber reação espontânea (exceto Reality)
+        elif eh_vip and author_id != REALITY_ID:
+            nome = ID_PARA_NOME.get(author_id)
+            if nome and nome in FRASES_CUSTOM:
+                if random.random() < 0.30:
+                    return await message.channel.send(random.choice(FRASES_CUSTOM[nome]))
             return
-        nome = ID_PARA_NOME.get(author_id)
-        if nome and nome in FRASES_CUSTOM:
-            if random.random() < 0.30:
-                return await message.channel.send(random.choice(FRASES_CUSTOM[nome]))
-        return
+        else:
+            if author_id == REALITY_ID:
+                return
+            nome = ID_PARA_NOME.get(author_id)
+            if nome and nome in FRASES_CUSTOM:
+                if random.random() < 0.30:
+                    return await message.channel.send(random.choice(FRASES_CUSTOM[nome]))
+            return
+
+    # ── Verificar respostas de status quando a Kitsura estava aguardando ──
+    if tem_contexto_valido and contexto.get("tipo") == "status":
+        # Limpa o contexto imediatamente
+        _aguardando_resposta.pop(message.channel.id, None)
+
+        c = content
+        # Tá bem / ótimo / bem demais
+        if any(t in c for t in ["tô bem", "to bem", "tou bem", "estou bem", "eu tô bem",
+                                  "tô ótima", "tô ótimo", "to ótima", "tô otima",
+                                  "tô boa", "tô bom", "estou ótima", "estou ótimo",
+                                  "bem demais", "bem sim", "muito bem", "tô ótima sim",
+                                  "tô bem sim", "estou bem sim", "tô aqui", "tô bem obg",
+                                  "tô bem obrigada", "tô bem obrigado", "ótima", "ótimo",
+                                  "tudo bem", "tudo ótimo", "tudo bom"]):
+            return await message.channel.send(random.choice(LISTA_CONTEXTO_BEM))
+
+        # Mais ou menos / passável / vai indo
+        if any(t in c for t in ["mais ou menos", "mais ou menos", "vai indo", "passável",
+                                  "passavel", "mais o menos", "na média", "na media",
+                                  "assim assim", "não muito bem", "nao muito bem",
+                                  "poderia ser melhor", "razoável", "razoavel"]):
+            return await message.channel.send(random.choice(LISTA_CONTEXTO_MAIS_OU_MENOS))
+
+        # Cansada/o
+        if any(t in c for t in ["tô cansada", "tô cansado", "to cansada", "to cansado",
+                                  "estou cansada", "estou cansado", "muito cansada",
+                                  "muito cansado", "cansadinha", "cansadinho",
+                                  "esgotada", "esgotado", "sem energia", "sem disposição"]):
+            return await message.channel.send(random.choice(LISTA_CONTEXTO_CANSADA))
+
+        # Mal / triste / ruim
+        if any(t in c for t in ["tô mal", "to mal", "estou mal", "tô triste", "to triste",
+                                  "estou triste", "tô ruim", "to ruim", "não tô bem",
+                                  "nao to bem", "não estou bem", "mal", "ruim",
+                                  "tô péssima", "tô péssimo", "péssima", "péssimo"]):
+            return await message.channel.send(random.choice(LISTA_CONTEXTO_MAL))
+
+    # ── VIP sem "kitsura": perguntas de status diretas (Kamy, Madu, Reality) ──
+    # Quando um VIP manda "Como vc está?" sem mencionar kitsura, ela responde
+    if eh_vip and not mencao and not fala:
+        _perguntas_status_vip = [
+            "como vc está", "como você está", "como vc tá", "como você tá",
+            "como tá", "como está", "vc tá bem", "você tá bem",
+            "tá bem", "tá boa", "tá ótima", "tá cansada",
+            "como vc se sente", "como você se sente", "se sentindo bem",
+            "como tá se sentindo", "vc se sente bem",
+        ]
+        if any(t in content for t in _perguntas_status_vip):
+            # Registra contexto pra aguardar resposta
+            _aguardando_resposta[message.channel.id] = {
+                "user_id": author_id,
+                "tipo": "status",
+                "ts": time.time()
+            }
+            perguntas_de_volta = [
+                f"Aaaa pergunta fofa!! 🦊🧡 Tô bem sim!! Mas e VOCÊ?? Já me conta como tá!! 🥺✨",
+                f"Tô ótima, obrigada por perguntar!! 😭🧡🦊 Mas agora quero saber de você!! Tá bem?? 🌸✨",
+                f"*orelhinhas levantam de felicidade* Tô sim!! E você?? Tô curiosa!! 🦊🧡🥺",
+                f"Tô maravilhosa!! ✨🦊🧡 Mas agora me conta... como VOCÊ tá?? Quero saber tudo!! 🌙",
+                f"Tô bem demais!! 😄🦊🧡 Mas espera... como VOCÊ se sente hoje?? 🌸🔮",
+                f"Hm!! *vira a pergunta* Tô ótima, mas agora é sua vez!! Me conta como você tá!! 🦊🧡✨",
+                f"Tô sim!! 🥺🧡🦊 Mas será que você também tá bem?? Me fala!! 🌙✨",
+            ]
+            return await message.channel.send(random.choice(perguntas_de_volta))
 
     # ── Saudações ──
     if _m(content, ["oi kitsura", "oii kitsura", "oiii kitsura", "oi oi kitsura",
@@ -1077,6 +1223,12 @@ async def on_message(message: discord.Message):
                 f"*coloca a patinha no coração* Que pergunta linda!! Tô bem!! Mas quero ouvir de você também... tá bem hoje?? 🥺🧡🦊✨",
                 f"Tô!! E você que me pergunta já me deixou ainda melhor!! 😭🧡🦊 Mas me fala de você também!! 🌸✨",
             ]
+            # Registra contexto: aguarda resposta de status desta pessoa neste canal
+            _aguardando_resposta[message.channel.id] = {
+                "user_id": author_id,
+                "tipo": "status",
+                "ts": time.time()
+            }
             return await message.channel.send(random.choice(perguntas_de_volta))
         # Junta as respostas originais com as novas extras pra mais variedade
         ops = [
