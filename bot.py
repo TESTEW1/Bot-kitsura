@@ -56,6 +56,8 @@ _KAMY_COOLDOWN    = 600
 _MADU_COOLDOWN    = 600
 _REALITY_COOLDOWN = 600
 _MALIK_COOLDOWN   = 600
+_CUSTOM_COOLDOWN  = 600
+_frases_custom_cooldown = {}   # { user_id: timestamp } — cooldown genérico pros demais membros com ID
 _groq_historico = {}
 
 # ── Sistema de história ──
@@ -1190,24 +1192,7 @@ async def on_message(message: discord.Message):
         # Se é VIP e tem contexto aguardando resposta → processa normalmente
         if tem_contexto_valido:
             pass  # continua pro resto do handler
-        # VIPs sem contexto têm 30% de chance de receber reação espontânea (exceto Reality)
-        elif eh_vip and author_id != REALITY_ID:
-            nome = ID_PARA_NOME.get(author_id)
-            if nome and nome in FRASES_CUSTOM:
-                if random.random() < 0.30:
-                    frase = random.choice(FRASES_CUSTOM[nome])
-                    frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get(nome, ""))
-                    return await message.channel.send(frase)
-            return
         else:
-            if author_id == REALITY_ID:
-                return
-            nome = ID_PARA_NOME.get(author_id)
-            if nome and nome in FRASES_CUSTOM:
-                if random.random() < 0.30:
-                    frase = random.choice(FRASES_CUSTOM[nome])
-                    frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get(nome, ""))
-                    return await message.channel.send(frase)
             return
 
     # ── Verificar respostas de status quando a Kitsura estava aguardando ──
@@ -1829,6 +1814,18 @@ async def on_message(message: discord.Message):
         if agora - _malik_ultimo_personalizado >= _MALIK_COOLDOWN:
             _malik_ultimo_personalizado = agora
             return await message.channel.send(random.choice(FRASES_MALIK))
+
+    # ── DEMAIS MEMBROS COM ID (lider, vice, adm1-3, membro1-5): reação personalizada (cooldown de 10 min) ──
+    if (mencao or fala) and "?" not in content:
+        nome_key = ID_PARA_NOME.get(author_id)
+        _vips_com_bloco_proprio = {KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID}
+        if nome_key and nome_key in FRASES_CUSTOM and author_id not in _vips_com_bloco_proprio:
+            agora = time.time()
+            if agora - _frases_custom_cooldown.get(author_id, 0) >= _CUSTOM_COOLDOWN:
+                _frases_custom_cooldown[author_id] = agora
+                frase = random.choice(FRASES_CUSTOM[nome_key])
+                frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get(nome_key, ""))
+                return await message.channel.send(frase)
 
     # ── Você gosta de laranja? ──
     if _m(content, ["você gosta de laranja", "vc gosta de laranja", "kitsura gosta de laranja",
