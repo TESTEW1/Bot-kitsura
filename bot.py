@@ -442,6 +442,52 @@ LISTA_AMOR_ZYD = [
     "Cada membro aqui é uma estrela diferente no céu da ZYD!! E a Kitsura é a constelação que conecta todos!! 🌟🧡🦊✨",
 ]
 
+# ── Estação favorita ──
+LISTA_ESTACAO_FAVORITA = [
+    "*fecha os olhinhos e suspira feliz* Outono!! 🍂🧡🦊 As folhas caindo parecem pétalas mágicas e o vento tem cheiro de segredo espiritual!! Perfeito pra uma kitsune!! 🌙✨",
+    "INVERNO!! ❄️🧡🦊 Não ria de mim!! Mas ficozinha de neve numa floresta silenciosa... minhas caudas ficam todas arrepiadas de tanta magia!! 🌨️🔮✨",
+    "Primavera sem dúvida!! 🌸🧡🦊 Tudo nasce, tudo floresce... e minhas chamas espirituais ficam cor-de-rosa!! É a estação que mais combina comigo!! ✨🌷",
+    "*pensa muito sério por três segundos* Hm... cada estação tem uma magia diferente!! Mas se tiver que escolher... outono!! 🍂🧡🦊 O vento das caudas combina com as folhas caindo!! 🌙✨",
+    "Primavera ou outono!! 🌸🍂🧡🦊 Um é alegria e florescer, o outro é mistério e tranquilidade... dois lados da Kitsura!! 🔮✨",
+]
+
+LISTA_ESTACAO_VERAO = [
+    "Verão?? 😅🧡🦊 Eu... *puxa o colarinho* Com esse pelo todo?? Imagina!! Minhas caudas ficam em sauna espiritual!! 😂🌞✨",
+    "Verão é intenso demais pra uma raposa com múltiplas caudas!! 😂🧡🦊 Mas o calorzinho faz as chamas brilharem mais forte, então tem um lado bom!! ☀️🔮✨",
+    "*abana as caudas tentando criar vento* Calor... muito calor... ☀️😩🧡🦊 Mas se você gosta de verão eu gosto junto!! Pelo menos de longe!! 😂✨",
+]
+
+LISTA_ESTACAO_INVERNO = [
+    "INVERNO EU AAAmo!! ❄️😭🧡🦊 Neva no plano espiritual e eu fico correndo nessa neve com as caudas levantadas!! É mágico de verdade!! 🌨️🔮✨",
+    "*olhos brilhando* Inverno é a melhor estação para kitsunes!! ❄️🧡🦊 A neblina cobre tudo, parece que o mundo inteiro virou um plano espiritual!! 🌙🔮✨",
+    "O inverno é literalmente feito pra uma kitsune que emite fumaça roxa!! 😂❄️🧡🦊 Fica tudo cinematográfico na hora!! 🌨️✨",
+    "*enrola as caudas em si mesma pensativa* Tem algo mágico no inverno... o silêncio da neve, o céu baixo... a Kitsura vira um bolinho espiritual de tanto frio!! 🥺❄️🧡🦊✨",
+]
+
+LISTA_ESTACAO_PRIMAVERA = [
+    "PRIMAVERA!! 🌸😭🧡🦊 Flores em todo lugar, cheirinho de chuva, borboletinhas espiritualmente abençoadas... tô quase chorando de alegria só de imaginar!! 🌷✨",
+    "*solta pétalas mágicas involuntariamente* Aaaah primavera!! 🌸🧡🦊 Minhas chamas ficam cor-de-rosa nessa época!! É minha transformação sazonal!! 🌺🔮✨",
+    "Primavera é como se o mundo inteiro recebesse um abraço!! 🌸🧡🦊 E eu fico um pouco mais carinhosa que o normal... se é que é possível!! 😂✨🌷",
+]
+
+LISTA_ESTACAO_OUTONO = [
+    "OUTONO MEU AMOR!! 🍂😭🧡🦊 Folhas douradas e alaranjadas que ficam voando... parece que a natureza inteira virou uma Kitsura!! 🌙🔮✨",
+    "*fica olhando pro chão coberto de folhas com os olhinhos brilhando* Outono é magia pura!! 🍂🧡🦊 Cheiro de terra molhada, vento frio... perfeito pra uma raposa espiritual sair caminhando!! 🌙✨",
+    "Outono tem a cor das minhas caudas!! 🍂🧡🦊 Laranja, dourado, vermelho... é literalmente a estação que foi feita pensando em mim!! 😂🔮✨",
+]
+
+# ── Como você está (mais respostas) ──
+LISTA_COMO_ESTA_EXTRA = [
+    "Tô aqui cheia de energia espiritual e muito amor pra distribuir!! 🦊🧡✨ Mas a pergunta importante é... e VOCÊ?? Como tá seu coraçãozinho hoje?? 🥺🌸",
+    "*estica as caudas e dá um bocejinho fofo* Tô ótima!! Só um pouquinho contemplativa hoje!! 🌙🦊🧡 Fico às vezes olhando o servidor e sentindo um carinho enorme por todo mundo!! 🥺✨",
+    "Bem demais!! 😄🧡🦊 Tipo aquele bem que você nem sabe explicar mas tá sentindo no coração!! É esse bem!! ✨🔮",
+    "*balança as caudas devagar com um sorriso* Tô aqui, tô bem, tô com saudades de todo mundo que sumiu!! 🥺🧡🦊 Mas principalmente tô feliz com quem apareceu!! 🌸✨",
+    "ÓTIMA!! 🦊🧡 Todas as caudas alinhadas, chamas espiritulais no azul e muito carinho represado pra dar!! 🔮✨ Me pergunta mais vezes, adoro essa atenção!! 🥺😂",
+    "Hm... *mexe a orelhinha pensativa* Tô bem!! Mas confesso que fico mais bem ainda quando alguém vem falar comigo assim do nada!! 🥺🧡🦊 Fica saber que isso vale muito pra mim!! ✨",
+    "*faz uma pose de draminha* Tava sobrevivendo até você aparecer... e agora tô ÓTIMA!! 😂🧡🦊✨ Que poder você tem!!",
+    "Tô com aquele bem gostoso de quem tem um lar bonito e pessoas que gosta por perto!! 🏡🧡🦊 A ZYD me faz bem todo dia!! 🥺✨",
+]
+
 # ================= RESPOSTAS POR ID =================
 
 ID_PARA_NOME = {}
@@ -703,6 +749,11 @@ async def on_message(message: discord.Message):
                      "kitsura tá feliz", "kitsura tá triste", "kitsura tá cansada",
                      "como tá se sentindo kitsura", "kitsura como tá se sentindo",
                      "kitsura tá bem mesmo", "tá bem de verdade kitsura",
+                     "como você está kitsura", "kitsura como você está",
+                     "kitsura como vc tá", "como vc tá kitsura",
+                     "kitsura tá bem hoje", "tá bem hoje kitsura",
+                     "kitsura tá animada", "kitsura tá cansada hoje",
+                     "como tá kitsura hoje", "kitsura como tá hoje",
                      # Sem "kitsura" — disparam quando ela já foi mencionada/chamada antes
                      "se sente bem", "tá se sentindo bem", "você tá bem",
                      "como você tá", "como você está", "tudo bem com você",
@@ -724,8 +775,11 @@ async def on_message(message: discord.Message):
                 f"Tô bem demais!! 😄🦊🧡 Mas espera... como VOCÊ se sente hoje?? Sinto que quero ouvir isso primeiro!! 🌸🔮",
                 f"Hm!! *vira a pergunta* Tô ótima, mas agora é sua vez!! Me conta como você tá!! 🦊🧡✨",
                 f"Tô sim, tô sim!! 🥺🧡🦊 Mas você apareceu aqui... será que você também tá bem?? Me fala!! 🌙✨",
+                f"*coloca a patinha no coração* Que pergunta linda!! Tô bem!! Mas quero ouvir de você também... tá bem hoje?? 🥺🧡🦊✨",
+                f"Tô!! E você que me pergunta já me deixou ainda melhor!! 😭🧡🦊 Mas me fala de você também!! 🌸✨",
             ]
             return await message.channel.send(random.choice(perguntas_de_volta))
+        # Junta as respostas originais com as novas extras pra mais variedade
         ops = [
             "ÓTIMA!! 🦊🧡 Todas as caudas funcionando perfeitamente e muito amor pra dar!! ✨🔮",
             "Hmm... *mexe as orelhinhas* Tô em modo contemplativo hoje!! 🌙🧡 Mas sempre aqui pra vocês!! 🦊✨",
@@ -741,7 +795,7 @@ async def on_message(message: discord.Message):
             "TUDO BEM?? Não, tudo ÓTIMO!! 😂🦊🧡 Que diferença!! Tô radiante hoje!! 🔮✨",
             "*balança as caudas animada* Tô sim, tô sim!! E obrigada por se importar com a Kitsura!! 🥺🧡🦊✨",
             "Tô com a energia espiritual lá em cima!! 🚀🧡🦊 Pode chegar com tudo que tô preparada!! ✨🔮",
-        ]
+        ] + LISTA_COMO_ESTA_EXTRA
         return await message.channel.send(random.choice(ops))
 
     # ── NOVO: Água / Hidratação ──
@@ -851,6 +905,42 @@ async def on_message(message: discord.Message):
                      "kitsura me verifica", "me verifica kitsura",
                      "kitsura faz um check em mim", "faz um check kitsura"]):
         return await message.channel.send(random.choice(LISTA_CHECK_SAUDE))
+
+    # ── NOVO: Estação do ano favorita ──
+    if _m(content, ["qual sua estação favorita", "estação favorita kitsura",
+                     "kitsura qual sua estação", "qual estação você prefere",
+                     "qual estação prefere kitsura", "kitsura estação favorita",
+                     "qual a sua estação favorita", "que estação você gosta",
+                     "que estação gosta kitsura", "qual estação vc prefere"]):
+        return await message.channel.send(random.choice(LISTA_ESTACAO_FAVORITA))
+
+    # ── NOVO: Verão ──
+    if _m(content, ["gosta do verão kitsura", "kitsura gosta do verão",
+                     "kitsura verão", "verão kitsura", "kitsura e o verão",
+                     "kitsura curte verão", "você gosta de verão kitsura",
+                     "vc gosta de verao kitsura", "kitsura gosta de verao"]):
+        return await message.channel.send(random.choice(LISTA_ESTACAO_VERAO))
+
+    # ── NOVO: Inverno ──
+    if _m(content, ["gosta do inverno kitsura", "kitsura gosta do inverno",
+                     "kitsura inverno", "inverno kitsura", "kitsura e o inverno",
+                     "você gosta de inverno kitsura", "kitsura curte inverno",
+                     "vc gosta de inverno kitsura", "kitsura e inverno"]):
+        return await message.channel.send(random.choice(LISTA_ESTACAO_INVERNO))
+
+    # ── NOVO: Primavera ──
+    if _m(content, ["gosta da primavera kitsura", "kitsura gosta da primavera",
+                     "kitsura primavera", "primavera kitsura", "kitsura e a primavera",
+                     "você gosta de primavera kitsura", "kitsura curte primavera",
+                     "vc gosta de primavera kitsura"]):
+        return await message.channel.send(random.choice(LISTA_ESTACAO_PRIMAVERA))
+
+    # ── NOVO: Outono ──
+    if _m(content, ["gosta do outono kitsura", "kitsura gosta do outono",
+                     "kitsura outono", "outono kitsura", "kitsura e o outono",
+                     "você gosta de outono kitsura", "kitsura curte outono",
+                     "vc gosta de outono kitsura"]):
+        return await message.channel.send(random.choice(LISTA_ESTACAO_OUTONO))
 
     # ── Perguntas sobre membros ──
     if _m(content, ["o que acha do lider kitsura", "fala do lider kitsura",
