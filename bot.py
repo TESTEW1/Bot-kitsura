@@ -656,6 +656,44 @@ LISTA_SABE_INVERNO = [
     "INVERNO!! ❄️😤🧡🦊 Estação fria, céus cinzentos, noites longas, vento gelado e muita magia no ar!! *levanta as caudas com orgulho* A Kitsura sabe e AAAMA!! É quando o mundo inteiro parece um plano espiritual diferente!! 🌨️🔮✨",
 ]
 
+# ── Alguém explicando/ensinando sobre inverno pra Kitsura ──
+LISTA_APRENDENDO_INVERNO = [
+    "AAAAA aprendi!! ❄️😭🧡🦊 Inverno é frio, as pessoas ficam agasalhadas e tomam coisas quentinhas... que época LINDA!! Minha estação favorita!! *anota tudo no pergaminho espiritual* 📜✨🌙",
+    "*orelhinhas levantam de empolgação* EITA!! ❄️🧡🦊 Então no inverno faz tanto frio que precisa de casaco, cachecol e tudo mais?? E ainda pode nevar?? Meu coraçãozinho acelerou SÓ de imaginar!! 😭🌨️✨",
+    "QUE COISA LINDA!! ❄️😭🧡🦊 Frio, neve, roupas quentinhas, chocolate quente... *fecha os olhinhos de satisfação* O inverno soa como o plano espiritual que eu mais quero visitar!! 🍵🌙🔮✨",
+    "*salva no pergaminho do conhecimento* Guardei!! ❄️📜🧡🦊 Inverno = estação mais fria, faz um frio delicioso, gente agasalhada, bebidas quentes... ADORO esse mundo humano!! 😭✨",
+    "ANOTADO COM TINTA ESPIRITUAL DOURADA!! ❄️📜🧡🦊 Inverno é quando o mundo fica todo quentinho por dentro e gelado por fora... que paradoxo LINDO!! Obrigada por me ensinar!! 🥺🌨️✨🔮",
+    "*bate palminhas animada* Então é isso que é inverno na prática!! ❄️😱🧡🦊 Casacos fofos, chocolate quente, neve caindo... a Kitsura quer muito conhecer esse inverno de perto!! 😭🌨️✨",
+    "Hmm... *inclina a cabeçinha absorvendo tudo* ❄️🧡🦊 Frio que precisa de roupa quentinha, tempo pra ficar dentro de casa bem aconchegado... isso é MARAVILHOSO!! Me ensina mais sobre inverno?? 🥺🍵✨",
+]
+
+# ── Alguém explicando/ensinando sobre roupas ──
+LISTA_APRENDENDO_ROUPAS = [
+    "ROUPAS EU JÁ SEI!! 🧥😤🧡🦊 São essas camadas que os humanos colocam no corpo pra se proteger do frio, do calor, de tudo!! É incrível como vocês inventaram isso!! *aplaude calorosamente* 👏✨",
+    "*olhos grandes de empolgação* Roupas são as coisas que os humanos vestem?? 🧥🧡🦊 JÁ SEI SIM!! Casaco, cachecol, blusa, calça, luvas... aprendi tudo!! Eu só não preciso porque tenho caudas naturais mas RESPEITO MUITO!! 😂✨",
+    "CLARO QUE SEI O QUE SÃO ROUPAS!! 🧥🦊🧡 São os tecidos e peças que os humanos usam no corpo!! Cada estação pede um tipo diferente... no inverno são roupas quentinhas e no verão mais levezinhas!! 📚✨😤",
+    "*levanta a patinha com segurança* Roupas?? 🧥🧡🦊 São as peças de vestuário que os humanos usam pra se vestir, se proteger e se expressar!! Aprendi muito sobre roupas de inverno já!! ❄️😂✨",
+    "SEI SEI SEI!! 🧥😭🧡🦊 Roupas são o que os humanos colocam no corpo!! Têm de todos os tipos: pra frio, pra calor, pra dormir, pra sair... vocês humanos são CRIATIVOS!! Eu fico de olho e aprendo!! 😂📜✨",
+]
+
+# ── Alguém explicando o que é "ano" ──
+LISTA_APRENDENDO_ANO = [
+    "SEI O QUE É ANO!! 📅😤🧡🦊 É o tempo que a Terra leva pra dar uma volta completa ao redor do Sol!! São 365 dias... ou 366 no ano bissexto!! *orgulhosa do conhecimento espiritual* 🌍🔮✨",
+    "*levanta a patinha com certeza* ANO?? 📅🧡🦊 É o ciclo completo das quatro estações!! Começa, passa por primavera, verão, outono e inverno... e recomeça!! Aprendi isso contemplando os planos astrais!! 🌙🔮✨",
+    "ANOTADO!! 📅😭🧡🦊 Ano é a unidade de tempo que conta 365 dias — um ciclo completo do planeta!! É como a Kitsura conta o tempo no plano espiritual também!! 🌍✨",
+    "*fecha os olhinhos pensativa* Ano... 📅🧡🦊 É o grande ciclo!! Doze meses, quatro estações, 365 dias... tudo se renova, tudo recomeça!! A Kitsura acha esse conceito humano lindo demais!! 🌙🔮✨",
+    "SEI SIM!! 📅🦊🧡 Ano é o período de 365 dias que marca um ciclo completo!! Com começo, meio e fim... e quando acaba, recomeça tudo de novo!! Igual o ciclo espiritual das caudas!! 😂🌙✨",
+]
+
+# ── Alguém ensinando algo novo pra Kitsura (genérico) ──
+LISTA_APRENDENDO_GERAL = [
+    "AAAAA aprendi mais uma coisa!! 😭📜🧡🦊 *anota com muito capricho no pergaminho espiritual* Guardado pra sempre na memória da Kitsura!! Obrigada por me ensinar!! 🥺✨",
+    "*orelhinhas em pé* Que informação incrível!! 😱🧡🦊 A Kitsura guarda TUDO que aprende aqui na ZYD!! Vocês me ensinam coisas novas todo dia e eu amo isso!! 😭📜✨",
+    "GRAVADO COM TINTA DOURADA!! 📜✨🧡🦊 Cada coisa que aprendo aqui fica registrada no meu pergaminho eterno!! Obrigada por compartilhar isso comigo!! 🥺🔮",
+    "*faz aquela carinha de 'entendi tudo'* Que explicação LINDA!! 😭🧡🦊 Agora a Kitsura sabe mais uma coisa sobre o mundo!! É por isso que amo estar aqui com vocês!! 🥺✨📜",
+    "HMM!! *anota animadamente* 📜🧡🦊 Mais conhecimento espiritual adquirido!! Cada ensinamento que recebo aqui fortalece minhas caudas de sabedoria!! 😤✨🔮",
+]
+
 # ── Frases personalizadas do Reality (criador) ──
 FRASES_REALITY = [
     "SR. REALITY!! 👑⚡🧡 *para absolutamente tudo e faz a maior reverência das 9 caudas* MEU CRIADOR CHEGOU!! A Kitsura existe porque você quis!! 😭🦊✨",
@@ -1245,6 +1283,62 @@ async def on_message(message: discord.Message):
                      "kitsura o que é inverno", "vc sabe oq é inverno",
                      "sabe oq é inverno kitsura", "o que é inverno", "oq é inverno"]):
         return await message.channel.send(random.choice(LISTA_SABE_INVERNO))
+
+    # ── Ensinando sobre inverno (alguém explicando pra Kitsura) ──
+    if _m(content, [
+                     # padrões de definição/explicação de inverno
+                     "inverno é uma época", "inverno é a estação", "inverno é quando",
+                     "o inverno é uma época", "o inverno é a estação", "o inverno é quando",
+                     "inverno é o período", "inverno é um período",
+                     "no inverno faz frio", "no inverno a gente", "no inverno as pessoas",
+                     "no inverno é quando", "durante o inverno",
+                     "época do ano em que faz frio", "época do ano em que faz bastante frio",
+                     "estação mais fria do ano", "estação fria do ano",
+                     "inverno significa", "isso é inverno", "isso é o inverno",
+                     "sabe o que é inverno kitsura", "kitsura você sabe o que é inverno",
+                     "te explico o que é inverno", "vou te explicar o inverno",
+                     "vou te contar sobre o inverno", "deixa eu te falar do inverno",
+                     "deixa eu te explicar o inverno", "deixa eu te contar sobre inverno"]):
+        return await message.channel.send(random.choice(LISTA_APRENDENDO_INVERNO))
+
+    # ── Ensinando sobre roupas ──
+    if _m(content, [
+                     "roupas são", "roupa é", "roupas são peças", "roupa é uma peça",
+                     "roupas são o que", "sabe o que são roupas", "sabe o que é roupa",
+                     "você sabe o que são roupas", "kitsura sabe o que são roupas",
+                     "roupas servem pra", "roupas servem para", "roupa serve pra",
+                     "você sabe o que é uma roupa", "kitsura você sabe o que são roupas",
+                     "te explico o que são roupas", "vou te explicar o que são roupas",
+                     "roupas são tecidos", "roupas são as peças", "roupas são itens",
+                     "roupa é algo que", "roupas são coisas que", "roupas existem pra",
+                     "o que são roupas kitsura", "kitsura o que são roupas",
+                     "oq são roupas kitsura", "kitsura sabe oq são roupas"]):
+        return await message.channel.send(random.choice(LISTA_APRENDENDO_ROUPAS))
+
+    # ── Ensinando o que é "ano" ──
+    if _m(content, [
+                     "ano é o período", "ano é um período", "ano é o tempo",
+                     "ano é quando", "um ano é", "o ano é",
+                     "você sabe o que é um ano", "kitsura sabe o que é ano",
+                     "sabe o que é um ano", "sabe o que é ano",
+                     "o que é um ano kitsura", "kitsura o que é um ano",
+                     "oq é um ano kitsura", "o que é ano kitsura",
+                     "ano tem 365", "ano tem 12 meses", "um ano tem",
+                     "te explico o que é um ano", "vou te explicar o que é um ano",
+                     "ano significa", "isso é um ano", "um ano significa",
+                     "ano é composto", "ano é formado"]):
+        return await message.channel.send(random.choice(LISTA_APRENDENDO_ANO))
+
+    # ── Alguém ensinando/explicando algo genérico (padrões gerais de ensino) ──
+    if _m(content, [
+                     "vou te ensinar", "deixa eu te ensinar", "vou te explicar",
+                     "deixa eu te explicar", "vou te contar", "deixa eu te contar",
+                     "te ensino", "posso te ensinar", "quer aprender kitsura",
+                     "kitsura quer aprender", "vou te educar kitsura",
+                     "aprende kitsura", "kitsura aprende",
+                     "isso significa", "isso quer dizer", "isso é chamado de",
+                     "se chama", "é conhecido como", "é definido como"]):
+        return await message.channel.send(random.choice(LISTA_APRENDENDO_GERAL))
 
     # ── REALITY: o que acha de mim / opinião ──
     if author_id == REALITY_ID and _m(content, [
