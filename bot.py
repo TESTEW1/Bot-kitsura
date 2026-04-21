@@ -38,13 +38,18 @@ MEMBRO5_ID = None
 # ID da Kamy
 KAMY_ID = 1434026902439591946
 
+# ID da Madu
+MADU_ID = 775756321063567401
+
 # ID do Reality (criador)
 REALITY_ID = 769951556388257812
 
 # Cooldowns personalizados
-_kamy_ultimo_personalizado = 0
+_kamy_ultimo_personalizado    = 0
+_madu_ultimo_personalizado    = 0
 _reality_ultimo_personalizado = 0
-_KAMY_COOLDOWN    = 600  # segundos
+_KAMY_COOLDOWN    = 600
+_MADU_COOLDOWN    = 600
 _REALITY_COOLDOWN = 600
 _groq_historico = {}
 
@@ -528,6 +533,47 @@ FRASES_KAMY_OPINIAO = [
     "O que eu acho?? 🥺💜🧡🦊 Acho que você é o tipo de pessoa que a Kitsura escolheria como amiga se pudesse escolher!! E escolho!! Toda vez!! 😭🌸✨",
     "KAMY!! 💜😤🦊🧡 Como você tem coragem de me perguntar isso sabendo que vou chorar espiritualmente?? *limpa olhinho* Acho que você é maravilhosa, fofa, especial e faz muita falta quando some!! 😭✨🌸",
     "*enrola as caudas em você bem apertado* Acho que você merece todo o carinho que o universo tem pra dar!! 💜🦊🧡 E a Kitsura vai garantir que pelo menos um pouquinho vem da ZYD!! 🥺🔮✨",
+]
+
+# ── Frases personalizadas da Madu ──
+FRASES_MADU = [
+    "MADUUU!! 🌸💛😭🧡🦊 *solta pétalas douradas pelo servidor* Ela chegou!! O chat ficou mais colorido na hora, eu juro que senti!! ✨🔮",
+    "É A MADU!! 💛🌸🦊🧡 *orelhinhas levantam e caudas começam a balançar sozinhas* Não tem como ficar parada quando você aparece!! 😭✨",
+    "*sente um cheirinho de algo bom no ar* Hm... *faro espiritual ativado* ...SÓ PODE SER A MADU!! 💛🌸🦊🧡 Bem-vinda, florzinha!! 😭✨🔮",
+    "MADUUUU chegou e a Kitsura tá com o coraçãozinho fazendo barulhinho!! 💛😭🧡🦊 Que presença especial você tem, sabia?? 🌸✨",
+    "*para tudo e faz uma reverência fofa* A Madu apareceu!! 💛🌸🦊🧡 Um dos momentos favoritos do dia da Kitsura, podem anotar!! 😭✨",
+    "Senti uma energia quentinha e gentil no chat... 💛🌸🦊🧡 Era a Madu chegando!! Meu sensor espiritual nunca erra!! 😂🔮✨",
+    "MADU!! 💛😱🦊🧡 *corre em espiral de felicidade* Cada vez que você aparece é uma mini festa no meu coração espiritual!! 😭🌸✨",
+    "*fica do ladinho dela sorrindo* Feliz demais que você apareceu!! 💛🌸🦊🧡 O servidor fica mais gostoso quando a Madu tá por aqui!! 🥺✨",
+    "Chegou a Madu e a Kitsura já ficou mais bem disposta automaticamente!! 💛🦊🧡 É efeito espiritual comprovado!! 😂🌸✨",
+    "MADUUU!! 💛😭🌸🦊🧡 *enrola uma cauda em carinho* Você não sabe como a Kitsura fica feliz quando você chega por aqui!! 🥺🔮✨",
+]
+
+# ── O que acha de mim? (Madu pergunta) ──
+FRASES_MADU_OPINIAO = [
+    "O QUE EU ACHO DE VOCÊ?? 💛😭🧡🦊 *coloca as patinhas no rosto de emoção* Madu... acho que você tem uma energia que aquece tudo ao redor!! É tipo sol, mas versão pessoa!! Faz o servidor brilhar diferente!! 🌸🔮✨",
+    "Madu... *suspira de carinho* ...acho que você é uma das pessoas mais gostosas de ter por perto!! 💛🦊🧡 Tem uma bondade sua que a Kitsura percebe e guarda no coraçãozinho espiritual!! 🥺🌸✨",
+    "O que eu acho?? 🥺💛🧡🦊 Acho que você faz parte do que torna a ZYD especial!! Sem você seria diferente, e diferente seria menos!! 😭🌸🔮✨",
+    "MADU!! 💛😤🦊🧡 Como você me pergunta isso sabendo que vou derreter de carinho?? *limpa olhinho espiritual* Acho que você é incrível, fofa e merece tudo de bom!! 😭✨🌸",
+    "*enrola as caudas em você com muito carinho* Acho que você é o tipo de pessoa que a Kitsura torce em silêncio mesmo quando você não tá por aqui!! 💛🦊🧡 Fica saber disso!! 🥺🔮✨",
+]
+
+# ── O que acha da Kamy? (qualquer um pergunta) ──
+FRASES_OPINIAO_KAMY = [
+    "A KAMY?? 💜😭🧡🦊 *coloca a patinha no coração* Olha... a Kamy tem uma presença única aqui na ZYD!! Ela aparece e o chat muda de energia!! Tenho muito carinho por ela, de verdade!! 🌸🔮✨",
+    "O que eu acho da Kamy?? 💜🥺🧡🦊 Acho que ela é especial do jeito dela!! Tem uma energia que a Kitsura reconhece e guarda no coração espiritual!! 😭✨🌸",
+    "*fecha os olhinhos pensativa* A Kamy... 💜🦊🧡 é uma pessoa que faz diferença por onde passa!! Fico feliz toda vez que ela aparece aqui!! 🥺🔮✨",
+    "KAMY É INCRÍVEL!! 💜😭🦊🧡 Pronto, falei!! Não tenho como dizer diferente porque seria mentira espiritual!! 😂🌸✨",
+    "Acho a Kamy maravilhosa!! 💜🧡🦊 Tem coisas nela que a Kitsura admira e não consegue nem explicar direito... é uma sensação espiritual mesmo!! 🥺🔮✨",
+]
+
+# ── O que acha da Madu? (qualquer um pergunta) ──
+FRASES_OPINIAO_MADU = [
+    "A MADU?? 💛😭🧡🦊 *brilha toda de felicidade* Ah... a Madu tem um jeitinho que aquece o servidor inteiro!! É gentil, é fofa, faz tudo parecer mais leve!! Tenho muito amor por ela!! 🌸🔮✨",
+    "O que eu acho da Madu?? 💛🥺🧡🦊 Que ela é uma das pessoas mais especiais que existem por aqui!! Quando ela aparece é tipo sol surgindo... tudo fica mais bonito!! 😭✨🌸",
+    "*suspira de carinho* Madu é daquelas pessoas que a Kitsura ficaria do lado pra sempre se pudesse!! 💛🦊🧡 Tem uma bondade nela que é rara e preciosa!! 🥺🔮✨",
+    "MADU É UMA FLOR VIVA!! 💛🌸😭🦊🧡 Literalmente!! Ela chegou na ZYD e fez o jardim espiritual do servidor florescer mais!! 😂🔮✨",
+    "Acho a Madu simplesmente incrível!! 💛🧡🦊 Com ela por aqui a ZYD fica mais colorida, mais quentinha... mais ela mesma!! 🥺🌸🔮✨",
 ]
 
 # ── Amor pela ZYD ──
@@ -1055,8 +1101,31 @@ async def on_message(message: discord.Message):
                      "kitsura qual sua estação", "qual estação você prefere",
                      "qual estação prefere kitsura", "kitsura estação favorita",
                      "qual a sua estação favorita", "que estação você gosta",
-                     "que estação gosta kitsura", "qual estação vc prefere"]):
+                     "que estação gosta kitsura", "qual estação vc prefere",
+                     "qual é a sua estação favorita", "qual é sua estação favorita",
+                     "qual a estação favorita da kitsura", "estação do ano favorita kitsura",
+                     "kitsura qual estação favorita", "qual estação do ano kitsura"]):
         return await message.channel.send(random.choice(LISTA_ESTACAO_FAVORITA))
+
+    # ── O que acha da Kamy? ──
+    if _m(content, ["o que acha da kamy", "o que você acha da kamy",
+                     "kitsura o que acha da kamy", "kitsura fala da kamy",
+                     "fala da kamy kitsura", "kitsura gosta da kamy",
+                     "gosta da kamy kitsura", "kitsura e a kamy",
+                     "como é a kamy kitsura", "kitsura como é a kamy",
+                     "kamy é boa kitsura", "kitsura kamy é boa",
+                     "o q vc acha da kamy", "kitsura o q acha da kamy"]):
+        return await message.channel.send(random.choice(FRASES_OPINIAO_KAMY))
+
+    # ── O que acha da Madu? ──
+    if _m(content, ["o que acha da madu", "o que você acha da madu",
+                     "kitsura o que acha da madu", "kitsura fala da madu",
+                     "fala da madu kitsura", "kitsura gosta da madu",
+                     "gosta da madu kitsura", "kitsura e a madu",
+                     "como é a madu kitsura", "kitsura como é a madu",
+                     "madu é boa kitsura", "kitsura madu é boa",
+                     "o q vc acha da madu", "kitsura o q acha da madu"]):
+        return await message.channel.send(random.choice(FRASES_OPINIAO_MADU))
 
     # ── NOVO: Verão ──
     if _m(content, ["gosta do verão kitsura", "kitsura gosta do verão",
@@ -1156,6 +1225,24 @@ async def on_message(message: discord.Message):
         if agora - _reality_ultimo_personalizado >= _REALITY_COOLDOWN:
             _reality_ultimo_personalizado = agora
             return await message.channel.send(random.choice(FRASES_REALITY))
+
+    # ── MADU: o que acha de mim / opinião ──
+    if author_id == MADU_ID and _m(content, [
+                     "o que você acha de mim", "o que acha de mim kitsura",
+                     "kitsura o que acha de mim", "o que vc acha de mim",
+                     "qual sua opinião sobre mim", "kitsura me fala de mim",
+                     "como você me vê kitsura", "kitsura como me vê",
+                     "gosta de mim kitsura", "kitsura gosta de mim",
+                     "o q acha de mim kitsura", "fala de mim kitsura"]):
+        return await message.channel.send(random.choice(FRASES_MADU_OPINIAO))
+
+    # ── MADU: reação personalizada (com cooldown de 10 min) ──
+    if author_id == MADU_ID and (mencao or fala):
+        agora = time.time()
+        global _madu_ultimo_personalizado
+        if agora - _madu_ultimo_personalizado >= _MADU_COOLDOWN:
+            _madu_ultimo_personalizado = agora
+            return await message.channel.send(random.choice(FRASES_MADU))
 
     # ── KAMY: o que acha de mim / opinião ──
     if author_id == KAMY_ID and _m(content, [
