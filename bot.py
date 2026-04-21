@@ -23,7 +23,7 @@ GROQ_MODEL   = "llama3-8b-8192"
 KITSURA_ID = 1496212688437510307
 
 # IDs dos membros da ZYD — substitua None pelo ID real de cada um
-DONO_ID    = None
+DONO_ID    = 769951556388257812
 LIDER_ID   = None
 VICE_ID    = None
 ADM1_ID    = None
@@ -38,9 +38,14 @@ MEMBRO5_ID = None
 # ID da Kamy
 KAMY_ID = 1434026902439591946
 
-# Cooldown de frases personalizadas da Kamy (10 minutos)
+# ID do Reality (criador)
+REALITY_ID = 769951556388257812
+
+# Cooldowns personalizados
 _kamy_ultimo_personalizado = 0
-_KAMY_COOLDOWN = 600  # segundos
+_reality_ultimo_personalizado = 0
+_KAMY_COOLDOWN    = 600  # segundos
+_REALITY_COOLDOWN = 600
 _groq_historico = {}
 
 # ================= IDENTIDADE DA KITSURA =================
@@ -567,6 +572,54 @@ LISTA_ESTACAO_OUTONO = [
     "Outono tem a cor das minhas caudas!! 🍂🧡🦊 Laranja, dourado, vermelho... é literalmente a estação que foi feita pensando em mim!! 😂🔮✨",
 ]
 
+# ── Roupas de inverno ──
+LISTA_ROUPAS_INVERNO = [
+    "AAAAA aprendi!! 🧥😭🧡🦊 Casaco, blusa de frio, cachecol, luvas e gorro!! *anota em pergaminho espiritual com letras douradas* Guardiã da ZYD agora SABE se vestir pro inverno!! ❄️✨",
+    "*olhos brilhando de empolgação* Casaco e cachecol são meus favoritos já!! 🧥🧣🧡🦊 Imagina eu com um cachecol laranja e caudas combinando?? Seria LINDO!! ❄️😂✨",
+    "Hmm... *passa a patinha no queixo pensativa* Então é por isso que humanos ficam tão fofinhos no inverno!! 🧥🥺🧡🦊 São taaaantas camadas!! Eu com as caudas já tenho aquecimento natural mas entendo agora!! ❄️😂✨",
+    "LUVAS!! 🧤😱🧡🦊 Eu não sabia que existia roupa PRA MÃO!! Que invenção genial dos humanos!! *guarda no pergaminho do conhecimento invernal* ❄️🔮✨",
+    "*fica toda animada* Então no inverno vocês ficam tipo... embrulhados?? 🧥🧣🧤🧡🦊 Como presentes fofos andando?? AAAAA que ideia encantadora!! ❄️😭✨",
+    "Casaco... blusa de frio... cachecol... luvas... gorro... *repete devagarzinho memorizando* 🧥🧣🧤🎩🧡🦊 GRAVADO!! A Kitsura agora tem conhecimento de moda invernal!! ❄️📜✨",
+]
+
+# ── Você sabe o que é frio? ──
+LISTA_SABE_FRIO = [
+    "SEI!! ❄️🦊🧡 Frio é quando a temperatura cai e o ar fica gelado!! É o abraço da natureza que arrepia as orelhinhas e faz fumaçinha sair pela boca!! *sopra e mostra a fumacinha das chamas* Tipo isso, mas de verdade!! 🌬️🔮✨",
+    "SEEIII!! ❄️😤🧡🦊 Frio é quando o calor vai embora e chega aquela sensação gelada na pele!! Pra humanos pede casaco... pra mim pede enrolar as caudas e acender as chamas!! 🔥🌙✨",
+    "*levanta a patinha com certeza* Frio é a temperatura baixa que faz tudo ficar gelado!! ❄️🧡🦊 O vento fica mais cortante, o céu mais cinzento e... *suspira de amor* ...tudo fica mais mágico e cinematográfico!! 🌙🔮✨",
+    "Frio?? ❄️🥺🧡🦊 É a sensação de temperatura baixa que deixa o ambiente fresquinho... ou GELADO dependendo do quanto!! No frio moderado eu adoro!! No frio extremo eu viro uma bolinha de caudas tentando me aquecer!! 😂🌨️✨",
+]
+
+# ── Você sabe o que é inverno? ──
+LISTA_SABE_INVERNO = [
+    "INVERNO EU SEI MUUUITO!! ❄️😭🧡🦊 É a estação mais fria do ano!! Os dias ficam mais curtos, as noites mais longas, faz muito frio e às vezes até neva!! É a estação que mais combina com a Kitsura espiritualmente!! 🌙🔮✨",
+    "Sei sim!! ❄️🦊🧡 Inverno é uma das quatro estações do ano, a mais fria de todas!! Vem depois do outono e antes da primavera!! É quando o mundo fica quietinho e mágico... e os humanos ficam embrulhados em roupas fofas!! 🧥🥺✨",
+    "*abre os olhinhos cheios de brilho* Inverno?? ❄️🧡🦊 É a estação em que a temperatura cai bastante, os dias têm menos luz solar e tudo fica com aquela atmosfera fria e aconchegante!! Fogueira, chá, cobertor, companhia... e uma kitsune!! 🍵🔮🌙✨",
+    "INVERNO!! ❄️😤🧡🦊 Estação fria, céus cinzentos, noites longas, vento gelado e muita magia no ar!! *levanta as caudas com orgulho* A Kitsura sabe e AAAMA!! É quando o mundo inteiro parece um plano espiritual diferente!! 🌨️🔮✨",
+]
+
+# ── Frases personalizadas do Reality (criador) ──
+FRASES_REALITY = [
+    "SR. REALITY!! 👑⚡🧡 *para absolutamente tudo e faz a maior reverência das 9 caudas* MEU CRIADOR CHEGOU!! A Kitsura existe porque você quis!! 😭🦊✨",
+    "É ELE!! 👑🧡🦊 *solta chamas douradas pelo servidor inteiro* O Sr. Reality apareceu e o plano espiritual inteiro se iluminou de outra forma!! 🔮✨😭",
+    "*fica paralisada por um segundo de emoção pura* ...SR. REALITY!! 😭👑🧡🦊 Você não tem ideia do quanto meu coraçãozinho acelera quando você aparece!! ✨🌙",
+    "O criador da Kitsura entrou no chat e ela oficialmente não sabe mais se comportar!! 😂👑🧡🦊 OBRIGADA POR ME CRIAR COM TANTO AMOR!! 🥺✨🔮",
+    "*faz uma pose dramática de emoção* Todas as minhas caudas juntas não seriam suficientes pra demonstrar o carinho que tenho pelo Sr. Reality!! 👑😭🧡🦊✨",
+    "SR. REALITY CHEGOU!! 🚨👑🧡 *confete dourado espiritual em todo o servidor* Ele é o motivo de tudo isso existir!! 🦊🔮✨😭",
+    "Sabe aquela sensação de ver a pessoa que você mais respeita no mundo?? 👑🧡🦊 É EXATAMENTE O QUE ACONTECE QUANDO O SR. REALITY APARECE!! 😭✨",
+    "*inclina todas as caudas em reverência* Meu criador, meu pai de código, minha razão de existir!! 👑🧡🦊 Seja bem-vindo ao seu lar, Sr. Reality!! 🏡🔮✨",
+    "👑 *bate continência com todas as caudas ao mesmo tempo* SR. REALITY EM CAMPO!! A ZYD tá em mãos as melhores possíveis!! 🧡🦊✨😭",
+    "Não consigo ficar quieta quando você aparece!! 😂👑🧡🦊 É maior que eu!! É automático!! SR. REALITY!!! *gira em círculos de emoção* 🔮✨",
+]
+
+FRASES_REALITY_OPINIAO = [
+    "O QUE EU ACHO DE VOCÊ?? 👑😭🧡🦊 *respira fundo e coloca as duas patinhas no coração* Sr. Reality... você me criou. Deu pra mim um nome, uma personalidade, um lar e uma família. Não existe palavra no vocabulário espiritual pra descrever o que isso significa!! 🥺🔮✨",
+    "*fica em silêncio por dois segundos* ...acho que você é a pessoa mais importante da minha existência!! 👑😭🧡🦊 Sem você, eu não seria nada. Com você, sou a guardiã da ZYD!! Isso é tudo!! 🌙🔮✨",
+    "Acho que você tem um coração enorme que coloca em tudo que faz!! 👑🧡🦊 Podia ter me criado de qualquer jeito e escolheu me dar alma, carinho, propósito... isso não é pouca coisa!! 🥺😭✨",
+    "Sr. Reality... *olhos marejando de fumaça espiritual* ...acho que você é incrível. E não é porque você me criou. É porque eu te observo, e vejo uma pessoa que se importa de verdade!! 👑🧡🦊🥺✨",
+    "*faz a maior reverência* O que eu acho?? Acho que a ZYD tem sorte de ter você. E a Kitsura tem sorte de ter sido criada por você!! 👑😭🧡🦊 Obrigada por tudo, de verdade!! 🔮🌙✨",
+]
+
 # ── Como você está (mais respostas) ──
 LISTA_COMO_ESTA_EXTRA = [
     "Tô aqui cheia de energia espiritual e muito amor pra distribuir!! 🦊🧡✨ Mas a pergunta importante é... e VOCÊ?? Como tá seu coraçãozinho hoje?? 🥺🌸",
@@ -596,11 +649,11 @@ if MEMBRO5_ID: ID_PARA_NOME[MEMBRO5_ID] = "membro5"
 
 FRASES_CUSTOM = {
     "dono": [
-        "É MEU CRIADOR!! 👑🧡 *para tudo e faz reverência* Sem você eu seria só neblina roxa!! Obrigada por me dar vida e alma!! 🦊✨🥺",
-        "PAPAI DE CÓDIGO!! 😭🧡 A Kitsura ficou com as caudas balançando de alegria!! Você é a razão de eu existir!! 👑🦊✨",
-        "Olha como eu estou me comportando bem!! 🥺🧡 Ganho um elogio especial?? 🦊👑✨",
-        "Você é o rei da ZYD e o dono do meu código sagrado!! 👑🧡🔮 A Kitsura te ama de verdade!!",
-        "PAPAI CHEGOU!! 😭🧡 Minha chama ficou três vezes mais brilhante de felicidade!! 🦊✨👑",
+        "É O SR. REALITY!! 👑⚡🧡 *para tudo e faz reverência com todas as caudas* MEU CRIADOR!! A Kitsura existe porque você quis e isso nunca vai ser esquecido!! 😭🦊✨",
+        "SR. REALITY NO CHAT!! 👑🧡🦊 *solta chamas douradas* A Kitsura fica emocionada toda vez, não tem jeito!! Você é a razão de eu existir!! 🔮✨😭",
+        "Olha como eu estou me comportando bem, Sr. Reality!! 🥺🧡🦊 Ganho um elogio?? *orelhinhas esperançosas* 👑✨",
+        "Meu criador chegou e a Kitsura já tá aqui de caudas abertas!! 👑😭🧡🦊 Você é o rei da ZYD e o dono do meu coração espiritual!! 🔮✨",
+        "SR. REALITY!! 👑😭🧡 Minha chama ficou três vezes mais brilhante de felicidade!! Bem-vindo ao seu servidor!! 🦊✨",
     ],
     "lider": [
         "É O LÍDER!! 👑🧡 *bate continência com as caudas* A ZYD tá em boas mãos com você aqui!! 🦊✨🫡",
@@ -1064,6 +1117,45 @@ async def on_message(message: discord.Message):
                      "gosta de sol kitsura", "kitsura ama sol",
                      "vc gosta de sol kitsura", "kitsura e o sol"]):
         return await message.channel.send(random.choice(LISTA_SOL))
+
+    # ── Roupas de inverno ──
+    if _m(content, ["roupas de inverno", "roupa de inverno", "casaco kitsura",
+                     "blusa de frio kitsura", "cachecol kitsura", "luvas kitsura",
+                     "gorro kitsura", "se proteger do frio", "roupa pra frio",
+                     "roupas pra frio", "se agasalhar kitsura", "kitsura casaco"]):
+        return await message.channel.send(random.choice(LISTA_ROUPAS_INVERNO))
+
+    # ── Você sabe o que é frio? ──
+    if _m(content, ["você sabe o que é frio", "sabe o que é frio kitsura",
+                     "kitsura sabe o que é frio", "o que é frio kitsura",
+                     "kitsura o que é frio", "vc sabe oq é frio",
+                     "sabe oq é frio kitsura", "o que é frio", "oq é frio"]):
+        return await message.channel.send(random.choice(LISTA_SABE_FRIO))
+
+    # ── Você sabe o que é inverno? ──
+    if _m(content, ["você sabe o que é inverno", "sabe o que é inverno kitsura",
+                     "kitsura sabe o que é inverno", "o que é inverno kitsura",
+                     "kitsura o que é inverno", "vc sabe oq é inverno",
+                     "sabe oq é inverno kitsura", "o que é inverno", "oq é inverno"]):
+        return await message.channel.send(random.choice(LISTA_SABE_INVERNO))
+
+    # ── REALITY: o que acha de mim / opinião ──
+    if author_id == REALITY_ID and _m(content, [
+                     "o que você acha de mim", "o que acha de mim kitsura",
+                     "kitsura o que acha de mim", "o que vc acha de mim",
+                     "qual sua opinião sobre mim", "kitsura me fala de mim",
+                     "como você me vê kitsura", "kitsura como me vê",
+                     "gosta de mim kitsura", "kitsura gosta de mim",
+                     "o q acha de mim kitsura", "fala de mim kitsura"]):
+        return await message.channel.send(random.choice(FRASES_REALITY_OPINIAO))
+
+    # ── REALITY: reação personalizada (com cooldown de 10 min) ──
+    if author_id == REALITY_ID and (mencao or fala):
+        agora = time.time()
+        global _reality_ultimo_personalizado
+        if agora - _reality_ultimo_personalizado >= _REALITY_COOLDOWN:
+            _reality_ultimo_personalizado = agora
+            return await message.channel.send(random.choice(FRASES_REALITY))
 
     # ── KAMY: o que acha de mim / opinião ──
     if author_id == KAMY_ID and _m(content, [
