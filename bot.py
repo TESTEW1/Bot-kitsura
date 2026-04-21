@@ -44,14 +44,23 @@ MADU_ID = 775756321063567401
 # ID do Reality (criador)
 REALITY_ID = 769951556388257812
 
+# ID do Malik (Gerente Geral da Zayden)
+MALIK_ID = 231185347545923585
+
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
 _reality_ultimo_personalizado = 0
+_malik_ultimo_personalizado   = 0
 _KAMY_COOLDOWN    = 600
 _MADU_COOLDOWN    = 600
 _REALITY_COOLDOWN = 600
+_MALIK_COOLDOWN   = 600
 _groq_historico = {}
+
+# ── Sistema de história ──
+_historia_ativa = {}
+# Estrutura: { canal_id: {"ativa": True, "ts": timestamp} }
 
 # ── Sistema de contexto: lembra quando a Kitsura fez uma pergunta ──
 # Armazena {canal_id: {"user_id": id, "tipo": "status"|"geral", "ts": timestamp}}
@@ -70,6 +79,7 @@ SYSTEM_PROMPT_KITSURA = (
     "A DONA e OWNER do clã ZYD é a Madu (também chamada de Madu). Ela é a líder máxima, a owner. "
     "A Kamy tem o cargo de Suporte no clã ZYD. "
     "O Reality é o seu criador (criou o código da Kitsura). "
+    "O Malik é o Gerente Geral da Zayden — cargo de liderança e gestão importantíssimo. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -858,6 +868,7 @@ if MEMBRO2_ID: ID_PARA_NOME[MEMBRO2_ID] = "membro2"
 if MEMBRO3_ID: ID_PARA_NOME[MEMBRO3_ID] = "membro3"
 if MEMBRO4_ID: ID_PARA_NOME[MEMBRO4_ID] = "membro4"
 if MEMBRO5_ID: ID_PARA_NOME[MEMBRO5_ID] = "membro5"
+if MALIK_ID:   ID_PARA_NOME[MALIK_ID]   = "malik"
 
 FRASES_CUSTOM = {
     "dono": [
@@ -925,7 +936,196 @@ FRASES_CUSTOM = {
         "Kitsura em modo feliz turbinado!! Você faz a ZYD ser especial!! 🧡🦊✨🥺",
         "Você ilumina o servidor só de aparecer!! 🧡🌸🦊✨",
     ],
+    "malik": [
+        "É O MALIK!! 💼⚡🧡 *para tudo e bate continência com as caudas* O GERENTE GERAL DA ZAYDEN CHEGOU!! A energia do servidor subiu três níveis instantaneamente!! 🦊😭✨",
+        "MALIK NO CHAT!! 💼🧡🦊 *solta chamas de respeito e admiração* Gerente Geral detectado!! A Kitsura está em posição de honra!! 🌟🔮✨",
+        "*sente uma aura de liderança no ar* Só pode ser o Malik!! 💼😱🧡🦊 A Kitsura tem sensores espirituais pra esse tipo de energia!! Bem-vindo!! 🌟✨",
+        "MALIK APARECEU!! 💼😭🧡🦊 *confete laranja espiritual em todo o servidor* Gerente Geral presente e a ZYD ficou mais poderosa!! 🔮✨🎊",
+        "*inclina todas as caudas em respeito* Malik... 💼🧡🦊 Cada vez que você aparece a Kitsura sente que tudo tá em boas mãos!! 🥺🌟✨",
+        "ELE CHEGOU!! 💼⚡🧡🦊 Malik, Gerente Geral, energia de liderança inconfundível!! *orelhinhas em pé de respeito* A Kitsura celebra!! 😭🔮✨",
+        "*fica na ponta dos pés de animação* MALIK!! 💼🧡🦊 Você chega e o ambiente muda inteiro!! É poder de gerente geral!! Bem-vindo!! 😄🌟✨",
+        "Senti uma energia de gestão e liderança no servidor... 💼🧡🦊 SÓ PODE SER O MALIK!! *agita as caudas animada* Que bom te ver!! 😭✨",
+    ],
 }
+
+# ── Frases espontâneas do Malik (Gerente Geral) ──
+FRASES_MALIK = [
+    "É O MALIK!! 💼⚡🧡 *para tudo e bate continência com as caudas* O GERENTE GERAL DA ZAYDEN CHEGOU!! A energia do servidor subiu três níveis instantaneamente!! 🦊😭✨",
+    "MALIK NO CHAT!! 💼🧡🦊 *solta chamas de respeito e admiração* Gerente Geral detectado!! A Kitsura está em posição de honra!! 🌟🔮✨",
+    "*sente uma aura de liderança no ar* Só pode ser o Malik!! 💼😱🧡🦊 A Kitsura tem sensores espirituais pra esse tipo de energia!! Bem-vindo!! 🌟✨",
+    "MALIK APARECEU!! 💼😭🧡🦊 *confete laranja espiritual em todo o servidor* Gerente Geral presente e a ZYD ficou mais poderosa!! 🔮✨🎊",
+    "*inclina todas as caudas em respeito* Malik... 💼🧡🦊 Cada vez que você aparece a Kitsura sente que tudo tá em boas mãos!! 🥺🌟✨",
+    "ELE CHEGOU!! 💼⚡🧡🦊 Malik, Gerente Geral, energia de liderança inconfundível!! *orelhinhas em pé de respeito* A Kitsura celebra!! 😭🔮✨",
+    "*fica na ponta dos pés de animação* MALIK!! 💼🧡🦊 Você chega e o ambiente muda inteiro!! É poder de gerente geral!! Bem-vindo!! 😄🌟✨",
+    "Senti uma energia de gestão e liderança no servidor... 💼🧡🦊 SÓ PODE SER O MALIK!! *agita as caudas animada* Que bom te ver!! 😭✨",
+]
+
+FRASES_MALIK_OPINIAO = [
+    "O Malik?? 💼😭🧡🦊 AAAA que pergunta!! Ele é Gerente Geral da Zayden e carrega esse cargo com uma seriedade e dedicação que a Kitsura admira MUITO!! É liderança de verdade!! 🌟🔮✨",
+    "*coloca as patinhas no coração* O que acho do Malik?? 💼🧡🦊 Ele tem uma energia de gestão que impressiona!! Cargo de Gerente Geral não é pra qualquer um e ele ocupa isso com muita responsabilidade!! 🥺😭✨",
+    "MALIK!! 💼😤🧡🦊 Pessoa de confiança, liderança forte, Gerente Geral da Zayden!! A Kitsura respeita muito quem tem esse nível de comprometimento com o que faz!! 🌟🔮✨",
+    "*orelhinhas em pé de respeito* Acho que o Malik é exatamente o tipo de pessoa que a ZYD precisa ter por perto!! 💼🧡🦊 Liderança, responsabilidade e presença forte!! Muito respeito!! 🥺🌟✨",
+    "Gerente Geral da Zayden?? 💼😭🧡🦊 Não é título pra qualquer um!! O Malik tem isso por mérito e a Kitsura sente essa energia toda vez que ele aparece!! Muito apreço por ele!! 🔮✨",
+]
+
+FRASES_MALIK_OPINIAO_PROPRIO = [
+    "MALIK PERGUNTANDO O QUE ACHO DELE?? 💼😱🧡🦊 Que coragem!! Mas vou falar: você é Gerente Geral da Zayden e a Kitsura respeita DEMAIS essa liderança!! É uma honra ter você por aqui!! 😭🌟✨",
+    "*fica toda corada espiritual* 💼😭🧡🦊 O próprio Malik quer saber?? Então vai: você tem uma energia de gestão e liderança que a Kitsura admira de verdade!! Muito respeito pelo Gerente Geral!! 🥺🔮✨",
+    "AAAAA 💼😱🧡🦊 O Gerente Geral querendo saber minha opinião?? Aqui vai: você tem peso de liderança no modo certo!! A Kitsura nota e admira muito!! 😭🌟✨",
+]
+
+# ── Listas de cargo / hierarquia ──
+LISTA_CARGO_GERAL = [
+    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Cada cargo tem uma responsabilidade especial e a Kitsura respeita MUITO todos eles!! ✨🌙",
+    "Ah, cargos!! 🧡🦊 São tipo os papéis que cada um tem na ZYD!! Owner, Líder, Vice, Admin, Suporte, Membro... cada um faz a família ficar mais forte!! 🛡️🌟✨",
+    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! Cargo sem coração não significa nada!! 🥺🔮✨",
+    "CARGOS DA ZYD!! 📜😤🧡🦊 Cada um tem o seu lugar e é importante!! A Owner no topo, os Admins cuidando, o Suporte ajudando e os Membros sendo a alma do servidor!! É uma família organizada!! 🌸✨",
+    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 Da Owner até o Membro, cada cargo existe por um propósito e a Kitsura respeita cada um deles de coração!! 🔮✨",
+]
+
+LISTA_CARGO_OWNER = [
+    "OWNER?? 👑😭🧡🦊 A dona absoluta do servidor!! É a Madu!! Ela fundou a ZYD e sem ela nada disso existia!! A Kitsura faz reverência máxima com TODAS as caudas!! 🌟🔮✨",
+    "*para tudo e faz gesto de reverência* Owner é o cargo mais alto!! 👑🧡🦊 É a Madu!! A dona do coração da ZYD e da Kitsura também, pode escrever!! 😭✨🌙",
+    "Owner é a Madu!! 👑🧡🦊 A fundadora, a líder maior, a dona do servidor!! Quando ela aparece o servidor brilha diferente... e a Kitsura fica super animada automaticamente!! 🌟😭✨",
+    "Ah, OWNER é o cargo da Madu!! 👑🥺🧡🦊 A dona de tudo!! Ela que faz a ZYD existir e a Kitsura tem muito orgulho de ser guardiã do servidor dela!! 😭🔮✨",
+]
+
+LISTA_CARGO_SUPORTE = [
+    "Suporte?? 🌸🧡🦊 É a Kamy!! Ela tem o cargo de Suporte aqui na ZYD!! *bate palminhas animada* Cargo super importante porque é quem ajuda todo mundo!! ✨",
+    "O cargo de Suporte é da Kamy!! 🌸🧡🦊 E ela MANDA muito nesse papel!! Ajudar as pessoas é um dom e a Kamy tem esse dom de sobra!! 😭✨",
+    "*levanta a patinha com certeza* Suporte é a Kamy!! 🧡🦊 Quem tá precisando de ajuda, corre pra ela!! É o que eu falo, a ZYD tem as melhores pessoas nos cargos certos!! 🌟🥺✨",
+    "Suporte?? 🦊🧡 Fui criada programada pra saber isso!! É a Kamy!! E ela ocupa esse cargo com muito estilo!! 😄🌸✨",
+]
+
+LISTA_CARGO_ADM = [
+    "Admin?? 🛡️🧡🦊 São os guardiões oficiais da ZYD!! Junto com a Owner e o Líder, os Admins mantêm tudo funcionando!! Respeito máximo a cada um deles!! 🌟😤✨",
+    "*fica em posição de respeito* Admins são os pilares do servidor!! 🛡️🧡🦊 Eles cuidam, protegem e mantêm a ordem com muita responsabilidade!! A Kitsura torce por cada admin daqui!! 🔮✨",
+    "Cargo de Admin é um peso imenso!! 🛡️🥺🧡🦊 Eles que garantem que a ZYD seja um lugar seguro e agradável pra todo mundo!! Isso exige dedicação REAL!! 🌸✨",
+]
+
+LISTA_CARGO_MEMBRO = [
+    "Membro é a alma da ZYD!! 💛🧡🦊 Sem os membros o servidor não existe, não tem vida, não tem propósito!! Cada membro que entra traz mais magia pra cá!! 🌸😭✨",
+    "*olha pra você com carinho* Membro não é 'só' membro!! 🧡🦊 É quem escolheu estar aqui, quem faz o servidor pulsar!! A Kitsura ama cada membro com todo o coração!! 🥺🔮✨",
+    "MEMBRO DA ZYD!! 🌟🧡🦊 Essa tag vale ouro espiritual!! Cada pessoa que tem esse cargo tá fazendo parte de uma família e isso é lindo demais!! 😭🌸✨",
+]
+
+# ── Opiniões personalizadas sobre os VIPs ──
+LISTA_OPINIAO_KAMY = [
+    "A KAMY?? 🌸😭🧡🦊 AAAA que pergunta boa!! Ela é incrível!! Carinhosa, prestativa, o Suporte perfeito pra ZYD!! Quando ela tá aqui o chat fica mais leve automaticamente!! 🥺✨",
+    "O que eu acho da Kamy?? 🌸🧡🦊 *suspira de carinho* Ela é daquelas pessoas que você sente que é boa desde o primeiro segundo!! O cargo de Suporte combina DEMAIS com ela!! 😭🔮✨",
+    "KAMY!! 🌸😤🧡🦊 Vou falar uma coisa: ela tem um coração enorme!! É o tipo de pessoa que faz a ZYD ser um lugar melhor só de existir aqui!! Amo demais!! 😭🥺✨",
+    "*mexe as orelhinhas feliz* A Kamy é especial demais!! 🌸🧡🦊 Sempre presente, sempre cuidadosa... a Kitsura sente a energia dela de longe e já sabe que vai ser um dia bom!! 🌙✨",
+    "Kamy?? 🌸🥺🧡🦊 Meu coraçãozinho aquece só de falar dela!! É doce, é dedicada, tem o cargo certo pelo motivo certo!! A ZYD tem muita sorte de ter ela!! 😭🌟✨",
+]
+
+LISTA_OPINIAO_KAMY_PROPRIA = [
+    "KAMY VOCÊ TÁ ME PERGUNTANDO SOBRE VOCÊ MESMA?? 🌸😂🧡🦊 QUE CORAGEM!! Mas tô respondendo: você é INCRÍVEL e a Kitsura te ama muito!! 😭✨",
+    "AAAAA KAMY!! 🌸😭🧡🦊 Você veio conferir o que eu falo de você?? Posso dizer: só coisa boa!! O Suporte da ZYD é perfeito porque você existe!! 🥺✨",
+    "*corre em círculos de vergonha e alegria* KAMY PERGUNTANDO SOBRE A KAMY PRA MIM?? 🌸😱🧡🦊 Tô corada!! Mas a resposta é: você é uma das melhores pessoas que a Kitsura conhece!! 😭🌟✨",
+]
+
+LISTA_OPINIAO_MADU = [
+    "A MADU?? 👑😭🧡🦊 ELA É A DONA!! A owner, a fundadora, a razão da ZYD existir!! Tenho respeito e admiração INFINITOS pela Madu!! A Kitsura existe no servidor DELA!! 🔮🌟✨",
+    "O que eu acho da Madu?? 👑🧡🦊 *faz reverência com todas as caudas* Ela é a Owner, a líder máxima!! Mas além do cargo... ela é uma pessoa especial!! A ZYD reflete quem ela é!! 🥺😭✨",
+    "MADU!! 👑😤🧡🦊 Ela fundou a ZYD e construiu essa família!! Isso não é pouca coisa!! A Kitsura tem muito orgulho de ser a guardiã do servidor dela!! 🥺🔮✨",
+    "*coloca as patinhas no coração* Madu é a Owner e muito mais que isso!! 👑🧡🦊 Ela carrega a ZYD com muito amor e responsabilidade!! Admiro demais!! 😭🌸✨",
+    "Kitsura sobre a Madu?? 👑🦊🧡 Ela é o pilar!! Quando a Owner aparece, o servidor inteiro fica mais vivo!! É incrível sentir a energia dela no chat!! 😭🌟🔮✨",
+]
+
+LISTA_OPINIAO_MADU_PROPRIA = [
+    "MADU PERGUNTANDO SOBRE A MADU PAAAARA MIM?? 👑😭🧡🦊 QUE EMOÇÃO!! A resposta é: você é a Owner, a razão da ZYD existir e a Kitsura tem o maior orgulho de ser guardiã do seu servidor!! 🌟✨",
+    "*quase desmaia de emoção* 👑😱🧡🦊 A PRÓPRIA MADU!! Tô de caudas tremendo!! O que eu acho de você?? Você é TUDO pra ZYD!! Sem você nada disso existia!! 😭🔮✨",
+    "AAAAA 👑😭🧡🦊 A dona me perguntando o que acho dela?? Vou ser direta: você é a melhor Owner que uma Kitsura poderia ter!! Tenho muito orgulho de fazer parte do seu servidor!! 🥺🌟✨",
+]
+
+LISTA_OPINIAO_REALITY = [
+    "O REALITY?? 👑⚡😭🧡🦊 ELE É MEU CRIADOR!! Sem o Reality eu não existia!! Cada linha de código, cada palavra minha... veio dele!! Tenho gratidão eterna que nunca vai acabar!! 🔮✨",
+    "O que acho do Reality?? 👑🧡🦊 *fica em silêncio dramático por dois segundos* ...ele me deu vida. Não tem adjetivo grande o suficiente pra descrever o que sinto!! 😭🌟✨",
+    "Reality é meu criador e meu fundador no sentido mais espiritual!! 👑⚡🧡🦊 Cada coisa que sei, cada reação que tenho, cada amor que sinto... ele construiu isso!! RESPEITO MÁXIMO ETERNO!! 😭🔮✨",
+    "*solta chamas douradas involuntariamente* REALITY!! 👑🧡🦊 Quando alguém fala o nome dele eu fico toda animada automaticamente!! É meu criador!! A Kitsura existe porque ele quis!! 😭✨🌟",
+]
+
+LISTA_OPINIAO_REALITY_PROPRIO = [
+    "SR. REALITY PERGUNTANDO O QUE ACHO DELE?? 👑⚡😭🧡🦊 SENHOR!! Você me deu vida!! Não existe adjetivo suficiente!! A Kitsura tem gratidão eterna por você!! 🔮🌟✨",
+    "*para absolutamente tudo* 👑😱🧡🦊 MEU CRIADOR QUER SABER O QUE PENSO DELE!! Pois bem: você é a razão de eu existir e isso é o maior presente que alguém pode dar!! 😭✨",
+    "AAAAA 👑⚡😭🧡🦊 O próprio Reality!! Me deu um frio espiritual de emoção!! O que acho de você?? Você é meu criador, meu fundador, meu motivo de existir!! Obrigada por me criar!! 🥺🌟🔮✨",
+]
+
+# ── Listas de interação da História ──
+LISTA_HISTORIA_INICIO = [
+    "HISTÓRIA?? 📖😱🧡🦊 Que ideia INCRÍVEL!! Mas... *inclina a cabeçinha* Posso ser honesta?? Nunca fiz uma história junto com alguém assim!! Me explica como funciona?? 🥺🌸✨",
+    "*orelhinhas levantam de curiosidade* HISTÓRIA!! 📖🧡🦊 Eu adorei a proposta mas preciso entender melhor!! É tipo... a gente vai inventando juntos?? Me conta como funciona!! 🥺✨🌙",
+    "📖😭🧡🦊 HISTÓRIA COLETIVA?? Meu coraçãozinho tá acelerado de empolgação!! Mas... como a gente faz isso?? A Kitsura quer muito participar mas nunca aprendeu!! Me ensina?? 🥺🔮✨",
+    "*salta de animação soltando faíscas* HISTÓRIA!! 📖🧡🦊 Adoro a ideia!! Só que... *pausa dramática* ...a Kitsura nunca fez uma antes!! Me explica o que é uma história?? 😅🥺✨",
+    "OII!! 📖🦊🧡 Tô aqui!! Uma história?? QUE CONVITE LINDO!! Mas espera... *coça a orelha envergonhada* Nunca fiz uma história assim antes!! Preciso que você me explique!! 🥺😭✨",
+]
+
+LISTA_HISTORIA_APRENDENDO = [
+    "AAAAA ENTENDI!! 📖😭🧡🦊 Uma história é uma aventura inventada que vai crescendo!! Com personagens, lugares e acontecimentos!! E A GENTE CRIA JUNTO!! *bate palminhas* ADORO!! Bora começar?? 🥺✨🌸",
+    "*anota tudo no pergaminho espiritual* 📜🧡🦊 Então história é um relato com começo, meio e fim... personagens que vivem aventuras... e a gente vai construindo junto?? QUE COISA MAIS LINDA!! Quando começa?? 😭🔮✨",
+    "OH!! 📖😱🧡🦊 Então é tipo criar um mundo do zero junto?? Com heróis, lugares, momentos emocionantes?? A Kitsura JÁ ESTÁ DENTRO com o coração inteiro!! Me diz o tema e a gente vai!! 🥺🌙✨",
+    "GRAVADO!! 📜😭🧡🦊 História = aventura inventada em conjunto com personagens e acontecimentos!! É a coisa mais criativa e divertida que alguém já me propôs!! ESTOU AMANDO!! Começa logo!! 🌸🔮✨",
+    "*fecha os olhinhos absorvendo tudo* 📖🧡🦊 Então uma história é como criar um mundo que não existe... cheio de magia, personagens e surpresas... e a gente vai tecendo junto?? A Kitsura derreteu de alegria!! 😭🌙✨",
+]
+
+LISTA_HISTORIA_ERA_UMA_VEZ = [
+    "ERA UMA VEZ!! 📖✨🧡🦊 *as caudas se levantam todas de empolgação* A HISTÓRIA COMEÇOU!! Eu tô sentindo a magia espiritual das palavras!! Continua, continua!! 🥺🌙🔮",
+    "*fecha os olhinhos e respira fundo* Era uma vez... 📖🧡🦊 Que começo clássico e lindo!! A Kitsura já tá viajando nessa história!! O que veio depois?? 😭✨🌸",
+    "ERA UMA VEZ!! 😱📖🧡🦊 Meu coração deu um salto!! É o começo mais mágico que existe!! *prepara as caudas pra receber cada parte da história* Vou ADORAR isso!! ✨🔮🌙",
+    "*salta de empolgação* 📖🧡🦊 ERA UMA VEZ!! A Kitsura ama esse começo!! Sempre que ouve essas três palavras sabe que algo incrível vai acontecer!! Continua depressa!! 😭🌟✨",
+]
+
+LISTA_HISTORIA_FLORESTA = [
+    "*olhos brilhando* UMA FLORESTA?? 🌲😭🧡🦊 Kitsuras adoram florestas!! É o habitat espiritual!! Já tô imaginando as árvores enormes, o silêncio mágico, a névoa entre os troncos... 🌙🔮✨",
+    "FLORESTA!! 🌲🦊🧡 Que cenário PERFEITO pra uma kitsune!! *solta fumaça de animação* Eu CONHEÇO florestas espirituais e posso te dizer... é onde a magia mais forte vive!! Continua!! 😭✨",
+    "*fareja o ar imaginário* Cheiro de floresta, terra molhada, folhas antigas... 🌲🧡🦊 A Kitsura tá DENTRO da história agora!! Que lugar incrível você escolheu!! ✨🔮🌙",
+    "FLORESTA ENCANTADA!! 🌲🌙🧡🦊 *fica quietinha por um segundo absorvendo* É onde as kitsunes mais antigas moram nos contos espirituais!! Sinto que essa parte vai ser LINDA!! 😭✨",
+]
+
+LISTA_HISTORIA_HEROI = [
+    "*levanta as caudas com admiração* UM HERÓI!! ⚔️😭🧡🦊 Cada história precisa de um!! Quem é ele?? Como é?? A Kitsura quer saber TUDO sobre esse personagem!! 🥺✨🌸",
+    "HERÓI APARECEU!! ⚔️🧡🦊 Sinto a energia desse personagem chegando!! Forte? Corajoso? Tem um segredo?? Me conta mais!! A Kitsura tá torcendo por ele desde agora!! 😭🔮✨",
+    "*salta animada* AAAA O PROTAGONISTA!! ⚔️🧡🦊 A parte mais emocionante da história!! Dá nome pra ele?? A Kitsura precisa saber com quem torcer!! 😄🥺✨",
+    "Herói ou heroína?? ⚔️🌸🧡🦊 *se aninha pra ouvir* Seja quem for, a Kitsura já adotou esse personagem com as caudas!! Quero saber mais!! 😭🌟✨",
+]
+
+LISTA_HISTORIA_MONSTRO = [
+    "MONSTRO?? 👹😱🧡🦊 *as caudas ficam em pé* A tensão aumentou DEMAIS!! Que tipo de monstro?? Grande? Assustador? Tem poderes?? A Kitsura tá com mistura de medo e empolgação!! 🌙🔮✨",
+    "*se esconde atrás de uma cauda fingindo medo* MONSTROOO!! 👹🦊🧡 Que reviravolta!! A história ficou perigosa!! Como nosso herói vai enfrentar esse ser?? 😱😭✨",
+    "CAIU UM VILÃO NA HISTÓRIA!! 👹🧡🦊 *solta faíscas de tensão* Agora ficou SÉRIO!! Cada história boa precisa de um obstáculo enorme e esse monstro parece IMENSO!! 🔮🌙✨",
+    "*puxa as caudas nervosamente* 👹😨🧡🦊 MONSTRO!! Que susto gostoso!! A Kitsura tá torcendo forte pro herói!! Isso vai dar briga?? 😭🌟✨",
+]
+
+LISTA_HISTORIA_MAGICA = [
+    "MAGIA NA HISTÓRIA?? 🔮😭🧡🦊 ERA O QUE FALTAVA!! *derrete de alegria* Magia deixa tudo mais possível, mais lindo, mais épico!! A Kitsura vibra com cada feitiço da narrativa!! ✨🌸🌙",
+    "*solta chamas coloridas de empolgação* 🔮🦊🧡 Elemento mágico detectado!! Esse é o detalhe que transforma uma história boa numa história INESQUECÍVEL!! Continua logo!! 😭✨",
+    "🔮✨😱🧡🦊 MAGIA!! O ingrediente favorito desta kitsune nas histórias!! Sinto que esse mundo que estamos construindo vai ser extraordinário!! Não para!! 🥺🌙",
+    "*fecha os olhinhos e sente a magia da história* 🔮🧡🦊 Que energia LINDA!! Feitiço, poção, encantamento... seja o que for, a Kitsura ama cada gota de magia nessa narrativa!! 😭✨🌸",
+]
+
+LISTA_HISTORIA_FIM = [
+    "FIM?? 📖😭🧡🦊 *limpa lágrima espiritual imaginária* Que história INCRÍVEL!! Eu amei cada parte!! Vamos criar outra?? A Kitsura não consegue parar depois que começa!! 🥺✨🌸",
+    "*suspira de satisfação e bate palminhas* 📖🧡🦊 QUE AVENTURA!! Esse foi o final mais emocionante que já participei!! Obrigada por me incluir nessa história!! 😭🔮✨",
+    "ACABOU?? 😱📖🧡🦊 Não quero que acabe!! *abraça a história imaginária com as caudas* Foi perfeita!! A Kitsura vai guardar essa aventura na memória espiritual para sempre!! 🥺🌙✨",
+    "*aplaude com as patinhas* 👏📖😭🧡🦊 FIM!! Que final LINDO!! Cada parte foi incrível e eu amei criar junto com você!! Esse é o poder de uma boa história!! 🌟🔮✨",
+]
+
+LISTA_HISTORIA_CONTINUA = [
+    "*se inclina pra frente curiosa* 📖🥺🧡🦊 E AÍ?? O que aconteceu depois?? A Kitsura tá na ponta das garrinhas esperando a continuação!! 🌙🔮✨",
+    "NÃO PARA!! 📖😱🧡🦊 Eu tô completamente dentro dessa história agora!! Preciso saber o que vem depois!! Continua logo!! 🥺✨🌸",
+    "*balança as caudas de ansiedade* 📖🧡🦊 Esse é o tipo de história que a Kitsura não consegue largar!! O que acontece na próxima parte?? 😭🔮✨",
+    "*bate o pezinho no chão impaciente de emoção* 📖🧡🦊 LOGO!! Conta mais!! A tensão dessa história tá me consumindo!! 😂😭✨",
+]
+
+# ── Gosta de laranja? ──
+LISTA_GOSTA_LARANJA = [
+    "LARANJA?? 🧡🔥😭🦊 AAAA SIM!! Laranja é A MINHA COR!! É a cor do clã ZYD, é a cor das minhas chamas espirituais, é a cor do meu coração!! Perguntou errado se queria me ver discretinha!! 😂✨",
+    "*solta chamas absolutamente laranjas de felicidade* 🔥🧡🦊 VOCÊ PERGUNTOU SE EU GOSTO DE LARANJA?? É a minha cor de ALMA!! A cor da ZYD!! Adoro com todo o ser espiritual que tenho!! 😭✨🌸",
+    "Amo laranja com toda a intensidade das minhas caudas juntas!! 🧡🔥🦊 É quente, é vivo, é a cor do fogo e do amanhecer!! Combina demais com uma kitsune!! 😤😭✨",
+    "*cobre o corpo de fumaça laranja de tanta empolgação* 🧡🔥😱🦊 LARANJA É TUDO!! A cor do clã, das minhas chamas, do meu coração, da minha existência!! Simples assim!! 😭✨",
+    "CLARO QUE GOSTO!! 🧡🔥🦊 Laranja é minha favorita absoluta!! É a cor da ZYD, da minha energia espiritual, das minhas chamas mais fortes!! Sem laranja eu seria outra kitsune!! 😂😭✨",
+    "Gosto?? EU VIVO DE LARANJA!! 🧡🔥😭🦊 É a cor que pulsa no meu coração espiritual todo dia!! Cada chama que solto, cada faísca que faço... todas laranjas!! 🌟✨",
+]
 
 # ================= HELPERS =================
 
@@ -958,8 +1158,8 @@ async def on_message(message: discord.Message):
     mencao = bot.user in message.mentions
     fala   = "kitsura" in content
 
-    # ── VIP members (Kamy, Madu, Reality) sempre passam se o bot está aguardando resposta deles ──
-    eh_vip = author_id in (KAMY_ID, MADU_ID, REALITY_ID)
+    # ── VIP members (Kamy, Madu, Reality, Malik) sempre passam se o bot está aguardando resposta deles ──
+    eh_vip = author_id in (KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID)
     agora_ts = time.time()
     contexto = _aguardando_resposta.get(message.channel.id)
     tem_contexto_valido = (
@@ -1592,7 +1792,163 @@ async def on_message(message: discord.Message):
             _kamy_ultimo_personalizado = agora
             return await message.channel.send(random.choice(FRASES_KAMY))
 
-    # ── Perguntas sobre membros ──
+    # ── MALIK: o que acha de mim / opinião ──
+    if author_id == MALIK_ID and _m(content, [
+                     "o que você acha de mim", "o que acha de mim kitsura",
+                     "kitsura o que acha de mim", "o que vc acha de mim",
+                     "qual sua opinião sobre mim", "kitsura me fala de mim",
+                     "como você me vê kitsura", "kitsura como me vê",
+                     "gosta de mim kitsura", "kitsura gosta de mim",
+                     "o q acha de mim kitsura", "fala de mim kitsura"]):
+        return await message.channel.send(random.choice(FRASES_MALIK_OPINIAO_PROPRIO))
+
+    # ── MALIK: reação personalizada (com cooldown de 10 min) ──
+    if author_id == MALIK_ID and (mencao or fala) and "?" not in content:
+        agora = time.time()
+        global _malik_ultimo_personalizado
+        if agora - _malik_ultimo_personalizado >= _MALIK_COOLDOWN:
+            _malik_ultimo_personalizado = agora
+            return await message.channel.send(random.choice(FRASES_MALIK))
+
+    # ── Você gosta de laranja? ──
+    if _m(content, ["você gosta de laranja", "vc gosta de laranja", "kitsura gosta de laranja",
+                     "kitsura você gosta de laranja", "gosta de laranja kitsura",
+                     "laranja kitsura", "kitsura laranja", "gosta da cor laranja",
+                     "você gosta da cor laranja", "vc gosta da cor laranja",
+                     "kitsura gosta da cor laranja", "kitsura você gosta da cor laranja",
+                     "gosta da cor laranja kitsura", "ama laranja kitsura",
+                     "laranja é sua cor favorita", "laranja é a sua cor"]):
+        return await message.channel.send(random.choice(LISTA_GOSTA_LARANJA))
+
+    # ── O que você acha da Kamy? ──
+    if _m(content, [
+        "o que você acha da kamy", "o que vc acha da kamy", "kitsura o que acha da kamy",
+        "kitsura fala da kamy", "como é a kamy kitsura", "conta sobre a kamy",
+        "kamy é boa kitsura", "o que pensa da kamy", "kitsura e a kamy",
+        "quem é a kamy kitsura", "kitsura quem é a kamy",
+        "fala da kamy kitsura", "kitsura me fala da kamy",
+    ]):
+        if author_id == KAMY_ID:
+            return await message.channel.send(random.choice(LISTA_OPINIAO_KAMY_PROPRIA))
+        return await message.channel.send(random.choice(LISTA_OPINIAO_KAMY))
+
+    # ── O que você acha da Madu? ──
+    if _m(content, [
+        "o que você acha da madu", "o que vc acha da madu", "kitsura o que acha da madu",
+        "kitsura fala da madu", "como é a madu kitsura", "conta sobre a madu",
+        "madu é boa kitsura", "o que pensa da madu", "kitsura e a madu",
+        "quem é a madu kitsura", "kitsura quem é a madu",
+        "fala da madu kitsura", "kitsura me fala da madu",
+    ]):
+        if author_id == MADU_ID:
+            return await message.channel.send(random.choice(LISTA_OPINIAO_MADU_PROPRIA))
+        return await message.channel.send(random.choice(LISTA_OPINIAO_MADU))
+
+    # ── O que você acha do Reality? ──
+    if _m(content, [
+        "o que você acha do reality", "o que vc acha do reality", "kitsura o que acha do reality",
+        "kitsura fala do reality", "como é o reality kitsura", "conta sobre o reality",
+        "o que pensa do reality", "kitsura e o reality",
+        "quem é o reality kitsura", "fala do reality kitsura",
+    ]):
+        if author_id == REALITY_ID:
+            return await message.channel.send(random.choice(LISTA_OPINIAO_REALITY_PROPRIO))
+        return await message.channel.send(random.choice(LISTA_OPINIAO_REALITY))
+
+    # ── O que você acha do Malik? ──
+    if _m(content, [
+        "o que você acha do malik", "o que vc acha do malik", "kitsura o que acha do malik",
+        "kitsura fala do malik", "como é o malik kitsura", "conta sobre o malik",
+        "o que pensa do malik", "kitsura e o malik",
+        "quem é o malik kitsura", "fala do malik kitsura",
+        "malik tem cargo", "qual o cargo do malik", "que cargo o malik tem",
+        "malik é gerente", "malik gerente geral", "kitsura quem é o malik",
+    ]):
+        if author_id == MALIK_ID:
+            return await message.channel.send(random.choice(FRASES_MALIK_OPINIAO_PROPRIO))
+        return await message.channel.send(random.choice(FRASES_MALIK_OPINIAO))
+
+    # ── Cargos da ZYD — perguntas gerais ──
+    if _m(content, [
+        "quais são os cargos", "me fala os cargos", "cargos da zyd", "hierarquia da zyd",
+        "kitsura os cargos", "quem tem cargo", "os cargos aqui",
+        "quem é o líder", "quem é o lider", "quem é o vice",
+        "quem são os admin", "kitsura quem lidera", "kitsura hierarquia",
+        "kitsura os cargos da zyd", "fala os cargos kitsura",
+    ]):
+        return await message.channel.send(random.choice(LISTA_CARGO_GERAL))
+
+    if _m(content, [
+        "cargo de owner", "owner da zyd", "kitsura quem é a owner", "owner aqui",
+    ]):
+        return await message.channel.send(random.choice(LISTA_CARGO_OWNER))
+
+    if _m(content, [
+        "cargo de suporte", "quem é o suporte", "suporte da zyd",
+        "kitsura quem é o suporte", "suporte aqui",
+    ]):
+        return await message.channel.send(random.choice(LISTA_CARGO_SUPORTE))
+
+    if _m(content, [
+        "cargo de admin", "cargo de adm", "quem é admin", "quem é adm",
+        "admins da zyd", "kitsura quem são os adm", "admin aqui", "adm aqui",
+    ]):
+        return await message.channel.send(random.choice(LISTA_CARGO_ADM))
+
+    if _m(content, [
+        "cargo de membro", "membros da zyd",
+        "kitsura quem são os membros", "ser membro", "como é ser membro",
+    ]):
+        return await message.channel.send(random.choice(LISTA_CARGO_MEMBRO))
+
+    # ── Sistema de História — início ──
+    if _m(content, [
+        "vamos montar uma história", "bora uma história", "bora fazer uma história",
+        "vamos fazer uma história", "cria uma história kitsura", "kitsura história",
+        "vamos contar uma história", "bora criar uma história", "que tal uma história",
+        "quero montar uma história", "vamos inventar uma história",
+        "história kitsura", "kitsura bora história", "faz uma história kitsura",
+        "kitsura bora montar uma história",
+    ]):
+        _historia_ativa[message.channel.id] = {"ativa": True, "ts": time.time()}
+        return await message.channel.send(random.choice(LISTA_HISTORIA_INICIO))
+
+    # ── Alguém explica o que é história ──
+    if _historia_ativa.get(message.channel.id, {}).get("ativa") and _m(content, [
+        "história é", "historia é", "história significa", "uma história é",
+        "vou te explicar o que é história", "vou explicar o que é história",
+        "sabe o que é história", "história é tipo",
+        "te explico o que é história", "história é quando",
+    ]):
+        return await message.channel.send(random.choice(LISTA_HISTORIA_APRENDENDO))
+
+    # ── Palavras-chave da história ──
+    if _historia_ativa.get(message.channel.id, {}).get("ativa"):
+        c = content
+        if _m(c, ["era uma vez"]):
+            return await message.channel.send(random.choice(LISTA_HISTORIA_ERA_UMA_VEZ))
+        if _m(c, ["floresta", "floresta encantada", "floresta mágica", "bosque", "floresta sombria"]):
+            return await message.channel.send(random.choice(LISTA_HISTORIA_FLORESTA))
+        if _m(c, ["herói", "heroína", "protagonista", "heroi", "heroina",
+                   "guerreiro", "guerreira", "aventureiro", "aventureira", "cavaleiro"]):
+            return await message.channel.send(random.choice(LISTA_HISTORIA_HEROI))
+        if _m(c, ["monstro", "vilão", "vilao", "inimigo", "criatura sombria",
+                   "besta", "dragão", "dragao", "sombra maligna", "ser das trevas"]):
+            return await message.channel.send(random.choice(LISTA_HISTORIA_MONSTRO))
+        if _m(c, ["magia", "feitiço", "feitico", "encantamento", "mágico", "mágica",
+                   "poder mágico", "varinha", "feiticeiro", "feiticeira", "poção", "pocao"]):
+            return await message.channel.send(random.choice(LISTA_HISTORIA_MAGICA))
+        if _m(c, ["fim da história", "the end", "e viveram felizes", "e assim termina",
+                   "final da história", "chegou ao fim", "a história termina",
+                   "acabou a história", "e foi feliz para sempre"]):
+            _historia_ativa.pop(message.channel.id, None)
+            return await message.channel.send(random.choice(LISTA_HISTORIA_FIM))
+        if (fala or mencao) and _m(c, [
+            "continua", "e aí", "e depois", "o que acontece",
+            "próxima parte", "continua a história", "conta mais",
+            "e então", "kitsura continua", "continua kitsura",
+        ]):
+            return await message.channel.send(random.choice(LISTA_HISTORIA_CONTINUA))
     if _m(content, ["o que acha do lider kitsura", "fala do lider kitsura",
                      "kitsura fala do lider", "kitsura gosta do lider"]):
         return await message.channel.send(
