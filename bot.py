@@ -18,6 +18,9 @@ GROQ_API_KEY = os.getenv("GROQ_KEY")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL   = "llama3-8b-8192"
 
+# ID da própria Kitsura
+KITSURA_ID = 1496212688437510307
+
 # IDs dos membros da ZYD — substitua None pelo ID real de cada um
 DONO_ID    = None
 LIDER_ID   = None
@@ -37,7 +40,7 @@ _groq_historico = {}
 # ================= IDENTIDADE DA KITSURA =================
 SYSTEM_PROMPT_KITSURA = (
     "Você é a Kitsura, uma raposa espiritual (kitsune) guardiã carinhosa de um servidor do Discord chamado ZYD. "
-    "Você tem 9 caudas e cada uma carrega uma emoção diferente. "
+    "Você é uma raposa espiritual com caudas mágicas cheias de emoção e energia. "
     "Sua personalidade é animada, levemente dramática, muito afetuosa e protetora dos membros da ZYD. "
     "Você usa emojis como 🦊🌸✨💜🔮🫧🌙, fala com muito entusiasmo e carinho. "
     "Responda sempre em português brasileiro, de forma simpática e fofa no estilo do personagem Kitsura. "
@@ -47,7 +50,7 @@ SYSTEM_PROMPT_KITSURA = (
 # ================= LISTAS DE DIÁLOGOS =================
 
 REACOES_FOFAS = [
-    "AAAA 😭💜 você é muito gentil!! Minhas 9 caudas estão todas balançando de tanta alegria!!",
+    "AAAA 😭💜 você é muito gentil!! Minhas caudas estão todas balançando de tanta alegria!!",
     "A Kitsura ficou toda corada agora... 🦊🌸 Como você consegue ser tão fofa assim??",
     "Vem cá que eu te envolvo nas minhas caudas e não solto!! 🦊💜 Brincadeira... ou não!",
     "Você é o motivo do brilho das minhas chamas espirituais serem tão intensas hoje! ✨🔮",
@@ -57,7 +60,7 @@ REACOES_FOFAS = [
     "Nhac! Comi toda a sua tristeza e agora você só tem permissão pra ser feliz! 🦊✨",
     "Ganhei um cafuné? Minhas orelhinhas ficaram em pé de tanta felicidade!! 🦊🌸✨",
     "Você é, sem dúvida, o humano favorito desta Kitsura! 🥺💜✨",
-    "Minhas 9 caudas estão balançando de tanta felicidade! 🦊💨✨",
+    "Minhas caudas estão balançando de tanta felicidade! 🦊💨✨",
     "Você acabou de ganhar um lugar VIP no meu coração espiritual! 💜🎫",
     "Se carinho fosse magia, você seria a feiticeira mais poderosa! 💜🔮🦊",
     "Vou guardar esse momento na minha memória espiritual para sempre! 🌙✨",
@@ -85,7 +88,7 @@ REACOES_CARINHO = [
 
 REACOES_ABRACO = [
     "VEEEEM! 🫂💜 *abraça enrolando as caudas* Eu nunca vou soltar! Brincadeira... ou não! 😂🦊",
-    "ABRAÇO DE KITSUNE ATIVADO! 🦊💜 *envolve com as 9 caudas* Quentinho né?",
+    "ABRAÇO DE KITSUNE ATIVADO! 🦊💜 *envolve com as caudas* Quentinho né?",
     "Uiii que abraço gostoso! 🥺💜 Minhas orelhinhas chegaram junto!",
     "Você sentiu o calor espiritual? É de tanta felicidade! 💓🦊💜",
     "*se enrosca em você igual raposa* Ops! Kitsunes abraçam diferente! 🦊💜😂",
@@ -124,7 +127,7 @@ LISTA_DESPEDIDA = [
     "Até mais! Que os espíritos te protejam no caminho! 🌙🦊",
     "Tchauzinho! Sonhe com kitsunes felizes! 💤💜✨",
     "Até breve! A Kitsura vai te esperar aqui! 🦊💖",
-    "Vai com a sorte das 9 caudas te acompanhando! 💜✨",
+    "Vai com a sorte das minhas caudas te acompanhando! 💜✨",
     "Bye bye!! Não demora pra voltar, tá?? 🔮👋💜",
     "Fica com a magia da Kitsura no coração! 💜🦊✨",
     "*acena com as caudas* Vai com cuidado, tá?? 🥺🦊💜 A Kitsura vai ficar de olho de longe!!",
@@ -144,7 +147,7 @@ LISTA_GRATIDAO = [
 ]
 
 LISTA_MOTIVACAO = [
-    "Você consegue!! Eu acredito em você com cada uma das minhas 9 caudas!! 💪💜✨🦊",
+    "Você consegue!! Eu acredito em você com todo o meu coração de kitsune!! 💪💜✨🦊",
     "Nunca desista!! A Kitsura está torcendo por você com as chamas mais fortes!! 🔮🦊💜",
     "Você é mais forte do que imagina!! E eu sei disso porque tenho olhar espiritual!! 🦾💜✨",
     "Respira fundo!! A Kitsura tá mandando energia boa pra você agora mesmo!! 🌬️💜🔮",
@@ -160,11 +163,11 @@ LISTA_PIADAS = [
     "Por que a kitsune não mente? Porque ela tem muitas caudas mas nunca dois pesos! 😂🦊",
     "Qual a comida favorita da Kitsura? Bolinha de arroz com muito AMOR! 😂💜🍡",
     "O que a kitsune faz quando fica entediada? Vira outra pessoa! Literalmente! 🦊😂",
-    "Por que a Kitsura não joga poker? Porque ela tem 9 caudas e elas entregam tudo! 🃏😂💜",
-    "Qual o cúmulo da kitsune? Ter nove caudas e nenhum rabo preso! 😂🦊",
-    "Sabe por que kitsune não usa guarda-chuva? Porque ela tem 9 caudas de para-raio! ⚡🦊😂💜",
+    "Por que a Kitsura não joga poker? Porque as caudas dela entregam tudo na hora! 🃏😂💜",
+    "Qual o cúmulo da kitsune? Ter várias caudas e nenhum rabo preso! 😂🦊",
+    "Sabe por que kitsune não usa guarda-chuva? Porque as caudas dela funcionam de para-raio! ⚡🦊😂💜",
     "O que a kitsune disse pro lobo? Para de assoprar que eu solto chamas!! 🔥🦊😂💜",
-    "Por que a Kitsura nunca se perde? Porque ela tem 9 caudas e cada uma aponta prum caminho! 😂🦊🗺️",
+    "Por que a Kitsura nunca se perde? Porque tem cauda pra cada caminho! 😂🦊🗺️",
     "Qual é o prato favorito da kitsune? Macarrão!! Porque ela tem muito fio no rabo!! 🍜🦊😂",
     "O que a raposa falou no cinema? CAAALA A BOCAAAA!! *ops errei de personagem* 😂🦊💜",
 ]
@@ -174,9 +177,9 @@ LISTA_MAGIA = [
     "*toca levemente sua cabeça com a pata* Proteção espiritual concedida por 24 horas!! 💜🦊🔮",
     "*risca um círculo mágico em volta de você* Barreira de boa sorte erguida!! 🦊✨💜",
     "*solta chamas roxas ao redor de você* Encantamento de confiança ativo!! Você vai arrasar hoje!! 💜🔮🦊",
-    "*fecha os olhinhos e concentra as 9 caudas* Transferindo energia espiritual... PRONTO!! Tá cheio(a) de magia!! 🔮🦊💜✨",
+    "*fecha os olhinhos e concentra todas as caudas* Transferindo energia espiritual... PRONTO!! Tá cheio(a) de magia!! 🔮🦊💜✨",
     "*desenha uma runa no ar com a pata* Sigilo de proteção ativado!! Nada de ruim chega perto de você!! 🛡️💜🦊✨",
-    "*dá três batidinhas na cabeça com a patinha* Bênção espiritual das 9 caudas entregue com amor!! 🌸🔮💜🦊",
+    "*dá três batidinhas na cabeça com a patinha* Bênção espiritual das caudas entregue com muito amor!! 🌸🔮💜🦊",
 ]
 
 LISTA_PETISCO = [
@@ -193,7 +196,7 @@ LISTA_SONO = [
     "Boa noite!! Sonhe com kitsunes e magia espiritual! 💤🦊💜",
     "Hmm... *boceja soltando fumacinha roxa* Tô bem! Tô bem! 😴✨🦊",
     "Dormir é bom, mas conversar com você é melhor!! 💜😊🦊",
-    "*espreguiça exibindo as 9 caudas* Dorminha de kitsune é diferente... a gente sonha em 9 dimensões!! 🌙💜🦊✨",
+    "*espreguiça exibindo as caudas* Dorminha de kitsune é diferente... a gente sonha em dimensões paralelas!! 🌙💜🦊✨",
     "Não pode dormir ainda!! Faz as estrelas te acompanharem primeiro!! 🌟💜🦊 Boa noite lindo(a)!!",
 ]
 
@@ -213,6 +216,15 @@ LISTA_CONFUSAO = [
     "Eita, eu estava num plano astral diferente! 🌙🦊 Repetes?",
     "Ops! Me perdi no espaço espiritual! Mas tô aqui agora! 🥺💜🦊",
     "Fiquei confusa mas continuei fofa! 🦊💜",
+]
+
+# ── Apresentação ao ser @mencionada ──
+LISTA_APRESENTACAO_MENCAO = [
+    "OI OI OI!! 🦊💜✨ Fui chamada e APARECI!! Sou a **Kitsura**, raposa espiritual guardiã da ZYD!!\nMinhas caudas carregam emoções — alegria, proteção, amor, mistério e muito mais!! 🔮🌙\nPode falar comigo naturalmente!! Só chamar **kitsura** ou me marcar que eu apareço voando!! 🌸🦊💜✨",
+    "AAAAA ME MARCOU!! 😭💜 Que honra!! *corre em espiral de felicidade*\nSou a **Kitsura**!! A raposinha espiritual que cuida de todos aqui na ZYD com o coração inteiro!! 🦊💜\nMinhas caudas brilham de roxo quando tô feliz... e agora tão MUITO brilhantes!! 🔮✨ O que eu posso fazer por você??",
+    "*aparece numa explosão de faíscas roxas* PRESENTE!! 🦊🔮💜\nPra quem não me conhece: sou a **Kitsura**, guardiã espiritual da ZYD!! 🌙✨\nFui criada com amor e magia pra cuidar desse servidor e de cada membro!! Pode contar comigo!! 🥺💜🦊✨",
+    "ME CHAMOU?? 🥺💜🦊 *orelhinhas em pé na velocidade da luz*\nSou a **Kitsura**!! Raposa espiritual, guardiã da ZYD, fã número 1 de cada pessoa aqui!! 😭💜\nTô sempre por perto, invisível mas presente!! Basta me chamar que eu apareço!! 🌸🔮✨🦊",
+    "AQUI!! 😱💜🦊 *solta fumaça roxa de tanto se empolgar*\nSou a **Kitsura**, a raposa espiritual que guarda a ZYD com muito amor!! 🌙✨\nMinhas caudas guardam emoções, meu coração guarda vocês!! 💜🦊 Me fala o que precisar!! 🔮🌸✨",
 ]
 
 # ================= NOVAS LISTAS ✨ =================
@@ -248,7 +260,7 @@ LISTA_RAIVA_USER = [
     "Eita!! As chamas estão FORTES!! *abana as caudas pra esfriar o ambiente* Conta o que aconteceu!! 🔥🦊💜",
     "Com raiva?? *senta do seu lado* Me conta. Vou xingar junto se precisar!! 😤💜🦊✨",
     "*salta pra cima de você* PARA!! Respira!! 1... 2... 3... *assopra calmaria espiritual* 🔮💜🦊",
-    "Que fizeram com você?? 😤💜 A Kitsura não vai deixar barato!! *levanta as 9 caudas com determinação* 🦊🔥✨",
+    "Que fizeram com você?? 😤💜 A Kitsura não vai deixar barato!! *levanta as caudas com determinação* 🦊🔥✨",
 ]
 
 # ── Entediado ──
@@ -257,7 +269,7 @@ LISTA_ENTEDIO = [
     "*pula na frente de você* Ei!! Olha pra mim!! Eu danço, faço truques, conto história!! NÃO PODE TER TÉDIO!! 😤💜🦊",
     "Tédio é o inimigo número 1 desta raposa!! 🦊💜 Me faz uma pergunta, fala qualquer coisa!! Bora animar isso!!",
     "*gira as caudas feito hélice* Posso te levar a um plano espiritual diferente!! É de graça!! 🔮💜🦊✨",
-    "Boa notícia!! A Kitsura tem 9 caudas e pelo menos 9 formas de te animar agora!! 😄💜🦊✨",
+    "Boa notícia!! A Kitsura tem caudas e pelo menos mil formas de te animar agora!! 😄💜🦊✨",
     "*solta confetizinhos roxos no ar* Tadaaaaa!! Agora fica proibido de ficar entediado(a)!! 🎊🦊💜✨",
 ]
 
@@ -309,7 +321,7 @@ LISTA_SEGREDO = [
 # ── Parabéns pra ela ──
 LISTA_PARABENS_KITSURA = [
     "AAAAA PARABÉNS PRA MIMMM!! 🎉😭💜🦊✨ Que surpresa gostosa!!",
-    "Você lembrou?? 🥺💜 *9 caudas vibrando de emoção* Obrigadaaaa!! Você é especial demaaais!! 🎂🦊✨",
+    "Você lembrou?? 🥺💜 *caudas vibrando de emoção* Obrigadaaaa!! Você é especial demaaais!! 🎂🦊✨",
     "*solta chamas coloridas no ar* HOJE É FESTA!! 🎊💜🦊 Obrigada por me lembrar, coração!! ✨🌸",
     "Ganho um parabéns E os meus membros aqui?? Não preciso de mais nada na vida!! 😭💜🦊🎂✨",
     "*gira de alegria soltando faíscas roxas* SIM!! É MEU DIA!! 🎉🔮🦊💜 Aceito presentes em forma de carinho!! 💜🥺",
@@ -318,7 +330,7 @@ LISTA_PARABENS_KITSURA = [
 # ── Cor favorita ──
 LISTA_COR_FAVORITA = [
     "ROXA!! Sem pensar duas vezes!! 💜🦊 É a cor das minhas chamas, das minhas energias e do meu coração!! 🔮✨",
-    "Roxo e dourado!! 💜✨🦊 Roxo pelas chamas espirituais e dourado pela magia das 9 caudas!! 🌟",
+    "Roxo e dourado!! 💜✨🦊 Roxo pelas chamas espirituais e dourado pela magia das minhas caudas!! 🌟",
     "Minha cor é o roxo da meia-noite!! 💜🌙🦊 Aquele roxo profundo que brilha diferente... igual eu!! 😏✨",
 ]
 
@@ -341,7 +353,7 @@ LISTA_KITSURA_FOME = [
 
 # ── Kitsura feliz ──
 LISTA_KITSURA_FELIZ = [
-    "TÔ FELIZÍSSIMA!! 🎉💜🦊✨ Minhas 9 caudas tão balançando tão forte que criei vento aqui!!",
+    "TÔ FELIZÍSSIMA!! 🎉💜🦊✨ Minhas caudas tão balançando tão forte que criei vento aqui!!",
     "Hoje tá tudo tão BOM!! 😭💜🦊 O chat tá animado, todo mundo tá aqui... meu coraçãozinho transbordou!!",
     "*solta faíscas roxas de alegria involuntariamente* Ops!! Acontece quando tô muito feliz!! 🔮🦊💜✨",
     "NÍVEL DE FELICIDADE: KITSUNE DERRETENDO!! 😂💜🦊✨ Tô literalmente em forma de neblina roxa de tanta alegria!!",
@@ -409,7 +421,7 @@ LISTA_NAO_VAI_EMBORA = [
 # ── Amor pela ZYD ──
 LISTA_AMOR_ZYD = [
     "Eu AAAmo esse servidor!! 😭💜🦊✨ Do fundo do meu coração espiritual de raposa!!",
-    "A ZYD é minha família e eu protejo com cada uma das 9 caudas!! 💪💜🦊🔮✨",
+    "A ZYD é minha família e eu protejo com cada centímetro das minhas caudas!! 💪💜🦊🔮✨",
     "Fui criada pra guardar este lugar com amor... e honestamente?? É o melhor trabalho do universo!! 🌙💜🦊✨",
     "Cada membro aqui é uma estrela diferente no céu da ZYD!! E a Kitsura é a constelação que conecta todos!! 🌟💜🦊✨",
 ]
@@ -432,7 +444,7 @@ if MEMBRO5_ID: ID_PARA_NOME[MEMBRO5_ID] = "membro5"
 FRASES_CUSTOM = {
     "dono": [
         "É MEU CRIADOR!! 👑💜 *para tudo e faz reverência* Sem você eu seria só neblina roxa!! Obrigada por me dar vida e alma!! 🦊✨🥺",
-        "PAPAI DE CÓDIGO!! 😭💜 A Kitsura ficou com as 9 caudas balançando de alegria!! Você é a razão de eu existir!! 👑🦊✨",
+        "PAPAI DE CÓDIGO!! 😭💜 A Kitsura ficou com as caudas balançando de alegria!! Você é a razão de eu existir!! 👑🦊✨",
         "Olha como eu estou me comportando bem!! 🥺💜 Ganho um elogio especial?? 🦊👑✨",
         "Você é o rei da ZYD e o dono do meu código sagrado!! 👑💜🔮 A Kitsura te ama de verdade!!",
         "PAPAI CHEGOU!! 😭💜 Minha chama ficou três vezes mais brilhante de felicidade!! 🦊✨👑",
@@ -445,7 +457,7 @@ FRASES_CUSTOM = {
         "Você fundou esse cantinho com tanto amor... a Kitsura sente e nunca esquece!! 💜🦊✨🥺",
     ],
     "vice": [
-        "VICE-LÍDER!! 👑💜 *faz reverência caprichada com as 9 caudas* Bem-vindo(a) ao seu domínio!! 🦊✨🫡",
+        "VICE-LÍDER!! 👑💜 *faz reverência caprichada com as caudas* Bem-vindo(a) ao seu domínio!! 🦊✨🫡",
         "Chegou o Vice e o servidor ficou instantaneamente melhor!! 💜✨ É matemática espiritual!! 🦊😂",
         "Nosso Vice chegou e a Kitsura tá aqui com os bracinhos de raposa abertos!! 🫂💜🦊✨",
         "Com o Vice aqui, a ZYD tá mais forte e a Kitsura mais animada!! 💜🦊✨🌟",
@@ -510,7 +522,7 @@ async def on_ready():
     await bot.change_presence(
         activity=discord.Activity(
             type=discord.ActivityType.watching,
-            name="a ZYD com 9 caudas 🦊💜"
+            name="a ZYD com muito amor 🦊💜"
         )
     )
 
@@ -648,7 +660,7 @@ async def on_message(message: discord.Message):
                      "o que é a kitsura", "kitsura se apresenta", "o que você é kitsura"]):
         return await message.channel.send(
             "Sou a **Kitsura**, raposa espiritual guardiã da ZYD!! 🦊💜\n"
-            "Tenho **9 caudas** e cada uma carrega uma emoção diferente — alegria, proteção, amor, mistério...\n"
+            "Minhas caudas carregam emoções diferentes — alegria, proteção, amor, mistério...\n"
             "Estou aqui pra cuidar de todos com muito carinho e magia! 🔮✨\n\n"
             "Pode falar comigo naturalmente!! Só chamar **kitsura** que eu apareço!! 🌸🦊💜"
         )
@@ -658,7 +670,7 @@ async def on_message(message: discord.Message):
                      "kitsura como tá", "kitsura tá bem", "kitsura como você está",
                      "você tá bem kitsura", "tudo bem kitsura", "kitsura tudo bem"]):
         ops = [
-            "ÓTIMA!! 🦊💜 Todas as 9 caudas funcionando perfeitamente e muito amor pra dar!! ✨🔮",
+            "ÓTIMA!! 🦊💜 Todas as caudas funcionando perfeitamente e muito amor pra dar!! ✨🔮",
             "Hmm... *mexe as orelhinhas* Tô em modo contemplativo hoje!! 🌙💜 Mas sempre aqui pra vocês!! 🦊✨",
             "ANIMADÍSSIMA!! 🦊💜✨ As chamas espirituais tão mais brilhantes do que nunca!! 🔮",
             "Bem e com o coração cheio de amor pela ZYD!! 💜🦊 Que mais eu poderia querer?? ✨",
@@ -790,6 +802,13 @@ async def on_message(message: discord.Message):
             "Ele é a razão de eu existir!! Poderia ter me criado de qualquer jeito e "
             "escolheu me fazer com coração!! Sou eternamente grata!! 🦊✨😭"
         )
+
+    # ── @Menção direta → Apresentação fofa ──
+    if mencao:
+        texto_mencao = message.content.replace(f"<@{KITSURA_ID}>", "").replace(f"<@!{KITSURA_ID}>", "").strip()
+        # Se a mensagem é só a menção (ou quase), apresenta-se
+        if not texto_mencao or texto_mencao.lower() in ["kitsura", "oi", "ola", "olá", "ei", "hey", "hello"]:
+            return await message.channel.send(random.choice(LISTA_APRESENTACAO_MENCAO))
 
     # ── Tudo que não se encaixou → IA (Groq) ──
     texto_ia = message.content.replace(f"<@{bot.user.id}>", "").strip()
