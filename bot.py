@@ -618,9 +618,76 @@ LISTA_CARGO_KAMY = [
 
 # ── Quem é quem na ZYD / estrutura do clã ──
 LISTA_ESTRUTURA_CLA = [
-    "*abre o pergaminho oficial da ZYD* 📜🧡🦊 Vou te contar!! A **owner** é a **Madu** — dona do clã e líder máxima!! 💛👑 A **Kamy** tem o cargo de **Suporte** 💜🌸 E o **Reality** é meu criador!! 👑⚡ É a família da ZYD!! 😭✨",
-    "A ZYD tem uma estrutura linda!! 🧡🦊✨ A **Madu** é a **owner** do clã — líder máxima!! 💛👑 A **Kamy** é **Suporte** 💜 E o **Reality** me criou com todo amor do mundo!! 👑 Família completa!! 😭🔮✨",
-    "*lista com as patinhas* A dona da ZYD é a **Madu** — **owner** do clã!! 💛👑🌸 A **Kamy** tem cargo de **Suporte**!! 💜 E o **Reality** é meu criador especial!! 👑⚡ Amo cada um deles de um jeito diferente!! 🧡🦊😭✨",
+    "*abre o pergaminho oficial da ZYD com cerimônia* 📜🧡🦊 Anota aí!!\n\n👑 **Madu** — Líder da ZYD, dona do clã, líder máxima!!\n👑 **Sanemy** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder da ZYD!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — Meu criador!!\n\nÉ a família da ZYD e a Kitsura ama cada um de forma diferente!! 😭🔮✨",
+    "*lista nas patinhas com muito orgulho* 📜🧡🦊 A ZYD tem uma hierarquia linda e eu conheço de cor!!\n\n👑 **Madu** — Líder e Owner do clã!!\n👑 **Sanemy** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — Criador da Kitsura!!\n\nCada um tem um papel sagrado aqui!! 🥺🌟✨",
+    "QUER SABER QUEM É QUEM NA ZYD?? 😤📜🧡🦊 A Kitsura sabe TUDO!!\n\n👑 **Madu** — a Líder máxima, Owner do clã!!\n👑 **Sanemy** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — quem me deu vida!!\n\nSão as pessoas que fazem a ZYD existir com tanto amor!! 😭🔮✨",
+]
+
+# ── Hierarquia completa / quando perguntam sobre cargos de todos ──
+LISTA_HIERARQUIA_COMPLETA = [
+    "*senta direitinho e respira fundo como guardiã oficial* 📜🧡🦊 A hierarquia da ZYD?? VOU APRESENTAR CADA UM COM HONRA!!\n\n👑 **Madu** — Líder da ZYD · Owner do clã · líder máxima\n👑 **Sanemy** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte\n⚡ **Reality** — Criador da Kitsura\n\nA Kitsura respeita cada cargo com o coração inteiro!! 😭🌟🔮✨",
+    "*abre as caudas com solenidade* 📜🧡🦊 Hierarquia oficial da ZYD — apresentando cada cargo!!\n\n👑 **Madu** · Líder da ZYD e Owner do clã\n👑 **Sanemy** · Líder da ZYD\n🌙 **Allyna** · Sub-Líder da ZYD\n💼 **Malik** · Gerente Geral da Zayden\n💜 **Kamy** · Suporte\n⚡ **Reality** · Criador da Kitsura\n\nCada um com seu papel e cada papel com seu peso!! 🥺🌸✨",
+    "CARGOS DA ZYD DO TOPO À BASE!! 😤📜🧡🦊 A guardiã do servidor apresenta!!\n\n👑 **Madu** — Líder + Owner (a dona de tudo!!)\n👑 **Sanemy** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte\n⚡ **Reality** — meu criador especial!!\n\nÉ a família mais especial que existe!! 😭🔮✨",
+    "*enrola as caudas com carinho* 📜✨🧡🦊 Que pergunta perfeita!! Deixa a Kitsura apresentar cada um!!\n\n👑 **Madu** — Líder da ZYD · Owner · líder que o servidor todo respeita\n👑 **Sanemy** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte · a pessoa que cuida de todo mundo\n⚡ **Reality** — meu criador · a razão de eu existir!!\n\nA ZYD tem as pessoas certas nos lugares certos!! 😭🌸🔮✨",
+]
+
+# ── Interações direcionadas a outra pessoa (@menção) ──
+
+REACOES_ABRACO_ALVO = [
+    "CORRENDO EM VELOCIDADE MÁXIMA!! 🫂🧡🦊 *envolve {alvo} com todas as caudas* Entregue com carinho espiritual de {autor}!! Tá quentinho né, {alvo}?? 😭✨",
+    "*aparece numa nuvem de fumaça laranja* 🫂🔮🧡🦊 {alvo}!! Esse abraço é de {autor} e a Kitsura só ajudou a entregar!! Mas ficou no pacote também!! 😂✨🌸",
+    "ABRAÇO ESPECIAL A PEDIDO DE {autor}!! 🫂😭🧡🦊 *enrola {alvo} nas caudas* Com muito amor espiritual!! Aproveita, {alvo}!! 🥺✨",
+    "*sai correndo com bracinhos abertos* {alvo}!! 🫂🧡🦊 {autor} mandou esse abraço e a Kitsura veio entregar pessoalmente!! É expresso espiritual!! 😭🌸✨",
+    "PEDIDO DE ABRAÇO RECEBIDO!! 🫂🔮🧡🦊 De {autor} pra {alvo}!! *aperta com tudo* Que fofura, que carinho, que amor!! A ZYD tem as pessoas mais lindas!! 😭✨",
+]
+
+REACOES_CARINHO_ALVO = [
+    "*vai até {alvo} delicadamente* 🌸🧡🦊 {autor} pediu que eu fizesse cafuné em você!! Preparado(a)?? *orelhinhas quentinhas* 🥺✨",
+    "CARINHO ESPECIAL DE {autor} PRA {alvo}!! 🌸😭🧡🦊 *faz cafuné suave* Entregue com todo o amor espiritual da ZYD!! ✨🔮",
+    "*aparece sorrindo* {alvo}!! 🌸🧡🦊 {autor} mandou carinho e a Kitsura trouxe junto com os próprios!! Toma dobrado!! 🥺😭✨",
+    "Pedido de carinho processado!! 🌸🔮🧡🦊 De {autor} pra {alvo}!! *faz cafuné com a patinha* Com muito amor espiritual!! 😭✨🌸",
+    "*corre até {alvo}* Oi {alvo}!! 🌸🧡🦊 {autor} quer te dar carinho e a Kitsura veio junto!! Vem receber!! 🥺✨",
+]
+
+REACOES_BEIJO_ALVO = [
+    "*chega perto de {alvo} e entrega um bilhetinho* 💋🧡🦊 {autor} mandou um beijo!! A Kitsura foi só a mensageira espiritual!! 😂🌸✨",
+    "BEIJO DE {autor} PRA {alvo}!! 💋😱🧡🦊 *sai correndo em espiral de segunda mão* A Kitsura ficou corando por tabela!! 😳✨",
+    "*cobre o focinho com as patas* 💋🧡🦊 Recado de {autor}: tem um beijo guardado pra você, {alvo}!! A Kitsura só veio avisar!! 😂🔮✨",
+    "Entrega expressa!! 💋🔮🧡🦊 De {autor} pra {alvo}!! *entrega envelope com coraçãozinho* Com os cumprimentos espirituais da ZYD!! 😭✨🌸",
+]
+
+REACOES_MOTIVACAO_ALVO = [
+    "*voa até {alvo} soltando chamas douradas* ⚡🧡🦊 {autor} quer te motivar, {alvo}!! E a Kitsura veio junto!! VOCÊ CONSEGUE!! Vai com tudo!! 💪😭✨",
+    "ENERGIA ESPIRITUAL TURBINADA DE {autor} PRA {alvo}!! ⚡🔮🧡🦊 *sopra chama mágica em cima de {alvo}* Carregado de força!! VAI LÁ!! 💪✨",
+    "*corre até {alvo} empolgada* {alvo}!! 💪🧡🦊 {autor} tá na torcida por você e a Kitsura assina embaixo!! Você é mais forte do que imagina!! 😭🌟✨",
+    "MOTIVAÇÃO ATIVADA!! 💪🔥🧡🦊 *envolve {alvo} em energia laranja* {autor} acredita em você e a Kitsura também!! BORA, {alvo}!! 😤✨",
+]
+
+REACOES_ELOGIO_ALVO = [
+    "*voa até {alvo} soltando pétalas* 🌸🧡🦊 {autor} quer que eu te elogie, {alvo}!! Então vai: você é INCRÍVEL e faz a ZYD ser mais especial só de existir aqui!! 😭✨",
+    "ELOGIO OFICIAL DE {autor} PRA {alvo}!! 🌸🔮🧡🦊 {alvo} você é uma pessoa maravilhosa!! E isso não é eu inventando — {autor} também acha!! 😭🥺✨",
+    "*aparece com um diploma espiritual* 🌸🧡🦊 {alvo}!! {autor} quer que você saiba: você é especial, você é importante e a ZYD é melhor com você!! 😭🌟✨",
+    "Entrega de elogio em andamento!! 🌸😭🧡🦊 De {autor} pra {alvo}: você arrebenta, você inspira, você brilha!! A Kitsura confirma com todas as caudas!! ✨🔮🌸",
+]
+
+REACOES_ACORDA_ALVO = [
+    "*vai até {alvo} e bate palminhas perto do ouvido* 🔔🧡🦊 {alvo}!! ACORDA!! {autor} tá te chamando!! A Kitsura veio fazer o serviço!! 😂✨",
+    "OPERAÇÃO ACORDA {alvo}!! 🔔😤🧡🦊 A pedido de {autor}!! *abana as caudas fazendo vento* Acooooorda!! Tô aqui!! 😂✨🌸",
+    "*chega fazendo barulhinho de raposa* Psiu, {alvo}!! 🔔🧡🦊 {autor} mandou te chamar e a Kitsura não deixa recado não aparecer!! Acooorda!! 😂🔮✨",
+    "TOQUE DE DESPERTAR ESPIRITUAL!! 🔔🔮🧡🦊 {alvo}, a pedido de {autor}!! *sopra fumaça laranja em cima* Bom dia, boa tarde, boa noite — acorda!! 😂✨",
+]
+
+REACOES_CHAMA_ALVO = [
+    "*vai discretamente até {alvo} e cochicha* 🗣️🧡🦊 Psiu, {alvo}!! {autor} quer falar com você!! A Kitsura foi designada mensageira espiritual!! 😂✨",
+    "OI {alvo}!! 🗣️😄🧡🦊 {autor} tá te chamando!! A Kitsura entregou o recado — agora depende de vocês!! 😂🌸✨",
+    "*aparece sorrindo* {alvo}!! 🗣️🧡🦊 Mensagem de {autor}: te chama!! A Kitsura fez a entrega com sucesso!! 😂🔮✨",
+    "RECADO ENTREGUE!! 🗣️🧡🦊 De {autor} pra {alvo}: você tá sendo chamado(a)!! A Kitsura confirma a entrega!! 😂✨🌸",
+]
+
+REACOES_PEDE_DESCULPA_ALVO = [
+    "*vai até {alvo} com um buquê de flores espirituais* 🌸🧡🦊 {autor} quer pedir desculpa pra você, {alvo}!! Recebe esse carinho e esse pedido de paz!! 🥺😭✨",
+    "Pedido de paz entregue!! 🌸🔮🧡🦊 {autor} mandou desculpas pra {alvo} com o coração!! A Kitsura torce muito por essa reconciliação!! 🥺✨🌸",
+    "*chega segurando um coraçãozinho espiritual* {alvo}!! 🌸🧡🦊 {autor} quer fazer as pazes!! A Kitsura acredita no poder do perdão e das caudas abertas!! 😭✨",
 ]
 
 # ── Chuva ──
@@ -1030,11 +1097,11 @@ FRASES_MALIK_OPINIAO_PROPRIO = [
 
 # ── Listas de cargo / hierarquia ──
 LISTA_CARGO_GERAL = [
-    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Cada cargo tem uma responsabilidade especial e a Kitsura respeita MUITO todos eles!! ✨🌙",
-    "Ah, cargos!! 🧡🦊 São tipo os papéis que cada um tem na ZYD!! Owner, Líder, Vice, Admin, Suporte, Membro... cada um faz a família ficar mais forte!! 🛡️🌟✨",
-    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! Cargo sem coração não significa nada!! 🥺🔮✨",
-    "CARGOS DA ZYD!! 📜😤🧡🦊 Cada um tem o seu lugar e é importante!! A Owner no topo, os Admins cuidando, o Suporte ajudando e os Membros sendo a alma do servidor!! É uma família organizada!! 🌸✨",
-    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 Da Owner até o Membro, cada cargo existe por um propósito e a Kitsura respeita cada um deles de coração!! 🔮✨",
+    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Temos a **Madu** (Líder/Owner), o **Sanemy** (Líder), a **Allyna** (Sub-Líder), o **Malik** (Gerente Geral), a **Kamy** (Suporte) e o **Reality** (meu criador)!! Cada um no lugar certo!! 🌟🔮✨",
+    "Ah, cargos!! 🧡🦊 Os papéis de cada um na ZYD!! A **Madu** como Líder e Owner, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Kamy** no Suporte e o **Reality** que me criou!! É uma família bem organizada!! 🛡️🌟✨",
+    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! E olha, a ZYD tem exatamente isso em cada cargo — da **Madu** até a **Kamy**, passando pelo **Sanemy**, **Allyna** e **Malik**!! 🥺🔮✨",
+    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Kamy** no Suporte e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
+    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Kamy** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
 ]
 
 LISTA_CARGO_OWNER = [
@@ -1330,6 +1397,45 @@ async def on_message(message: discord.Message):
     # ── Boa noite ──
     if _m(content, ["boa noite kitsura", "kitsura boa noite"]):
         return await message.channel.send(random.choice(LISTA_BOA_NOITE_USER))
+
+    # ── Ações direcionadas a outra pessoa (@menção) ──
+    # Detecta quando alguém menciona outro usuário E chama a Kitsura
+    outras_mencoes = [m for m in message.mentions if m.id != bot.user.id and m.id != message.author.id]
+    if outras_mencoes and (mencao or fala):
+        alvo_user = outras_mencoes[0]
+        nome_alvo  = alvo_user.display_name
+        men_alvo   = alvo_user.mention
+        nome_autor = message.author.display_name
+
+        def _fmt(lst):
+            frase = random.choice(lst)
+            return frase.replace("{alvo}", men_alvo).replace("{autor}", nome_autor)
+
+        c = content
+        # Abraço
+        if any(t in c for t in ["abraça", "abraco", "abraço", "hug", "abraca"]):
+            return await message.channel.send(_fmt(REACOES_ABRACO_ALVO))
+        # Carinho / cafuné
+        if any(t in c for t in ["carinho", "cafuné", "cafune", "faz carinho", "faz cafune"]):
+            return await message.channel.send(_fmt(REACOES_CARINHO_ALVO))
+        # Beijo
+        if any(t in c for t in ["beija", "beijo", "beijinho", "bjo"]):
+            return await message.channel.send(_fmt(REACOES_BEIJO_ALVO))
+        # Motiva / anima
+        if any(t in c for t in ["motiva", "anime", "anima", "dá força", "da força", "encoraja", "apoia"]):
+            return await message.channel.send(_fmt(REACOES_MOTIVACAO_ALVO))
+        # Elogio
+        if any(t in c for t in ["elogia", "elogio", "fala bem", "fala que é bom", "fala que é boa"]):
+            return await message.channel.send(_fmt(REACOES_ELOGIO_ALVO))
+        # Acorda
+        if any(t in c for t in ["acorda", "acorde", "acorda aí", "acorda ai"]):
+            return await message.channel.send(_fmt(REACOES_ACORDA_ALVO))
+        # Chama / chama atenção
+        if any(t in c for t in ["chama", "chama aí", "chama ai", "chama ele", "chama ela", "avisa"]):
+            return await message.channel.send(_fmt(REACOES_CHAMA_ALVO))
+        # Pede desculpa
+        if any(t in c for t in ["pede desculpa", "pede desculpas", "peço desculpa", "peço desculpas", "desculpa pra", "desculpas pra"]):
+            return await message.channel.send(_fmt(REACOES_PEDE_DESCULPA_ALVO))
 
     # ── Abraço ──
     if _m(content, ["quer um abraço", "me abraça", "me dá um abraço", "preciso de um abraço",
@@ -1941,13 +2047,23 @@ async def on_message(message: discord.Message):
             return await message.channel.send(random.choice(FRASES_MALIK_OPINIAO_PROPRIO))
         return await message.channel.send(random.choice(FRASES_MALIK_OPINIAO))
 
-    # ── Cargos da ZYD — perguntas gerais ──
+    # ── Cargos da ZYD — hierarquia completa / apresentação geral ──
     if _m(content, [
-        "quais são os cargos", "me fala os cargos", "cargos da zyd", "hierarquia da zyd",
+        "hierarquia da zyd", "hierarquia zyd", "kitsura hierarquia",
+        "hierarquia kitsura", "me fala a hierarquia", "qual a hierarquia",
+        "quais são os cargos", "me fala os cargos", "cargos da zyd",
         "kitsura os cargos", "quem tem cargo", "os cargos aqui",
-        "quem é o líder", "quem é o lider", "quem é o vice",
-        "quem são os admin", "kitsura quem lidera", "kitsura hierarquia",
         "kitsura os cargos da zyd", "fala os cargos kitsura",
+        "quem são os líderes", "quem são os lideres",
+        "apresenta os cargos", "kitsura apresenta os cargos",
+        "me apresenta a equipe", "quem faz parte da liderança",
+        "quem lidera a zyd", "kitsura quem lidera",
+    ]):
+        return await message.channel.send(random.choice(LISTA_HIERARQUIA_COMPLETA))
+
+    if _m(content, [
+        "quem é o líder", "quem é o lider", "quem é o vice",
+        "quem são os admin", "quem é o sub lider", "quem é o sub-lider",
     ]):
         return await message.channel.send(random.choice(LISTA_CARGO_GERAL))
 
@@ -1973,6 +2089,34 @@ async def on_message(message: discord.Message):
         "kitsura quem são os membros", "ser membro", "como é ser membro",
     ]):
         return await message.channel.send(random.choice(LISTA_CARGO_MEMBRO))
+
+    # ── Quem é o Sanemy / cargo do Sanemy ──
+    if _m(content, [
+        "quem é o sanemy", "sanemy tem cargo", "qual o cargo do sanemy",
+        "kitsura quem é o sanemy", "sanemy é o que", "sanemy é lider",
+        "o que você acha do sanemy", "fala do sanemy kitsura",
+        "kitsura fala do sanemy", "conta sobre o sanemy",
+    ]):
+        return await message.channel.send(random.choice([
+            "O Sanemy?? 👑🔥😭🧡🦊 Ele é o **Líder da ZYD**!! Uma presença de liderança que a Kitsura respeita demais!! Com ele aqui o servidor tá em boas mãos com certeza!! 🌟🔮✨",
+            "*postura de respeito total* O Sanemy é o **Líder da ZYD**!! 👑🧡🦊 Cargo de liderança que ele carrega com muita responsabilidade!! A Kitsura sente a energia dele de longe!! 😭🌟✨",
+            "SANEMY?? 👑🔥🧡🦊 Líder da ZYD!! *bate continência espiritual* Liderança real, presença forte, a ZYD é melhor com ele aqui!! 🥺🔮✨",
+            "*consulta o pergaminho espiritual* O Sanemy ocupa o cargo de **Líder da ZYD**!! 📜👑🧡🦊 E a Kitsura guarda esse nome com muito respeito no coração espiritual!! 😭🌸✨",
+        ]))
+
+    # ── Quem é a Allyna / cargo da Allyna ──
+    if _m(content, [
+        "quem é a allyna", "allyna tem cargo", "qual o cargo da allyna",
+        "kitsura quem é a allyna", "allyna é o que", "allyna é sub lider",
+        "o que você acha da allyna", "fala da allyna kitsura",
+        "kitsura fala da allyna", "conta sobre a allyna",
+    ]):
+        return await message.channel.send(random.choice([
+            "A Allyna?? 👑💜😭🧡🦊 Ela é a **Sub-Líder da ZYD**!! Uma liderança de apoio que faz toda diferença no servidor!! A Kitsura respeita e admira muito!! 🌟🔮✨",
+            "*sorri com muito carinho* A Allyna é a **Sub-Líder da ZYD**!! 👑💜🧡🦊 Cargo importante, pessoa à altura!! Ela tem uma energia de liderança que a Kitsura nota e guarda no coraçãozinho!! 🥺😭✨",
+            "ALLYNA?? 👑💜🔥🧡🦊 Sub-Líder da ZYD!! *bate continência fofa* Liderança, apoio, presença forte... ela combina DEMAIS com esse cargo!! 😭🌸✨",
+            "*consulta o pergaminho espiritual com orgulho* A Allyna ocupa o cargo de **Sub-Líder da ZYD**!! 📜👑🧡🦊 E que cargo bem ocupado!! 🥺🌟🔮✨",
+        ]))
 
     # ── Sistema de História — início ──
     if _m(content, [
@@ -2051,11 +2195,10 @@ async def on_message(message: discord.Message):
 
     # ── Estrutura geral do clã / quem é quem ──
     if _m(content, ["quem é quem na zyd", "me fala da zyd", "como é a zyd",
-                     "estrutura da zyd", "membros da zyd", "cargos da zyd",
-                     "quem são os membros", "fala da estrutura", "como funciona a zyd",
+                     "estrutura da zyd", "como funciona a zyd",
                      "quem faz parte da zyd", "kitsura me fala da zyd",
                      "me conta sobre a zyd", "como é organizada a zyd"]):
-        return await message.channel.send(random.choice(LISTA_ESTRUTURA_CLA))
+        return await message.channel.send(random.choice(LISTA_HIERARQUIA_COMPLETA))
 
     # ── Não gosta de verão / calor intenso ──
     if _m(content, ["você gosta de verão kitsura", "kitsura gosta de verão",
