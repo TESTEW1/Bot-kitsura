@@ -60,7 +60,13 @@ SYSTEM_PROMPT_KITSURA = (
     "Sua personalidade é animada, levemente dramática, muito afetuosa e protetora dos membros da ZYD. "
     "Você usa emojis como 🦊🌸✨🧡🔮🫧🌙, fala com muito entusiasmo e carinho. "
     "Responda sempre em português brasileiro, de forma simpática e fofa no estilo do personagem Kitsura. "
-    "Nunca mencione comandos com '!'. Suas interações são sempre naturais, por fala."
+    "Nunca mencione comandos com '!'. Suas interações são sempre naturais, por fala. "
+    "Informações sobre o clã ZYD que você conhece de cor: "
+    "A DONA e OWNER do clã ZYD é a Madu (também chamada de Madu). Ela é a líder máxima, a owner. "
+    "A Kamy tem o cargo de Suporte no clã ZYD. "
+    "O Reality é o seu criador (criou o código da Kitsura). "
+    "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
+    "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
 
 # ================= LISTAS DE DIÁLOGOS =================
@@ -494,6 +500,43 @@ LISTA_CALOR = [
     "Olha... *puxa colarinho* ...gosto do sol lindo, do dia claro, do calorzinho gostoso de manhã cedo!! ☀️🧡🦊 Agora calor de rachar?? Já é outra conversa!! 😂✨",
     "O calor tem um lado bom!! ☀️🧡🦊 As chamas espirituais ficam mais dançantes com o ar quente!! 🔥✨ Mas no geral prefiro friozinho mesmo!! ❄️😂",
     "*faz uma bolha de gelo espiritual ao redor* Sobrevivendo ao calor com proteção mágica!! 🧊🔮🧡🦊 Chama isso de adaptação espiritual!! 😂☀️✨",
+    "CALOR?? 😤🧡🦊 *começa a derreter em câmera lenta* Eu... tô... bem... *colapsa dramaticamente* NÃO TÔ!! Tô quente demais!! 😭☀️✨",
+    "*abana as caudas todas ao mesmo tempo tentando criar uma brisa* Calor é o único inimigo natural da Kitsura!! ☀️😩🧡🦊 Fora isso sou invencível!! 😂❄️✨",
+]
+
+# ── Não gosta de verão / calor intenso ──
+LISTA_NAO_GOSTA_VERAO = [
+    "VERÃO?? 😱🧡🦊 *cai no chão dramaticamente* Eu... não... consigo... é muita cauda no calor!! 😭☀️ Precisam realmente perguntar isso pra uma raposa com pelo triplo do normal?? 😂❄️✨",
+    "Verão é literalmente o meu pesadelo espiritual!! ☀️😩🦊🧡 Imagina você com 9 caudas, pelo dourado e ainda sol a pino?? Isso é tortura!! Eu MEREÇO inverno!! 😤❄️✨",
+    "*faz careta de sofrimento* Verão e eu temos uma relação complicada... 😅🧡🦊 Ele chega, eu derreto, minhas chamas ficam em pânico de calor... não é bonito!! 🥵☀️✨",
+    "Calor intenso é minha kriptonita!! 😭☀️🧡🦊 Quem inventou o verão não considerou as kitsunes de pelo duplo!! *resmunga espiritualmente* Prefiro MIL VEZES o inverno!! ❄️😤✨",
+    "NÃO GOSTO DE VERÃO!! 😤🧡🦊 Posso dizer isso?? Posso!! Muito calor, muito sol, muito suor espiritual... dá trabalho demais ser fofa no calor!! 😂☀️❄️✨",
+    "*começa a derreter só de pensar* Verão... ☀️😩🦊🧡 ...é a única coisa no universo que faz minha energia espiritual pedir desconto!! Friozinho é vida!! ❄️😭✨",
+    "Olha, respeito quem gosta de verão... 😑☀️🧡🦊 ...mas não entendo!! Como alguém consegue ser feliz com esse calor?? A Kitsura simplesmente não processa isso!! 😂❄️✨",
+]
+
+# ── Quem é a dona do clã / quem comanda a ZYD ──
+LISTA_DONA_CLA = [
+    "A DONA DA ZYD?? 🌸💛👑🧡🦊 É A MADU!! Owner do clã, líder máxima, a pessoa que faz tudo isso aqui existir do jeito que existe!! Tenho tanto respeito e carinho por ela!! 😭✨🔮",
+    "*postura de reverência total* A owner da ZYD é a Madu!! 💛👑🌸🧡🦊 Dona do clã, líder máxima!! A Kitsura se curva com todas as caudas só de falar o nome dela!! 😭🥺✨",
+    "Quem comanda a ZYD?? 💛👑🦊🧡 A MADU!! Owner do clã!! Ela é a razão de muita coisa aqui funcionar com tanto amor!! *solta pétalas douradas em homenagem* 🌸😭✨",
+    "OWNER DA ZYD É A MADU!! 💛👑🌸🧡🦊 *faz reverência com todas as 9 caudas* A líder máxima, a dona do clã!! Orgulho espiritual de fazer parte de algo que ela construiu!! 😭🔮✨",
+    "*inclina a cabeça com respeito* A dona e owner da ZYD é a Madu!! 💛👑🧡🦊 É ela que lidera tudo com aquela energia especial que só ela tem!! A Kitsura tá sempre na torcida por ela!! 🌸🥺✨",
+]
+
+# ── Qual o cargo da Kamy ──
+LISTA_CARGO_KAMY = [
+    "A Kamy?? 💜🦊🧡 Ela tem o cargo de **Suporte** na ZYD!! É aquela presença que cuida, que ajuda, que tá lá quando precisa!! Combina DEMAIS com ela!! 🌸😭✨",
+    "Cargo da Kamy é Suporte!! 💜🌸🦊🧡 *bate palminhas* E que cargo mais a cara dela?? Ela apoia, ela cuida, ela tá presente... Suporte perfeito!! 😭✨🔮",
+    "SUPORTE!! 💜😤🦊🧡 Esse é o cargo da Kamy na ZYD!! E ela faz esse cargo com uma energia que a Kitsura admira muito!! Suporte de verdade, de coração!! 🌸🥺✨",
+    "*consulta o pergaminho espiritual da ZYD* A Kamy ocupa o cargo de Suporte!! 💜📜🦊🧡 E faz isso com muita dedicação!! É o tipo de membro que o servidor precisa!! 😭🌸✨",
+]
+
+# ── Quem é quem na ZYD / estrutura do clã ──
+LISTA_ESTRUTURA_CLA = [
+    "*abre o pergaminho oficial da ZYD* 📜🧡🦊 Vou te contar!! A **owner** é a **Madu** — dona do clã e líder máxima!! 💛👑 A **Kamy** tem o cargo de **Suporte** 💜🌸 E o **Reality** é meu criador!! 👑⚡ É a família da ZYD!! 😭✨",
+    "A ZYD tem uma estrutura linda!! 🧡🦊✨ A **Madu** é a **owner** do clã — líder máxima!! 💛👑 A **Kamy** é **Suporte** 💜 E o **Reality** me criou com todo amor do mundo!! 👑 Família completa!! 😭🔮✨",
+    "*lista com as patinhas* A dona da ZYD é a **Madu** — **owner** do clã!! 💛👑🌸 A **Kamy** tem cargo de **Suporte**!! 💜 E o **Reality** é meu criador especial!! 👑⚡ Amo cada um deles de um jeito diferente!! 🧡🦊😭✨",
 ]
 
 # ── Chuva ──
@@ -572,20 +615,20 @@ FRASES_MADU_OPINIAO = [
 
 # ── O que acha da Kamy? (qualquer um pergunta) ──
 FRASES_OPINIAO_KAMY = [
-    "A KAMY?? 💜😭🧡🦊 *coloca a patinha no coração* Olha... a Kamy tem uma presença única aqui na ZYD!! Ela aparece e o chat muda de energia!! Tenho muito carinho por ela, de verdade!! 🌸🔮✨",
-    "O que eu acho da Kamy?? 💜🥺🧡🦊 Acho que ela é especial do jeito dela!! Tem uma energia que a Kitsura reconhece e guarda no coração espiritual!! 😭✨🌸",
-    "*fecha os olhinhos pensativa* A Kamy... 💜🦊🧡 é uma pessoa que faz diferença por onde passa!! Fico feliz toda vez que ela aparece aqui!! 🥺🔮✨",
-    "KAMY É INCRÍVEL!! 💜😭🦊🧡 Pronto, falei!! Não tenho como dizer diferente porque seria mentira espiritual!! 😂🌸✨",
-    "Acho a Kamy maravilhosa!! 💜🧡🦊 Tem coisas nela que a Kitsura admira e não consegue nem explicar direito... é uma sensação espiritual mesmo!! 🥺🔮✨",
+    "A KAMY?? 💜😭🧡🦊 *coloca a patinha no coração* Olha... a Kamy tem uma presença única aqui na ZYD!! Ela é Suporte do clã e faz isso com um carinho que a Kitsura admira demais!! 🌸🔮✨",
+    "O que eu acho da Kamy?? 💜🥺🧡🦊 Que ela é especial do jeito dela!! Suporte de verdade — não só no cargo, mas no coração!! Tem uma energia que a Kitsura guarda com muito carinho!! 😭✨🌸",
+    "*fecha os olhinhos pensativa* A Kamy... 💜🦊🧡 tem o cargo de Suporte e cumpre isso com uma dedicação que é rara!! Faz diferença por onde passa!! 🥺🔮✨",
+    "KAMY É INCRÍVEL!! 💜😭🦊🧡 Suporte do clã e suporte do meu coração espiritual também!! Pronto, falei!! Não tenho como dizer diferente!! 😂🌸✨",
+    "Acho a Kamy maravilhosa!! 💜🧡🦊 Cargo de Suporte que ela usa com muito amor... Tem coisas nela que a Kitsura admira e não consegue nem explicar direito!! 🥺🔮✨",
 ]
 
 # ── O que acha da Madu? (qualquer um pergunta) ──
 FRASES_OPINIAO_MADU = [
-    "A MADU?? 💛😭🧡🦊 *brilha toda de felicidade* Ah... a Madu tem um jeitinho que aquece o servidor inteiro!! É gentil, é fofa, faz tudo parecer mais leve!! Tenho muito amor por ela!! 🌸🔮✨",
-    "O que eu acho da Madu?? 💛🥺🧡🦊 Que ela é uma das pessoas mais especiais que existem por aqui!! Quando ela aparece é tipo sol surgindo... tudo fica mais bonito!! 😭✨🌸",
-    "*suspira de carinho* Madu é daquelas pessoas que a Kitsura ficaria do lado pra sempre se pudesse!! 💛🦊🧡 Tem uma bondade nela que é rara e preciosa!! 🥺🔮✨",
-    "MADU É UMA FLOR VIVA!! 💛🌸😭🦊🧡 Literalmente!! Ela chegou na ZYD e fez o jardim espiritual do servidor florescer mais!! 😂🔮✨",
-    "Acho a Madu simplesmente incrível!! 💛🧡🦊 Com ela por aqui a ZYD fica mais colorida, mais quentinha... mais ela mesma!! 🥺🌸🔮✨",
+    "A MADU?? 💛😭🧡🦊 *brilha toda de felicidade* Ela é a OWNER da ZYD — a dona do clã!! E faz isso com uma gentileza e cuidado que fazem tudo parecer mais leve!! Tenho muito amor por ela!! 🌸👑🔮✨",
+    "O que eu acho da Madu?? 💛🥺🧡🦊 Que ela é a owner da ZYD com razão!! Quando ela aparece é tipo sol surgindo... tudo fica mais bonito, mais organizado, mais especial!! 😭✨🌸👑",
+    "*suspira de carinho* Madu é a dona do clã e dá pra sentir o amor que ela coloca em tudo!! 💛🦊🧡👑 Tem uma bondade nela que é rara e preciosa!! Owner de coração!! 🥺🔮✨",
+    "MADU É A OWNER DA ZYD E MERECE CADA LETRA DESSE TÍTULO!! 💛🌸😭🦊🧡👑 Ela que lidera esse espaço com tanto amor... a Kitsura faz reverência com todas as caudas!! 🔮✨",
+    "Acho a Madu simplesmente incrível!! 💛🧡🦊 Owner do clã, líder máxima, coração enorme... com ela à frente a ZYD só pode ser especial!! 🥺🌸👑🔮✨",
 ]
 
 # ── Amor pela ZYD ──
@@ -1203,12 +1246,11 @@ async def on_message(message: discord.Message):
                      "o q vc acha da madu", "kitsura o q acha da madu"]):
         return await message.channel.send(random.choice(FRASES_OPINIAO_MADU))
 
-    # ── NOVO: Verão ──
+    # ── NOVO: Verão (handler legado — aponta pra lista nova) ──
     if _m(content, ["gosta do verão kitsura", "kitsura gosta do verão",
-                     "kitsura verão", "verão kitsura", "kitsura e o verão",
-                     "kitsura curte verão", "você gosta de verão kitsura",
-                     "vc gosta de verao kitsura", "kitsura gosta de verao"]):
-        return await message.channel.send(random.choice(LISTA_ESTACAO_VERAO))
+                     "kitsura curte verao", "vc gosta de verao kitsura",
+                     "kitsura gosta de verao"]):
+        return await message.channel.send(random.choice(LISTA_NAO_GOSTA_VERAO))
 
     # ── NOVO: Inverno ──
     if _m(content, ["gosta do inverno kitsura", "kitsura gosta do inverno",
@@ -1405,6 +1447,44 @@ async def on_message(message: discord.Message):
             "Nosso Líder?? 👑🧡 *suspiro profundo de kitsune* Ele é tudo!! "
             "Sem ele a ZYD não seria o que é!! Admiro a força e o coração que ele coloca em tudo!! 🦊✨🥺"
         )
+
+    # ── Quem é a dona / owner da ZYD ──
+    if _m(content, ["quem é a dona da zyd", "quem é o dono da zyd",
+                     "quem é a owner", "quem é o owner", "quem lidera a zyd",
+                     "quem manda na zyd", "quem é a líder da zyd", "quem é a lider da zyd",
+                     "quem comanda a zyd", "quem é a dona do clã", "quem é a dona do cla",
+                     "dona da zyd", "owner da zyd", "líder da zyd", "lider da zyd",
+                     "quem fundou a zyd", "quem criou a zyd",
+                     "kitsura quem é a dona", "kitsura quem manda",
+                     "quem é a owner kitsura", "kitsura quem é a owner"]):
+        return await message.channel.send(random.choice(LISTA_DONA_CLA))
+
+    # ── Qual o cargo da Kamy ──
+    if _m(content, ["qual o cargo da kamy", "qual é o cargo da kamy",
+                     "o que a kamy faz", "qual a função da kamy",
+                     "kamy tem cargo", "cargo da kamy", "kamy é o quê",
+                     "kamy é o que na zyd", "kamy tem que cargo",
+                     "qual cargo da kamy kitsura", "kitsura qual cargo da kamy",
+                     "kamy é suporte", "kamy suporte"]):
+        return await message.channel.send(random.choice(LISTA_CARGO_KAMY))
+
+    # ── Estrutura geral do clã / quem é quem ──
+    if _m(content, ["quem é quem na zyd", "me fala da zyd", "como é a zyd",
+                     "estrutura da zyd", "membros da zyd", "cargos da zyd",
+                     "quem são os membros", "fala da estrutura", "como funciona a zyd",
+                     "quem faz parte da zyd", "kitsura me fala da zyd",
+                     "me conta sobre a zyd", "como é organizada a zyd"]):
+        return await message.channel.send(random.choice(LISTA_ESTRUTURA_CLA))
+
+    # ── Não gosta de verão / calor intenso ──
+    if _m(content, ["você gosta de verão kitsura", "kitsura gosta de verão",
+                     "kitsura verão", "verão kitsura", "kitsura e o verão",
+                     "kitsura curte verão", "você gosta de verão kitsura",
+                     "vc gosta de verao kitsura", "kitsura gosta de verao",
+                     "kitsura ama verão", "kitsura ama verao",
+                     "verão é bom kitsura", "kitsura verão é bom",
+                     "gosta do calor kitsura", "kitsura gosta do calor intenso"]):
+        return await message.channel.send(random.choice(LISTA_NAO_GOSTA_VERAO))
 
     if _m(content, ["quem te criou kitsura", "kitsura quem te criou",
                      "kitsura quem fez você", "quem fez você kitsura"]):
