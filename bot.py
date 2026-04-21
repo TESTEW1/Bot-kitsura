@@ -552,22 +552,25 @@ async def on_message(message: discord.Message):
     content = message.content.lower().strip()
     author_id = message.author.id
 
-    # Frases espontâneas por membro (30% de chance)
-    nome = ID_PARA_NOME.get(author_id)
-    if nome and nome in FRASES_CUSTOM:
-        if random.random() < 0.30:
-            return await message.channel.send(random.choice(FRASES_CUSTOM[nome]))
-
     # Só reage se mencionar "kitsura" ou @mencionar o bot
     mencao = bot.user in message.mentions
     fala   = "kitsura" in content
 
+    # Frases espontâneas por membro (30% de chance) — SÓ quando NÃO está sendo chamada
     if not mencao and not fala:
+        nome = ID_PARA_NOME.get(author_id)
+        if nome and nome in FRASES_CUSTOM:
+            if random.random() < 0.30:
+                return await message.channel.send(random.choice(FRASES_CUSTOM[nome]))
         return
 
     # ── Saudações ──
-    if _m(content, ["oi kitsura", "olá kitsura", "ola kitsura", "hey kitsura",
-                     "hello kitsura", "ei kitsura", "e aí kitsura", "eai kitsura"]):
+    if _m(content, ["oi kitsura", "oii kitsura", "oiii kitsura", "oi oi kitsura",
+                     "olá kitsura", "ola kitsura", "hey kitsura", "hello kitsura",
+                     "ei kitsura", "e aí kitsura", "eai kitsura", "eaí kitsura",
+                     "opa kitsura", "salve kitsura", "oi kitsu", "oii kitsu",
+                     "kitsura oi", "kitsura oii", "kitsura ola", "kitsura olá",
+                     "kitsura ei", "kitsura hey"]):
         ops = [
             f"OI {message.author.mention}!! 🦊🧡 A Kitsura sentiu sua presença e veio correndo!! ✨🌸",
             f"Oi oi oi {message.author.mention}!! 🥺🧡 Tava esperando você aparecer! 🦊✨",
@@ -1222,8 +1225,11 @@ async def on_message(message: discord.Message):
     # ── @Menção direta → Apresentação fofa ──
     if mencao:
         texto_mencao = message.content.replace(f"<@{KITSURA_ID}>", "").replace(f"<@!{KITSURA_ID}>", "").strip()
-        # Se a mensagem é só a menção (ou quase), apresenta-se
-        if not texto_mencao or texto_mencao.lower() in ["kitsura", "oi", "ola", "olá", "ei", "hey", "hello"]:
+        texto_mencao_lower = texto_mencao.lower()
+        # Se a mensagem é só a menção (ou quase) ou uma saudação simples, apresenta-se
+        saudacoes_mencao = ["", "kitsura", "oi", "ola", "olá", "ei", "hey", "hello",
+                            "oii", "oiii", "opa", "salve", "eai", "e aí"]
+        if not texto_mencao_lower or texto_mencao_lower in saudacoes_mencao:
             return await message.channel.send(random.choice(LISTA_APRESENTACAO_MENCAO))
 
     # ── Tudo que não se encaixou → IA (Groq) ──
