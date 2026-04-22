@@ -1329,7 +1329,44 @@ LISTA_GOSTA_LARANJA = [
     "Gosto?? EU VIVO DE LARANJA!! 🧡🔥😭🦊 É a cor que pulsa no meu coração espiritual todo dia!! Cada chama que solto, cada faísca que faço... todas laranjas!! 🌟✨",
 ]
 
-# ================= HELPERS =================
+# ================= JOKENPÔ =================
+
+# Estado do jogo: { canal_id: {"ativo": True, "ts": timestamp} }
+_jokenpo_ativo = {}
+_JOKENPO_TIMEOUT = 60  # segundos pra esperar a jogada
+
+JOKENPO_INICIO = [
+    "JOKENPÔÔÔ!! 🪨📄✂️😱🧡🦊 *salta no lugar de animação* EU ADORO ESSE JOGO!! Tá bom, tá bom... calma, Kitsura!!\n\n*respira fundo e assume postura de campeã espiritual*\n\nVocê já fez sua jogada — agora é a minha vez!! 🔮\nMe fala: você jogou **pedra**, **papel** ou **tesoura**?? 👀🧡",
+    "*para tudo e fica na posição de jogo* 🪨📄✂️🦊🧡 DESAFIO ACEITO!! A Kitsura não recusa um bom jokenpô!!\n\nVocê jogou primeiro... agora me conta: foi **pedra**, **papel** ou **tesoura**?? 😤🔮✨",
+    "OOO JOKENPÔ!! 🪨📄✂️😭🧡🦊 *faz a pose clássica com a patinha*\n\nJá vi que você quer me desafiar!! Ousadia que eu respeito!! 😂\nEntão me diz: você escolheu **pedra**, **papel** ou **tesoura**?? 👀🧡✨",
+    "*orelhinhas em pé de concentração* 🪨📄✂️🦊🧡 JOKENPÔ!! A kitsune entra em modo competitivo!!\n\nVocê jogou algo... mas o quê?? Me conta: **pedra**, **papel** ou **tesoura**?? 😤🔮✨",
+]
+
+# Resultado: kit ganha
+JOKENPO_KIT_VENCE = {
+    "pedra":   ["*solta chamas de vitória* ✂️🔥🧡🦊 MINHA TESOURA CORTOU SUA PEDRA!! Brincadeira... espera... TESOURA NÃO CORTA PEDRA!! 😱 Quer dizer... EU PERDI?? NÃO!! Recalculando... *olha pro resultado* ...AH NÃO, EU GANHEI COM PAPEL!! 📄😭 VITÓRIA ESPIRITUAL!! 🎉🔮✨", "📄 vs 🪨 — **Papel cobre Pedra!!** A Kitsura vence com MUITA ELEGÂNCIA!! 🦊😤🧡 *dança de vitória com as caudas*", "*cobre sua pedra com papel cerimonioso* 📄🦊🧡 Papel cobre pedra — e a Kitsura sabia EXATAMENTE o que estava fazendo!! Experiência espiritual!! 😂🎉✨"],
+    "tesoura": ["🪨 vs ✂️ — **Pedra esmaga Tesoura!!** 🦊😤🧡 *soca no ar* ISSO!! A pedra da Kitsura foi CERTEIRA!! Alguém estava subestimando a guardiã?? 😂🎉🔮✨", "*esmaga a tesoura com a pedra mais pesada do plano espiritual* 🪨🦊🧡 PEDRA ESMAGA TESOURA!! Isso é conhecimento ancestral kitsune!! 😭🎉✨", "A PEDRA GANHOU!! 🪨🦊😤🧡 *salta de vitória* Tesoura não tinha chance!! A Kitsura escolheu com sabedoria espiritual!! 🔮🎉✨"],
+    "papel":   ["✂️ vs 📄 — **Tesoura corta Papel!!** 🦊😤🧡 *faz movimento de tesoura com as patinhas* SNIP SNIP!! A Kitsura é afiada, literalmente!! 😂🎉🔮✨", "*corta seu papel com precisão espiritual* ✂️🦊🧡 TESOURA CORTA PAPEL!! Previsível?? Talvez!! Eficaz?? DEMAIS!! 😭🎉✨", "TESOURA VENCEU!! ✂️🦊😤🧡 *dança de vitória soltando faíscas laranjas* O papel não resistiu!! A Kitsura é IMBATÍVEL hoje!! 🔮🎉✨"],
+}
+
+# Resultado: empate
+JOKENPO_EMPATE = {
+    "pedra":   ["🪨 vs 🪨 — **EMPATE DE PEDRAS!!** 😱🧡🦊 Duas pedras se encontraram no plano espiritual!! Isso é destino?? Bora de novo!! 🔮✨", "*olha pra sua pedra, olha pra minha pedra* 🪨🪨🦊🧡 ...somos iguais nesse aspecto!! EMPATE!! Mas a próxima é minha!! 😤✨"],
+    "papel":   ["📄 vs 📄 — **EMPATE DE PAPÉIS!!** 😂🧡🦊 Dois papéis?? Temos gosto parecido!! Mas empate não me satisfaz!! Revanche?? 🔮✨", "*segura o papel e vê que você também tem* 📄📄🦊🧡 ...olha que coincidência!! EMPATE!! A Kitsura não aceita esse resultado!! Bora de novo!! 😤✨"],
+    "tesoura": ["✂️ vs ✂️ — **EMPATE DE TESOURAS!!** 😱🧡🦊 DUAS TESOURAS?? Estamos sincronizados espiritualmente!! Mas empate é inadmissível!! Revanche?? 🔮✨", "*brandindo a tesoura e vendo você com a mesma* ✂️✂️🦊🧡 ...isso não tá certo!! EMPATE!! A Kitsura precisa de uma revanche!! 😤✨"],
+}
+
+# Resultado: usuário ganha
+JOKENPO_USER_VENCE = {
+    "pedra":   ["🪨 vs ✂️ — **Sua Pedra esmagou minha Tesoura!!** 😭🧡🦊 NÃO PODE SER!! A Kitsura foi derrotada?? *chora lágrimas espirituais* Tá bom... parabéns... 😢🔮 MAS A PRÓXIMA É MINHA!! 😤✨", "*olha pra minha tesoura esmigalhada* 🪨😭🦊🧡 ...você foi pesado(a) demais!! Ganhaste desta vez!! Mas eu me preparo!! 😤🌙✨"],
+    "papel":   ["📄 vs 🪨 — **Seu Papel cobriu minha Pedra!!** 😭🧡🦊 COMO?? Eu estava tão confiante!! *abaixa as orelhinhas derrotada* Parabéns... você me venceu... 😢🔮 MAS VOU TREINAR!! 😤✨", "*vê o papel cobrindo minha pedra em câmera lenta* 📄😭🦊🧡 ...estratégia elegante!! Ganhou!! Mas foi por pouco e a Kitsura não esquece uma derrota!! 😤🌙✨"],
+    "tesoura": ["✂️ vs 📄 — **Sua Tesoura cortou meu Papel!!** 😭🧡🦊 EU ESCOLHI ERRADO!! *corre em círculos de desespero* Parabéns por me vencer... dessa vez!! 😢🔮 REVANCHE OBRIGATÓRIA!! 😤✨", "*assiste meu papel ser cortado em silêncio* ✂️😭🦊🧡 ...tá bom... você ganhou... por enquanto!! A Kitsura vai estudar esse movimento!! 😤🌙✨"],
+}
+
+JOKENPO_JOGADA_INVALIDA = [
+    "Hm?? 🤔🦊🧡 Não entendi sua jogada!! Você escolheu **pedra**, **papel** ou **tesoura**?? Me fala direito que a Kitsura tá pronta!! ✂️🪨📄✨",
+    "*inclina a cabeça* 🦊🧡 Essa jogada não existe no jokenpô espiritual!! É **pedra**, **papel** ou **tesoura** — escolhe uma!! 🔮✨",
+]
 
 def _m(content: str, termos: list) -> bool:
     return any(t in content for t in termos)
@@ -2721,7 +2758,44 @@ async def on_message(message: discord.Message):
         if not texto_mencao_lower or texto_mencao_lower in saudacoes_mencao:
             return await message.channel.send(random.choice(LISTA_APRESENTACAO_MENCAO))
 
-    # ── Tudo que não se encaixou → IA (Groq) ──
+    # ── JOKENPÔ — início do jogo ──
+    _JOGADAS_VALIDAS = {"pedra", "papel", "tesoura"}
+    _jogada_user = None
+    for j in _JOGADAS_VALIDAS:
+        if j in content:
+            _jogada_user = j
+            break
+
+    canal_id_jk = message.channel.id
+    jogo_ativo = _jokenpo_ativo.get(canal_id_jk)
+    jogo_valido = jogo_ativo and (time.time() - jogo_ativo.get("ts", 0)) < _JOKENPO_TIMEOUT
+
+    # Dispara novo jogo quando alguém fala "kitsura pedra/papel/tesoura"
+    if fala and _jogada_user and not jogo_valido:
+        _jokenpo_ativo[canal_id_jk] = {"ativo": True, "ts": time.time(), "jogada": _jogada_user}
+        # Sorteia a jogada da Kitsura e resolve imediatamente
+        kit_escolha = random.choice(list(_JOGADAS_VALIDAS))
+        _jokenpo_ativo.pop(canal_id_jk, None)
+
+        # Tabela: quem vence com o quê
+        _vence = {"pedra": "tesoura", "tesoura": "papel", "papel": "pedra"}
+
+        intro = random.choice(JOKENPO_INICIO).split("\n")
+        intro_texto = "\n".join(intro[:2])  # só o início dramático
+
+        emojis = {"pedra": "🪨", "papel": "📄", "tesoura": "✂️"}
+        reveal = f"\n\n*abre a patinha lentamente*\n\n🦊 Kitsura escolheu: **{kit_escolha.upper()}** {emojis[kit_escolha]}\n👤 Você jogou: **{_jogada_user.upper()}** {emojis[_jogada_user]}\n\n"
+
+        if kit_escolha == _jogada_user:
+            resultado = random.choice(JOKENPO_EMPATE[_jogada_user])
+        elif _vence[kit_escolha] == _jogada_user:
+            resultado = random.choice(JOKENPO_KIT_VENCE[_jogada_user])
+        else:
+            resultado = random.choice(JOKENPO_USER_VENCE[_jogada_user])
+
+        return await message.channel.send(intro_texto + reveal + resultado)
+
+    # Tudo que não se encaixou → IA (Groq) ──
     texto_ia = message.content.replace(f"<@{bot.user.id}>", "").strip()
     texto_limpo = texto_ia
     for p in ["kitsura, ", "kitsura,", "kitsura "]:
