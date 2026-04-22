@@ -63,6 +63,9 @@ RURIE_ID    = 1379555797389938708   # Suporte
 MEOW_ID     = 587551894226862110    # ADM
 MORGANA_ID  = 1463368675800383735   # GG
 
+# ID da Nicky (membro da ZYD)
+NICKY_ID = 1266859454054273188
+
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
@@ -76,10 +79,12 @@ _SANEMY_COOLDOWN  = 600
 _ALLYNA_COOLDOWN  = 600
 _RUIVA_COOLDOWN   = 600
 _CUSTOM_COOLDOWN  = 600
+_NICKY_COOLDOWN   = 600
 _frases_custom_cooldown = {}   # { user_id: timestamp } — cooldown genérico pros demais membros com ID
 _sanemy_ultimo_personalizado = 0
 _allyna_ultimo_personalizado  = 0
 _ruiva_ultimo_personalizado   = 0
+_nicky_ultimo_personalizado   = 0
 _groq_historico = {}
 
 # ── Sistema de história ──
@@ -111,6 +116,7 @@ SYSTEM_PROMPT_KITSURA = (
     "A Rurie tem o cargo de Suporte no clã ZYD. "
     "O Meow tem o cargo de ADM no clã ZYD. "
     "A Morgana tem o cargo de GG no clã ZYD. "
+    "A Nicky é uma membro querida do clã ZYD. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -984,6 +990,7 @@ if COME5579_ID: ID_PARA_NOME[COME5579_ID] = "come5579"
 if RURIE_ID:    ID_PARA_NOME[RURIE_ID]    = "rurie"
 if MEOW_ID:     ID_PARA_NOME[MEOW_ID]     = "meow"
 if MORGANA_ID:  ID_PARA_NOME[MORGANA_ID]  = "morgana"
+if NICKY_ID:    ID_PARA_NOME[NICKY_ID]    = "nicky"
 
 # Cargo de exibição por chave de role
 CARGO_LABEL = {
@@ -1006,6 +1013,7 @@ CARGO_LABEL = {
     "rurie":    "Suporte",
     "meow":     "ADM",
     "morgana":  "GG",
+    "nicky":    "Membro da ZYD",
 }
 
 FRASES_CUSTOM = {
@@ -1142,6 +1150,14 @@ FRASES_CUSTOM = {
         "*sente uma aura especial no ar* Só pode ser {nome}!! 💼😱🧡🦊 Sensores espirituais de {cargo} confirmados!! Bem-vindo(a)!! 🌟✨",
         "{nome} APARECEU!! 💼😭🧡🦊 *confete laranja espiritual* {cargo} presente e o servidor ficou mais poderoso!! 🔮✨🎊",
         "*fica na ponta dos pés de animação* {nome}!! 💼🧡🦊 Você aparece e o chat muda de clima inteiro!! É energia de {cargo}!! 😄🌟✨",
+    ],
+    # ── Nicky (Membro da ZYD) ──
+    "nicky": [
+        "NICKY!! 🦊🌸🧡 *solta fumaça laranja de animação* A minha {cargo} favorita apareceu e o coraçãozinho da Kitsura já tá fazendo barulhinho!! 😭✨🥺",
+        "*orelhinhas levantam de felicidade* É a Nicky!! 🌸🧡🦊 Senti sua energia chegando de longe e vim correndo com todas as caudas!! Que bom te ver por aqui!! 😭✨",
+        "NICKYYY chegou e o chat ficou instantaneamente mais gostoso!! 🌸🧡🦊 *faz coraçãozinho com as patinhas* A Kitsura tá super feliz!! 🥺🔮✨",
+        "*para tudo e corre na velocidade máxima* É a Nicky, minha {cargo} querida!! 🌸😭🧡🦊 Você aparece e meu medidor de alegria estoura na hora!! ✨🌙",
+        "Senti um cheirinho de flor e simpatia no servidor... 🌸🧡🦊 SÓ PODE SER A NICKY!! *agita as caudas com muito carinho* Que bom ter você aqui, florzinha!! 😭✨🥺",
     ],
 }
 
@@ -1638,7 +1654,7 @@ async def on_message(message: discord.Message):
     fala   = "kitsura" in content
 
     # ── VIP members (Kamy, Madu, Reality, Malik) sempre passam se o bot está aguardando resposta deles ──
-    eh_vip = author_id in (KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID)
+    eh_vip = author_id in (KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID, NICKY_ID)
     agora_ts = time.time()
     contexto = _aguardando_resposta.get(message.channel.id)
     tem_contexto_valido = (
@@ -2362,6 +2378,16 @@ async def on_message(message: discord.Message):
             _ruiva_ultimo_personalizado = agora
             frase = random.choice(FRASES_CUSTOM["ruiva"])
             frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("ruiva", ""))
+            return await message.channel.send(frase)
+
+    # ── NICKY: reação personalizada (com cooldown de 10 min) ──
+    if author_id == NICKY_ID and (mencao or fala) and "?" not in content:
+        agora = time.time()
+        global _nicky_ultimo_personalizado
+        if agora - _nicky_ultimo_personalizado >= _NICKY_COOLDOWN:
+            _nicky_ultimo_personalizado = agora
+            frase = random.choice(FRASES_CUSTOM["nicky"])
+            frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("nicky", ""))
             return await message.channel.send(frase)
 
     # ── DEMAIS MEMBROS COM ID (lider, vice, adm1-3, membro1-5): reação personalizada (cooldown de 10 min) ──
