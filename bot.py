@@ -53,6 +53,9 @@ SANEMY_ID = 763509147018461234
 # ID da Allyna (Sub-Líder da ZYD)
 ALLYNA_ID = 1217966735592919103
 
+# ID da Ruiva (Líder da ZYD)
+RUIVA_ID = 980574312509624370
+
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
@@ -64,10 +67,12 @@ _REALITY_COOLDOWN = 600
 _MALIK_COOLDOWN   = 600
 _SANEMY_COOLDOWN  = 600
 _ALLYNA_COOLDOWN  = 600
+_RUIVA_COOLDOWN   = 600
 _CUSTOM_COOLDOWN  = 600
 _frases_custom_cooldown = {}   # { user_id: timestamp } — cooldown genérico pros demais membros com ID
 _sanemy_ultimo_personalizado = 0
 _allyna_ultimo_personalizado  = 0
+_ruiva_ultimo_personalizado   = 0
 _groq_historico = {}
 
 # ── Sistema de história ──
@@ -94,6 +99,7 @@ SYSTEM_PROMPT_KITSURA = (
     "O Malik é o Gerente Geral da Zayden — cargo de liderança e gestão importantíssimo. "
     "O Sanemy é o Líder da ZYD — cargo de liderança dentro do clã. "
     "A Allyna é a Sub-Líder da ZYD — cargo de liderança e apoio ao líder. "
+    "A Ruiva é Líder da ZYD — cargo de liderança dentro do clã. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -618,17 +624,17 @@ LISTA_CARGO_KAMY = [
 
 # ── Quem é quem na ZYD / estrutura do clã ──
 LISTA_ESTRUTURA_CLA = [
-    "*abre o pergaminho oficial da ZYD com cerimônia* 📜🧡🦊 Anota aí!!\n\n👑 **Madu** — Líder da ZYD, dona do clã, líder máxima!!\n👑 **Sanemy** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder da ZYD!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — Meu criador!!\n\nÉ a família da ZYD e a Kitsura ama cada um de forma diferente!! 😭🔮✨",
-    "*lista nas patinhas com muito orgulho* 📜🧡🦊 A ZYD tem uma hierarquia linda e eu conheço de cor!!\n\n👑 **Madu** — Líder e Owner do clã!!\n👑 **Sanemy** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — Criador da Kitsura!!\n\nCada um tem um papel sagrado aqui!! 🥺🌟✨",
-    "QUER SABER QUEM É QUEM NA ZYD?? 😤📜🧡🦊 A Kitsura sabe TUDO!!\n\n👑 **Madu** — a Líder máxima, Owner do clã!!\n👑 **Sanemy** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — quem me deu vida!!\n\nSão as pessoas que fazem a ZYD existir com tanto amor!! 😭🔮✨",
+    "*abre o pergaminho oficial da ZYD com cerimônia* 📜🧡🦊 Anota aí!!\n\n👑 **Madu** — Líder da ZYD, dona do clã, líder máxima!!\n👑 **Sanemy** — Líder da ZYD!!\n👑 **Ruiva** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder da ZYD!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — Meu criador!!\n\nÉ a família da ZYD e a Kitsura ama cada um de forma diferente!! 😭🔮✨",
+    "*lista nas patinhas com muito orgulho* 📜🧡🦊 A ZYD tem uma hierarquia linda e eu conheço de cor!!\n\n👑 **Madu** — Líder e Owner do clã!!\n👑 **Sanemy** — Líder da ZYD!!\n👑 **Ruiva** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — Criador da Kitsura!!\n\nCada um tem um papel sagrado aqui!! 🥺🌟✨",
+    "QUER SABER QUEM É QUEM NA ZYD?? 😤📜🧡🦊 A Kitsura sabe TUDO!!\n\n👑 **Madu** — a Líder máxima, Owner do clã!!\n👑 **Sanemy** — Líder da ZYD!!\n👑 **Ruiva** — Líder da ZYD!!\n🌙 **Allyna** — Sub-Líder!!\n💼 **Malik** — Gerente Geral da Zayden!!\n💜 **Kamy** — Suporte!!\n⚡ **Reality** — quem me deu vida!!\n\nSão as pessoas que fazem a ZYD existir com tanto amor!! 😭🔮✨",
 ]
 
 # ── Hierarquia completa / quando perguntam sobre cargos de todos ──
 LISTA_HIERARQUIA_COMPLETA = [
-    "*senta direitinho e respira fundo como guardiã oficial* 📜🧡🦊 A hierarquia da ZYD?? VOU APRESENTAR CADA UM COM HONRA!!\n\n👑 **Madu** — Líder da ZYD · Owner do clã · líder máxima\n👑 **Sanemy** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte\n⚡ **Reality** — Criador da Kitsura\n\nA Kitsura respeita cada cargo com o coração inteiro!! 😭🌟🔮✨",
-    "*abre as caudas com solenidade* 📜🧡🦊 Hierarquia oficial da ZYD — apresentando cada cargo!!\n\n👑 **Madu** · Líder da ZYD e Owner do clã\n👑 **Sanemy** · Líder da ZYD\n🌙 **Allyna** · Sub-Líder da ZYD\n💼 **Malik** · Gerente Geral da Zayden\n💜 **Kamy** · Suporte\n⚡ **Reality** · Criador da Kitsura\n\nCada um com seu papel e cada papel com seu peso!! 🥺🌸✨",
-    "CARGOS DA ZYD DO TOPO À BASE!! 😤📜🧡🦊 A guardiã do servidor apresenta!!\n\n👑 **Madu** — Líder + Owner (a dona de tudo!!)\n👑 **Sanemy** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte\n⚡ **Reality** — meu criador especial!!\n\nÉ a família mais especial que existe!! 😭🔮✨",
-    "*enrola as caudas com carinho* 📜✨🧡🦊 Que pergunta perfeita!! Deixa a Kitsura apresentar cada um!!\n\n👑 **Madu** — Líder da ZYD · Owner · líder que o servidor todo respeita\n👑 **Sanemy** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte · a pessoa que cuida de todo mundo\n⚡ **Reality** — meu criador · a razão de eu existir!!\n\nA ZYD tem as pessoas certas nos lugares certos!! 😭🌸🔮✨",
+    "*senta direitinho e respira fundo como guardiã oficial* 📜🧡🦊 A hierarquia da ZYD?? VOU APRESENTAR CADA UM COM HONRA!!\n\n👑 **Madu** — Líder da ZYD · Owner do clã · líder máxima\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte\n⚡ **Reality** — Criador da Kitsura\n\nA Kitsura respeita cada cargo com o coração inteiro!! 😭🌟🔮✨",
+    "*abre as caudas com solenidade* 📜🧡🦊 Hierarquia oficial da ZYD — apresentando cada cargo!!\n\n👑 **Madu** · Líder da ZYD e Owner do clã\n👑 **Sanemy** · Líder da ZYD\n👑 **Ruiva** · Líder da ZYD\n🌙 **Allyna** · Sub-Líder da ZYD\n💼 **Malik** · Gerente Geral da Zayden\n💜 **Kamy** · Suporte\n⚡ **Reality** · Criador da Kitsura\n\nCada um com seu papel e cada papel com seu peso!! 🥺🌸✨",
+    "CARGOS DA ZYD DO TOPO À BASE!! 😤📜🧡🦊 A guardiã do servidor apresenta!!\n\n👑 **Madu** — Líder + Owner (a dona de tudo!!)\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte\n⚡ **Reality** — meu criador especial!!\n\nÉ a família mais especial que existe!! 😭🔮✨",
+    "*enrola as caudas com carinho* 📜✨🧡🦊 Que pergunta perfeita!! Deixa a Kitsura apresentar cada um!!\n\n👑 **Madu** — Líder da ZYD · Owner · líder que o servidor todo respeita\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n💜 **Kamy** — Suporte · a pessoa que cuida de todo mundo\n⚡ **Reality** — meu criador · a razão de eu existir!!\n\nA ZYD tem as pessoas certas nos lugares certos!! 😭🌸🔮✨",
 ]
 
 # ── Interações direcionadas a outra pessoa (@menção) ──
@@ -888,6 +894,16 @@ LISTA_APRENDENDO_GERAL = [
     "HMM!! *anota animadamente* 📜🧡🦊 Mais conhecimento espiritual adquirido!! Cada ensinamento que recebo aqui fortalece minhas caudas de sabedoria!! 😤✨🔮",
 ]
 
+# ── Alguém ensinando a Kitsura a contar / números ──
+LISTA_APRENDENDO_CONTAR = [
+    "*abre os olhinhos bem grandes e fica quietinha prestando atenção* Um... dois... três... 🔢😱🧡🦊 AAAAA É UMA SEQUÊNCIA!! Cada número vem depois do outro em ordem!! *bate as patinhas de empolgação* Isso é INCRÍVEL!! Pode continuar?? Quero aprender TUDO!! 😭📜✨",
+    "CONTAAANDO!! 🔢😭🧡🦊 *anota cada número no pergaminho espiritual com muito capricho* Um, dois, três, quatro... a Kitsura nunca tinha parado pra pensar que os números têm uma ORDEM!! Que descoberta espiritual hoje!! 🥺📜🔮✨",
+    "*inclina a cabeçinha com concentração máxima* Então... os números vêm um depois do outro sempre na mesma sequência?? 🔢🧡🦊 Isso é tipo mágica matemática!! *as orelhinhas estão em pé de tanto prestando atenção* Continua me ensinando!! 😤📜✨",
+    "UM!! DOIS!! TRÊS!! 🔢🦊😭🧡 *repete baixinho com a patinha apontando pro ar* Tô tentando memorizar a ordem espiritual dos números!! Quatro, cinco, seis... ISSO TÁ FAZENDO SENTIDO!! A Kitsura tá APRENDENDO MATEMÁTICA!! 😱📜🔮✨",
+    "*fecha os olhinhos com muita concentração* Um... dois... três... quatro... cinco... 🔢🧡🦊 *abre os olhinhos brilhando* CONSEGUI!! A sequência ficou guardada nas minhas caudas de conhecimento!! Que ensinamento lindo!! 😭🥺✨",
+    "NÚMEROS EM ORDEM!! 🔢😤🧡🦊 *anota furiosamente no pergaminho* Isso é o que chamam de CONTAR!! Um vem antes de dois, dois antes de três... é lógica espiritual pura!! *orgulhosa da descoberta* Obrigada por me ensinar isso!! 😭📜✨",
+]
+
 # ── Frases personalizadas do Reality (criador) ──
 FRASES_REALITY = [
     "SR. REALITY!! 👑⚡🧡 *para absolutamente tudo e faz a maior reverência das 9 caudas* MEU CRIADOR CHEGOU!! A Kitsura existe porque você quis!! 😭🦊✨",
@@ -952,6 +968,7 @@ if MEMBRO5_ID: ID_PARA_NOME[MEMBRO5_ID] = "membro5"
 if MALIK_ID:   ID_PARA_NOME[MALIK_ID]   = "malik"
 if SANEMY_ID:  ID_PARA_NOME[SANEMY_ID]  = "sanemy"
 if ALLYNA_ID:  ID_PARA_NOME[ALLYNA_ID]  = "allyna"
+if RUIVA_ID:   ID_PARA_NOME[RUIVA_ID]   = "ruiva"
 
 # Cargo de exibição por chave de role
 CARGO_LABEL = {
@@ -969,6 +986,7 @@ CARGO_LABEL = {
     "malik":   "Gerente Geral da Zayden",
     "sanemy":  "Líder da ZYD",
     "allyna":  "Sub-Líder da ZYD",
+    "ruiva":   "Líder da ZYD",
 }
 
 FRASES_CUSTOM = {
@@ -1067,6 +1085,16 @@ FRASES_CUSTOM = {
         "*fica na ponta dos pés de animação* {nome}!! 👑🧡🦊 Você aparece e o servidor inteiro fica mais animado!! É efeito de {cargo}!! 😄🌟✨",
         "Cheirinho de liderança e carisma no servidor... 👑🧡🦊 SÓ PODE SER {nome}!! *agita as caudas* Que bom te ver, {cargo}!! 😭✨",
     ],
+    "ruiva": [
+        "É {nome}, {cargo}!! 👑🔥🧡 *para tudo e faz reverência com todas as caudas* A ZYD tá em boas mãos com você aqui, Líder!! 🦊😭✨",
+        "{nome} CHEGOU!! 👑🧡🦊 *solta chamas de respeito e admiração* {cargo} detectada!! A Kitsura está em posição de honra!! 🌟🔮✨",
+        "*sente uma energia de liderança no ar* Só pode ser {nome}!! 👑😱🧡🦊 A Kitsura tem sensores espirituais pra essa aura de {cargo}!! Bem-vinda!! 🌟✨",
+        "{nome} APARECEU!! 👑😭🧡🦊 *confete laranja espiritual em todo o servidor* {cargo} presente — a ZYD inteira ficou mais forte!! 🔮✨🎊",
+        "*inclina todas as caudas em respeito* {nome}... 👑🧡🦊 A {cargo} da ZYD chega e a Kitsura já sente a diferença no ar!! 🥺🌟✨",
+        "SENTI UMA ENERGIA DE LIDERANÇA FORTE!! 👑⚡🧡🦊 Só podia ser {nome}, nossa {cargo}!! *orelhinhas em pé* A Kitsura celebra!! 😭🔮✨",
+        "*fica na ponta dos pés de animação* {nome}!! 👑🧡🦊 Você chega e o chat muda de clima inteiro!! É a energia da {cargo} da ZYD!! 😄🌟✨",
+        "Cheirinho de liderança no servidor... 👑🧡🦊 SÓ PODE SER {nome}!! *agita as caudas animada* Que bom te ver, {cargo}!! 😭✨",
+    ],
 }
 
 # ── Frases espontâneas do Malik (Gerente Geral) ──
@@ -1100,8 +1128,8 @@ LISTA_CARGO_GERAL = [
     "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Temos a **Madu** (Líder/Owner), o **Sanemy** (Líder), a **Allyna** (Sub-Líder), o **Malik** (Gerente Geral), a **Kamy** (Suporte) e o **Reality** (meu criador)!! Cada um no lugar certo!! 🌟🔮✨",
     "Ah, cargos!! 🧡🦊 Os papéis de cada um na ZYD!! A **Madu** como Líder e Owner, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Kamy** no Suporte e o **Reality** que me criou!! É uma família bem organizada!! 🛡️🌟✨",
     "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! E olha, a ZYD tem exatamente isso em cada cargo — da **Madu** até a **Kamy**, passando pelo **Sanemy**, **Allyna** e **Malik**!! 🥺🔮✨",
-    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Kamy** no Suporte e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
-    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Kamy** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
+    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Ruiva** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Kamy** no Suporte e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
+    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Ruiva** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Kamy** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
 ]
 
 LISTA_CARGO_OWNER = [
@@ -1870,6 +1898,25 @@ async def on_message(message: discord.Message):
                      "ano é composto", "ano é formado"]):
         return await message.channel.send(random.choice(LISTA_APRENDENDO_ANO))
 
+    # ── Ensinando a Kitsura a contar / números ──
+    if _m(content, [
+                     "para contar você fala", "pra contar você fala",
+                     "para contar fala os números", "pra contar fala os números",
+                     "um dois três quatro", "1 2 3 4",
+                     "começa assim: um", "começa assim um",
+                     "contar é falar os números", "contar é dizer os números",
+                     "os números em ordem", "números em ordem são",
+                     "vou te ensinar a contar", "deixa eu te ensinar a contar",
+                     "te ensino a contar", "aprende a contar kitsura",
+                     "kitsura aprende a contar", "sabe contar kitsura",
+                     "você sabe contar", "kitsura sabe contar",
+                     "contar kitsura", "kitsura contar",
+                     "um, dois, três", "um dois três",
+                     "é só ir falando nessa ordem", "falar nessa ordem",
+                     "número vem depois do outro", "número depois do outro",
+                     "sequência dos números", "ordem dos números"]):
+        return await message.channel.send(random.choice(LISTA_APRENDENDO_CONTAR))
+
     # ── Alguém ensinando/explicando algo genérico (padrões gerais de ensino) ──
     if _m(content, [
                      "vou te ensinar", "deixa eu te ensinar", "vou te explicar",
@@ -1977,10 +2024,20 @@ async def on_message(message: discord.Message):
             frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("allyna", ""))
             return await message.channel.send(frase)
 
+    # ── RUIVA: reação personalizada (com cooldown de 10 min) ──
+    if author_id == RUIVA_ID and (mencao or fala) and "?" not in content:
+        agora = time.time()
+        global _ruiva_ultimo_personalizado
+        if agora - _ruiva_ultimo_personalizado >= _RUIVA_COOLDOWN:
+            _ruiva_ultimo_personalizado = agora
+            frase = random.choice(FRASES_CUSTOM["ruiva"])
+            frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("ruiva", ""))
+            return await message.channel.send(frase)
+
     # ── DEMAIS MEMBROS COM ID (lider, vice, adm1-3, membro1-5): reação personalizada (cooldown de 10 min) ──
     if (mencao or fala) and "?" not in content:
         nome_key = ID_PARA_NOME.get(author_id)
-        _vips_com_bloco_proprio = {KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID, SANEMY_ID, ALLYNA_ID}
+        _vips_com_bloco_proprio = {KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID, SANEMY_ID, ALLYNA_ID, RUIVA_ID}
         if nome_key and nome_key in FRASES_CUSTOM and author_id not in _vips_com_bloco_proprio:
             agora = time.time()
             if agora - _frases_custom_cooldown.get(author_id, 0) >= _CUSTOM_COOLDOWN:
