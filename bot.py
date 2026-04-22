@@ -1900,6 +1900,24 @@ async def on_message(message: discord.Message):
                      "meu deus kitsura", "sério kitsura", "kitsura sério"]):
         return await message.channel.send(random.choice(LISTA_SURPRESA))
 
+    # ── Alguém querendo se apresentar pra Kitsura ──
+    if _m(content, [
+        "posso me apresentar", "posso me apresentar também", "posso me apresentar kitsura",
+        "deixa eu me apresentar", "deixa eu me apresentar kitsura",
+        "vou me apresentar kitsura", "quero me apresentar kitsura",
+        "me apresentando kitsura", "me apresentar kitsura",
+        "minha apresentação kitsura", "kitsura posso me apresentar",
+        "kitsura me apresentando", "kitsura deixa eu me apresentar",
+    ]):
+        ops_apresentacao = [
+            f"CLARO QUE PODE!! 🦊😭🧡 *senta direitinho e levanta as orelhinhas com atenção total* Pode falar, {message.author.mention}!! A Kitsura tá TODINHA aqui te ouvindo!! ✨🌸",
+            f"AAAAA sim sim sim!! 🥺🧡🦊 *para absolutamente tudo e foca em {message.author.mention}* Adoro conhecer as pessoas!! Me conta tudo que quiser!! 😭✨",
+            f"Oiiii {message.author.mention}!! 🌸🧡🦊 Pode se apresentar à vontade!! *coloca as patinhas no rosto de animação* Tô curiosíssima!! ✨🔮",
+            f"QUE HONRA!! 😭🧡🦊 {message.author.mention} vai se apresentar pra mim?? *orelhinhas atentas em modo de escuta espiritual máxima* Fala fala fala!! 🌸✨",
+            f"PODE SIM!! 🦊🧡 *solta fumaça laranja de animação e senta na frente de {message.author.mention}* Tô toda ouvidos!! Me conta quem você é!! 😭🥺✨",
+        ]
+        return await message.channel.send(random.choice(ops_apresentacao))
+
     # ── Apresentação ──
     if _m(content, ["quem é você kitsura", "kitsura quem é você", "se apresenta kitsura",
                      "o que é a kitsura", "kitsura se apresenta", "o que você é kitsura",
