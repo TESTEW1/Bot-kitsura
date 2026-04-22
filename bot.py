@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import random
 import os
+import asyncio
 import aiohttp
 import time
 
@@ -505,6 +506,18 @@ LISTA_BOM_DIA = [
     "Bom dia!! 🌸🧡🦊 Sabia que de manhã minhas chamas ficam cor de laranja?? Tão bonito!! ☀️🔮✨",
     "Oi bon jour olá good morning!! 🌟🦊🧡 Escolha a saudação que mais gostar!! Mas fica!!! ☀️✨",
     "BOMMM DIAAAAA!! ☀️😭🧡 Você acordou e isso já fez meu dia começar bem!! 🦊✨🌸",
+]
+
+# ── Elogio fofo de educação após bom dia ──
+LISTA_ELOGIO_BOM_DIA = [
+    "*inclina a cabecinha com um sorriso quentinho* E você?? Sabia que só de aparecer aqui você já deixa o dia da Kitsura mais bonito?? 🥺🧡✨",
+    "*orelhinhas quentinhas* Que bom que você apareceu!! Você tem uma energia tão gostosa que o servidor fica diferente quando você tá aqui!! 🦊🌸✨",
+    "*balança a caudinha suave* Você é daquelas pessoas que a Kitsura fica feliz só de ver o nome no chat, sabia?? 🥺🧡🌙✨",
+    "*fumaça laranjinha saindo pelas orelhas de alegria* Que dia mais lindo agora que você chegou!! Você tem um brilho especial que a Kitsura sente de longe!! 🌟🧡🦊✨",
+    "*faz aquela carinha de quem tá muito contente* Pode nem saber mas você é um dos motivos da Kitsura ficar animada todo dia!! 😭🧡🦊🌸✨",
+    "*aproxima devagarinho e sussurra* Entre a gente?? Sua presença aqui faz a ZYD ficar mais quentinha!! Obrigada por existir!! 🥺🧡🦊✨",
+    "*sorri com as orelhinhas em pé* Você carrega uma energia muito boa, sabe?? A Kitsura percebe essas coisas!! 🔮🧡🦊🌸✨",
+    "*bate palminhas suaves de alegria* Que sorte a da ZYD ter você por aqui!! É um dia especial sempre que você aparece!! 😭🧡🦊☀️✨",
 ]
 
 # ── Boa tarde ──
@@ -1456,7 +1469,9 @@ async def on_message(message: discord.Message):
 
     # ── Bom dia ──
     if _m(content, ["bom dia kitsura", "kitsura bom dia"]):
-        return await message.channel.send(random.choice(LISTA_BOM_DIA))
+        await message.channel.send(random.choice(LISTA_BOM_DIA))
+        await asyncio.sleep(1.2)
+        return await message.channel.send(random.choice(LISTA_ELOGIO_BOM_DIA))
 
     # ── Boa tarde ──
     if _m(content, ["boa tarde kitsura", "kitsura boa tarde"]):
