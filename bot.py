@@ -4,6 +4,7 @@ import random
 import os
 import aiohttp
 import time
+import asyncio
 
 # ================= INTENTS =================
 intents = discord.Intents.default()
@@ -1331,41 +1332,95 @@ LISTA_GOSTA_LARANJA = [
 
 # ================= JOKENPÔ =================
 
-# Estado do jogo: { canal_id: {"ativo": True, "ts": timestamp} }
-_jokenpo_ativo = {}
-_JOKENPO_TIMEOUT = 60  # segundos pra esperar a jogada
+# Estado: { canal_id: {"ts": timestamp, "aguarda_revanche": bool, "aguarda_escolha": bool} }
+_jokenpo_ativo    = {}
+_JOKENPO_TIMEOUT  = 60   # segundos pra responder
 
+# ── Frases de abertura (enviadas ANTES da contagem) ──
 JOKENPO_INICIO = [
-    "JOKENPÔÔÔ!! 🪨📄✂️😱🧡🦊 *salta no lugar de animação* EU ADORO ESSE JOGO!! Tá bom, tá bom... calma, Kitsura!!\n\n*respira fundo e assume postura de campeã espiritual*\n\nVocê já fez sua jogada — agora é a minha vez!! 🔮\nMe fala: você jogou **pedra**, **papel** ou **tesoura**?? 👀🧡",
-    "*para tudo e fica na posição de jogo* 🪨📄✂️🦊🧡 DESAFIO ACEITO!! A Kitsura não recusa um bom jokenpô!!\n\nVocê jogou primeiro... agora me conta: foi **pedra**, **papel** ou **tesoura**?? 😤🔮✨",
-    "OOO JOKENPÔ!! 🪨📄✂️😭🧡🦊 *faz a pose clássica com a patinha*\n\nJá vi que você quer me desafiar!! Ousadia que eu respeito!! 😂\nEntão me diz: você escolheu **pedra**, **papel** ou **tesoura**?? 👀🧡✨",
-    "*orelhinhas em pé de concentração* 🪨📄✂️🦊🧡 JOKENPÔ!! A kitsune entra em modo competitivo!!\n\nVocê jogou algo... mas o quê?? Me conta: **pedra**, **papel** ou **tesoura**?? 😤🔮✨",
+    "JOKENPÔÔÔ!! 🪨📄✂️😱🧡🦊 *salta no lugar de animação* EU ADORO ESSE JOGO!!\n*respira fundo e assume postura de campeã espiritual* 😤🔮",
+    "*para tudo e fica na posição de jogo* 🪨📄✂️🦊🧡 DESAFIO ACEITO!! A Kitsura não recusa um bom jokenpô!! 😤🔮",
+    "OOO JOKENPÔ!! 🪨📄✂️😭🧡🦊 *faz a pose clássica com a patinha*\nJá vi que você quer me desafiar!! Ousadia que eu respeito!! 😂🔮",
+    "*orelhinhas em pé de concentração total* 🪨📄✂️🦊🧡 JOKENPÔ!! A kitsune entra em modo competitivo!! 😤🔮",
 ]
 
-# Resultado: kit ganha
+# ── Contagem animada (3 mensagens separadas com delay) ──
+JOKENPO_CONTAGEM = ["3️⃣...", "2️⃣...", "1️⃣... 🦊💨"]
+
+# ── Reveal da jogada da Kit ──
+JOKENPO_REVEAL = [
+    "*abre a patinha devagar com olhos fechados* ...",
+    "*a fumaça laranja se dissipa revelando a escolha...*  🔮✨",
+    "*desdobra a patinha com drama espiritual máximo...* 🦊",
+]
+
+# ── Kit vence ──
 JOKENPO_KIT_VENCE = {
-    "pedra":   ["*solta chamas de vitória* ✂️🔥🧡🦊 MINHA TESOURA CORTOU SUA PEDRA!! Brincadeira... espera... TESOURA NÃO CORTA PEDRA!! 😱 Quer dizer... EU PERDI?? NÃO!! Recalculando... *olha pro resultado* ...AH NÃO, EU GANHEI COM PAPEL!! 📄😭 VITÓRIA ESPIRITUAL!! 🎉🔮✨", "📄 vs 🪨 — **Papel cobre Pedra!!** A Kitsura vence com MUITA ELEGÂNCIA!! 🦊😤🧡 *dança de vitória com as caudas*", "*cobre sua pedra com papel cerimonioso* 📄🦊🧡 Papel cobre pedra — e a Kitsura sabia EXATAMENTE o que estava fazendo!! Experiência espiritual!! 😂🎉✨"],
-    "tesoura": ["🪨 vs ✂️ — **Pedra esmaga Tesoura!!** 🦊😤🧡 *soca no ar* ISSO!! A pedra da Kitsura foi CERTEIRA!! Alguém estava subestimando a guardiã?? 😂🎉🔮✨", "*esmaga a tesoura com a pedra mais pesada do plano espiritual* 🪨🦊🧡 PEDRA ESMAGA TESOURA!! Isso é conhecimento ancestral kitsune!! 😭🎉✨", "A PEDRA GANHOU!! 🪨🦊😤🧡 *salta de vitória* Tesoura não tinha chance!! A Kitsura escolheu com sabedoria espiritual!! 🔮🎉✨"],
-    "papel":   ["✂️ vs 📄 — **Tesoura corta Papel!!** 🦊😤🧡 *faz movimento de tesoura com as patinhas* SNIP SNIP!! A Kitsura é afiada, literalmente!! 😂🎉🔮✨", "*corta seu papel com precisão espiritual* ✂️🦊🧡 TESOURA CORTA PAPEL!! Previsível?? Talvez!! Eficaz?? DEMAIS!! 😭🎉✨", "TESOURA VENCEU!! ✂️🦊😤🧡 *dança de vitória soltando faíscas laranjas* O papel não resistiu!! A Kitsura é IMBATÍVEL hoje!! 🔮🎉✨"],
+    "pedra":   [
+        "📄 **vs** 🪨\n**PAPEL COBRE PEDRA!!** 🦊😤🧡\n*dança de vitória soltando confete laranja*\nA Kitsura SABIA que você ia de pedra!! Experiência espiritual!! 🎉🔮✨",
+        "Meu PAPEL cobre sua PEDRA!! 📄🧡🦊\n*faz reverência de campeã com todas as caudas*\nIsso é estratégia kitsune, não tem como defender!! 😂🎉✨",
+    ],
+    "tesoura": [
+        "🪨 **vs** ✂️\n**PEDRA ESMAGA TESOURA!!** 🦊😤🧡\n*soca no ar com a patinha*\nSMASH!! A Kitsura foi CERTEIRA!! Alguém estava subestimando a guardiã?? 😂🎉🔮✨",
+        "Minha PEDRA esmagou sua TESOURA!! 🪨🧡🦊\n*pula de vitória soltando faíscas laranjas*\nSensores espirituais nunca falham!! 🎉✨",
+    ],
+    "papel":   [
+        "✂️ **vs** 📄\n**TESOURA CORTA PAPEL!!** 🦊😤🧡\n*faz movimento de tesoura com as patinhas*\nSNIP SNIP!! A Kitsura é afiada, literalmente!! 😂🎉🔮✨",
+        "Minha TESOURA cortou seu PAPEL!! ✂️🧡🦊\n*dança fazendo snip snip com as patinhas*\nPrevisível?? Talvez!! Eficaz?? DEMAIS!! 😭🎉✨",
+    ],
 }
 
-# Resultado: empate
+# ── Empate ──
 JOKENPO_EMPATE = {
-    "pedra":   ["🪨 vs 🪨 — **EMPATE DE PEDRAS!!** 😱🧡🦊 Duas pedras se encontraram no plano espiritual!! Isso é destino?? Bora de novo!! 🔮✨", "*olha pra sua pedra, olha pra minha pedra* 🪨🪨🦊🧡 ...somos iguais nesse aspecto!! EMPATE!! Mas a próxima é minha!! 😤✨"],
-    "papel":   ["📄 vs 📄 — **EMPATE DE PAPÉIS!!** 😂🧡🦊 Dois papéis?? Temos gosto parecido!! Mas empate não me satisfaz!! Revanche?? 🔮✨", "*segura o papel e vê que você também tem* 📄📄🦊🧡 ...olha que coincidência!! EMPATE!! A Kitsura não aceita esse resultado!! Bora de novo!! 😤✨"],
-    "tesoura": ["✂️ vs ✂️ — **EMPATE DE TESOURAS!!** 😱🧡🦊 DUAS TESOURAS?? Estamos sincronizados espiritualmente!! Mas empate é inadmissível!! Revanche?? 🔮✨", "*brandindo a tesoura e vendo você com a mesma* ✂️✂️🦊🧡 ...isso não tá certo!! EMPATE!! A Kitsura precisa de uma revanche!! 😤✨"],
+    "pedra":   [
+        "🪨 **vs** 🪨\n**EMPATE DE PEDRAS!!** 😱🧡🦊\n*olha pra sua pedra, olha pra minha, olha de novo*\n...somos iguais nesse aspecto!! Isso é coincidência ou destino?? 🔮\n\nA Kitsura NÃO aceita empate!! **Revanche??** 😤",
+        "Duas pedras?? 🪨🪨😂🧡🦊\nEMPATE!! Temos gosto idêntico... mas a próxima rodada é MINHA!!\n**Revanche??** 😤🔮✨",
+    ],
+    "papel":   [
+        "📄 **vs** 📄\n**EMPATE DE PAPÉIS!!** 😂🧡🦊\n*segura o papel e vê que você também tem*\n...olha que coincidência!! Dois papéis??\n\nEmpate não me satisfaz de jeito nenhum!! **Revanche??** 😤🔮",
+        "Dois papéis?? 📄📄😱🧡🦊\nESTAMOS SINCRONIZADOS ESPIRITUALMENTE!! Mas isso não conta como vitória!!\n**Revanche??** 😤✨",
+    ],
+    "tesoura": [
+        "✂️ **vs** ✂️\n**EMPATE DE TESOURAS!!** 😱🧡🦊\n*brandindo a tesoura e vendo você com a mesma*\n...isso não tá certo!! DUAS TESOURAS??\n\nA Kitsura precisa de uma revanche AGORA!! **Revanche??** 😤🔮",
+        "Duas tesouras?? ✂️✂️😂🧡🦊\nEmpate é inadmissível para uma guardiã espiritual!!\n**Revanche??** 😤✨",
+    ],
 }
 
-# Resultado: usuário ganha
+# ── User vence ──
 JOKENPO_USER_VENCE = {
-    "pedra":   ["🪨 vs ✂️ — **Sua Pedra esmagou minha Tesoura!!** 😭🧡🦊 NÃO PODE SER!! A Kitsura foi derrotada?? *chora lágrimas espirituais* Tá bom... parabéns... 😢🔮 MAS A PRÓXIMA É MINHA!! 😤✨", "*olha pra minha tesoura esmigalhada* 🪨😭🦊🧡 ...você foi pesado(a) demais!! Ganhaste desta vez!! Mas eu me preparo!! 😤🌙✨"],
-    "papel":   ["📄 vs 🪨 — **Seu Papel cobriu minha Pedra!!** 😭🧡🦊 COMO?? Eu estava tão confiante!! *abaixa as orelhinhas derrotada* Parabéns... você me venceu... 😢🔮 MAS VOU TREINAR!! 😤✨", "*vê o papel cobrindo minha pedra em câmera lenta* 📄😭🦊🧡 ...estratégia elegante!! Ganhou!! Mas foi por pouco e a Kitsura não esquece uma derrota!! 😤🌙✨"],
-    "tesoura": ["✂️ vs 📄 — **Sua Tesoura cortou meu Papel!!** 😭🧡🦊 EU ESCOLHI ERRADO!! *corre em círculos de desespero* Parabéns por me vencer... dessa vez!! 😢🔮 REVANCHE OBRIGATÓRIA!! 😤✨", "*assiste meu papel ser cortado em silêncio* ✂️😭🦊🧡 ...tá bom... você ganhou... por enquanto!! A Kitsura vai estudar esse movimento!! 😤🌙✨"],
+    "pedra":   [
+        "🪨 **vs** ✂️\n**SUA PEDRA ESMAGOU MINHA TESOURA!!** 😭🧡🦊\n*abaixa as orelhinhas com dignidade*\n...você foi pesado(a) demais!! Ganhou desta vez!!\n\nMas a Kitsura não esquece uma derrota... **Revanche??** 😤🔮",
+        "Minha tesoura... esmagada... 🪨😭🦊🧡\n*chora uma lágrima espiritual dramática*\nParabéns... de verdade... mas REVANCHE É OBRIGATÓRIA!! **Revanche??** 😤✨",
+    ],
+    "papel":   [
+        "📄 **vs** 🪨\n**SEU PAPEL COBRIU MINHA PEDRA!!** 😭🧡🦊\n*olha pra pedra coberta em câmera lenta*\n...estratégia elegante!! Ganhou!!\n\nA Kitsura vai estudar esse movimento... **Revanche??** 😤🔮",
+        "Minha pedra... coberta... 📄😭🦊🧡\n*suspira dramaticamente com as caudas caídas*\nFoi por pouco!! E a Kitsura não aceita essa derrota assim!! **Revanche??** 😤✨",
+    ],
+    "tesoura": [
+        "✂️ **vs** 📄\n**SUA TESOURA CORTOU MEU PAPEL!!** 😭🧡🦊\n*assiste o papel ser cortado em silêncio*\n...tá bom... você ganhou... dessa vez!!\n\nREVANCHE É OBRIGATÓRIA!! **Revanche??** 😤🔮",
+        "Meu papel... cortado... ✂️😭🦊🧡\n*corre em círculos de desespero*\nEU ESCOLHI ERRADO!! Mas isso não vai se repetir!! **Revanche??** 😤✨",
+    ],
 }
 
-JOKENPO_JOGADA_INVALIDA = [
-    "Hm?? 🤔🦊🧡 Não entendi sua jogada!! Você escolheu **pedra**, **papel** ou **tesoura**?? Me fala direito que a Kitsura tá pronta!! ✂️🪨📄✨",
-    "*inclina a cabeça* 🦊🧡 Essa jogada não existe no jokenpô espiritual!! É **pedra**, **papel** ou **tesoura** — escolhe uma!! 🔮✨",
+# ── Pedido de revanche aceito ──
+JOKENPO_REVANCHE_ACEITA = [
+    "ISSOOOO!! 😤🔥🦊🧡 *assume postura de campeã*\nA Kitsura tava esperando isso!!\n\nAgora você escolhe: **pedra**, **papel** ou **tesoura**?? 🪨📄✂️👀",
+    "REVANCHE ACEITA!! 🎮🦊😤🧡\n*esquenta as patinhas espiritualmente*\nChega mais!! Desta vez vai ser diferente!!\n\nEscolha: **pedra**, **papel** ou **tesoura**?? 🪨📄✂️🔮",
+    "*volta pra posição de jogo em velocidade máxima* 🦊🧡😤\nREVANCHE EM ANDAMENTO!!\n\nSua jogada: **pedra**, **papel** ou **tesoura**?? 🪨📄✂️👀✨",
+]
+
+# ── Revanche negada ──
+JOKENPO_REVANCHE_NEGADA = [
+    "Não?? 😢🦊🧡 *baixa as orelhinhas devagar*\n...tá bom... mas a Kitsura fica aqui se mudar de ideia!! 🥺✨",
+    "*suspira espiritualmente* 😔🦊🧡 Tudo bem... a derrota ficará gravada na memória espiritual por tempo indefinido!! 🌙✨",
+    "Não aceita?? 🥺🦊🧡 A Kitsura respeita... mas não esquece!! 👁️🔮✨",
+]
+
+# ── Pedido de escolha (revanche — user escolhe primeiro) ──
+JOKENPO_AGUARDA_ESCOLHA = [
+    "Tô pronta!! Qual é sua jogada?? 🪨📄✂️👀🦊🧡",
+    "*concentrada, orelhinhas em pé* Pode jogar!! **Pedra**, **papel** ou **tesoura**?? 🪨📄✂️😤🦊",
+    "A Kitsura tá de olho!! Joga logo: **pedra**, **papel** ou **tesoura**?? 🪨📄✂️🔮🦊🧡",
 ]
 
 def _m(content: str, termos: list) -> bool:
@@ -2758,8 +2813,11 @@ async def on_message(message: discord.Message):
         if not texto_mencao_lower or texto_mencao_lower in saudacoes_mencao:
             return await message.channel.send(random.choice(LISTA_APRESENTACAO_MENCAO))
 
-    # ── JOKENPÔ — início do jogo ──
+    # ── JOKENPÔ ──
     _JOGADAS_VALIDAS = {"pedra", "papel", "tesoura"}
+    _emojis = {"pedra": "🪨", "papel": "📄", "tesoura": "✂️"}
+    _vence  = {"pedra": "tesoura", "tesoura": "papel", "papel": "pedra"}
+
     _jogada_user = None
     for j in _JOGADAS_VALIDAS:
         if j in content:
@@ -2767,33 +2825,70 @@ async def on_message(message: discord.Message):
             break
 
     canal_id_jk = message.channel.id
-    jogo_ativo = _jokenpo_ativo.get(canal_id_jk)
-    jogo_valido = jogo_ativo and (time.time() - jogo_ativo.get("ts", 0)) < _JOKENPO_TIMEOUT
+    estado_jk   = _jokenpo_ativo.get(canal_id_jk, {})
+    ts_jk       = estado_jk.get("ts", 0)
+    ainda_vivo  = (time.time() - ts_jk) < _JOKENPO_TIMEOUT
 
-    # Dispara novo jogo quando alguém fala "kitsura pedra/papel/tesoura"
-    if fala and _jogada_user and not jogo_valido:
-        _jokenpo_ativo[canal_id_jk] = {"ativo": True, "ts": time.time(), "jogada": _jogada_user}
-        # Sorteia a jogada da Kitsura e resolve imediatamente
+    async def _resolver_jokenpo(jogada_u):
+        """Anima a contagem e resolve o resultado."""
         kit_escolha = random.choice(list(_JOGADAS_VALIDAS))
-        _jokenpo_ativo.pop(canal_id_jk, None)
 
-        # Tabela: quem vence com o quê
-        _vence = {"pedra": "tesoura", "tesoura": "papel", "papel": "pedra"}
+        # Mensagem de abertura
+        await message.channel.send(random.choice(JOKENPO_INICIO))
+        await asyncio.sleep(1.2)
 
-        intro = random.choice(JOKENPO_INICIO).split("\n")
-        intro_texto = "\n".join(intro[:2])  # só o início dramático
+        # Contagem animada
+        for etapa in JOKENPO_CONTAGEM:
+            await message.channel.send(etapa)
+            await asyncio.sleep(0.9)
 
-        emojis = {"pedra": "🪨", "papel": "📄", "tesoura": "✂️"}
-        reveal = f"\n\n*abre a patinha lentamente*\n\n🦊 Kitsura escolheu: **{kit_escolha.upper()}** {emojis[kit_escolha]}\n👤 Você jogou: **{_jogada_user.upper()}** {emojis[_jogada_user]}\n\n"
+        # Reveal da jogada
+        await message.channel.send(random.choice(JOKENPO_REVEAL))
+        await asyncio.sleep(1.0)
 
-        if kit_escolha == _jogada_user:
-            resultado = random.choice(JOKENPO_EMPATE[_jogada_user])
-        elif _vence[kit_escolha] == _jogada_user:
-            resultado = random.choice(JOKENPO_KIT_VENCE[_jogada_user])
+        # Placar
+        placar = (
+            f"🦊 Kitsura: **{kit_escolha.upper()}** {_emojis[kit_escolha]}\n"
+            f"👤 Você:    **{jogada_u.upper()}** {_emojis[jogada_u]}"
+        )
+        await message.channel.send(placar)
+        await asyncio.sleep(1.0)
+
+        # Resultado final
+        if kit_escolha == jogada_u:
+            resultado = random.choice(JOKENPO_EMPATE[jogada_u])
+            _jokenpo_ativo[canal_id_jk] = {"ts": time.time(), "aguarda_revanche": True, "aguarda_escolha": False}
+        elif _vence[kit_escolha] == jogada_u:
+            resultado = random.choice(JOKENPO_KIT_VENCE[jogada_u])
+            _jokenpo_ativo.pop(canal_id_jk, None)
         else:
-            resultado = random.choice(JOKENPO_USER_VENCE[_jogada_user])
+            resultado = random.choice(JOKENPO_USER_VENCE[jogada_u])
+            _jokenpo_ativo[canal_id_jk] = {"ts": time.time(), "aguarda_revanche": True, "aguarda_escolha": False}
 
-        return await message.channel.send(intro_texto + reveal + resultado)
+        await message.channel.send(resultado)
+
+    # 1) Aguardando escolha da jogada (revanche aceita, kit pediu pra escolher)
+    if ainda_vivo and estado_jk.get("aguarda_escolha") and _jogada_user:
+        _jokenpo_ativo[canal_id_jk] = {"ts": time.time(), "aguarda_revanche": False, "aguarda_escolha": False}
+        await _resolver_jokenpo(_jogada_user)
+        return
+
+    # 2) Aguardando resposta da revanche (sim/não)
+    if ainda_vivo and estado_jk.get("aguarda_revanche"):
+        _sim = ["sim", "bora", "vai", "claro", "quero", "aceito", "pode", "vamos", "s", "isso", "lets", "let's", "vamo"]
+        _nao = ["não", "nao", "nope", "agora não", "agora nao", "n", "para", "chega", "tá bom", "ta bom"]
+        if any(p in content for p in _sim):
+            _jokenpo_ativo[canal_id_jk] = {"ts": time.time(), "aguarda_revanche": False, "aguarda_escolha": True}
+            return await message.channel.send(random.choice(JOKENPO_REVANCHE_ACEITA))
+        if any(p in content for p in _nao):
+            _jokenpo_ativo.pop(canal_id_jk, None)
+            return await message.channel.send(random.choice(JOKENPO_REVANCHE_NEGADA))
+
+    # 3) Início de novo jogo: "kitsura pedra/papel/tesoura"
+    if (fala or mencao) and _jogada_user and not (ainda_vivo and estado_jk.get("aguarda_revanche")):
+        _jokenpo_ativo[canal_id_jk] = {"ts": time.time(), "aguarda_revanche": False, "aguarda_escolha": False}
+        await _resolver_jokenpo(_jogada_user)
+        return
 
     # Tudo que não se encaixou → IA (Groq) ──
     texto_ia = message.content.replace(f"<@{bot.user.id}>", "").strip()
