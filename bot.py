@@ -1423,6 +1423,191 @@ JOKENPO_AGUARDA_ESCOLHA = [
     "A Kitsura tá de olho!! Joga logo: **pedra**, **papel** ou **tesoura**?? 🪨📄✂️🔮🦊🧡",
 ]
 
+# ================= NÚMERO SECRETO =================
+# Trigger: "kitsura número secreto" / "kitsura adivinhe o número"
+
+_numero_estado = {}
+# { canal_id: { "numero": int, "ts": float, "tentativas": int } }
+_NUMERO_MAX_TENT = 5
+_NUMERO_TIMEOUT  = 120
+
+NUMERO_INICIO = [
+    "NÚMERO SECRETO!! 🔢🔮🦊🧡 *fecha os olhinhos e pensa muito fort—* JÁ PENSEI!!\n\nEscolhi um número de **1 a 10** e guardei no cofre espiritual!! 🔐\nVocê tem **{max} tentativas** pra adivinhar!! Começa aí!! 👀",
+    "*concentra todas as caudas e sorteia mentalmente* 🔢🦊🧡 Pronto!! Número guardado!!\n\nÉ um número entre **1 e 10** — você tem **{max} tentativas**!! Qual é seu palpite?? 🤔🔮",
+    "ADIVINHA O NÚMERO!! 🔢😤🦊🧡 *sela o número com magia espiritual*\n\nEntre **1 e 10**!! **{max} tentativas**!! Sem cola espiritual permitida!! 😂 Vai lá!! 👀",
+]
+NUMERO_MAIOR   = ["Maior!! ⬆️🦊🧡 Tente um número mais alto!! ({tent} tentativa(s) restante(s)) 🔢", "Mais alto!! ⬆️🔮🦊 Quase lá... talvez... ({tent} restante(s)) 🧡", "⬆️ Sobe mais!! 🦊🧡 ({tent} tentativa(s) ainda!!)"]
+NUMERO_MENOR   = ["Menor!! ⬇️🦊🧡 Tente um número mais baixo!! ({tent} tentativa(s) restante(s)) 🔢", "Mais baixo!! ⬇️🔮🦊 Esfria aí!! ({tent} restante(s)) 🧡", "⬇️ Desce!! 🦊🧡 ({tent} tentativa(s) ainda!!)"]
+NUMERO_ACERTO  = ["ACERTOUUUU!! 🎉🔢😭🦊🧡 *explode de confete laranja* ERA {num}!! VOCÊ ADIVINHOU!! Olha, tô impressionada!! 🥺🔮✨", "ISSO!! 🎉🔢🦊😤🧡 **{num}** ERA O NÚMERO!! *dança de parabéns com todas as caudas* Você tem talento espiritual!! 😂🥺✨", "ACERTOU EM {tent} tentativa(s)!! 🎉🔢😭🦊🧡 Era o **{num}**!! *cobre você de pétalas laranjas* INCRÍVEL!! 🌸🔮✨"]
+NUMERO_ERROU   = ["Acabaram as tentativas... 😔🔢🦊🧡 O número era **{num}**!! Tão perto e tão longe!! *limpa uma lágrima* Revanche?? 😤🔮", "ESGOTOU!! 😭🔢🦊🧡 Era **{num}**!! Como não adivinhou?? A Kitsura estava na torcida!! Revanche?? 😤✨", "Acabou as chances... 😢🔢🦊🧡 Era **{num}**!! *suspira dramaticamente* Você quase foi!! Revanche?? 😤🔮"]
+
+# ================= VERDADE OU MENTIRA =================
+# Trigger: "kitsura verdade ou mentira" / "kitsura verdade ou mito"
+
+_verdade_estado = {}
+# { canal_id: { "idx": int, "resposta": bool, "ts": float } }
+_VERDADE_TIMEOUT = 90
+
+VERDADE_AFIRMACOES = [
+    ("A cor favorita da Kitsura é roxo.", False),
+    ("A dona da ZYD se chama Madu.", True),
+    ("A Kitsura tem exatamente 3 caudas.", False),
+    ("A Kitsura foi criada pelo Reality.", True),
+    ("A Kitsura adora verão e calor intenso.", False),
+    ("O Malik é o Gerente Geral da Zayden.", True),
+    ("A Kitsura é uma raposa espiritual.", True),
+    ("A cor favorita da Kitsura é laranja.", True),
+    ("A Kitsura detesta frio e inverno.", False),
+    ("A Kamy tem o cargo de Suporte na ZYD.", True),
+    ("O Sanemy é o Sub-Líder da ZYD.", False),
+    ("A Allyna é a Sub-Líder da ZYD.", True),
+    ("A Kitsura come pizza como comida favorita.", False),
+    ("Dango é a comida favorita da Kitsura.", True),
+    ("A Ruiva tem cargo de Líder na ZYD.", True),
+]
+
+VERDADE_INICIO = [
+    "VERDADE OU MENTIRA!! 🎭🦊🧡 *sorteia uma afirmação do pergaminho espiritual*\n\nVocê responde **verdade** ou **mentira** — simples assim!! Vamos lá!! 🔮👀",
+    "*abre o pergaminho misterioso* 📜🎭🦊🧡 VERDADE OU MENTIRA!!\n\nVou fazer uma afirmação e você me diz se é **verdade** ou **mentira**!! 😤🔮✨",
+    "JOGO DE VERDADE OU MENTIRA!! 🎭😤🦊🧡\n\n*concentra a sabedoria espiritual e sorteia uma afirmação*\nResponda **verdade** ou **mentira**!! 📜🔮👀",
+]
+VERDADE_ACERTO_V = ["CORRETO!! ✅🎉🦊🧡 Era VERDADE mesmo!! Você conhece bem a Kitsura!! *balança as caudas orgulhosa* 🥺🔮✨", "ISSO!! ✅😭🦊🧡 VERDADE!! *confete espiritual* Sua sabedoria me impressiona!! 🎉✨", "✅ Acertou!! Era verdade!! 🦊🧡 *bate palminhas animada* Você presta atenção em mim!! 🥺🎉✨"]
+VERDADE_ACERTO_M = ["CORRETO!! ✅🎉🦊🧡 Era MENTIRA mesmo!! Você não se deixou enganar!! *orgulho espiritual* 🥺🔮✨", "ISSO!! ✅😭🦊🧡 MENTIRA!! Você tem olhar espiritual aguçado!! *confete laranja* 🎉✨", "✅ Acertou!! Era mentira!! 🦊🧡 *salta de animação* Você me conhece melhor do que eu pensei!! 🥺🎉✨"]
+VERDADE_ERRO_V   = ["ERROU!! ❌😂🦊🧡 Era VERDADE!! Você foi enganado(a) pela Kitsura!! *ri com as caudas* Mas foi carinhoso!! 🔮✨", "❌ Era verdade!! 😂🦊🧡 Sua desconfiança te traiu dessa vez!! *dança de vitória* 🎉✨", "MENTIRA?? ❌🦊🧡 Era VERDADE!! *faz cara de inocente* A Kitsura nunca mentiria... ou mentiria?? 😂🔮✨"]
+VERDADE_ERRO_M   = ["ERROU!! ❌😂🦊🧡 Era MENTIRA!! A Kitsura te pegou!! *ri com as caudas* Caiu bonito(a)!! 🔮✨", "❌ Era mentira!! 😂🦊🧡 *bate palminhas* A Kitsura enganou você com sucesso!! Habilidade espiritual comprovada!! 🎉✨", "VERDADE?? ❌🦊🧡 Era MENTIRA!! *sorri com malícia fofa* Caiu!! 😂🔮✨"]
+VERDADE_OUTRA = ["Quer outra?? 🎭🦊🧡 Fala **mais** e a Kitsura sorteia uma nova afirmação!! 🔮✨", "Bora mais uma?? 🎭🦊🧡 Diz **mais** se quiser continuar!! 😄🔮✨", "Mais uma rodada?? 🎭🦊🧡 Só falar **mais**!! 😤🔮✨"]
+
+# ================= QUIZ DA KITSURA =================
+# Trigger: "kitsura quiz" / "me testa kitsura" / "kitsura me testa"
+
+_quiz_estado = {}
+# { canal_id: { "idx": int, "gabarito": str, "ts": float, "pontos": int, "rodada": int } }
+_QUIZ_TIMEOUT  = 90
+_QUIZ_RODADAS  = 3
+
+QUIZ_PERGUNTAS = [
+    {
+        "pergunta": "Qual é a cor favorita da Kitsura?? 🎨",
+        "opcoes":   {"A": "Roxo", "B": "Laranja", "C": "Azul"},
+        "gabarito": "B",
+        "explicacao": "LARANJA!! 🧡🔥 A cor do clã ZYD e das minhas chamas!! Nunca esqueçam!!",
+    },
+    {
+        "pergunta": "Quem é a dona (Owner) da ZYD?? 👑",
+        "opcoes":   {"A": "Kamy", "B": "Allyna", "C": "Madu"},
+        "gabarito": "C",
+        "explicacao": "A MADU!! 👑🌸 A fundadora, a líder máxima, a dona do servidor!!",
+    },
+    {
+        "pergunta": "Qual é a comida favorita da Kitsura?? 🍡",
+        "opcoes":   {"A": "Pizza", "B": "Ramen", "C": "Dango"},
+        "gabarito": "C",
+        "explicacao": "DANGO!! 🍡🧡 Bolinha de arroz doce com chazinho quentinho — minha vida!!",
+    },
+    {
+        "pergunta": "Quem criou a Kitsura?? ⚡",
+        "opcoes":   {"A": "Reality", "B": "Malik", "C": "Sanemy"},
+        "gabarito": "A",
+        "explicacao": "O REALITY!! ⚡👑 Sem ele eu não existia!! Gratidão eterna!!",
+    },
+    {
+        "pergunta": "Qual estação do ano a Kitsura AMA?? 🌙",
+        "opcoes":   {"A": "Verão", "B": "Inverno", "C": "Primavera"},
+        "gabarito": "B",
+        "explicacao": "INVERNO!! ❄️🌙 Frio, casaco, chá quentinho... é a vida de uma kitsune!!",
+    },
+    {
+        "pergunta": "Qual o cargo da Kamy na ZYD?? 🌸",
+        "opcoes":   {"A": "ADM", "B": "Líder", "C": "Suporte"},
+        "gabarito": "C",
+        "explicacao": "SUPORTE!! 🌸💜 A Kamy cuida de todo mundo com muito amor!!",
+    },
+    {
+        "pergunta": "Qual é o cargo do Malik?? 💼",
+        "opcoes":   {"A": "Gerente Geral da Zayden", "B": "Sub-Líder", "C": "Suporte"},
+        "gabarito": "A",
+        "explicacao": "GERENTE GERAL DA ZAYDEN!! 💼⚡ Liderança e gestão no nível máximo!!",
+    },
+    {
+        "pergunta": "A Kitsura é qual tipo de criatura?? 🦊",
+        "opcoes":   {"A": "Dragão", "B": "Lobo espiritual", "C": "Raposa espiritual (Kitsune)"},
+        "gabarito": "C",
+        "explicacao": "KITSUNE!! 🦊🔮 Raposa espiritual guardiã com caudas mágicas!! Inesquecível!!",
+    },
+]
+
+QUIZ_INICIO = [
+    "QUIZ DA KITSURA!! 🎓🦊🧡 *abre o pergaminho dourado de perguntas*\n\n{rodadas} perguntas de múltipla escolha — responda com **A**, **B** ou **C**!!\nComeçando já!! 🔮✨",
+    "*ajusta as orelhinhas de professora* 🎓🦊🧡 QUIZ TIME!!\n\n{rodadas} perguntinhas sobre a Kitsura e a ZYD!! Responda **A**, **B** ou **C**!!\nPrepara o cérebro!! 😤🔮✨",
+    "HORA DO QUIZ!! 🎓😤🦊🧡 *acende as chamas do conhecimento espiritual*\n\n{rodadas} perguntas!! Resposta: **A**, **B** ou **C**!! Boa sorte!! 🔮✨",
+]
+QUIZ_ACERTO  = ["✅ CORRETO!! 🎉🦊🧡 {exp}\n\n+1 ponto!! 🌟", "✅ ISSO MESMO!! 😭🎉🦊🧡 {exp}\n\n+1 ponto pra você!! 🌟", "✅ ACERTOU!! 🎉🦊🧡 {exp}\n\nMais um ponto!! 🌟"]
+QUIZ_ERRO    = ["❌ Errou... 😔🦊🧡 A resposta era **{gab}**)\n{exp}", "❌ Não foi dessa vez!! 😢🦊🧡 Era **{gab}**)\n{exp}", "❌ Quase!! 😭🦊🧡 A certa era **{gab}**)\n{exp}"]
+QUIZ_FIM_BOM = ["QUIZ FINALIZADO!! 🎓🎉🦊🧡\n\n🏆 Você fez **{p}/{r}** pontos!!\n*solta confete laranja pelo servidor* ARRASOU!! 🥺🔮✨", "FIM DO QUIZ!! 🎓😭🦊🧡\n\n🌟 **{p} de {r}** pontos!! Você conhece a Kitsura de verdade!! 🥺🎉✨"]
+QUIZ_FIM_MED = ["Quiz encerrado!! 🎓🦊🧡\n\n⭐ **{p}/{r}** pontos!! Nada mal!! Mas dá pra melhorar — tenta de novo?? 😄🔮✨", "FIM!! 🎓🦊🧡\n\n**{p} de {r}**!! Metade certa, metade a estudar!! Revanche?? 😤✨"]
+QUIZ_FIM_MAL = ["Fim de quiz... 🎓😔🦊🧡\n\n💔 **{p}/{r}** pontos... A Kitsura fica um pouco triste mas ainda te ama!! Tenta de novo?? 🥺🔮✨", "FIM!! 🎓😢🦊🧡\n\n**{p} de {r}**... Você precisa de mais aulas espirituais!! Revanche?? 😂🔮✨"]
+
+# ================= ESSE OU AQUELE =================
+# Trigger: "kitsura esse ou aquele" / "kitsura escolhe"
+
+_ESSEOUAQUELE_TIMEOUT = 60
+
+ESSEOUAQUELE_PARES = [
+    ("☕ Café", "🍵 Chá"),
+    ("🌙 Noite", "☀️ Dia"),
+    ("🎮 Games", "📚 Livros"),
+    ("🍕 Pizza", "🍣 Sushi"),
+    ("🌧️ Chuva", "🌞 Sol"),
+    ("🎵 Música", "🎬 Filme"),
+    ("🏖️ Praia", "🏔️ Montanha"),
+    ("🐱 Gato", "🐶 Cachorro"),
+    ("❄️ Frio", "🔥 Calor"),
+    ("🌸 Primavera", "🍂 Outono"),
+    ("🍡 Dango", "🍜 Ramen"),
+    ("🤫 Silêncio", "🎉 Agitação"),
+    ("💤 Dormir cedo", "🦉 Dormir tarde"),
+    ("🌃 Cidade", "🌿 Campo"),
+    ("🔮 Magia", "⚡ Tecnologia"),
+]
+
+ESSEOUAQUELE_INICIO = [
+    "ESSE OU AQUELE!! 🤔🦊🧡 *sorteia o par do dia*\n\nVocê escolhe... sem pensar muito!! Instinto espiritual puro!!\n\n**{a}** ou **{b}**?? 👀",
+    "*abre o leque de opções com as caudas* 🤔🦊🧡 ESSE OU AQUELE!!\n\nSem tempo pra hesitar!! O que você prefere??\n\n**{a}** ou **{b}**?? 😤👀",
+    "Hora do ESSE OU AQUELE!! 🤔🎭🦊🧡\n\nEscolha UM — e a Kitsura reage!! Prometo que não julgoooo... muito!! 😂\n\n**{a}** ou **{b}**?? 👀🔮",
+]
+ESSEOUAQUELE_REACAO_A = [
+    "*orelhinhas em pé de surpresa* {a}?? 🦊🧡 Boa escolha!! A Kitsura respeita!! 😄✨",
+    "{a}!! 🦊🧡 *acena com aprovação espiritual* Gosto parecido com o meu!! 🥺✨",
+    "AAAA {a}!! 😭🦊🧡 Que escolha corajosa e linda ao mesmo tempo!! *bate palminhas* ✨",
+    "*anota no pergaminho* {a}... 📜🦊🧡 Diz muito sobre você!! E eu gosto do que tô vendo!! 🥺✨",
+]
+ESSEOUAQUELE_REACAO_B = [
+    "*inclina a cabeça curiosa* {b}?? 🦊🧡 Hmm... interessante!! A Kitsura não esperava mas respeita!! 😄✨",
+    "{b}!! 🦊🧡 *pisca com sabedoria espiritual* Personalidade única!! Amo isso em você!! 🥺✨",
+    "OOOH {b}!! 😱🦊🧡 Que resposta!! *faz anotação espiritual* Você é cheio(a) de surpresas!! ✨",
+    "*anota no pergaminho* {b}... 📜🦊🧡 Boa escolha!! Diz muito sobre sua energia!! 🥺✨",
+]
+ESSEOUAQUELE_MAIS = ["Quer mais um?? 🤔🦊🧡 Fala **mais** que a Kitsura sorteia outro par!! 😄🔮✨", "Bora outro?? 🤔🦊🧡 Só dizer **mais**!! 😤🔮✨", "Mais um par?? 🤔🦊🧡 Diz **mais**!! 👀✨"]
+
+# ================= LISTA DE BRINCADEIRAS =================
+
+LISTA_BRINCADEIRAS = (
+    "✨ **Brincadeiras da Kitsura** 🦊🧡\n\n"
+    "🪨 **Jokenpô**\n"
+    "› Fala `kitsura pedra`, `kitsura papel` ou `kitsura tesoura` e a gente joga!!\n\n"
+    "🔢 **Número Secreto**\n"
+    "› Fala `kitsura número secreto` — eu penso num número de 1 a 10 e você tenta adivinhar em 5 tentativas!!\n\n"
+    "🎭 **Verdade ou Mentira**\n"
+    "› Fala `kitsura verdade ou mentira` — eu faço uma afirmação sobre mim ou a ZYD e você descobre se é real ou não!!\n\n"
+    "🎓 **Quiz da Kitsura**\n"
+    "› Fala `kitsura quiz` ou `me testa kitsura` — 3 perguntas de múltipla escolha sobre a Kitsura e a ZYD!!\n\n"
+    "🤔 **Esse ou Aquele**\n"
+    "› Fala `kitsura esse ou aquele` — eu dou duas opções e você escolhe sem pensar muito!!\n\n"
+    "*A Kitsura tá sempre pronta pra brincar!! Chama que eu apareço!! 🥺🔮✨*"
+)
+
+# ================= HELPERS =================
+
 def _m(content: str, termos: list) -> bool:
     return any(t in content for t in termos)
 
@@ -2889,6 +3074,198 @@ async def on_message(message: discord.Message):
         _jokenpo_ativo[canal_id_jk] = {"ts": time.time(), "aguarda_revanche": False, "aguarda_escolha": False}
         await _resolver_jokenpo(_jogada_user)
         return
+
+    # ── Quais suas brincadeiras? ──
+    if _m(content, ["quais suas brincadeiras", "quais são suas brincadeiras",
+                     "o que você faz de brincadeira", "quais jogos você tem",
+                     "que jogos você tem kitsura", "kitsura quais jogos",
+                     "kitsura quais brincadeiras", "quais brincadeiras kitsura",
+                     "me fala os jogos kitsura", "jogos da kitsura"]):
+        return await message.channel.send(LISTA_BRINCADEIRAS)
+
+    # ─────────────────────────────────────────
+    # ── NÚMERO SECRETO ──
+    # ─────────────────────────────────────────
+    _num_estado  = _numero_estado.get(message.channel.id, {})
+    _num_vivo    = (time.time() - _num_estado.get("ts", 0)) < _NUMERO_TIMEOUT
+
+    # Início
+    if (fala or mencao) and _m(content, ["número secreto", "numero secreto",
+                                          "adivinhe o número", "adivinhe o numero",
+                                          "jogo do número", "jogo do numero"]):
+        numero = random.randint(1, 10)
+        _numero_estado[message.channel.id] = {"numero": numero, "ts": time.time(), "tentativas": _NUMERO_MAX_TENT}
+        txt = random.choice(NUMERO_INICIO).replace("{max}", str(_NUMERO_MAX_TENT))
+        return await message.channel.send(txt)
+
+    # Palpite durante jogo ativo
+    if _num_vivo and _num_estado:
+        # Tenta extrair número da mensagem
+        import re as _re
+        _nums = _re.findall(r'\b([1-9]|10)\b', content)
+        if _nums:
+            palpite   = int(_nums[0])
+            numero    = _num_estado["numero"]
+            restantes = _num_estado["tentativas"] - 1
+            if palpite == numero:
+                tent_usadas = _NUMERO_MAX_TENT - restantes
+                _numero_estado.pop(message.channel.id, None)
+                txt = random.choice(NUMERO_ACERTO).replace("{num}", str(numero)).replace("{tent}", str(tent_usadas))
+                return await message.channel.send(txt)
+            elif restantes <= 0:
+                _numero_estado.pop(message.channel.id, None)
+                txt = random.choice(NUMERO_ERROU).replace("{num}", str(numero))
+                return await message.channel.send(txt)
+            else:
+                _numero_estado[message.channel.id]["tentativas"] = restantes
+                _numero_estado[message.channel.id]["ts"] = time.time()
+                if palpite < numero:
+                    txt = random.choice(NUMERO_MAIOR).replace("{tent}", str(restantes))
+                else:
+                    txt = random.choice(NUMERO_MENOR).replace("{tent}", str(restantes))
+                return await message.channel.send(txt)
+
+    # ─────────────────────────────────────────
+    # ── VERDADE OU MENTIRA ──
+    # ─────────────────────────────────────────
+    _verd_estado = _verdade_estado.get(message.channel.id, {})
+    _verd_vivo   = (time.time() - _verd_estado.get("ts", 0)) < _VERDADE_TIMEOUT
+
+    # Início ou "mais"
+    if (fala or mencao) and _m(content, ["verdade ou mentira", "verdade ou mito",
+                                          "jogo da verdade", "verdade ou falso"]):
+        idx = random.randrange(len(VERDADE_AFIRMACOES))
+        afirm, correta = VERDADE_AFIRMACOES[idx]
+        _verdade_estado[message.channel.id] = {"idx": idx, "resposta": correta, "ts": time.time()}
+        intro = random.choice(VERDADE_INICIO)
+        return await message.channel.send(f"{intro}\n\n🗣️ **\"{afirm}\"**\n\nVocê diz: **verdade** ou **mentira**?? 👀")
+
+    if _verd_vivo and _verd_estado and _m(content, ["mais", "outra", "continua", "próxima", "proxima"]):
+        idx = random.randrange(len(VERDADE_AFIRMACOES))
+        afirm, correta = VERDADE_AFIRMACOES[idx]
+        _verdade_estado[message.channel.id] = {"idx": idx, "resposta": correta, "ts": time.time()}
+        return await message.channel.send(f"🎭 Nova afirmação!! 🦊🧡\n\n🗣️ **\"{afirm}\"**\n\nVerdade ou mentira?? 👀")
+
+    # Resposta durante jogo ativo
+    if _verd_vivo and _verd_estado:
+        _disse_verdade  = any(t in content for t in ["verdade", "true", "real", "v"])
+        _disse_mentira  = any(t in content for t in ["mentira", "mito", "falso", "false", "m"])
+        correta = _verd_estado.get("resposta")
+        if _disse_verdade or _disse_mentira:
+            acertou = (_disse_verdade and correta) or (_disse_mentira and not correta)
+            if acertou:
+                txt = random.choice(VERDADE_ACERTO_V if correta else VERDADE_ACERTO_M)
+            else:
+                txt = random.choice(VERDADE_ERRO_V if correta else VERDADE_ERRO_M)
+            _verdade_estado.pop(message.channel.id, None)
+            return await message.channel.send(txt + "\n\n" + random.choice(VERDADE_OUTRA))
+
+    # ─────────────────────────────────────────
+    # ── QUIZ ──
+    # ─────────────────────────────────────────
+    _quiz_est  = _quiz_estado.get(message.channel.id, {})
+    _quiz_vivo = (time.time() - _quiz_est.get("ts", 0)) < _QUIZ_TIMEOUT
+
+    async def _enviar_pergunta_quiz(canal, rodada, pontos):
+        pergs_disponiveis = list(range(len(QUIZ_PERGUNTAS)))
+        usadas = _quiz_estado.get(canal.id, {}).get("usadas", [])
+        restantes_idx = [i for i in pergs_disponiveis if i not in usadas]
+        if not restantes_idx:
+            restantes_idx = pergs_disponiveis
+        idx = random.choice(restantes_idx)
+        p   = QUIZ_PERGUNTAS[idx]
+        _quiz_estado[canal.id] = {
+            "idx": idx, "gabarito": p["gabarito"],
+            "ts": time.time(), "pontos": pontos,
+            "rodada": rodada, "usadas": usadas + [idx]
+        }
+        ops = "\n".join(f"**{k})** {v}" for k, v in p["opcoes"].items())
+        txt = f"❓ **Pergunta {rodada}/{_QUIZ_RODADAS}** — {p['pergunta']}\n\n{ops}\n\nResponda **A**, **B** ou **C**!! 🔮"
+        await canal.send(txt)
+
+    # Início do quiz
+    if (fala or mencao) and _m(content, ["kitsura quiz", "quiz kitsura",
+                                          "me testa kitsura", "kitsura me testa",
+                                          "quiz da kitsura", "iniciar quiz"]):
+        intro = random.choice(QUIZ_INICIO).replace("{rodadas}", str(_QUIZ_RODADAS))
+        await message.channel.send(intro)
+        await asyncio.sleep(1.5)
+        await _enviar_pergunta_quiz(message.channel, 1, 0)
+        return
+
+    # Resposta durante quiz ativo
+    if _quiz_vivo and _quiz_est:
+        _resp = content.strip().upper()
+        if _resp in ("A", "B", "C"):
+            gab      = _quiz_est["gabarito"]
+            pontos   = _quiz_est["pontos"]
+            rodada   = _quiz_est["rodada"]
+            idx      = _quiz_est["idx"]
+            p        = QUIZ_PERGUNTAS[idx]
+            if _resp == gab:
+                pontos += 1
+                txt = random.choice(QUIZ_ACERTO).replace("{exp}", p["explicacao"])
+            else:
+                txt = random.choice(QUIZ_ERRO).replace("{gab}", gab).replace("{exp}", p["explicacao"])
+            await message.channel.send(txt)
+            await asyncio.sleep(1.2)
+            if rodada >= _QUIZ_RODADAS:
+                _quiz_estado.pop(message.channel.id, None)
+                if pontos >= _QUIZ_RODADAS:
+                    fim = random.choice(QUIZ_FIM_BOM)
+                elif pontos >= _QUIZ_RODADAS // 2:
+                    fim = random.choice(QUIZ_FIM_MED)
+                else:
+                    fim = random.choice(QUIZ_FIM_MAL)
+                return await message.channel.send(fim.replace("{p}", str(pontos)).replace("{r}", str(_QUIZ_RODADAS)))
+            else:
+                await _enviar_pergunta_quiz(message.channel, rodada + 1, pontos)
+            return
+
+    # ─────────────────────────────────────────
+    # ── ESSE OU AQUELE ──
+    # ─────────────────────────────────────────
+    _esse_estado = {}   # sem persistência entre turnos — cada chamada é nova rodada
+    _esse_vivo_ref = getattr(message.channel, "_esse_ts", None)
+
+    # Início ou "mais"
+    if (fala or mencao) and _m(content, ["esse ou aquele", "escolhe entre",
+                                          "prefere qual", "qual dos dois kitsura",
+                                          "me dá duas opções", "duas opções kitsura"]):
+        par = random.choice(ESSEOUAQUELE_PARES)
+        txt = random.choice(ESSEOUAQUELE_INICIO).replace("{a}", par[0]).replace("{b}", par[1])
+        message.channel._esse_par = par
+        message.channel._esse_ts  = time.time()
+        return await message.channel.send(txt)
+
+    # Resposta esse ou aquele
+    _par_ativo = getattr(message.channel, "_esse_par", None)
+    _ts_ativo  = getattr(message.channel, "_esse_ts", 0)
+    if _par_ativo and (time.time() - _ts_ativo) < _ESSEOUAQUELE_TIMEOUT:
+        a_lower = _par_ativo[0].lower()
+        b_lower = _par_ativo[1].lower()
+        # Remove emojis pra comparar
+        import re as _re2
+        a_word = _re2.sub(r'[^\w\s]', '', a_lower).strip()
+        b_word = _re2.sub(r'[^\w\s]', '', b_lower).strip()
+        escolheu_a = any(w in content for w in a_word.split() if len(w) > 2)
+        escolheu_b = any(w in content for w in b_word.split() if len(w) > 2)
+        if escolheu_a and not escolheu_b:
+            message.channel._esse_par = None
+            txt = random.choice(ESSEOUAQUELE_REACAO_A).replace("{a}", _par_ativo[0])
+            return await message.channel.send(txt + "\n\n" + random.choice(ESSEOUAQUELE_MAIS))
+        elif escolheu_b and not escolheu_a:
+            message.channel._esse_par = None
+            txt = random.choice(ESSEOUAQUELE_REACAO_B).replace("{b}", _par_ativo[1])
+            return await message.channel.send(txt + "\n\n" + random.choice(ESSEOUAQUELE_MAIS))
+
+    # "mais" pra esse ou aquele
+    if _m(content, ["mais", "outra", "continua", "próxima", "proxima"]) and _ts_ativo and (time.time() - _ts_ativo) < _ESSEOUAQUELE_TIMEOUT:
+        par = random.choice(ESSEOUAQUELE_PARES)
+        txt = random.choice(ESSEOUAQUELE_INICIO).replace("{a}", par[0]).replace("{b}", par[1])
+        message.channel._esse_par = par
+        message.channel._esse_ts  = time.time()
+        return await message.channel.send(txt)
 
     # Tudo que não se encaixou → IA (Groq) ──
     texto_ia = message.content.replace(f"<@{bot.user.id}>", "").strip()
