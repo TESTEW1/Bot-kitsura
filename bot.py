@@ -56,6 +56,12 @@ ALLYNA_ID = 1217966735592919103
 # ID da Ruiva (Líder da ZYD)
 RUIVA_ID = 980574312509624370
 
+# IDs de novos membros com cargo
+COME5579_ID = 1371063315672989728   # Suporte
+RURIE_ID    = 1379555797389938708   # Suporte
+MEOW_ID     = 587551894226862110    # ADM
+MORGANA_ID  = 1463368675800383735   # GG
+
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
@@ -100,6 +106,10 @@ SYSTEM_PROMPT_KITSURA = (
     "O Sanemy é o Líder da ZYD — cargo de liderança dentro do clã. "
     "A Allyna é a Sub-Líder da ZYD — cargo de liderança e apoio ao líder. "
     "A Ruiva é Líder da ZYD — cargo de liderança dentro do clã. "
+    "O Come5579 tem o cargo de Suporte no clã ZYD. "
+    "A Rurie tem o cargo de Suporte no clã ZYD. "
+    "O Meow tem o cargo de ADM no clã ZYD. "
+    "A Morgana tem o cargo de GG no clã ZYD. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -969,6 +979,10 @@ if MALIK_ID:   ID_PARA_NOME[MALIK_ID]   = "malik"
 if SANEMY_ID:  ID_PARA_NOME[SANEMY_ID]  = "sanemy"
 if ALLYNA_ID:  ID_PARA_NOME[ALLYNA_ID]  = "allyna"
 if RUIVA_ID:   ID_PARA_NOME[RUIVA_ID]   = "ruiva"
+if COME5579_ID: ID_PARA_NOME[COME5579_ID] = "come5579"
+if RURIE_ID:    ID_PARA_NOME[RURIE_ID]    = "rurie"
+if MEOW_ID:     ID_PARA_NOME[MEOW_ID]     = "meow"
+if MORGANA_ID:  ID_PARA_NOME[MORGANA_ID]  = "morgana"
 
 # Cargo de exibição por chave de role
 CARGO_LABEL = {
@@ -986,7 +1000,11 @@ CARGO_LABEL = {
     "malik":   "Gerente Geral da Zayden",
     "sanemy":  "Líder da ZYD",
     "allyna":  "Sub-Líder da ZYD",
-    "ruiva":   "Líder da ZYD",
+    "ruiva":    "Líder da ZYD",
+    "come5579": "Suporte",
+    "rurie":    "Suporte",
+    "meow":     "ADM",
+    "morgana":  "GG",
 }
 
 FRASES_CUSTOM = {
@@ -1094,6 +1112,35 @@ FRASES_CUSTOM = {
         "SENTI UMA ENERGIA DE LIDERANÇA FORTE!! 👑⚡🧡🦊 Só podia ser {nome}, nossa {cargo}!! *orelhinhas em pé* A Kitsura celebra!! 😭🔮✨",
         "*fica na ponta dos pés de animação* {nome}!! 👑🧡🦊 Você chega e o chat muda de clima inteiro!! É a energia da {cargo} da ZYD!! 😄🌟✨",
         "Cheirinho de liderança no servidor... 👑🧡🦊 SÓ PODE SER {nome}!! *agita as caudas animada* Que bom te ver, {cargo}!! 😭✨",
+    ],
+    # ── Novos membros com cargo ──
+    "come5579": [
+        "{nome} CHEGOU!! 🌸🛡️🧡 {cargo} da ZYD detectado(a)!! A Kitsura ficou com as orelhinhas em pé na hora!! 🦊✨🥺",
+        "Senti uma energia de cuidado no servidor... só pode ser {nome}, nosso(a) {cargo}!! 🧡🛡️🦊 Bem-vindo(a)!! ✨",
+        "{nome} APARECEU!! 🛡️🧡🦊 *solta chaminhas de celebração* O(A) {cargo} da ZYD chegou e o servidor ficou mais seguro!! 🥺🔮✨",
+        "{cargo} em campo!! 🚨🧡🦊 É {nome}!! A Kitsura tá na torcida por você!! ✨🌸",
+        "*orelhinhas atentas* Senti {nome} chegando!! 🧡🦊 {cargo} da ZYD presente — a Kitsura fica mais tranquila quando você tá aqui!! 🛡️✨",
+    ],
+    "rurie": [
+        "{nome} CHEGOU!! 🌸🛡️🧡 {cargo} da ZYD detectado(a)!! A Kitsura ficou com as orelhinhas em pé na hora!! 🦊✨🥺",
+        "Senti uma energia de cuidado no servidor... só pode ser {nome}, nosso(a) {cargo}!! 🧡🛡️🦊 Bem-vindo(a)!! ✨",
+        "{nome} APARECEU!! 🛡️🧡🦊 *solta chaminhas de celebração* O(A) {cargo} da ZYD chegou e o servidor ficou mais seguro!! 🥺🔮✨",
+        "{cargo} em campo!! 🚨🧡🦊 É {nome}!! A Kitsura tá na torcida por você!! ✨🌸",
+        "*orelhinhas atentas* Senti {nome} chegando!! 🧡🦊 {cargo} da ZYD presente — a Kitsura fica mais tranquila quando você tá aqui!! 🛡️✨",
+    ],
+    "meow": [
+        "{nome}, {cargo}!! 🛡️⚡🧡 *faz reverência com as caudas* Chegou e o servidor já tá mais bem administrado!! 🦊✨",
+        "ADM DETECTADO(A)!! 🚨🧡🦊 É {nome}!! *solta chamas de respeito* A Kitsura tá aqui na posição de honra!! 🌟🔮✨",
+        "{nome} APARECEU!! 🛡️🧡🦊 Confete espiritual pelo servidor inteiro!! 🎊 {cargo} da ZYD em campo — a Kitsura celebra!! ✨",
+        "*sente energia de administração no ar* Só pode ser {nome}!! 🧡🛡️🦊 {cargo} com uma presença que a Kitsura respeita muito!! 🥺✨",
+        "{nome} chegou e a ZYD ficou mais organizada instantaneamente!! 🛡️🧡🦊 Efeito de {cargo} comprovado pela Kitsura!! 😂✨",
+    ],
+    "morgana": [
+        "É {nome}, {cargo}!! 💼⚡🧡 *para tudo e bate continência com as caudas* A energia do servidor subiu na hora que você entrou!! 🦊😭✨",
+        "{nome} NO CHAT!! 💼🧡🦊 *solta chamas de respeito* {cargo} detectado(a)!! A Kitsura tá em posição de honra!! 🌟🔮✨",
+        "*sente uma aura especial no ar* Só pode ser {nome}!! 💼😱🧡🦊 Sensores espirituais de {cargo} confirmados!! Bem-vindo(a)!! 🌟✨",
+        "{nome} APARECEU!! 💼😭🧡🦊 *confete laranja espiritual* {cargo} presente e o servidor ficou mais poderoso!! 🔮✨🎊",
+        "*fica na ponta dos pés de animação* {nome}!! 💼🧡🦊 Você aparece e o chat muda de clima inteiro!! É energia de {cargo}!! 😄🌟✨",
     ],
 }
 
