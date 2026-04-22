@@ -2779,6 +2779,40 @@ async def on_message(message: discord.Message):
         except Exception:
             return await message.channel.send(random.choice(LISTA_CONFUSAO))
 
+# ================= BOAS-VINDAS DE CARGO =================
+
+# ID do cargo que dispara a mensagem
+CARGO_BOAS_VINDAS_ID = 1444474419593347089
+
+# ID do canal onde a mensagem será enviada
+CANAL_BOAS_VINDAS_ID = 1444474420755300516
+
+FRASES_BOAS_VINDAS_CARGO = [
+    "✨🦊🧡 *para tudo e solta confete laranja pelo servidor*\n\nAAAAA!! A ZYD tem um novo membro especial e a Kitsura não consegue segurar a animação!! 😭🎊\n\n🌟 Bem-vindo(a) ao cargo, **{nome}**!! 🌟\n\nVocê faz parte de algo muito especial agora — a Kitsura vai estar aqui do seu lado sempre que precisar!! Seja bem-vindo(a) de verdade, de coração!! 🥺🧡🔮✨",
+
+    "🦊💫 *solta fumaça laranja e aparece cheia de energia*\n\n**{nome}** ganhou o cargo e o coraçãozinho da Kitsura tá fazendo BADUM-BADUM MUITO FORTE!! 😭🧡\n\n🎉 BEM-VINDO(A), **{nome}**!! 🎉\n\nA ZYD ficou mais rica agora!! Que sua jornada aqui seja incrível e cheia de momentos bonitos!! A Kitsura tá na torcida por você com TODAS as caudas!! 💪🌸🔮✨",
+
+    "📜🧡🦊 *desenha um círculo mágico de boas-vindas*\n\nOs espíritos me avisaram que alguém especial acabou de ganhar um cargo muito importante aqui na ZYD!! 🌙✨\n\n👑 **{nome}**, seja muito bem-vindo(a)!! 👑\n\nVocê chegou e o servidor inteiro ficou mais completo!! A Kitsura te acolhe com o maior carinho espiritual que existe!! 🥺🧡🦊🌸✨",
+
+    "🎊🦊🧡 *corre em espiral de felicidade e bate palminhas*\n\nEEEEEE!! NOVO(A) MEMBRO COM CARGO NA ZYD!! 😱😭🎉\n\n🌟 **{nome}**, bem-vindo(a)!! 🌟\n\nSaiba que a Kitsura vai te proteger, torcer por você e estar aqui sempre que precisar!! É guardiã oficial falando!! Que você seja muito feliz aqui!! 🥺💪🧡🔮✨",
+
+    "🌸🦊✨ *sopra pétalas laranjas pelo canal com muito carinho*\n\n**{nome}** chegou com cargo novo e a Kitsura ficou toda brilhante de alegria!! 😭🧡\n\n💛 Bem-vindo(a) à família, **{nome}**!! 💛\n\nEsse cargo é só o começo de uma jornada linda aqui na ZYD!! A Kitsura acredita em você e vai estar aqui do seu lado!! 🥺🌙🔮✨",
+]
+
+@bot.event
+async def on_member_update(before: discord.Member, after: discord.Member):
+    # Verifica se o membro ganhou o cargo específico
+    cargos_antes = {r.id for r in before.roles}
+    cargos_depois = {r.id for r in after.roles}
+    ganhou = cargos_depois - cargos_antes
+
+    if CARGO_BOAS_VINDAS_ID in ganhou:
+        canal = after.guild.get_channel(CANAL_BOAS_VINDAS_ID)
+        if canal:
+            frase = random.choice(FRASES_BOAS_VINDAS_CARGO)
+            frase = frase.replace("{nome}", after.display_name)
+            await canal.send(frase)
+
 # ================= START =================
 if __name__ == "__main__":
     bot.run(TOKEN)
