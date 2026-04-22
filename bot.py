@@ -1836,7 +1836,14 @@ async def on_message(message: discord.Message):
     if _m(content, ["kitsura fofa", "você é fofa kitsura", "kitsura linda",
                      "te amo kitsura", "amo a kitsura", "amo você kitsura",
                      "kitsura é incrível", "kitsura é a melhor", "adoro a kitsura",
-                     "que fofa a kitsura", "kitsura é fofinha", "kitsura querida"]):
+                     "que fofa a kitsura", "kitsura é fofinha", "kitsura querida",
+                     "que bonitinha kitsura", "kitsura que bonitinha", "que bonitinha",
+                     "que linda kitsura", "kitsura que linda", "que fofa kitsura",
+                     "que fofinha kitsura", "kitsura adorável", "que cute kitsura",
+                     "kitsura cute", "você é linda kitsura", "você é bonita kitsura",
+                     "kitsura você é linda", "kitsura você é bonita",
+                     "tão fofa kitsura", "kitsura tão fofa", "muito fofa kitsura",
+                     "que criatura linda", "que criaturinha fofa"]):
         return await message.channel.send(random.choice(REACOES_FOFAS))
 
     # ── Despedida ──
@@ -1895,11 +1902,23 @@ async def on_message(message: discord.Message):
 
     # ── Apresentação ──
     if _m(content, ["quem é você kitsura", "kitsura quem é você", "se apresenta kitsura",
-                     "o que é a kitsura", "kitsura se apresenta", "o que você é kitsura"]):
+                     "o que é a kitsura", "kitsura se apresenta", "o que você é kitsura",
+                     "o que você sabe fazer kitsura", "kitsura o que você sabe fazer",
+                     "o que sabe fazer kitsura", "kitsura o que sabe fazer",
+                     "o que vc sabe fazer kitsura", "kitsura o que vc sabe",
+                     "quais são suas habilidades kitsura", "kitsura quais suas habilidades",
+                     "o que você faz kitsura", "kitsura o que você faz",
+                     "me fala o que você sabe", "kitsura me fala o que você sabe"]):
         return await message.channel.send(
             "Sou a **Kitsura**, raposa espiritual guardiã da ZYD!! 🦊🧡\n"
-            "Minhas caudas carregam emoções diferentes — alegria, proteção, amor, mistério...\n"
-            "Estou aqui pra cuidar de todos com muito carinho e magia! 🔮✨\n\n"
+            "Minhas caudas carregam emoções diferentes — alegria, proteção, amor, mistério...\n\n"
+            "Aqui vai o que eu sei fazer!! 🔮✨\n"
+            "🫂 Dar abraços, carinho e cafuné espiritual\n"
+            "💬 Conversar sobre qualquer coisa — chama que eu apareço!\n"
+            "🎮 Jogar **Verdade ou Mentira**, **Quiz** e **Esse ou Aquele**\n"
+            "🌙 Mandar magia, motivação e energia boa\n"
+            "📜 Contar sobre a hierarquia e cargos da ZYD\n"
+            "🎵 Dançar, cantar e contar piadas (com dignidade!!)\n\n"
             "Pode falar comigo naturalmente!! Só chamar **kitsura** que eu apareço!! 🌸🦊🧡"
         )
 
@@ -1920,6 +1939,13 @@ async def on_message(message: discord.Message):
                      "kitsura tá bem hoje", "tá bem hoje kitsura",
                      "kitsura tá animada", "kitsura tá cansada hoje",
                      "como tá kitsura hoje", "kitsura como tá hoje",
+                     # Como foi seu dia
+                     "como foi seu dia kitsura", "kitsura como foi seu dia",
+                     "como foi o seu dia kitsura", "kitsura como foi o seu dia",
+                     "como foi o dia kitsura", "kitsura como foi o dia",
+                     "como foi hoje kitsura", "kitsura como foi hoje",
+                     "seu dia foi bom kitsura", "kitsura seu dia foi bom",
+                     "como tá sendo seu dia kitsura", "kitsura como tá sendo seu dia",
                      # Sem "kitsura" — disparam quando ela já foi mencionada/chamada antes
                      "se sente bem", "tá se sentindo bem", "você tá bem",
                      "como você tá", "como você está", "tudo bem com você",
@@ -1929,6 +1955,8 @@ async def on_message(message: discord.Message):
                      "tá feliz?", "tá triste?", "tá cansada?", "tá animada?",
                      "tá com sono?", "como tá se sentindo", "tá boa?",
                      "tá bem hoje", "você tá bem hoje", "se sente bem hoje",
+                     "como foi seu dia", "como foi o seu dia", "como foi o dia",
+                     "como foi hoje", "seu dia foi bom",
                      ]):
         # 35% de chance de responder com uma pergunta de volta
         if random.random() < 0.35:
@@ -2471,6 +2499,12 @@ async def on_message(message: discord.Message):
         "apresenta os cargos", "kitsura apresenta os cargos",
         "me apresenta a equipe", "quem faz parte da liderança",
         "quem lidera a zyd", "kitsura quem lidera",
+        "me mostra os cargos", "kitsura me mostra os cargos",
+        "me mostra a hierarquia", "kitsura me mostra a hierarquia",
+        "mostra os cargos kitsura", "mostra a hierarquia kitsura",
+        "lista os cargos kitsura", "kitsura lista os cargos",
+        "quais os cargos kitsura", "kitsura quais os cargos",
+        "me mostra a equipe", "mostra a equipe kitsura",
     ]):
         return await message.channel.send(random.choice(LISTA_HIERARQUIA_COMPLETA))
 
