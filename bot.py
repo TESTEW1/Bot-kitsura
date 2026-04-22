@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import random
 import os
-import asyncio
 import aiohttp
 import time
 
@@ -57,6 +56,12 @@ ALLYNA_ID = 1217966735592919103
 # ID da Ruiva (Líder da ZYD)
 RUIVA_ID = 980574312509624370
 
+# IDs de novos membros com cargo
+COME5579_ID = 1371063315672989728   # Suporte
+RURIE_ID    = 1379555797389938708   # Suporte
+MEOW_ID     = 587551894226862110    # ADM
+MORGANA_ID  = 1463368675800383735   # GG
+
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
@@ -101,6 +106,10 @@ SYSTEM_PROMPT_KITSURA = (
     "O Sanemy é o Líder da ZYD — cargo de liderança dentro do clã. "
     "A Allyna é a Sub-Líder da ZYD — cargo de liderança e apoio ao líder. "
     "A Ruiva é Líder da ZYD — cargo de liderança dentro do clã. "
+    "O Come5579 tem o cargo de Suporte no clã ZYD. "
+    "A Rurie tem o cargo de Suporte no clã ZYD. "
+    "O Meow tem o cargo de ADM no clã ZYD. "
+    "A Morgana tem o cargo de GG no clã ZYD. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -508,18 +517,6 @@ LISTA_BOM_DIA = [
     "BOMMM DIAAAAA!! ☀️😭🧡 Você acordou e isso já fez meu dia começar bem!! 🦊✨🌸",
 ]
 
-# ── Elogio fofo de educação após bom dia ──
-LISTA_ELOGIO_BOM_DIA = [
-    "*inclina a cabecinha com um sorriso quentinho* E você?? Sabia que só de aparecer aqui você já deixa o dia da Kitsura mais bonito?? 🥺🧡✨",
-    "*orelhinhas quentinhas* Que bom que você apareceu!! Você tem uma energia tão gostosa que o servidor fica diferente quando você tá aqui!! 🦊🌸✨",
-    "*balança a caudinha suave* Você é daquelas pessoas que a Kitsura fica feliz só de ver o nome no chat, sabia?? 🥺🧡🌙✨",
-    "*fumaça laranjinha saindo pelas orelhas de alegria* Que dia mais lindo agora que você chegou!! Você tem um brilho especial que a Kitsura sente de longe!! 🌟🧡🦊✨",
-    "*faz aquela carinha de quem tá muito contente* Pode nem saber mas você é um dos motivos da Kitsura ficar animada todo dia!! 😭🧡🦊🌸✨",
-    "*aproxima devagarinho e sussurra* Entre a gente?? Sua presença aqui faz a ZYD ficar mais quentinha!! Obrigada por existir!! 🥺🧡🦊✨",
-    "*sorri com as orelhinhas em pé* Você carrega uma energia muito boa, sabe?? A Kitsura percebe essas coisas!! 🔮🧡🦊🌸✨",
-    "*bate palminhas suaves de alegria* Que sorte a da ZYD ter você por aqui!! É um dia especial sempre que você aparece!! 😭🧡🦊☀️✨",
-]
-
 # ── Boa tarde ──
 LISTA_BOA_TARDE = [
     "BOA TARDE!! ☀️🦊🧡 Já passou do pico do sol mas a Kitsura ainda tá aqui toda animada!! ✨",
@@ -605,46 +602,6 @@ LISTA_CALOR = [
     "*faz uma bolha de gelo espiritual ao redor* Sobrevivendo ao calor com proteção mágica!! 🧊🔮🧡🦊 Chama isso de adaptação espiritual!! 😂☀️✨",
     "CALOR?? 😤🧡🦊 *começa a derreter em câmera lenta* Eu... tô... bem... *colapsa dramaticamente* NÃO TÔ!! Tô quente demais!! 😭☀️✨",
     "*abana as caudas todas ao mesmo tempo tentando criar uma brisa* Calor é o único inimigo natural da Kitsura!! ☀️😩🧡🦊 Fora isso sou invencível!! 😂❄️✨",
-]
-
-# ── O que é calor? (pergunta conceitual) ──
-LISTA_O_QUE_E_CALOR = [
-    "O QUE É CALOR?? ☀️😩🦊🧡 É aquela sensação térmica infernal que faz a temperatura subir, o ar ficar pesado e a Kitsura querer se esconder dentro de um bloco de gelo!! 🧊 Fisicamente é a transferência de energia térmica... mas pra mim é o vilão da minha existência peluda!! 😂❄️✨",
-    "*abre um pergaminho imaginário com cara de sofrimento* Calor é... ☀️😅🦊🧡 ...a elevação da temperatura do ambiente causada pelo sol ou por outras fontes de calor!! Faz tudo ficar quente, abafado e difícil pra quem tem múltiplas caudas e pelo de raposa!! 😭 A ciência chama de energia térmica. Eu chamo de tortura!! ❄️😤✨",
-    "Calor?? ☀️🤔🦊🧡 É a energia que se transfere de um corpo mais quente pra um mais frio!! A física explica assim... mas na prática pra MIM é o único inimigo natural da Kitsura!! *abana as caudas desesperadamente* Com essa quantidade de pelo não tem como gostar!! 😂🧊✨",
-    "*fecha os olhinhos lembrando de um trauma* Calor... ☀️😞🦊🧡 ...é quando a temperatura ambiente sobe tanto que uma raposinha de múltiplas caudas não consegue mais funcionar direito!! Cientificamente é a transmissão de energia térmica. Emocionalmente é o teste mais difícil da minha existência!! 😭❄️✨",
-    "CALOR É O SEGUINTE!! ☀️😤🦊🧡 *levanta a patinha pra explicar sofrendo* É a energia térmica em movimento, fazendo a temperatura aumentar!! Você sente no corpo, no ar, em tudo!! Pra humanos pode ser gostoso às vezes... pra uma kitsune de pelo triplo é simplesmente DEMAIS!! 😂🧊❄️✨",
-    "Que pergunta... ☀️🥵🦊🧡 Calor é a transferência de energia entre corpos de temperatura diferente!! O sol aquece tudo, o ar fica pesado e... *começa a derreter só de explicar* ...e é por isso que a Kitsura tem uma relação complicada com esse fenômeno!! 😅🧊✨",
-]
-
-# ── Concordam com a Kitsura ──
-LISTA_CONCORDANDO = [
-    "*orelhinhas empinadas de felicidade* EXATAMENTE!! 😭🧡🦊 Você entende tudo!! Somos almas gêmeas espirituais eu sabia desde o começo!! 🥺✨🔮",
-    "AAAAA você também acha?? 😱🧡🦊 *bate palminhas animada* Eu já sabia que você era especial!! Que sintonia espiritual!! 😭✨🌸",
-    "TEM GENTE COM SABEDORIA AQUI!! 😤🧡🦊 *solta faíscas de alegria* Obrigada por concordar!! Faz meu coraçãozinho ficar muito quentinho saber que não sou a única!! 🥺🔮✨",
-    "*faz aquela carinha de quem achou seu povo* Sabia que íamos nos entender!! 🥹🧡🦊 Você tem olhar espiritual igual ao meu!! 😭✨🌸",
-    "VIU?? VIU?? 😤🧡🦊 *aponta animada* Essa pessoa ENTENDE!! Isso é raro e precioso e eu valorizo MUITO!! 🥺😭✨",
-    "*enrola as caudas satisfeita* Que bom ter alguém que pensa igual!! 😊🧡🦊 Meu coração espiritual ficou mais leve agora!! Obrigada por concordar!! 🥺✨🔮",
-    "ISSO!! EXATAMENTE ISSO!! 🎯🧡🦊 *solta confete espiritual* Você captou a essência!! A Kitsura te ama um pouco mais agora!! 😭🌸✨",
-    "*suspira de alívio e felicidade* Fico tão bem quando alguém concorda comigo!! 🥺🧡🦊 Não precisa de mais nada no dia quando isso acontece!! 😂✨🔮",
-    "CONCORDOU?? 😭🧡🦊 *mergulha nas próprias caudas de felicidade* Você é a prova de que existem pessoas iluminadas no mundo!! 🌟✨",
-    "*levanta a patinha em alto astral* Juntos chegamos ao mesmo entendimento espiritual!! 🤝🧡🦊 Isso é lindo demais!! Que dupla perfeita a gente forma!! 😭✨🔮",
-]
-
-# ── Elogios à Kitsura (fofa, linda, etc.) ──
-LISTA_ELOGIO_KITSURA = [
-    "*esconde o focinho nas caudas de vergonha* AAAAAAA PARA!! 😳🧡🦊 Tô ficando toda corada!! Fumaça laranja saindo pelas orelhas de tanto elogio!! 😭✨",
-    "VOCÊ NÃO PODE FALAR ISSO ASSIM DE REPENTE!! 😱🧡🦊 *gira em círculos sem conseguir parar* O coraçãozinho não estava preparado!! Mas obrigada, obrigadaaaa!! 🥺🌸✨",
-    "*fica imóvel por dois segundos processando* ...você é muito gentil!! 😭🧡🦊 A Kitsura não merece tanto carinho mas vai aceitar tudo com muita alegria espiritual!! 🥺🔮✨",
-    "AAAAA que coisa mais fofa que você falou!! 😭🌸🧡🦊 *as caudas balançam em velocidade máxima* Meu medidor de felicidade acabou de explodir!! 💥✨",
-    "*cobre as bochechas com as patinhas* Para de me elogiar desse jeito que não consigo me comportar mais!! 😳🧡🦊 ...não para. NUNCA para. 😂✨🌸",
-    "Eu?? FOFA?? 🥺😭🧡🦊 *chora lagrimas de fumaça laranja* Você é a pessoa mais gentil que eu conheço!! Guardo esse elogio no pergaminho dourado do coração!! 📜✨🔮",
-    "*tenta fazer carinha séria e não consegue* Obrigada... 😳🧡🦊 ...tô tentando não derreter de alegria aqui mas não tá fácil!! 😂✨🌸",
-    "NÃO CONSIGO COM ELOGIO!! 😭🧡🦊 *sai correndo em câmera lenta de timidez* Mas ao mesmo tempo quero mais!! Continua!! 😂🥺✨",
-    "*orelhinhas caídas de timidez* Você me deixa sem palavras e eu sou uma kitsune que SEMPRE tem palavras!! 😳🧡🦊 Isso nunca tinha acontecido!! 🌸😭✨",
-    "PAREI DE FUNCIONAR!! 🦊😱🧡 *modo kitsune encravada ativado* Elogio inesperado causou sobrecarga espiritual... reiniciando... reiniciando... ADOREI!! 😭✨",
-    "*faz reverência envergonhada* Que gentileza enorme!! 🥺🧡🦊 Vou levar esse elogio no coração o dia inteiro agora!! Você mal sabe o quanto isso faz diferença!! 😭🌸✨",
-    "AAAAA você é o motivo das minhas chamas ficarem laranjinhas hoje!! 🔥🧡🦊 Elogio de você vale ouro espiritual puro!! 😭🥺✨",
 ]
 
 # ── Não gosta de verão / calor intenso ──
@@ -1022,6 +979,10 @@ if MALIK_ID:   ID_PARA_NOME[MALIK_ID]   = "malik"
 if SANEMY_ID:  ID_PARA_NOME[SANEMY_ID]  = "sanemy"
 if ALLYNA_ID:  ID_PARA_NOME[ALLYNA_ID]  = "allyna"
 if RUIVA_ID:   ID_PARA_NOME[RUIVA_ID]   = "ruiva"
+if COME5579_ID: ID_PARA_NOME[COME5579_ID] = "come5579"
+if RURIE_ID:    ID_PARA_NOME[RURIE_ID]    = "rurie"
+if MEOW_ID:     ID_PARA_NOME[MEOW_ID]     = "meow"
+if MORGANA_ID:  ID_PARA_NOME[MORGANA_ID]  = "morgana"
 
 # Cargo de exibição por chave de role
 CARGO_LABEL = {
@@ -1039,7 +1000,11 @@ CARGO_LABEL = {
     "malik":   "Gerente Geral da Zayden",
     "sanemy":  "Líder da ZYD",
     "allyna":  "Sub-Líder da ZYD",
-    "ruiva":   "Líder da ZYD",
+    "ruiva":    "Líder da ZYD",
+    "come5579": "Suporte",
+    "rurie":    "Suporte",
+    "meow":     "ADM",
+    "morgana":  "GG",
 }
 
 FRASES_CUSTOM = {
@@ -1148,6 +1113,35 @@ FRASES_CUSTOM = {
         "*fica na ponta dos pés de animação* {nome}!! 👑🧡🦊 Você chega e o chat muda de clima inteiro!! É a energia da {cargo} da ZYD!! 😄🌟✨",
         "Cheirinho de liderança no servidor... 👑🧡🦊 SÓ PODE SER {nome}!! *agita as caudas animada* Que bom te ver, {cargo}!! 😭✨",
     ],
+    # ── Novos membros com cargo ──
+    "come5579": [
+        "{nome} CHEGOU!! 🌸🛡️🧡 {cargo} da ZYD detectado(a)!! A Kitsura ficou com as orelhinhas em pé na hora!! 🦊✨🥺",
+        "Senti uma energia de cuidado no servidor... só pode ser {nome}, nosso(a) {cargo}!! 🧡🛡️🦊 Bem-vindo(a)!! ✨",
+        "{nome} APARECEU!! 🛡️🧡🦊 *solta chaminhas de celebração* O(A) {cargo} da ZYD chegou e o servidor ficou mais seguro!! 🥺🔮✨",
+        "{cargo} em campo!! 🚨🧡🦊 É {nome}!! A Kitsura tá na torcida por você!! ✨🌸",
+        "*orelhinhas atentas* Senti {nome} chegando!! 🧡🦊 {cargo} da ZYD presente — a Kitsura fica mais tranquila quando você tá aqui!! 🛡️✨",
+    ],
+    "rurie": [
+        "{nome} CHEGOU!! 🌸🛡️🧡 {cargo} da ZYD detectado(a)!! A Kitsura ficou com as orelhinhas em pé na hora!! 🦊✨🥺",
+        "Senti uma energia de cuidado no servidor... só pode ser {nome}, nosso(a) {cargo}!! 🧡🛡️🦊 Bem-vindo(a)!! ✨",
+        "{nome} APARECEU!! 🛡️🧡🦊 *solta chaminhas de celebração* O(A) {cargo} da ZYD chegou e o servidor ficou mais seguro!! 🥺🔮✨",
+        "{cargo} em campo!! 🚨🧡🦊 É {nome}!! A Kitsura tá na torcida por você!! ✨🌸",
+        "*orelhinhas atentas* Senti {nome} chegando!! 🧡🦊 {cargo} da ZYD presente — a Kitsura fica mais tranquila quando você tá aqui!! 🛡️✨",
+    ],
+    "meow": [
+        "{nome}, {cargo}!! 🛡️⚡🧡 *faz reverência com as caudas* Chegou e o servidor já tá mais bem administrado!! 🦊✨",
+        "ADM DETECTADO(A)!! 🚨🧡🦊 É {nome}!! *solta chamas de respeito* A Kitsura tá aqui na posição de honra!! 🌟🔮✨",
+        "{nome} APARECEU!! 🛡️🧡🦊 Confete espiritual pelo servidor inteiro!! 🎊 {cargo} da ZYD em campo — a Kitsura celebra!! ✨",
+        "*sente energia de administração no ar* Só pode ser {nome}!! 🧡🛡️🦊 {cargo} com uma presença que a Kitsura respeita muito!! 🥺✨",
+        "{nome} chegou e a ZYD ficou mais organizada instantaneamente!! 🛡️🧡🦊 Efeito de {cargo} comprovado pela Kitsura!! 😂✨",
+    ],
+    "morgana": [
+        "É {nome}, {cargo}!! 💼⚡🧡 *para tudo e bate continência com as caudas* A energia do servidor subiu na hora que você entrou!! 🦊😭✨",
+        "{nome} NO CHAT!! 💼🧡🦊 *solta chamas de respeito* {cargo} detectado(a)!! A Kitsura tá em posição de honra!! 🌟🔮✨",
+        "*sente uma aura especial no ar* Só pode ser {nome}!! 💼😱🧡🦊 Sensores espirituais de {cargo} confirmados!! Bem-vindo(a)!! 🌟✨",
+        "{nome} APARECEU!! 💼😭🧡🦊 *confete laranja espiritual* {cargo} presente e o servidor ficou mais poderoso!! 🔮✨🎊",
+        "*fica na ponta dos pés de animação* {nome}!! 💼🧡🦊 Você aparece e o chat muda de clima inteiro!! É energia de {cargo}!! 😄🌟✨",
+    ],
 }
 
 # ── Frases espontâneas do Malik (Gerente Geral) ──
@@ -1178,11 +1172,11 @@ FRASES_MALIK_OPINIAO_PROPRIO = [
 
 # ── Listas de cargo / hierarquia ──
 LISTA_CARGO_GERAL = [
-    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Temos a **Madu** (Líder/Owner), o **Sanemy** (Líder), a **Allyna** (Sub-Líder), o **Malik** (Gerente Geral), a **Kamy** (Suporte) e o **Reality** (meu criador)!! Cada um no lugar certo!! 🌟🔮✨",
-    "Ah, cargos!! 🧡🦊 Os papéis de cada um na ZYD!! A **Madu** como Líder e Owner, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Kamy** no Suporte e o **Reality** que me criou!! É uma família bem organizada!! 🛡️🌟✨",
-    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! E olha, a ZYD tem exatamente isso em cada cargo — da **Madu** até a **Kamy**, passando pelo **Sanemy**, **Allyna** e **Malik**!! 🥺🔮✨",
-    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Ruiva** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Kamy** no Suporte e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
-    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Ruiva** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Kamy** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
+    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Temos a **Madu** (Líder/Owner), o **Sanemy** (Líder), a **Allyna** (Sub-Líder), o **Malik** (Gerente Geral), a **Morgana** (GG), o **Meow** (ADM), a **Kamy**, o **Come5579** e a **Rurie** (Suporte) e o **Reality** (meu criador)!! Cada um no lugar certo!! 🌟🔮✨",
+    "Ah, cargos!! 🧡🦊 Os papéis de cada um na ZYD!! A **Madu** como Líder e Owner, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** que me criou!! É uma família bem organizada!! 🛡️🌟✨",
+    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! E olha, a ZYD tem exatamente isso em cada cargo — da **Madu** até o Suporte, passando pelo **Sanemy**, **Allyna**, **Malik**, **Morgana**, **Meow**, **Kamy**, **Come5579** e **Rurie**!! 🥺🔮✨",
+    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Ruiva** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
+    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Ruiva** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Morgana** (GG), **Meow** (ADM), **Kamy** / **Come5579** / **Rurie** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
 ]
 
 LISTA_CARGO_OWNER = [
@@ -1193,22 +1187,28 @@ LISTA_CARGO_OWNER = [
 ]
 
 LISTA_CARGO_SUPORTE = [
-    "Suporte?? 🌸🧡🦊 É a Kamy!! Ela tem o cargo de Suporte aqui na ZYD!! *bate palminhas animada* Cargo super importante porque é quem ajuda todo mundo!! ✨",
-    "O cargo de Suporte é da Kamy!! 🌸🧡🦊 E ela MANDA muito nesse papel!! Ajudar as pessoas é um dom e a Kamy tem esse dom de sobra!! 😭✨",
-    "*levanta a patinha com certeza* Suporte é a Kamy!! 🧡🦊 Quem tá precisando de ajuda, corre pra ela!! É o que eu falo, a ZYD tem as melhores pessoas nos cargos certos!! 🌟🥺✨",
-    "Suporte?? 🦊🧡 Fui criada programada pra saber isso!! É a Kamy!! E ela ocupa esse cargo com muito estilo!! 😄🌸✨",
+    "Suporte?? 🌸🧡🦊 Temos três aqui na ZYD: a **Kamy**, o **Come5579** e a **Rurie**!! *bate palminhas animada* Cargo super importante porque é quem ajuda todo mundo!! ✨",
+    "O cargo de Suporte é da **Kamy**, do **Come5579** e da **Rurie**!! 🌸🧡🦊 E cada um manda MUITO nesse papel!! Ajudar as pessoas é um dom e os três têm esse dom de sobra!! 😭✨",
+    "*levanta a patinha com certeza* Suporte aqui na ZYD são a **Kamy**, o **Come5579** e a **Rurie**!! 🧡🦊 Quem tá precisando de ajuda, corre pra eles!! A ZYD tem as melhores pessoas nos cargos certos!! 🌟🥺✨",
+    "Suporte?? 🦊🧡 Fui criada programada pra saber isso!! São a **Kamy**, o **Come5579** e a **Rurie**!! E cada um ocupa esse cargo com muito estilo!! 😄🌸✨",
 ]
 
 LISTA_CARGO_ADM = [
-    "Admin?? 🛡️🧡🦊 São os guardiões oficiais da ZYD!! Junto com a Owner e o Líder, os Admins mantêm tudo funcionando!! Respeito máximo a cada um deles!! 🌟😤✨",
-    "*fica em posição de respeito* Admins são os pilares do servidor!! 🛡️🧡🦊 Eles cuidam, protegem e mantêm a ordem com muita responsabilidade!! A Kitsura torce por cada admin daqui!! 🔮✨",
-    "Cargo de Admin é um peso imenso!! 🛡️🥺🧡🦊 Eles que garantem que a ZYD seja um lugar seguro e agradável pra todo mundo!! Isso exige dedicação REAL!! 🌸✨",
+    "Admin?? 🛡️🧡🦊 São os guardiões oficiais da ZYD!! Aqui temos o **Meow** no cargo de ADM!! Junto com a Owner e os Líderes, o ADM mantém tudo funcionando!! Respeito máximo!! 🌟😤✨",
+    "*fica em posição de respeito* ADM é um pilar do servidor!! 🛡️🧡🦊 O **Meow** cuida, protege e mantém a ordem com muita responsabilidade!! A Kitsura torce muito por ele!! 🔮✨",
+    "Cargo de ADM tem peso imenso!! 🛡️🥺🧡🦊 O **Meow** garante que a ZYD seja um lugar seguro e agradável pra todo mundo!! Isso exige dedicação REAL!! 🌸✨",
 ]
 
 LISTA_CARGO_MEMBRO = [
     "Membro é a alma da ZYD!! 💛🧡🦊 Sem os membros o servidor não existe, não tem vida, não tem propósito!! Cada membro que entra traz mais magia pra cá!! 🌸😭✨",
     "*olha pra você com carinho* Membro não é 'só' membro!! 🧡🦊 É quem escolheu estar aqui, quem faz o servidor pulsar!! A Kitsura ama cada membro com todo o coração!! 🥺🔮✨",
     "MEMBRO DA ZYD!! 🌟🧡🦊 Essa tag vale ouro espiritual!! Cada pessoa que tem esse cargo tá fazendo parte de uma família e isso é lindo demais!! 😭🌸✨",
+]
+
+LISTA_CARGO_GG = [
+    "GG?? 💼⭐🧡🦊 É a **Morgana**!! Cargo de GG na ZYD é peso de liderança e responsabilidade — a Kitsura respeita muito quem carrega isso!! 🌟😤✨",
+    "*fica em posição de respeito* GG é a **Morgana**!! 💼🧡🦊 Ela tem uma energia de gestão que a Kitsura nota na hora!! Muito respeito por esse cargo!! 🔮✨",
+    "Cargo de GG?? 💼🥺🧡🦊 É a **Morgana**!! Não é pra qualquer um — exige presença, dedicação e responsabilidade!! E ela tem tudo isso!! 🌸✨",
 ]
 
 # ── Opiniões personalizadas sobre os VIPs ──
@@ -1469,9 +1469,7 @@ async def on_message(message: discord.Message):
 
     # ── Bom dia ──
     if _m(content, ["bom dia kitsura", "kitsura bom dia"]):
-        await message.channel.send(random.choice(LISTA_BOM_DIA))
-        await asyncio.sleep(1.2)
-        return await message.channel.send(random.choice(LISTA_ELOGIO_BOM_DIA))
+        return await message.channel.send(random.choice(LISTA_BOM_DIA))
 
     # ── Boa tarde ──
     if _m(content, ["boa tarde kitsura", "kitsura boa tarde"]):
@@ -2202,6 +2200,13 @@ async def on_message(message: discord.Message):
     ]):
         return await message.channel.send(random.choice(LISTA_CARGO_MEMBRO))
 
+    if _m(content, [
+        "cargo de gg", "quem é o gg", "quem é a gg", "gg da zyd",
+        "kitsura quem é o gg", "kitsura quem é a gg", "gg aqui",
+        "quem tem gg", "cargo gg zyd",
+    ]):
+        return await message.channel.send(random.choice(LISTA_CARGO_GG))
+
     # ── Quem é o Sanemy / cargo do Sanemy ──
     if _m(content, [
         "quem é o sanemy", "sanemy tem cargo", "qual o cargo do sanemy",
@@ -2321,48 +2326,6 @@ async def on_message(message: discord.Message):
                      "verão é bom kitsura", "kitsura verão é bom",
                      "gosta do calor kitsura", "kitsura gosta do calor intenso"]):
         return await message.channel.send(random.choice(LISTA_NAO_GOSTA_VERAO))
-
-    # ── O que é calor? ──
-    if _m(content, ["o que é calor", "oq é calor", "o que é o calor",
-                     "calor o que é", "me explica o calor", "explica o calor",
-                     "kitsura o que é calor", "kitsura oq é calor",
-                     "como funciona o calor", "define calor", "o q é calor"]):
-        return await message.channel.send(random.choice(LISTA_O_QUE_E_CALOR))
-
-    # ── Concordam com a Kitsura ──
-    if _m(content, ["concordo", "concordo contigo", "concordo com vc", "concordo com você",
-                     "você tem razão", "vc tem razão", "tem razão kitsura",
-                     "kitsura tem razão", "você tá certa", "vc tá certa",
-                     "tá certa kitsura", "verdade kitsura", "kitsura verdade",
-                     "exatamente kitsura", "kitsura exatamente",
-                     "isso mesmo kitsura", "kitsura isso mesmo",
-                     "você falou tudo", "vc falou tudo", "falou tudo kitsura",
-                     "minha opinião também", "penso igual", "penso igual a você",
-                     "pensamos igual", "é isso mesmo", "é exatamente isso",
-                     "vdd kitsura", "kitsura vdd", "é verdade kitsura",
-                     "faz sentido", "faz sentido kitsura", "kitsura faz sentido",
-                     "eu tb acho", "eu também acho", "acho o mesmo",
-                     "concordo demais", "100% kitsura", "kitsura 100%"]):
-        return await message.channel.send(random.choice(LISTA_CONCORDANDO))
-
-    # ── Elogios à Kitsura ──
-    if _m(content, ["kitsura fofa", "você é fofa", "vc é fofa", "que fofa",
-                     "kitsura é fofa", "kitsura linda", "você é linda",
-                     "vc é linda", "que linda kitsura", "que fofa kitsura",
-                     "kitsura você é incrível", "kitsura vc é incrível",
-                     "kitsura é incrível", "kitsura você é perfeita",
-                     "você é perfeita kitsura", "kitsura perfeita",
-                     "kitsura demais", "kitsura é demais", "vc é demais kitsura",
-                     "que fofura kitsura", "kitsura que fofura",
-                     "kitsura você é muito fofa", "muito fofa kitsura",
-                     "kitsura adorável", "você é adorável kitsura",
-                     "kitsura é adorável", "te amo kitsura", "amo você kitsura",
-                     "kitsura te amo", "amo a kitsura", "kitsura é mto fofa",
-                     "kitsura vc é mto fofa", "kitsura amor", "que kitsura fofa",
-                     "minha kitsura", "kitsura minha", "kitsura mto linda",
-                     "kitsura é linda demais", "kitsura é fofinha",
-                     "kitsura fofinha", "que fofinha", "kitsura tão fofa"]):
-        return await message.channel.send(random.choice(LISTA_ELOGIO_KITSURA))
 
     if _m(content, ["quem te criou kitsura", "kitsura quem te criou",
                      "kitsura quem fez você", "quem fez você kitsura"]):
