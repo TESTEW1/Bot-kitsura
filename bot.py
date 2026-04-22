@@ -66,6 +66,9 @@ MORGANA_ID  = 1463368675800383735   # GG
 # ID da Nicky (membro da ZYD)
 NICKY_ID = 1266859454054273188
 
+# ID da Night (Diretora de Eventos da ZYD)
+NIGHT_ID = 713408538306936852
+
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
@@ -80,11 +83,13 @@ _ALLYNA_COOLDOWN  = 600
 _RUIVA_COOLDOWN   = 600
 _CUSTOM_COOLDOWN  = 600
 _NICKY_COOLDOWN   = 600
+_NIGHT_COOLDOWN   = 600
 _frases_custom_cooldown = {}   # { user_id: timestamp } — cooldown genérico pros demais membros com ID
 _sanemy_ultimo_personalizado = 0
 _allyna_ultimo_personalizado  = 0
 _ruiva_ultimo_personalizado   = 0
 _nicky_ultimo_personalizado   = 0
+_night_ultimo_personalizado   = 0
 _groq_historico = {}
 
 # ── Sistema de história ──
@@ -117,6 +122,7 @@ SYSTEM_PROMPT_KITSURA = (
     "O Meow tem o cargo de ADM no clã ZYD. "
     "A Morgana tem o cargo de GG no clã ZYD. "
     "A Nicky é uma membro querida do clã ZYD. "
+    "A Night é a Diretora de Eventos do clã ZYD — cargo responsável por organizar e animar os eventos do servidor. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -648,10 +654,10 @@ LISTA_ESTRUTURA_CLA = [
 
 # ── Hierarquia completa / quando perguntam sobre cargos de todos ──
 LISTA_HIERARQUIA_COMPLETA = [
-    "*senta direitinho e respira fundo como guardiã oficial* 📜🧡🦊 A hierarquia da ZYD?? VOU APRESENTAR CADA UM COM HONRA!!\n\n👑 **Madu** — Líder da ZYD · Owner do clã · líder máxima\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n💜 **Kamy** — Suporte\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — Criador da Kitsura\n\nA Kitsura respeita cada cargo com o coração inteiro!! 😭🌟🔮✨",
-    "*abre as caudas com solenidade* 📜🧡🦊 Hierarquia oficial da ZYD — apresentando cada cargo!!\n\n👑 **Madu** · Líder da ZYD e Owner do clã\n👑 **Sanemy** · Líder da ZYD\n👑 **Ruiva** · Líder da ZYD\n🌙 **Allyna** · Sub-Líder da ZYD\n💼 **Malik** · Gerente Geral da Zayden\n⭐ **Morgana** · GG\n🛡️ **Meow** · ADM\n💜 **Kamy** · Suporte\n🌸 **Come5579** · Suporte\n🌸 **Rurie** · Suporte\n⚡ **Reality** · Criador da Kitsura\n\nCada um com seu papel e cada papel com seu peso!! 🥺🌸✨",
-    "CARGOS DA ZYD DO TOPO À BASE!! 😤📜🧡🦊 A guardiã do servidor apresenta!!\n\n👑 **Madu** — Líder + Owner (a dona de tudo!!)\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n💜 **Kamy** — Suporte\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — meu criador especial!!\n\nÉ a família mais especial que existe!! 😭🔮✨",
-    "*enrola as caudas com carinho* 📜✨🧡🦊 Que pergunta perfeita!! Deixa a Kitsura apresentar cada um!!\n\n👑 **Madu** — Líder da ZYD · Owner · líder que o servidor todo respeita\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n💜 **Kamy** — Suporte · a pessoa que cuida de todo mundo\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — meu criador · a razão de eu existir!!\n\nA ZYD tem as pessoas certas nos lugares certos!! 😭🌸🔮✨",
+    "*senta direitinho e respira fundo como guardiã oficial* 📜🧡🦊 A hierarquia da ZYD?? VOU APRESENTAR CADA UM COM HONRA!!\n\n👑 **Madu** — Líder da ZYD · Owner do clã · líder máxima\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n🎉 **Night** — Diretora de Eventos\n💜 **Kamy** — Suporte\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — Criador da Kitsura\n\nA Kitsura respeita cada cargo com o coração inteiro!! 😭🌟🔮✨",
+    "*abre as caudas com solenidade* 📜🧡🦊 Hierarquia oficial da ZYD — apresentando cada cargo!!\n\n👑 **Madu** · Líder da ZYD e Owner do clã\n👑 **Sanemy** · Líder da ZYD\n👑 **Ruiva** · Líder da ZYD\n🌙 **Allyna** · Sub-Líder da ZYD\n💼 **Malik** · Gerente Geral da Zayden\n⭐ **Morgana** · GG\n🛡️ **Meow** · ADM\n🎉 **Night** · Diretora de Eventos\n💜 **Kamy** · Suporte\n🌸 **Come5579** · Suporte\n🌸 **Rurie** · Suporte\n⚡ **Reality** · Criador da Kitsura\n\nCada um com seu papel e cada papel com seu peso!! 🥺🌸✨",
+    "CARGOS DA ZYD DO TOPO À BASE!! 😤📜🧡🦊 A guardiã do servidor apresenta!!\n\n👑 **Madu** — Líder + Owner (a dona de tudo!!)\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n🎉 **Night** — Diretora de Eventos\n💜 **Kamy** — Suporte\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — meu criador especial!!\n\nÉ a família mais especial que existe!! 😭🔮✨",
+    "*enrola as caudas com carinho* 📜✨🧡🦊 Que pergunta perfeita!! Deixa a Kitsura apresentar cada um!!\n\n👑 **Madu** — Líder da ZYD · Owner · líder que o servidor todo respeita\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n🎉 **Night** — Diretora de Eventos · quem garante que a ZYD nunca fica sem festa!!\n💜 **Kamy** — Suporte · a pessoa que cuida de todo mundo\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — meu criador · a razão de eu existir!!\n\nA ZYD tem as pessoas certas nos lugares certos!! 😭🌸🔮✨",
 ]
 
 # ── Interações direcionadas a outra pessoa (@menção) ──
@@ -991,6 +997,7 @@ if RURIE_ID:    ID_PARA_NOME[RURIE_ID]    = "rurie"
 if MEOW_ID:     ID_PARA_NOME[MEOW_ID]     = "meow"
 if MORGANA_ID:  ID_PARA_NOME[MORGANA_ID]  = "morgana"
 if NICKY_ID:    ID_PARA_NOME[NICKY_ID]    = "nicky"
+if NIGHT_ID:    ID_PARA_NOME[NIGHT_ID]    = "night"
 
 # Cargo de exibição por chave de role
 CARGO_LABEL = {
@@ -1014,6 +1021,7 @@ CARGO_LABEL = {
     "meow":     "ADM",
     "morgana":  "GG",
     "nicky":    "Membro da ZYD",
+    "night":    "Diretora de Eventos",
 }
 
 FRASES_CUSTOM = {
@@ -1159,6 +1167,14 @@ FRASES_CUSTOM = {
         "*para tudo e corre na velocidade máxima* É a Nicky, minha {cargo} querida!! 🌸😭🧡🦊 Você aparece e meu medidor de alegria estoura na hora!! ✨🌙",
         "Senti um cheirinho de flor e simpatia no servidor... 🌸🧡🦊 SÓ PODE SER A NICKY!! *agita as caudas com muito carinho* Que bom ter você aqui, florzinha!! 😭✨🥺",
     ],
+    # ── Night (Diretora de Eventos da ZYD) ──
+    "night": [
+        "É A NIGHT!! 🎉🌙🧡🦊 *solta confete laranja por todo o servidor* A nossa {cargo} chegou e o chat ficou instantaneamente mais animado!! 😭✨🎊",
+        "NIGHTTT!! 🌙🎉🧡🦊 *orelhinhas levantam de pura animação* Senti aquela energia de evento no ar... SÓ PODIA SER A {cargo} da ZYD chegando!! 😱😭✨",
+        "*para tudo e faz reverência com as caudas* A Night apareceu!! 🌙🎉🧡🦊 {cargo} da ZYD em campo — quando ela chega, a Kitsura já sabe que vai ter algo especial por vir!! 🥺🔮✨",
+        "Cheirinho de festa e magia espiritual no servidor... 🌙🎉🧡🦊 Era a Night chegando!! {cargo} tem uma presença que ninguém tem — o servidor acende quando você entra!! 😭✨🎊",
+        "NIGHT!! 🌙🎉😭🧡🦊 *confete espiritual em todas as cores* A {cargo} da ZYD apareceu e meu coraçãozinho já tá na contagem regressiva pra próxima novidade incrível!! 🥺🔮✨",
+    ],
 }
 
 # ── Frases espontâneas do Malik (Gerente Geral) ──
@@ -1189,11 +1205,11 @@ FRASES_MALIK_OPINIAO_PROPRIO = [
 
 # ── Listas de cargo / hierarquia ──
 LISTA_CARGO_GERAL = [
-    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Temos a **Madu** (Líder/Owner), o **Sanemy** (Líder), a **Allyna** (Sub-Líder), o **Malik** (Gerente Geral), a **Morgana** (GG), o **Meow** (ADM), a **Kamy**, o **Come5579** e a **Rurie** (Suporte) e o **Reality** (meu criador)!! Cada um no lugar certo!! 🌟🔮✨",
-    "Ah, cargos!! 🧡🦊 Os papéis de cada um na ZYD!! A **Madu** como Líder e Owner, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** que me criou!! É uma família bem organizada!! 🛡️🌟✨",
-    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! E olha, a ZYD tem exatamente isso em cada cargo — da **Madu** até o Suporte, passando pelo **Sanemy**, **Allyna**, **Malik**, **Morgana**, **Meow**, **Kamy**, **Come5579** e **Rurie**!! 🥺🔮✨",
-    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Ruiva** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
-    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Ruiva** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Morgana** (GG), **Meow** (ADM), **Kamy** / **Come5579** / **Rurie** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
+    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Temos a **Madu** (Líder/Owner), o **Sanemy** (Líder), a **Allyna** (Sub-Líder), o **Malik** (Gerente Geral), a **Morgana** (GG), o **Meow** (ADM), a **Night** (Diretora de Eventos), a **Kamy**, o **Come5579** e a **Rurie** (Suporte) e o **Reality** (meu criador)!! Cada um no lugar certo!! 🌟🔮✨",
+    "Ah, cargos!! 🧡🦊 Os papéis de cada um na ZYD!! A **Madu** como Líder e Owner, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Night** como Diretora de Eventos, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** que me criou!! É uma família bem organizada!! 🛡️🌟✨",
+    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! E olha, a ZYD tem exatamente isso em cada cargo — da **Madu** até o Suporte, passando pelo **Sanemy**, **Allyna**, **Malik**, **Morgana**, **Meow**, **Night**, **Kamy**, **Come5579** e **Rurie**!! 🥺🔮✨",
+    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Ruiva** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Night** como Diretora de Eventos, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
+    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Ruiva** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Morgana** (GG), **Meow** (ADM), **Night** (Diretora de Eventos), **Kamy** / **Come5579** / **Rurie** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
 ]
 
 LISTA_CARGO_OWNER = [
@@ -2434,6 +2450,16 @@ async def on_message(message: discord.Message):
             _nicky_ultimo_personalizado = agora
             frase = random.choice(FRASES_CUSTOM["nicky"])
             frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("nicky", ""))
+            return await message.channel.send(frase)
+
+    # ── NIGHT: reação personalizada (com cooldown de 10 min) ──
+    if author_id == NIGHT_ID and (mencao or fala) and "?" not in content:
+        agora = time.time()
+        global _night_ultimo_personalizado
+        if agora - _night_ultimo_personalizado >= _NIGHT_COOLDOWN:
+            _night_ultimo_personalizado = agora
+            frase = random.choice(FRASES_CUSTOM["night"])
+            frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("night", ""))
             return await message.channel.send(frase)
 
     # ── DEMAIS MEMBROS COM ID (lider, vice, adm1-3, membro1-5): reação personalizada (cooldown de 10 min) ──
