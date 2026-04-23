@@ -1726,31 +1726,45 @@ async def on_message(message: discord.Message):
     # ─────────────────────────────────────────
     if fala or mencao:
         if any(t in content for t in ["dar bom dia", "manda bom dia", "fala bom dia", "bom dia kitsura"]):
+            import datetime as _dt
+            _hora_bsb = _dt.datetime.now(_dt.timezone(_dt.timedelta(hours=-3))).hour
             canal_saud = bot.get_channel(CANAL_SAUDACOES_ID)
             if canal_saud is None:
                 try:
                     canal_saud = await bot.fetch_channel(CANAL_SAUDACOES_ID)
                 except Exception:
                     canal_saud = None
-            if canal_saud:
-                await canal_saud.send(MENSAGEM_BOM_DIA)
-                await canal_saud.send(IMAGEM_BOM_DIA)
-            if message.channel.id != CANAL_SAUDACOES_ID:
-                await message.channel.send("☀️🦊🧡 Já mandei o bom dia no canal certo!! 🌟✨")
+            if _hora_bsb in (6, 23):
+                # Horário oficial → envia mensagem completa com imagem
+                if canal_saud:
+                    await canal_saud.send(MENSAGEM_BOM_DIA)
+                    await canal_saud.send(IMAGEM_BOM_DIA)
+                if message.channel.id != CANAL_SAUDACOES_ID:
+                    await message.channel.send("☀️🦊🧡 Já mandei o bom dia no canal certo!! 🌟✨")
+            else:
+                # Fora do horário → resposta simples de interação, sem imagem
+                await message.channel.send(random.choice(LISTA_BOM_DIA))
             return
 
         if any(t in content for t in ["dar boa noite", "manda boa noite", "fala boa noite", "boa noite kitsura"]):
+            import datetime as _dt
+            _hora_bsb = _dt.datetime.now(_dt.timezone(_dt.timedelta(hours=-3))).hour
             canal_saud = bot.get_channel(CANAL_SAUDACOES_ID)
             if canal_saud is None:
                 try:
                     canal_saud = await bot.fetch_channel(CANAL_SAUDACOES_ID)
                 except Exception:
                     canal_saud = None
-            if canal_saud:
-                await canal_saud.send(MENSAGEM_BOA_NOITE)
-                await canal_saud.send(IMAGEM_BOA_NOITE)
-            if message.channel.id != CANAL_SAUDACOES_ID:
-                await message.channel.send("🌙🦊✨ Já mandei a boa noite no canal certo!! 💤🌸")
+            if _hora_bsb in (6, 23):
+                # Horário oficial → envia mensagem completa com imagem
+                if canal_saud:
+                    await canal_saud.send(MENSAGEM_BOA_NOITE)
+                    await canal_saud.send(IMAGEM_BOA_NOITE)
+                if message.channel.id != CANAL_SAUDACOES_ID:
+                    await message.channel.send("🌙🦊✨ Já mandei a boa noite no canal certo!! 💤🌸")
+            else:
+                # Fora do horário → resposta simples de interação, sem imagem
+                await message.channel.send(random.choice(LISTA_BOA_NOITE_USER))
             return
 
     # ── VIP members (Kamy, Madu, Reality, Malik) sempre passam se o bot está aguardando resposta deles ──
@@ -3513,6 +3527,9 @@ async def on_message(message: discord.Message):
 # ID do cargo que dispara a mensagem
 CARGO_BOAS_VINDAS_ID = 1444474419593347089
 
+# Imagem enviada junto com as boas-vindas de cargo
+IMAGEM_BOAS_VINDAS_CARGO = "https://cdn.discordapp.com/attachments/926913851172204577/1496639266611138601/ChatGPT_Image_22_de_abr._de_2026_19_29_43.png?ex=69eb462f&is=69e9f4af&hm=4753faa4195f6e17c4ef4728848c60ab832ed137ed794c11d236c8297355e213&"
+
 # ID do cargo de aniversário
 CARGO_ANIVERSARIO_ID = 1496714910963597423
 
@@ -3584,6 +3601,7 @@ async def on_member_update(before: discord.Member, after: discord.Member):
             frase = random.choice(FRASES_BOAS_VINDAS_CARGO)
             frase = frase.replace("{nome}", after.display_name)
             await canal.send(frase)
+            await canal.send(IMAGEM_BOAS_VINDAS_CARGO)
 
 # ================= START =================
 if __name__ == "__main__":
