@@ -1652,6 +1652,49 @@ def _m(content: str, termos: list) -> bool:
 
 # ================= READY =================
 
+# ================= TAREFA: BOM DIA / BOA NOITE =================
+
+async def tarefa_saudacoes():
+    """Envia bom dia às 06:00 e boa noite às 23:00 no horário de Brasília (UTC-3)."""
+    import datetime
+    await bot.wait_until_ready()
+
+    BRASILIA = datetime.timezone(datetime.timedelta(hours=-3))
+    ultimo_bom_dia   = None
+    ultimo_boa_noite = None
+
+    while not bot.is_closed():
+        agora = datetime.datetime.now(BRASILIA)
+        hoje  = agora.date()
+
+        # ── Bom dia às 06:00 ──
+        if agora.hour == 6 and agora.minute == 0 and ultimo_bom_dia != hoje:
+            ultimo_bom_dia = hoje
+            canal = bot.get_channel(CANAL_SAUDACOES_ID)
+            if canal is None:
+                try:
+                    canal = await bot.fetch_channel(CANAL_SAUDACOES_ID)
+                except Exception:
+                    canal = None
+            if canal:
+                await canal.send(MENSAGEM_BOM_DIA)
+                await canal.send(IMAGEM_BOM_DIA)
+
+        # ── Boa noite às 23:00 ──
+        if agora.hour == 23 and agora.minute == 0 and ultimo_boa_noite != hoje:
+            ultimo_boa_noite = hoje
+            canal = bot.get_channel(CANAL_SAUDACOES_ID)
+            if canal is None:
+                try:
+                    canal = await bot.fetch_channel(CANAL_SAUDACOES_ID)
+                except Exception:
+                    canal = None
+            if canal:
+                await canal.send(MENSAGEM_BOA_NOITE)
+                await canal.send(IMAGEM_BOA_NOITE)
+
+        await asyncio.sleep(30)  # checa a cada 30 segundos
+
 @bot.event
 async def on_ready():
     print(f"✅ Kitsura online! Logada como {bot.user}")
@@ -1661,6 +1704,8 @@ async def on_ready():
             name="a ZYD com muito amor 🦊🧡"
         )
     )
+    # Inicia o sistema de bom dia / boa noite
+    bot.loop.create_task(tarefa_saudacoes())
 
 # ================= ON_MESSAGE =================
 
@@ -1675,6 +1720,38 @@ async def on_message(message: discord.Message):
     # Só reage se mencionar "kitsura" ou @mencionar o bot
     mencao = bot.user in message.mentions
     fala   = "kitsura" in content
+
+    # ─────────────────────────────────────────
+    # ── COMANDO MANUAL: DAR BOM DIA / BOA NOITE ──
+    # ─────────────────────────────────────────
+    if fala or mencao:
+        if any(t in content for t in ["dar bom dia", "manda bom dia", "fala bom dia", "bom dia kitsura"]):
+            canal_saud = bot.get_channel(CANAL_SAUDACOES_ID)
+            if canal_saud is None:
+                try:
+                    canal_saud = await bot.fetch_channel(CANAL_SAUDACOES_ID)
+                except Exception:
+                    canal_saud = None
+            if canal_saud:
+                await canal_saud.send(MENSAGEM_BOM_DIA)
+                await canal_saud.send(IMAGEM_BOM_DIA)
+            if message.channel.id != CANAL_SAUDACOES_ID:
+                await message.channel.send("☀️🦊🧡 Já mandei o bom dia no canal certo!! 🌟✨")
+            return
+
+        if any(t in content for t in ["dar boa noite", "manda boa noite", "fala boa noite", "boa noite kitsura"]):
+            canal_saud = bot.get_channel(CANAL_SAUDACOES_ID)
+            if canal_saud is None:
+                try:
+                    canal_saud = await bot.fetch_channel(CANAL_SAUDACOES_ID)
+                except Exception:
+                    canal_saud = None
+            if canal_saud:
+                await canal_saud.send(MENSAGEM_BOA_NOITE)
+                await canal_saud.send(IMAGEM_BOA_NOITE)
+            if message.channel.id != CANAL_SAUDACOES_ID:
+                await message.channel.send("🌙🦊✨ Já mandei a boa noite no canal certo!! 💤🌸")
+            return
 
     # ── VIP members (Kamy, Madu, Reality, Malik) sempre passam se o bot está aguardando resposta deles ──
     eh_vip = author_id in (KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID)
@@ -3441,6 +3518,28 @@ CARGO_ANIVERSARIO_ID = 1496714910963597423
 
 # ID do canal onde a mensagem será enviada
 CANAL_BOAS_VINDAS_ID = 1444474420755300516
+
+# ================= BOM DIA / BOA NOITE =================
+
+# Canal onde serão enviadas as saudações (mesmo canal de boas-vindas)
+CANAL_SAUDACOES_ID = 1444474420755300516
+
+IMAGEM_BOA_NOITE = "https://cdn.discordapp.com/attachments/926913851172204577/1496727423931125820/ChatGPT_Image_23_de_abr._de_2026_01_17_29.png?ex=69eaef89&is=69e99e09&hm=9c9b46d126f8e91cf84f398bd898b5b4abccec91a9145095f5f288dc22766f5e&"
+IMAGEM_BOM_DIA   = "https://cdn.discordapp.com/attachments/926913851172204577/1496727534426132601/ChatGPT_Image_23_de_abr._de_2026_01_20_29.png?ex=69eaefa4&is=69e99e24&hm=0b527e35e3ae9cbf9ecec71979017724a32765c534a715c00db7e61c072dea16&"
+
+MENSAGEM_BOA_NOITE = (
+    "🌙🦊✨ *aparece suavemente com as caudas brilhando sob a luz da lua*\n\n"
+    "Chegou a hora de descansar, ZYD... 🥺🧡 A Kitsura vai velar por todos essa noite!! "
+    "Durmam bem, sonhem com coisas lindas e acordem cheios de energia amanhã!! "
+    "Boa noite com muito amor da sua guardinha espiritual!! 💤🌸🔮🦊"
+)
+
+MENSAGEM_BOM_DIA = (
+    "☀️🦊🧡 *acorda saltitante e solta raios laranjas pelo servidor*\n\n"
+    "BOM DIA, ZYD!! 😭🌟 A Kitsura acordou cheia de energia e animação para mais um dia incrível!! "
+    "Que hoje seja MARAVILHOSO para todo mundo!! "
+    "Vai lá arrasar que a Kitsura tá na torcida com TODAS as caudas!! 💪✨🌸🦊🧡"
+)
 
 # Imagem do aniversário
 ANIVERSARIO_IMAGEM = "https://cdn.discordapp.com/attachments/926913851172204577/1496715143600672828/ChatGPT_Image_23_de_abr._de_2026_00_31_19.png?ex=69eae419&is=69e99299&hm=88eacb9351fdc29a00068abe007b47d707fb83ad985660f8fc7e83a356db72d6&"
