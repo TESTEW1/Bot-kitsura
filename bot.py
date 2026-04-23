@@ -1652,6 +1652,92 @@ def _m(content: str, termos: list) -> bool:
 
 # ================= READY =================
 
+# ================= SISTEMA DE PERGUNTAS DIÁRIAS (17:00) =================
+
+CANAL_PERGUNTA_DIARIA_ID = 1444474420755300516
+
+IMAGEM_PERGUNTA_DIARIA = "https://cdn.discordapp.com/attachments/926913851172204577/1496953784742707302/ChatGPT_Image_23_de_abr._de_2026_16_19_19.png?ex=69ebc25a&is=69ea70da&hm=6690b92c8133bf710a2fe9a8f672f6aabd820b13e6a9a8ef20e5336fd33239ce&"
+
+PERGUNTAS_DIARIAS = [
+    "🦊🧡 *bate palminhas animada* PERGUNTA DO DIA!! ✨\n\nSe você pudesse ter **um superpoder**, qual seria?? 🔮 Me conta nos comentários!! Tô curiosíssima!!",
+    "🦊✨ *sopra fumaça laranja de animação* PERGUNTA DO DIA!!\n\nSe você pudesse **viver em qualquer época da história**, qual escolheria e por quê?? 🌙🔮",
+    "🦊🧡 *orelhinhas em pé* PERGUNTA DO DIA!!\n\nQual foi a coisa mais **engraçada** que já te aconteceu?? 😂✨ Conta pra gente!! A Kitsura quer rir junto!!",
+    "🦊🌸 *solta confetinho laranja* PERGUNTA DO DIA!!\n\nSe você pudesse **jantar com qualquer pessoa do mundo** (viva ou não), quem seria?? 🍽️✨ E o que você perguntaria??",
+    "🦊🔮 *gira uma cauda pensativa* PERGUNTA DO DIA!!\n\nQual é a sua **música favorita** no momento?? 🎵 Manda o nome que a Kitsura quer conhecer sua playlist!!",
+    "🦊🧡 *fecha os olhos com carinho* PERGUNTA DO DIA!!\n\nSe a sua vida virasse um **filme**, qual seria o gênero?? 🎬 Ação, romance, comédia, terror...?? E qual seria o título??",
+    "🦊✨ *balança as caudas curiosa* PERGUNTA DO DIA!!\n\nVocê prefere **praia ou montanha**?? 🏖️🏔️ Me conta o porquê!! Kitsura precisa saber!!",
+    "🦊🌙 *abre o pergaminho espiritual* PERGUNTA DO DIA!!\n\nSe você pudesse **aprender qualquer habilidade instantaneamente**, qual seria?? 📚🔮 Tô curiosa demais!!",
+    "🦊🧡 *pula de animação* PERGUNTA DO DIA!!\n\nQual é o seu **maior sonho** na vida?? 🌟✨ Grande ou pequeno, conta aqui!! A Kitsura torce por todos!!",
+    "🦊🔮 *sussurra misterioso* PERGUNTA DO DIA!!\n\nSe você pudesse **trocar de vida com alguém por um dia**, quem seria?? 👀✨ E o que você faria??",
+    "🦊🌸 *solta pétalas laranjas* PERGUNTA DO DIA!!\n\nO que você faria se ganhasse na **loteria** amanhã?? 💰✨ Me conta tudo!! Kitsura não julga!!",
+    "🦊🧡 *se aninha curiosa* PERGUNTA DO DIA!!\n\nQual é o **pior medo** que você tinha quando criança?? 😱🌙 E ainda tem medo disso??",
+    "🦊✨ *prepara o chazinho e senta* PERGUNTA DO DIA!!\n\nSe você fosse um **animal**, qual seria e por quê?? 🐾🔮 Kitsura ja responderia raposa obviamente!! 😂",
+    "🦊🌙 *estica as caudas pensativa* PERGUNTA DO DIA!!\n\nQual foi o **melhor dia da sua vida** até agora?? 💛✨ Pode ser algo simples!! A Kitsura quer ouvir!!",
+    "🦊🧡 *faíscas de animação* PERGUNTA DO DIA!!\n\nO que você nunca deixaria de fazer mesmo se **pagassem muito** pra você parar?? 😤✨ Me conta!!",
+    "🦊🔮 *olha pros lados com mistério* PERGUNTA DO DIA!!\n\nSe você pudesse **mudar uma coisa** no mundo hoje, o que seria?? 🌍🌸 Kitsura quer ouvir sua visão!!",
+    "🦊✨ *aparece numa nuvem de fumaça laranja* PERGUNTA DO DIA!!\n\nQual é o **lugar mais lindo** que você já visitou?? 🗺️🌙 Ou que você mais quer conhecer??",
+    "🦊🧡 *solta chamas de animação* PERGUNTA DO DIA!!\n\nSe você tivesse que comer **apenas uma comida** pelo resto da vida, qual seria?? 🍽️😂✨ Pense bem!!",
+    "🦊🌸 *brilha os olhinhos* PERGUNTA DO DIA!!\n\nQual foi a **decisão mais corajosa** que você já tomou?? 💪🔮 Me conta!! Kitsura ama história de superação!!",
+    "🦊🌙 *enrola as caudas pensativa* PERGUNTA DO DIA!!\n\nSe você pudesse enviar uma **mensagem para o seu eu do passado**, o que diria?? 📜✨ Kitsura tá curiosíssima!!",
+]
+
+RESPOSTAS_PERGUNTA_DIARIA = [
+    "AAAAA QUE RESPOSTA INCRÍVEL!! 😭🧡🦊 *guarda no pergaminho espiritual com letras douradas* Você é DEMAIS!! Não tô conseguindo parar de sorrir!! 🌟✨",
+    "QUE RESPOSTA TOP DEMAIS!! 🎯😱🧡🦊 A Kitsura ficou toda brilhante de felicidade com isso!! Você arrasou MUITO!! 🔮✨",
+    "AAAAAAAA!! 😭🧡🦊 Que coisa LINDA você falou!! *solta confete espiritual* Isso fez o coraçãozinho da Kitsura acelerar!! 💛🌸✨",
+    "*para tudo de empolgação* QUE RESPOSTA MARAVILHOSA!! 🤩🧡🦊 Você acabou de fazer meu dia MUITO melhor!! 🌟🔮✨",
+    "EI EI EI!! 😱🧡🦊 ESSA RESPOSTA!! *corre em círculos de felicidade* Você é incrível demais, eu juro!! 💪✨🌸",
+    "ADOREEEEEI!! 😭🧡🦊 *anota no pergaminho eterno* Que resposta perfeita!! Você pensa de um jeito que a Kitsura ADORA!! 🔮✨",
+    "QUE ISSO!! 🤯🧡🦊 *solta chamas laranjas de admiração* Que resposta épica!! Você é uma pessoa muito especial!! 🌟✨",
+    "*bate palminhas* INCRÍVEL!! 👏😭🧡🦊 A Kitsura não tava esperando uma resposta tão boa assim!! Você mandou MUITO bem!! 💛🌸✨",
+    "NOSSA!! 🥺🧡🦊 Que resposta bonita!! *guarda no coraçãozinho espiritual* Isso ficou aqui pra sempre!! 🌙🔮✨",
+    "*orelhinhas em pé de tanta admiração* QUE RESPOSTA FODA!! 😤🧡🦊 Você é demais, não tem outro jeito de falar!! 🔥✨",
+    "AAAAA!! 😭🧡🦊 *derrete de amor* Que resposta GOSTOSA de ler!! Você faz a Kitsura feliz demais com isso!! 🌸💛✨",
+    "GENIAL!! 🧠🧡🦊 *risca pergaminho em ouro* Essa resposta foi literalmente a mais incrível que recebi hoje!! 🌟🔮✨",
+    "*salta de animação soltando faíscas* QUEEEE?? 😱🧡🦊 Que resposta incrível!! Você surpreendeu a Kitsura e ela ama ser surpreendida!! ✨🌙",
+    "Isso foi LINDO demais de ler!! 🥺🧡🦊 *sopra chama espiritual de carinho em cima de você* Obrigada por compartilhar!! Você é especial!! 💛✨",
+    "QUE RESPOSTA ÉPICA!! 🏆🧡🦊 *confete laranja em todo o servidor* Você merece um troféu espiritual por isso!! Arrasou DEMAIS!! 🌟🔮✨",
+]
+
+# Guarda o ID da última mensagem de pergunta diária { canal_id: message_id }
+_ultima_pergunta_msg_id = {}
+_pergunta_idx_hoje = {}   # { data: índice usado }
+
+async def tarefa_pergunta_diaria():
+    """Envia uma pergunta aleatória às 17:00 no horário de Brasília."""
+    import datetime
+    await bot.wait_until_ready()
+
+    BRASILIA = datetime.timezone(datetime.timedelta(hours=-3))
+    ultimo_envio = None
+
+    while not bot.is_closed():
+        agora = datetime.datetime.now(BRASILIA)
+        hoje  = agora.date()
+
+        if agora.hour == 17 and agora.minute == 0 and ultimo_envio != hoje:
+            ultimo_envio = hoje
+
+            canal = bot.get_channel(CANAL_PERGUNTA_DIARIA_ID)
+            if canal is None:
+                try:
+                    canal = await bot.fetch_channel(CANAL_PERGUNTA_DIARIA_ID)
+                except Exception:
+                    canal = None
+
+            if canal:
+                # Escolhe a pergunta do dia (rotação baseada no dia do ano)
+                idx = agora.timetuple().tm_yday % len(PERGUNTAS_DIARIAS)
+                _pergunta_idx_hoje[hoje] = idx
+                pergunta = PERGUNTAS_DIARIAS[idx]
+
+                # Envia a pergunta + imagem
+                msg = await canal.send(pergunta)
+                await canal.send(IMAGEM_PERGUNTA_DIARIA)
+                _ultima_pergunta_msg_id[CANAL_PERGUNTA_DIARIA_ID] = msg.id
+
+        await asyncio.sleep(30)
+
 # ================= TAREFA: BOM DIA / BOA NOITE =================
 
 async def tarefa_saudacoes():
@@ -1706,6 +1792,8 @@ async def on_ready():
     )
     # Inicia o sistema de bom dia / boa noite
     bot.loop.create_task(tarefa_saudacoes())
+    # Inicia o sistema de perguntas diárias às 17:00
+    bot.loop.create_task(tarefa_pergunta_diaria())
 
 # ================= ON_MESSAGE =================
 
@@ -1713,6 +1801,14 @@ async def on_ready():
 async def on_message(message: discord.Message):
     if message.author.bot:
         return
+
+    # ── Detecta respostas à pergunta diária das 17:00 ──
+    if (
+        message.reference is not None
+        and message.channel.id == CANAL_PERGUNTA_DIARIA_ID
+        and _ultima_pergunta_msg_id.get(CANAL_PERGUNTA_DIARIA_ID) == message.reference.message_id
+    ):
+        return await message.channel.send(random.choice(RESPOSTAS_PERGUNTA_DIARIA))
 
     content = message.content.lower().strip()
     author_id = message.author.id
