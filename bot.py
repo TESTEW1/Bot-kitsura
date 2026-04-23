@@ -3360,6 +3360,19 @@ async def on_message(message: discord.Message):
         message.channel._esse_ts  = time.time()
         return await message.channel.send(txt)
 
+    # ─────────────────────────────────────────
+    # ── FELIZ ANIVERSÁRIO ──
+    # ─────────────────────────────────────────
+    if _m(content, ["parabéns", "arabéns", "parabens", "arabens", "aniversário", "aniversario", "feliz aniver"]) and message.mentions:
+        # Pega a primeira menção que não seja o próprio bot
+        aniversariante = next((u for u in message.mentions if u.id != bot.user.id), None)
+        if aniversariante:
+            frase = random.choice(FRASES_ANIVERSARIO)
+            frase = frase.replace("{nome}", aniversariante.display_name)
+            await message.channel.send(frase)
+            await message.channel.send(ANIVERSARIO_IMAGEM)
+            return
+
     # Tudo que não se encaixou → IA (Groq) ──
     texto_ia = message.content.replace(f"<@{bot.user.id}>", "").strip()
     texto_limpo = texto_ia
@@ -3472,20 +3485,6 @@ async def on_member_update(before: discord.Member, after: discord.Member):
             frase = random.choice(FRASES_BOAS_VINDAS_CARGO)
             frase = frase.replace("{nome}", after.display_name)
             await canal.send(frase)
-
-    # ── Feliz Aniversário ──
-    if CARGO_ANIVERSARIO_ID in ganhou:
-        canal = after.guild.get_channel(CANAL_BOAS_VINDAS_ID)
-        if canal is None:
-            try:
-                canal = await bot.fetch_channel(CANAL_BOAS_VINDAS_ID)
-            except Exception:
-                canal = None
-        if canal:
-            frase = random.choice(FRASES_ANIVERSARIO)
-            frase = frase.replace("{nome}", after.display_name)
-            await canal.send(frase)
-            await canal.send(ANIVERSARIO_IMAGEM)
 
 # ================= START =================
 if __name__ == "__main__":
