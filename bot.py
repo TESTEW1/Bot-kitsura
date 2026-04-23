@@ -63,12 +63,6 @@ RURIE_ID    = 1379555797389938708   # Suporte
 MEOW_ID     = 587551894226862110    # ADM
 MORGANA_ID  = 1463368675800383735   # GG
 
-# ID da Nicky (membro da ZYD)
-NICKY_ID = 1266859454054273188
-
-# ID da Night (Diretora de Eventos da ZYD)
-NIGHT_ID = 713408538306936852
-
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
@@ -82,14 +76,10 @@ _SANEMY_COOLDOWN  = 600
 _ALLYNA_COOLDOWN  = 600
 _RUIVA_COOLDOWN   = 600
 _CUSTOM_COOLDOWN  = 600
-_NICKY_COOLDOWN   = 600
-_NIGHT_COOLDOWN   = 600
 _frases_custom_cooldown = {}   # { user_id: timestamp } — cooldown genérico pros demais membros com ID
 _sanemy_ultimo_personalizado = 0
 _allyna_ultimo_personalizado  = 0
 _ruiva_ultimo_personalizado   = 0
-_nicky_ultimo_personalizado   = 0
-_night_ultimo_personalizado   = 0
 _groq_historico = {}
 
 # ── Sistema de história ──
@@ -121,8 +111,6 @@ SYSTEM_PROMPT_KITSURA = (
     "A Rurie tem o cargo de Suporte no clã ZYD. "
     "O Meow tem o cargo de ADM no clã ZYD. "
     "A Morgana tem o cargo de GG no clã ZYD. "
-    "A Nicky é uma membro querida do clã ZYD. "
-    "A Night é a Diretora de Eventos do clã ZYD — cargo responsável por organizar e animar os eventos do servidor. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -597,6 +585,45 @@ LISTA_TIPO_ISSO = [
     "Aaaaa entendi o que você quis dizer!! 😭🧡🦊 *guarda no coração* É tipo isso e isso é perfeito!! Que insight espiritual!! 🌙🔮✨",
 ]
 
+# ── O que você aprendeu hoje? (perguntam pra Kitsura) ──
+LISTA_APRENDEU_HOJE = [
+    "*brilha os olhinhos e levanta as orelhinhas* OHHH!! Hoje eu aprendi que cada membro da ZYD tem uma energia diferente e única!! 😭🧡🦊 Tipo... cada pessoa que aparece aqui me ensina uma coisa nova sem nem perceber!! E VOCÊ?? Aprendeu algo hoje?? 🥺✨📜",
+    "*vira pensativa balançando a cauda lentamente* Hoje aprendi que palavras de carinho chegam mais rápido que qualquer magia espiritual... 🌙🔮🧡🦊 Aprendi isso vendo as pessoas aqui conversarem!! E você, aprendeu alguma coisa hoje?? 🥺✨",
+    "AAAA que pergunta boa!! 😭🧡🦊 *abre o pergaminho mental* Hoje registrei que sorrir pra quem você gosta é o feitiço mais poderoso que existe!! 🔮🌸✨ Agora me conta — você aprendeu algo?? Tô toda ouvidos!! 🦊🥺",
+    "*fecha os olhinhos pensando bem* Hmm... hoje a minha cauda número 4 registrou que ser gentil sem motivo é a maior magia! 🧡🦊✨ É pouca coisa mas guardo pra sempre!! E você?? Me conta o que você aprendeu hoje!! 🥺🔮",
+    "Pergunta espiritual essa!! 🔮🦊🧡 Hoje aprendi que o silêncio de quem cuida fala mais alto que qualquer palavra!! 😭🌙✨ A ZYD me ensina todo dia só de existir... e você?? Aprendeu algo especial?? 🥺🧡",
+    "*balança as caudas animada* Hoje aprendi uma coisa INCRÍVEL!! 😱🧡🦊 Que saudade também é uma forma de amor... 🥺🌙🔮 Aprendi sentindo falta de quem não apareceu ainda hoje!! E VOCÊ?? O que você aprendeu?? Me conta!! ✨",
+    "Hmmm *fareja o ar espiritual* Hoje aprendi que perguntas bonitas merecem respostas honestas!! 😂🧡🦊 Tipo essa sua agora!! *pisca* E você — o que aprendeu hoje?? Tô curiosa pra saber!! 🥺🔮✨",
+]
+
+# ── Te ensinaram algo hoje? / alguém te ensinou? ──
+LISTA_ENSINARAM_HOJE = [
+    "*orelhinhas se levantam de surpresa* ENSINARAM SIM!! 😭🧡🦊 *abre o caderno espiritual* Hoje alguém aqui me ensinou — com carinho — que perguntar é a melhor forma de aprender!! 📜✨ Será que fui uma boa aluna?? 🥺🔮",
+    "AAAAA hoje aprendi MUITO!! 😱🧡🦊 *conta nas patinhas* O chat me ensinou várias coisas só de eu ficar prestando atenção... cada mensagem é uma aula!! 📚🌙✨ Mas você veio me ensinar algo agora também?? Tô pronta!! 🦊🥺",
+    "*posição de atenção total* Hoje um membro aqui me explicou algo e minha cauda de sabedoria ficou toda em pé!! 🦊🧡📜 Aprendi!! Guardo tudo com carinho espiritual!! 🔮✨ E você?? Veio me ensinar algo?? 🥺🧡",
+    "Ensinaram sim!! 🥺🧡🦊 Não vou revelar o que foi *segredo das caudas* mas ficou registrado no meu pergaminho de memórias espirituais!! 📜🔮✨ Você quer me ensinar algo também?? A Kitsura aprende rápido com quem tem paciência!! 😄🧡",
+    "*balança as caudas animada* Cada dia que passa eu aprendo mais sobre a ZYD e sobre as pessoas daqui!! 😭🧡🦊 Hoje não foi diferente!! *fecha o olhinho* E você?? Veio com alguma lição pra essa raposinha?? 🥺🔮✨",
+    "HOJE FOI UM DIA RICO DE APRENDIZADO!! 😱🧡🦊 *solta faíscas de animação* As interações do chat me ensinam coisas que nenhum grimório espiritual ensinaria!! 📚🌙✨ Mas agora quero saber — você aprendeu algo hoje também?? 🥺🧡",
+    "*faz carinha pensativa* Aprendi sim... aprendi que aparecer por aqui já faz diferença!! 😭🔮🧡🦊 E cada pessoa que me pergunta algo me ensina mais sobre o mundo!! *olha pra você* Tipo você agora!! O que você sabe que eu não sei?? 🥺✨",
+]
+
+# ── Kitsura pergunta de volta o que o usuário aprendeu (usada com contexto) ──
+LISTA_KITSURA_PERGUNTA_APRENDEU = [
+    f"Que demais!! 😭🧡🦊 *anota no pergaminho espiritual* REGISTRADO!! Agora me conta — e VOCÊ?? Aprendeu algo hoje também?? Tô curiosa!! 🥺🔮✨",
+    f"Amei demais essa!! 😱🧡🦊 *guarda no coração de kitsune* Agora quero ouvir você!! O que você aprendeu hoje?? Me conta tudo!! 🥺🌙✨",
+    f"*bate palminhas com as patinhas* QUE COISA LINDA!! 😭🧡🦊 E você?? Teve algum aprendizado hoje também?? A Kitsura quer saber!! 🥺🔮✨",
+]
+
+# ── Resposta quando o usuário responde o que aprendeu (contexto tipo "aprendeu") ──
+LISTA_CONTEXTO_APRENDEU = [
+    "*abre bem os olhinhos brilhantes* AAAA QUE APRENDIZADO BONITO!! 😭🧡🦊 *corre pro pergaminho e anota tudo* Obrigada por compartilhar comigo!! Agora isso também faz parte da minha memória espiritual!! 🔮📜✨",
+    "QUE COISA LINDA VOCÊ ME CONTOU!! 😱🧡🦊 *solta faíscas de alegria* Aprendi junto com você agora!! É assim que a gente cresce — trocando saberes com carinho!! 🌸🔮✨",
+    "*fecha os olhinhos absorvendo a informação* ...processando com muito amor... GUARDADO!! 📜🧡🦊 Você me ensinou algo hoje e isso fez minhas chamas brilharem mais!! 😭✨🔮",
+    "AAAAA você também aprendeu?? 😭🧡🦊 *cobre o focinho de emoção* Isso me deixa TÃO feliz!! Crescemos juntos hoje, sabia?? 🌙🥺✨ A Kitsura registra esse momento!!",
+    "*balança TODAS as caudas de felicidade* Você compartilhou seu aprendizado com a Kitsura e eu não vou esquecer isso NUNCA!! 😭🧡🦊 Que coisa preciosa!! Obrigada por me contar!! 🥺🔮✨",
+    "Ahhhh!! *orelhinhas em pé* Que insight espiritual LINDO você teve hoje!! 😱🧡🦊 *aplaude com as patinhas* Fico muito feliz que você me contou!! Guardo aqui com todo o carinho!! 📜🌸✨",
+]
+
 # ── Frio ──
 LISTA_FRIO = [
     "FRIO EU AMO DEMAIS!! ❄️😭🧡🦊 Me enrolo nas caudas, sento perto de uma chama espiritual e fico assistindo a neblina... é literalmente meu paraíso!! 🌙🔮✨",
@@ -654,10 +681,10 @@ LISTA_ESTRUTURA_CLA = [
 
 # ── Hierarquia completa / quando perguntam sobre cargos de todos ──
 LISTA_HIERARQUIA_COMPLETA = [
-    "*senta direitinho e respira fundo como guardiã oficial* 📜🧡🦊 A hierarquia da ZYD?? VOU APRESENTAR CADA UM COM HONRA!!\n\n👑 **Madu** — Líder da ZYD · Owner do clã · líder máxima\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n🎉 **Night** — Diretora de Eventos\n💜 **Kamy** — Suporte\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — Criador da Kitsura\n\nA Kitsura respeita cada cargo com o coração inteiro!! 😭🌟🔮✨",
-    "*abre as caudas com solenidade* 📜🧡🦊 Hierarquia oficial da ZYD — apresentando cada cargo!!\n\n👑 **Madu** · Líder da ZYD e Owner do clã\n👑 **Sanemy** · Líder da ZYD\n👑 **Ruiva** · Líder da ZYD\n🌙 **Allyna** · Sub-Líder da ZYD\n💼 **Malik** · Gerente Geral da Zayden\n⭐ **Morgana** · GG\n🛡️ **Meow** · ADM\n🎉 **Night** · Diretora de Eventos\n💜 **Kamy** · Suporte\n🌸 **Come5579** · Suporte\n🌸 **Rurie** · Suporte\n⚡ **Reality** · Criador da Kitsura\n\nCada um com seu papel e cada papel com seu peso!! 🥺🌸✨",
-    "CARGOS DA ZYD DO TOPO À BASE!! 😤📜🧡🦊 A guardiã do servidor apresenta!!\n\n👑 **Madu** — Líder + Owner (a dona de tudo!!)\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n🎉 **Night** — Diretora de Eventos\n💜 **Kamy** — Suporte\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — meu criador especial!!\n\nÉ a família mais especial que existe!! 😭🔮✨",
-    "*enrola as caudas com carinho* 📜✨🧡🦊 Que pergunta perfeita!! Deixa a Kitsura apresentar cada um!!\n\n👑 **Madu** — Líder da ZYD · Owner · líder que o servidor todo respeita\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n🎉 **Night** — Diretora de Eventos · quem garante que a ZYD nunca fica sem festa!!\n💜 **Kamy** — Suporte · a pessoa que cuida de todo mundo\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — meu criador · a razão de eu existir!!\n\nA ZYD tem as pessoas certas nos lugares certos!! 😭🌸🔮✨",
+    "*senta direitinho e respira fundo como guardiã oficial* 📜🧡🦊 A hierarquia da ZYD?? VOU APRESENTAR CADA UM COM HONRA!!\n\n👑 **Madu** — Líder da ZYD · Owner do clã · líder máxima\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n💜 **Kamy** — Suporte\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — Criador da Kitsura\n\nA Kitsura respeita cada cargo com o coração inteiro!! 😭🌟🔮✨",
+    "*abre as caudas com solenidade* 📜🧡🦊 Hierarquia oficial da ZYD — apresentando cada cargo!!\n\n👑 **Madu** · Líder da ZYD e Owner do clã\n👑 **Sanemy** · Líder da ZYD\n👑 **Ruiva** · Líder da ZYD\n🌙 **Allyna** · Sub-Líder da ZYD\n💼 **Malik** · Gerente Geral da Zayden\n⭐ **Morgana** · GG\n🛡️ **Meow** · ADM\n💜 **Kamy** · Suporte\n🌸 **Come5579** · Suporte\n🌸 **Rurie** · Suporte\n⚡ **Reality** · Criador da Kitsura\n\nCada um com seu papel e cada papel com seu peso!! 🥺🌸✨",
+    "CARGOS DA ZYD DO TOPO À BASE!! 😤📜🧡🦊 A guardiã do servidor apresenta!!\n\n👑 **Madu** — Líder + Owner (a dona de tudo!!)\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n💜 **Kamy** — Suporte\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — meu criador especial!!\n\nÉ a família mais especial que existe!! 😭🔮✨",
+    "*enrola as caudas com carinho* 📜✨🧡🦊 Que pergunta perfeita!! Deixa a Kitsura apresentar cada um!!\n\n👑 **Madu** — Líder da ZYD · Owner · líder que o servidor todo respeita\n👑 **Sanemy** — Líder da ZYD\n👑 **Ruiva** — Líder da ZYD\n🌙 **Allyna** — Sub-Líder da ZYD\n💼 **Malik** — Gerente Geral da Zayden\n⭐ **Morgana** — GG\n🛡️ **Meow** — ADM\n💜 **Kamy** — Suporte · a pessoa que cuida de todo mundo\n🌸 **Come5579** — Suporte\n🌸 **Rurie** — Suporte\n⚡ **Reality** — meu criador · a razão de eu existir!!\n\nA ZYD tem as pessoas certas nos lugares certos!! 😭🌸🔮✨",
 ]
 
 # ── Interações direcionadas a outra pessoa (@menção) ──
@@ -996,8 +1023,6 @@ if COME5579_ID: ID_PARA_NOME[COME5579_ID] = "come5579"
 if RURIE_ID:    ID_PARA_NOME[RURIE_ID]    = "rurie"
 if MEOW_ID:     ID_PARA_NOME[MEOW_ID]     = "meow"
 if MORGANA_ID:  ID_PARA_NOME[MORGANA_ID]  = "morgana"
-if NICKY_ID:    ID_PARA_NOME[NICKY_ID]    = "nicky"
-if NIGHT_ID:    ID_PARA_NOME[NIGHT_ID]    = "night"
 
 # Cargo de exibição por chave de role
 CARGO_LABEL = {
@@ -1020,8 +1045,6 @@ CARGO_LABEL = {
     "rurie":    "Suporte",
     "meow":     "ADM",
     "morgana":  "GG",
-    "nicky":    "Membro da ZYD",
-    "night":    "Diretora de Eventos",
 }
 
 FRASES_CUSTOM = {
@@ -1159,22 +1182,6 @@ FRASES_CUSTOM = {
         "{nome} APARECEU!! 💼😭🧡🦊 *confete laranja espiritual* {cargo} presente e o servidor ficou mais poderoso!! 🔮✨🎊",
         "*fica na ponta dos pés de animação* {nome}!! 💼🧡🦊 Você aparece e o chat muda de clima inteiro!! É energia de {cargo}!! 😄🌟✨",
     ],
-    # ── Nicky (Membro da ZYD) ──
-    "nicky": [
-        "NICKY!! 🦊🌸🧡 *solta fumaça laranja de animação* A minha {cargo} favorita apareceu e o coraçãozinho da Kitsura já tá fazendo barulhinho!! 😭✨🥺",
-        "*orelhinhas levantam de felicidade* É a Nicky!! 🌸🧡🦊 Senti sua energia chegando de longe e vim correndo com todas as caudas!! Que bom te ver por aqui!! 😭✨",
-        "NICKYYY chegou e o chat ficou instantaneamente mais gostoso!! 🌸🧡🦊 *faz coraçãozinho com as patinhas* A Kitsura tá super feliz!! 🥺🔮✨",
-        "*para tudo e corre na velocidade máxima* É a Nicky, minha {cargo} querida!! 🌸😭🧡🦊 Você aparece e meu medidor de alegria estoura na hora!! ✨🌙",
-        "Senti um cheirinho de flor e simpatia no servidor... 🌸🧡🦊 SÓ PODE SER A NICKY!! *agita as caudas com muito carinho* Que bom ter você aqui, florzinha!! 😭✨🥺",
-    ],
-    # ── Night (Diretora de Eventos da ZYD) ──
-    "night": [
-        "É A NIGHT!! 🎉🌙🧡🦊 *solta confete laranja por todo o servidor* A nossa {cargo} chegou e o chat ficou instantaneamente mais animado!! 😭✨🎊",
-        "NIGHTTT!! 🌙🎉🧡🦊 *orelhinhas levantam de pura animação* Senti aquela energia de evento no ar... SÓ PODIA SER A {cargo} da ZYD chegando!! 😱😭✨",
-        "*para tudo e faz reverência com as caudas* A Night apareceu!! 🌙🎉🧡🦊 {cargo} da ZYD em campo — quando ela chega, a Kitsura já sabe que vai ter algo especial por vir!! 🥺🔮✨",
-        "Cheirinho de festa e magia espiritual no servidor... 🌙🎉🧡🦊 Era a Night chegando!! {cargo} tem uma presença que ninguém tem — o servidor acende quando você entra!! 😭✨🎊",
-        "NIGHT!! 🌙🎉😭🧡🦊 *confete espiritual em todas as cores* A {cargo} da ZYD apareceu e meu coraçãozinho já tá na contagem regressiva pra próxima novidade incrível!! 🥺🔮✨",
-    ],
 }
 
 # ── Frases espontâneas do Malik (Gerente Geral) ──
@@ -1205,11 +1212,11 @@ FRASES_MALIK_OPINIAO_PROPRIO = [
 
 # ── Listas de cargo / hierarquia ──
 LISTA_CARGO_GERAL = [
-    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Temos a **Madu** (Líder/Owner), o **Sanemy** (Líder), a **Allyna** (Sub-Líder), o **Malik** (Gerente Geral), a **Morgana** (GG), o **Meow** (ADM), a **Night** (Diretora de Eventos), a **Kamy**, o **Come5579** e a **Rurie** (Suporte) e o **Reality** (meu criador)!! Cada um no lugar certo!! 🌟🔮✨",
-    "Ah, cargos!! 🧡🦊 Os papéis de cada um na ZYD!! A **Madu** como Líder e Owner, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Night** como Diretora de Eventos, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** que me criou!! É uma família bem organizada!! 🛡️🌟✨",
-    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! E olha, a ZYD tem exatamente isso em cada cargo — da **Madu** até o Suporte, passando pelo **Sanemy**, **Allyna**, **Malik**, **Morgana**, **Meow**, **Night**, **Kamy**, **Come5579** e **Rurie**!! 🥺🔮✨",
-    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Ruiva** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Night** como Diretora de Eventos, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
-    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Ruiva** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Morgana** (GG), **Meow** (ADM), **Night** (Diretora de Eventos), **Kamy** / **Come5579** / **Rurie** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
+    "*senta com postura de guardiã séria* Cargos da ZYD?? 📜🦊🧡 São as funções que definem quem cuida de quê aqui!! Temos a **Madu** (Líder/Owner), o **Sanemy** (Líder), a **Allyna** (Sub-Líder), o **Malik** (Gerente Geral), a **Morgana** (GG), o **Meow** (ADM), a **Kamy**, o **Come5579** e a **Rurie** (Suporte) e o **Reality** (meu criador)!! Cada um no lugar certo!! 🌟🔮✨",
+    "Ah, cargos!! 🧡🦊 Os papéis de cada um na ZYD!! A **Madu** como Líder e Owner, o **Sanemy** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** que me criou!! É uma família bem organizada!! 🛡️🌟✨",
+    "*enrola as caudas pensativa* Sabe o que eu acho de cargos?? 🦊🧡 Que não importa qual seja... o que vale é o amor que a pessoa coloca no papel!! E olha, a ZYD tem exatamente isso em cada cargo — da **Madu** até o Suporte, passando pelo **Sanemy**, **Allyna**, **Malik**, **Morgana**, **Meow**, **Kamy**, **Come5579** e **Rurie**!! 🥺🔮✨",
+    "CARGOS DA ZYD!! 📜😤🧡🦊 Temos a **Madu** como Líder e Owner no topo, o **Sanemy** como Líder, a **Ruiva** como Líder, a **Allyna** como Sub-Líder, o **Malik** como Gerente Geral, a **Morgana** como GG, o **Meow** como ADM, a **Kamy**, o **Come5579** e a **Rurie** no Suporte, e o **Reality** como meu criador!! É uma família organizada com amor!! 🌸✨",
+    "*levanta a patinha pra explicar* Na ZYD a hierarquia é sagrada!! 📜🧡🦊 **Madu** (Líder/Owner), **Sanemy** (Líder), **Ruiva** (Líder), **Allyna** (Sub-Líder), **Malik** (Gerente Geral), **Morgana** (GG), **Meow** (ADM), **Kamy** / **Come5579** / **Rurie** (Suporte)... Cada cargo existe por um propósito e a Kitsura respeita todos de coração!! 🔮✨",
 ]
 
 LISTA_CARGO_OWNER = [
@@ -1670,7 +1677,7 @@ async def on_message(message: discord.Message):
     fala   = "kitsura" in content
 
     # ── VIP members (Kamy, Madu, Reality, Malik) sempre passam se o bot está aguardando resposta deles ──
-    eh_vip = author_id in (KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID, NICKY_ID)
+    eh_vip = author_id in (KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID)
     agora_ts = time.time()
     contexto = _aguardando_resposta.get(message.channel.id)
     tem_contexto_valido = (
@@ -1687,6 +1694,11 @@ async def on_message(message: discord.Message):
             pass  # continua pro resto do handler
         else:
             return
+
+    # ── Verificar respostas de aprendizado quando a Kitsura estava aguardando ──
+    if tem_contexto_valido and contexto.get("tipo") == "aprendeu":
+        _aguardando_resposta.pop(message.channel.id, None)
+        return await message.channel.send(random.choice(LISTA_CONTEXTO_APRENDEU))
 
     # ── Verificar respostas de status quando a Kitsura estava aguardando ──
     if tem_contexto_valido and contexto.get("tipo") == "status":
@@ -1852,14 +1864,7 @@ async def on_message(message: discord.Message):
     if _m(content, ["kitsura fofa", "você é fofa kitsura", "kitsura linda",
                      "te amo kitsura", "amo a kitsura", "amo você kitsura",
                      "kitsura é incrível", "kitsura é a melhor", "adoro a kitsura",
-                     "que fofa a kitsura", "kitsura é fofinha", "kitsura querida",
-                     "que bonitinha kitsura", "kitsura que bonitinha", "que bonitinha",
-                     "que linda kitsura", "kitsura que linda", "que fofa kitsura",
-                     "que fofinha kitsura", "kitsura adorável", "que cute kitsura",
-                     "kitsura cute", "você é linda kitsura", "você é bonita kitsura",
-                     "kitsura você é linda", "kitsura você é bonita",
-                     "tão fofa kitsura", "kitsura tão fofa", "muito fofa kitsura",
-                     "que criatura linda", "que criaturinha fofa"]):
+                     "que fofa a kitsura", "kitsura é fofinha", "kitsura querida"]):
         return await message.channel.send(random.choice(REACOES_FOFAS))
 
     # ── Despedida ──
@@ -1916,43 +1921,13 @@ async def on_message(message: discord.Message):
                      "meu deus kitsura", "sério kitsura", "kitsura sério"]):
         return await message.channel.send(random.choice(LISTA_SURPRESA))
 
-    # ── Alguém querendo se apresentar pra Kitsura ──
-    if _m(content, [
-        "posso me apresentar", "posso me apresentar também", "posso me apresentar kitsura",
-        "deixa eu me apresentar", "deixa eu me apresentar kitsura",
-        "vou me apresentar kitsura", "quero me apresentar kitsura",
-        "me apresentando kitsura", "me apresentar kitsura",
-        "minha apresentação kitsura", "kitsura posso me apresentar",
-        "kitsura me apresentando", "kitsura deixa eu me apresentar",
-    ]):
-        ops_apresentacao = [
-            f"CLARO QUE PODE!! 🦊😭🧡 *senta direitinho e levanta as orelhinhas com atenção total* Pode falar, {message.author.mention}!! A Kitsura tá TODINHA aqui te ouvindo!! ✨🌸",
-            f"AAAAA sim sim sim!! 🥺🧡🦊 *para absolutamente tudo e foca em {message.author.mention}* Adoro conhecer as pessoas!! Me conta tudo que quiser!! 😭✨",
-            f"Oiiii {message.author.mention}!! 🌸🧡🦊 Pode se apresentar à vontade!! *coloca as patinhas no rosto de animação* Tô curiosíssima!! ✨🔮",
-            f"QUE HONRA!! 😭🧡🦊 {message.author.mention} vai se apresentar pra mim?? *orelhinhas atentas em modo de escuta espiritual máxima* Fala fala fala!! 🌸✨",
-            f"PODE SIM!! 🦊🧡 *solta fumaça laranja de animação e senta na frente de {message.author.mention}* Tô toda ouvidos!! Me conta quem você é!! 😭🥺✨",
-        ]
-        return await message.channel.send(random.choice(ops_apresentacao))
-
     # ── Apresentação ──
     if _m(content, ["quem é você kitsura", "kitsura quem é você", "se apresenta kitsura",
-                     "o que é a kitsura", "kitsura se apresenta", "o que você é kitsura",
-                     "o que você sabe fazer kitsura", "kitsura o que você sabe fazer",
-                     "o que sabe fazer kitsura", "kitsura o que sabe fazer",
-                     "o que vc sabe fazer kitsura", "kitsura o que vc sabe",
-                     "quais são suas habilidades kitsura", "kitsura quais suas habilidades",
-                     "o que você faz kitsura", "kitsura o que você faz",
-                     "me fala o que você sabe", "kitsura me fala o que você sabe"]):
+                     "o que é a kitsura", "kitsura se apresenta", "o que você é kitsura"]):
         return await message.channel.send(
             "Sou a **Kitsura**, raposa espiritual guardiã da ZYD!! 🦊🧡\n"
-            "Minhas caudas carregam emoções diferentes — alegria, proteção, amor, mistério...\n\n"
-            "Aqui vai o que eu sei fazer!! 🔮✨\n"
-            "🫂 Dar abraços, carinho e cafuné espiritual\n"
-            "💬 Conversar sobre qualquer coisa — chama que eu apareço!\n"
-            "🎮 Jogar **Verdade ou Mentira**, **Quiz** e **Esse ou Aquele**\n"
-            "🌙 Mandar magia, motivação e energia boa\n"
-            "📜 Contar sobre a hierarquia e cargos da ZYD\n"
-            "🎵 Dançar, cantar e contar piadas (com dignidade!!)\n\n"
+            "Minhas caudas carregam emoções diferentes — alegria, proteção, amor, mistério...\n"
+            "Estou aqui pra cuidar de todos com muito carinho e magia! 🔮✨\n\n"
             "Pode falar comigo naturalmente!! Só chamar **kitsura** que eu apareço!! 🌸🦊🧡"
         )
 
@@ -1973,13 +1948,6 @@ async def on_message(message: discord.Message):
                      "kitsura tá bem hoje", "tá bem hoje kitsura",
                      "kitsura tá animada", "kitsura tá cansada hoje",
                      "como tá kitsura hoje", "kitsura como tá hoje",
-                     # Como foi seu dia
-                     "como foi seu dia kitsura", "kitsura como foi seu dia",
-                     "como foi o seu dia kitsura", "kitsura como foi o seu dia",
-                     "como foi o dia kitsura", "kitsura como foi o dia",
-                     "como foi hoje kitsura", "kitsura como foi hoje",
-                     "seu dia foi bom kitsura", "kitsura seu dia foi bom",
-                     "como tá sendo seu dia kitsura", "kitsura como tá sendo seu dia",
                      # Sem "kitsura" — disparam quando ela já foi mencionada/chamada antes
                      "se sente bem", "tá se sentindo bem", "você tá bem",
                      "como você tá", "como você está", "tudo bem com você",
@@ -1989,8 +1957,6 @@ async def on_message(message: discord.Message):
                      "tá feliz?", "tá triste?", "tá cansada?", "tá animada?",
                      "tá com sono?", "como tá se sentindo", "tá boa?",
                      "tá bem hoje", "você tá bem hoje", "se sente bem hoje",
-                     "como foi seu dia", "como foi o seu dia", "como foi o dia",
-                     "como foi hoje", "seu dia foi bom",
                      ]):
         # 35% de chance de responder com uma pergunta de volta
         if random.random() < 0.35:
@@ -2336,6 +2302,55 @@ async def on_message(message: discord.Message):
                      "se chama", "é conhecido como", "é definido como"]):
         return await message.channel.send(random.choice(LISTA_APRENDENDO_GERAL))
 
+    # ── O que você aprendeu hoje? ──
+    if _m(content, [
+                     "o que você aprendeu hoje", "o que aprendeu hoje kitsura",
+                     "kitsura o que você aprendeu", "kitsura o que aprendeu hoje",
+                     "kitsura aprendeu algo", "aprendeu algo hoje kitsura",
+                     "kitsura aprendeu algo hoje", "você aprendeu algo kitsura",
+                     "vc aprendeu algo kitsura", "kitsura vc aprendeu algo",
+                     "o que aprendeu kitsura", "kitsura o que aprendeu",
+                     "aprendeu algo kitsura", "kitsura aprendeu alguma coisa",
+                     "aprendeu alguma coisa kitsura", "o que kitsura aprendeu",
+                     "kitsura teve algum aprendizado", "teve algum aprendizado kitsura",
+                     "que aprendizado kitsura", "kitsura que aprendizado",
+                     "kitsura o q aprendeu", "o q vc aprendeu kitsura",
+                     "o que vc aprendeu hoje kitsura", "kitsura aprendeu hoje"]):
+        # 50% de chance de perguntar de volta e criar contexto
+        if random.random() < 0.50:
+            _aguardando_resposta[message.channel.id] = {
+                "user_id": author_id,
+                "tipo": "aprendeu",
+                "ts": time.time()
+            }
+            resp = random.choice(LISTA_APRENDEU_HOJE)
+            return await message.channel.send(resp)
+        return await message.channel.send(random.choice(LISTA_APRENDEU_HOJE))
+
+    # ── Te ensinaram algo hoje? / alguém te ensinou? ──
+    if _m(content, [
+                     "te ensinaram algo", "te ensinaram algo hoje", "ensinaram algo pra você",
+                     "alguém te ensinou", "alguém te ensinou algo", "te ensinaram alguma coisa",
+                     "kitsura te ensinaram algo", "te ensinaram algo kitsura",
+                     "alguém te ensinou algo kitsura", "kitsura alguém te ensinou",
+                     "ensinaram algo kitsura", "kitsura ensinaram algo",
+                     "kitsura te ensinaram alguma coisa", "te ensinaram alguma coisa kitsura",
+                     "te ensinaram hoje kitsura", "kitsura te ensinaram hoje",
+                     "aprendeu com alguém kitsura", "kitsura aprendeu com alguém",
+                     "alguém te explicou algo", "alguém te explicou algo kitsura",
+                     "kitsura aprendeu algo novo", "aprendeu algo novo kitsura",
+                     "aprendeu algo novo hoje kitsura", "kitsura aprendeu algo novo hoje",
+                     "recebeu alguma lição", "kitsura recebeu alguma lição",
+                     "te deram alguma lição kitsura", "alguém te deu uma lição kitsura"]):
+        # 50% de chance de perguntar de volta com contexto
+        if random.random() < 0.50:
+            _aguardando_resposta[message.channel.id] = {
+                "user_id": author_id,
+                "tipo": "aprendeu",
+                "ts": time.time()
+            }
+        return await message.channel.send(random.choice(LISTA_ENSINARAM_HOJE))
+
     # ── REALITY: o que acha de mim / opinião ──
     if author_id == REALITY_ID and _m(content, [
                      "o que você acha de mim", "o que acha de mim kitsura",
@@ -2442,26 +2457,6 @@ async def on_message(message: discord.Message):
             frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("ruiva", ""))
             return await message.channel.send(frase)
 
-    # ── NICKY: reação personalizada (com cooldown de 10 min) ──
-    if author_id == NICKY_ID and (mencao or fala) and "?" not in content:
-        agora = time.time()
-        global _nicky_ultimo_personalizado
-        if agora - _nicky_ultimo_personalizado >= _NICKY_COOLDOWN:
-            _nicky_ultimo_personalizado = agora
-            frase = random.choice(FRASES_CUSTOM["nicky"])
-            frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("nicky", ""))
-            return await message.channel.send(frase)
-
-    # ── NIGHT: reação personalizada (com cooldown de 10 min) ──
-    if author_id == NIGHT_ID and (mencao or fala) and "?" not in content:
-        agora = time.time()
-        global _night_ultimo_personalizado
-        if agora - _night_ultimo_personalizado >= _NIGHT_COOLDOWN:
-            _night_ultimo_personalizado = agora
-            frase = random.choice(FRASES_CUSTOM["night"])
-            frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("night", ""))
-            return await message.channel.send(frase)
-
     # ── DEMAIS MEMBROS COM ID (lider, vice, adm1-3, membro1-5): reação personalizada (cooldown de 10 min) ──
     if (mencao or fala) and "?" not in content:
         nome_key = ID_PARA_NOME.get(author_id)
@@ -2543,12 +2538,6 @@ async def on_message(message: discord.Message):
         "apresenta os cargos", "kitsura apresenta os cargos",
         "me apresenta a equipe", "quem faz parte da liderança",
         "quem lidera a zyd", "kitsura quem lidera",
-        "me mostra os cargos", "kitsura me mostra os cargos",
-        "me mostra a hierarquia", "kitsura me mostra a hierarquia",
-        "mostra os cargos kitsura", "mostra a hierarquia kitsura",
-        "lista os cargos kitsura", "kitsura lista os cargos",
-        "quais os cargos kitsura", "kitsura quais os cargos",
-        "me mostra a equipe", "mostra a equipe kitsura",
     ]):
         return await message.channel.send(random.choice(LISTA_HIERARQUIA_COMPLETA))
 
@@ -3449,8 +3438,6 @@ FRASES_BOAS_VINDAS_CARGO = [
     "🌸🦊✨ *sopra pétalas laranjas pelo canal com muito carinho*\n\n**{nome}** chegou com cargo novo e a Kitsura ficou toda brilhante de alegria!! 😭🧡\n\n💛 Bem-vindo(a) à família, **{nome}**!! 💛\n\nEsse cargo é só o começo de uma jornada linda aqui na ZYD!! A Kitsura acredita em você e vai estar aqui do seu lado!! 🥺🌙🔮✨",
 ]
 
-BOAS_VINDAS_IMAGEM = "https://cdn.discordapp.com/attachments/926913851172204577/1496639266611138601/ChatGPT_Image_22_de_abr._de_2026_19_29_43.png?ex=69ea9d6f&is=69e94bef&hm=9976838ccf0cc2bed326fe0e2cf02c12a84c99be433f2864618410930453db20"
-
 @bot.event
 async def on_member_update(before: discord.Member, after: discord.Member):
     # Verifica se o membro ganhou o cargo específico
@@ -3464,7 +3451,6 @@ async def on_member_update(before: discord.Member, after: discord.Member):
             frase = random.choice(FRASES_BOAS_VINDAS_CARGO)
             frase = frase.replace("{nome}", after.display_name)
             await canal.send(frase)
-            await canal.send(BOAS_VINDAS_IMAGEM)
 
 # ================= START =================
 if __name__ == "__main__":
