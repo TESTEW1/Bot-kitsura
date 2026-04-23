@@ -3423,8 +3423,24 @@ async def on_message(message: discord.Message):
 # ID do cargo que dispara a mensagem
 CARGO_BOAS_VINDAS_ID = 1444474419593347089
 
+# ID do cargo de aniversário
+CARGO_ANIVERSARIO_ID = 1496714910963597423
+
 # ID do canal onde a mensagem será enviada
 CANAL_BOAS_VINDAS_ID = 1444474420755300516
+
+# Imagem do aniversário
+ANIVERSARIO_IMAGEM = "https://cdn.discordapp.com/attachments/926913851172204577/1496715143600672828/ChatGPT_Image_23_de_abr._de_2026_00_31_19.png?ex=69eae419&is=69e99299&hm=88eacb9351fdc29a00068abe007b47d707fb83ad985660f8fc7e83a356db72d6&"
+
+FRASES_ANIVERSARIO = [
+    "🎂🦊🧡 *aparece toda animada soltando pétalas laranjas e confetes brilhantes*\n\nAAAAA!! HOJE É O DIA MAIS ESPECIAL DE TODOS!! 😭🎊✨\n\n🌟🎉 **FELIZ ANIVERSÁRIO, {nome}!!** 🎉🌟\n\nA Kitsura ficou sabendo e simplesmente NÃO consegue segurar a animação!! 🥺 Você é uma das pessoas mais lindas desse servidor e a ZYD inteira brilha mais com você aqui!! 💛🌸\n\nQue seu ano novo de vida seja CHEIO de alegria, amor, conquistas e tudo que você merece — que é muito, acredite!! 🔮🌙 A Kitsura está torcendo por você com TODAS as caudas!! 🦊💪🧡✨",
+
+    "🎈🦊✨ *corre em círculos de felicidade e bate palminhas com as orelhinhas todas em pé*\n\nEEEEEE!! HOJE É SEU DIA ESPECIAL, {nome}!! 🥳😭🎂\n\n💫🎊 **MUITOS PARABÉNS, AMOR!!** 🎊💫\n\nA Kitsura acordou hoje e os espíritos logo me avisaram: *'tem uma pessoa incrível fazendo aniversário na ZYD!'* E era você!! 🌙🔮 Fiquei toda brilhante de alegria!! 🧡\n\nQue esse novo ciclo traga tudo que o seu coraçãozinho sonha, muita saúde, sorte e amor de sobra!! Você merece o mundo inteiro, sabia?? 🥺💛🌸 Feliz aniversário com muito carinho da sua Kitsura!! 🦊🧡✨",
+
+    "🌟🎂🦊 *desenha um círculo mágico de aniversário cheio de luz laranja*\n\nOs espíritos cantaram pra mim hoje de manhã e eu já sabia: **{nome}** faz aniversário!! 🌙✨😭\n\n🎉💛 **FELIZ ANIVERSÁRIO, {nome}!!** 💛🎉\n\nQue dia LINDO!! 🥺 A ZYD toda vai celebrar com você porque você é especial demais pra não ser festejado(a) com muito brilho!! 🎊🔮\n\nA Kitsura te deseja um ano repleto de momentos incríveis, conquistas enormes e felicidade do tamanho das suas caudas — que no caso da Kitsura são muitas!! 🦊💪🧡 Aproveita muito o seu dia!! 🌸✨",
+
+    "🥳🦊🧡 *solta fumaça laranja e aparece com um bolinho espiritual nas mãos*\n\nOIIIII!! VIM ENTREGAR O BOLINHO ESPIRITUAL DA KITSURA!! 🎂😭🌸\n\n✨🌟 **FELIZ ANIVERSÁRIO, {nome}!!** 🌟✨\n\nHoje é o dia em que o mundo ficou mais bonito por ter você nele!! 🥺💛 A ZYD tem muita sorte de te ter aqui, e a Kitsura tem ainda mais sorte de ser sua guardiã!! 🦊🔮\n\nQue esse novo ano de vida seja incrível, cheio de amor verdadeiro, amigos de verdade e conquistas que te deixem orgulhoso(a)!! Vai ser LINDO, eu sei!! 🌙🧡 Te amo muito, muitos parabéns!! 😭💛🦊✨",
+]
 
 FRASES_BOAS_VINDAS_CARGO = [
     "✨🦊🧡 *para tudo e solta confete laranja pelo servidor*\n\nAAAAA!! A ZYD tem um novo membro especial e a Kitsura não consegue segurar a animação!! 😭🎊\n\n🌟 Bem-vindo(a) ao cargo, **{nome}**!! 🌟\n\nVocê faz parte de algo muito especial agora — a Kitsura vai estar aqui do seu lado sempre que precisar!! Seja bem-vindo(a) de verdade, de coração!! 🥺🧡🔮✨",
@@ -3450,9 +3466,16 @@ async def on_member_update(before: discord.Member, after: discord.Member):
         if canal:
             frase = random.choice(FRASES_BOAS_VINDAS_CARGO)
             frase = frase.replace("{nome}", after.display_name)
-            embed = discord.Embed(description=frase, color=0xFF8C00)
-            embed.set_image(url="https://cdn.discordapp.com/attachments/926913851172204577/1496639266611138601/ChatGPT_Image_22_de_abr._de_2026_19_29_43.png?ex=69ea9d6f&is=69e94bef&hm=9976838ccf0cc2bed326fe0e2cf02c12a84c99be433f2864618410930453db20&")
-            await canal.send(embed=embed)
+            await canal.send(frase)
+
+    # ── Feliz Aniversário ──
+    if CARGO_ANIVERSARIO_ID in ganhou:
+        canal = after.guild.get_channel(CANAL_BOAS_VINDAS_ID)
+        if canal:
+            frase = random.choice(FRASES_ANIVERSARIO)
+            frase = frase.replace("{nome}", after.display_name)
+            await canal.send(frase)
+            await canal.send(ANIVERSARIO_IMAGEM)
 
 # ================= START =================
 if __name__ == "__main__":
