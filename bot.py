@@ -3463,6 +3463,11 @@ async def on_member_update(before: discord.Member, after: discord.Member):
 
     if CARGO_BOAS_VINDAS_ID in ganhou:
         canal = after.guild.get_channel(CANAL_BOAS_VINDAS_ID)
+        if canal is None:
+            try:
+                canal = await bot.fetch_channel(CANAL_BOAS_VINDAS_ID)
+            except Exception:
+                canal = None
         if canal:
             frase = random.choice(FRASES_BOAS_VINDAS_CARGO)
             frase = frase.replace("{nome}", after.display_name)
@@ -3471,6 +3476,11 @@ async def on_member_update(before: discord.Member, after: discord.Member):
     # ── Feliz Aniversário ──
     if CARGO_ANIVERSARIO_ID in ganhou:
         canal = after.guild.get_channel(CANAL_BOAS_VINDAS_ID)
+        if canal is None:
+            try:
+                canal = await bot.fetch_channel(CANAL_BOAS_VINDAS_ID)
+            except Exception:
+                canal = None
         if canal:
             frase = random.choice(FRASES_ANIVERSARIO)
             frase = frase.replace("{nome}", after.display_name)
