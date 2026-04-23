@@ -3450,7 +3450,9 @@ async def on_member_update(before: discord.Member, after: discord.Member):
         if canal:
             frase = random.choice(FRASES_BOAS_VINDAS_CARGO)
             frase = frase.replace("{nome}", after.display_name)
-            await canal.send(frase)
+            embed = discord.Embed(description=frase, color=0xFF8C00)
+            embed.set_image(url="https://cdn.discordapp.com/attachments/926913851172204577/1496639266611138601/ChatGPT_Image_22_de_abr._de_2026_19_29_43.png?ex=69ea9d6f&is=69e94bef&hm=9976838ccf0cc2bed326fe0e2cf02c12a84c99be433f2864618410930453db20&")
+            await canal.send(embed=embed)
 
 # ================= START =================
 if __name__ == "__main__":
