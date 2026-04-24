@@ -2221,7 +2221,9 @@ async def on_message(message: discord.Message):
     # ── NOVO: Brincar ──
     if _m(content, ["vamos brincar kitsura", "kitsura vamos brincar",
                      "bora brincar kitsura", "kitsura bora brincar",
-                     "quer brincar kitsura", "kitsura quer brincar"]):
+                     "quer brincar kitsura", "kitsura quer brincar",
+                     "brincar?", "brincar", "quer brincar", "bora brincar",
+                     "vamos brincar", "vamo brincar"]):
         return await message.channel.send(random.choice(LISTA_BRINCAR))
 
     # ── NOVO: Dança ──
@@ -2897,10 +2899,10 @@ async def on_message(message: discord.Message):
                      "tem piada", "me conta uma piada", "faz rir", "me faz rir",
                      "você é engraçada", "kitsura é engraçada", "sabe ser engraçada",
                      "sabe fazer graça", "conta uma piada", "me conta algo engraçado",
-                     "sabe piada", "fala uma piada", "conta piada", "tem piadas",
+                     "sabe piada", "fala uma piada", "fala piada", "conta piada", "tem piadas",
                      "é engraçada msm", "vc é engraçada", "vc sabe piada",
                      "me manda uma piada", "quero uma piada", "piada pls",
-                     "piada pfv", "piada pfvr", "uma piada ae",
+                     "piada pfv", "piada pfvr", "uma piada ae", "piada",
                      "sabe ser engraçada", "me faz rir kk", "me faz rir kkk"]):
         return await message.channel.send(random.choice(LISTA_PIADAS))
 
