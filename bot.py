@@ -3697,7 +3697,7 @@ async def on_member_update(before: discord.Member, after: discord.Member):
                 canal = None
         if canal:
             frase = random.choice(FRASES_BOAS_VINDAS_CARGO)
-            frase = frase.replace("{nome}", after.display_name)
+            frase = frase.replace("{nome}", after.mention)
             await canal.send(frase)
             await canal.send(IMAGEM_BOAS_VINDAS_CARGO)
 
