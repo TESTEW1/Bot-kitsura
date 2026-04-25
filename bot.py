@@ -1732,7 +1732,7 @@ async def tarefa_pergunta_diaria():
                 pergunta = PERGUNTAS_DIARIAS[idx]
 
                 # Envia a pergunta + imagem
-                msg = await canal.send(pergunta)
+                msg = await canal.send(f"<@&1444474419476037764>\n{pergunta}")
                 await canal.send(IMAGEM_PERGUNTA_DIARIA)
                 _ultima_pergunta_msg_id[CANAL_PERGUNTA_DIARIA_ID] = msg.id
 
