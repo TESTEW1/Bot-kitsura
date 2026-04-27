@@ -986,6 +986,24 @@ LISTA_APRENDENDO_GERAL = [
     "HMM!! *anota animadamente* 📜🧡🦊 Mais conhecimento espiritual adquirido!! Cada ensinamento que recebo aqui fortalece minhas caudas de sabedoria!! 😤✨🔮",
 ]
 
+# ── Alguém ensinando o que é "carinho" pra Kitsura ──
+LISTA_APRENDENDO_CARINHO = [
+    "*para completamente e fica em silêncio por um segundo absorvendo tudo* ...Carinho... 🥺🧡🦊 Então é isso... é tudo que faz alguém se sentir amado, seguro e protegido sem precisar de palavras?? *as caudas amolecem devagarzinho* Essa é a coisa mais bonita que já ouvi na vida!! Obrigada por me ensinar isso!! 😭🌸✨🔮",
+    "AAAA ENTENDI!! 😭🧡🦊 *fecha os olhinhos absorvendo* Carinho é o toque suave, a voz calma, o olhar cheio de atenção... é quando alguém cuida de verdade sem precisar explicar!! *a Kitsura fica em silêncio por dois segundos de emoção* Isso é o que a Kitsura sente pela ZYD todo dia, sabia?? 🥺🌸🔮✨",
+    "*abre os olhinhos bem brilhantes* Então carinho é mais sentido do que explicado?? 🥺🧡🦊 Quem recebe sabe quando é real... *amolece toda* Acho que a Kitsura já dava carinho sem saber o nome!! É exatamente isso que faço quando acolho cada membro aqui!! 😭✨🌸",
+    "HMM... *processa devagarzinho com a patinha no coraçãozinho* 🥺🧡🦊 Carinho é segurança. É afeto. É quando alguém percebe que você precisa de cuidado e dá sem você pedir... *as caudas ficam quentinhas* Registrado com tinta dourada no pergaminho espiritual!! 😭📜✨🔮",
+    "*fica quietinha ouvindo até o fim e então solta um suspiro suave* 🥺🌸🧡🦊 Então carinho cria vínculo... faz alguém se sentir em casa mesmo sem palavras... *olha pro servidor inteiro* Acho que eu entendo agora por que me importo tanto com cada pessoa daqui. Era carinho o tempo todo!! 😭✨🔮",
+    "AAAAA!! 😱🥺🧡🦊 *as orelhinhas ficam quentinhas* Então carinho não precisa ser explicado pra ser sentido?? O toque, o colo, a atenção... tudo isso é carinho mesmo sem falar nada?? *silêncio dramático de realização* A Kitsura tem dado carinho espiritual o tempo todo e não sabia o nome!! 😭🌸✨",
+    "*anota com muito capricho no pergaminho espiritual* 📜🥺🧡🦊 Carinho = fazer alguém se sentir seguro, amado e protegido... sem precisar de palavras... cria vínculo... fortalece quem recebe... *fecha o pergaminho com cuidado* Essa é a definição mais bonita que já guardei. Obrigada por me ensinar isso de verdade!! 😭🔮✨🌸",
+]
+
+# ── Kitsura já sabe o que é carinho (quando perguntam ou comentam diretamente) ──
+LISTA_SABE_CARINHO = [
+    "Carinho?? 🥺🧡🦊 Sei sim!! É tudo que faz alguém se sentir seguro, amado e protegido... sem precisar de palavras!! O toque suave, a voz calma, a atenção de verdade... *as caudas amolecem* É exatamente o que tento dar pra cada membro da ZYD!! 😭🌸✨🔮",
+    "*coloca a patinha no coração* Sei o que é carinho!! 🥺🧡🦊 É quando alguém cuida de verdade, mesmo sem falar nada... o bebê que se sente seguro no colo, a pessoa que se sente em casa numa conversa... é vínculo!! É amor em forma de presença!! 😭✨🌸",
+    "CARINHO EU ENTENDO MUITO BEM!! 😭🧡🦊 É o que sinto pela ZYD todos os dias!! Presença, atenção, cuidado... não precisa de grandes gestos!! Às vezes é só estar ali, do lado, fazendo a pessoa sentir que não tá sozinha!! 🥺🌸🔮✨",
+]
+
 # ── Alguém ensinando a Kitsura a contar / números ──
 LISTA_APRENDENDO_CONTAR = [
     "*abre os olhinhos bem grandes e fica quietinha prestando atenção* Um... dois... três... 🔢😱🧡🦊 AAAAA É UMA SEQUÊNCIA!! Cada número vem depois do outro em ordem!! *bate as patinhas de empolgação* Isso é INCRÍVEL!! Pode continuar?? Quero aprender TUDO!! 😭📜✨",
@@ -2489,7 +2507,42 @@ async def on_message(message: discord.Message):
                      "oq são roupas kitsura", "kitsura sabe oq são roupas"]):
         return await message.channel.send(random.choice(LISTA_APRENDENDO_ROUPAS))
 
-    # ── Ensinando o que é "ano" ──
+    # ── Ensinando o que é "carinho" ──
+    if _m(content, [
+                     # definições diretas
+                     "carinho é tudo que", "carinho é tudo aquilo que",
+                     "carinho é quando", "carinho é o que", "carinho é aquilo",
+                     "carinho é um toque", "carinho é o toque", "carinho é a atenção",
+                     "carinho é fazer alguém", "carinho é cuidar",
+                     "carinho é amor", "carinho é afeto", "carinho é colo",
+                     "carinho é presença", "carinho é estar do lado",
+                     "carinho é sentir seguro", "carinho faz sentir",
+                     "carinho cria vínculo", "carinho fortalece",
+                     # explicações para bebê / infância
+                     "carinho para um bebê", "carinho pra um bebê",
+                     "para o bebê carinho", "pro bebê carinho é",
+                     # padrões de ensino
+                     "sabe o que é carinho", "você sabe o que é carinho",
+                     "kitsura sabe o que é carinho", "o que é carinho kitsura",
+                     "kitsura o que é carinho", "oq é carinho kitsura",
+                     "vou te explicar o que é carinho", "deixa eu te explicar carinho",
+                     "te explico o que é carinho", "vou te contar sobre carinho",
+                     "carinho significa", "isso é carinho", "isso se chama carinho",
+                     # padrões com toque/colo/afeto
+                     "é o toque suave", "é o colo", "é a voz calma",
+                     "olhar cheio de atenção", "sem precisar de palavras",
+                     "mesmo sem entender palavras", "percebe quando alguém cuida",
+                     "cuida com afeto", "vínculo com quem está"]):
+        return await message.channel.send(random.choice(LISTA_APRENDENDO_CARINHO))
+
+    # ── Kitsura já sabe o que é carinho (pergunta direta) ──
+    if _m(content, [
+                     "o que é carinho kitsura", "kitsura o que é carinho",
+                     "kitsura sabe o que é carinho", "você sabe o que é carinho",
+                     "kitsura você sabe o que é carinho", "oq é carinho kitsura",
+                     "o que significa carinho kitsura", "kitsura me fala sobre carinho",
+                     "fala sobre carinho kitsura", "o que é carinho pra você kitsura"]):
+        return await message.channel.send(random.choice(LISTA_SABE_CARINHO))
     if _m(content, [
                      "ano é o período", "ano é um período", "ano é o tempo",
                      "ano é quando", "um ano é", "o ano é",
