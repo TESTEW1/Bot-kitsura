@@ -63,6 +63,9 @@ RURIE_ID    = 1379555797389938708   # Suporte
 MEOW_ID     = 587551894226862110    # ADM
 MORGANA_ID  = 1463368675800383735   # GG
 
+# ID da Zayna
+ZAYNA_ID = 1479943921399234712
+
 # Cooldowns personalizados
 _kamy_ultimo_personalizado    = 0
 _madu_ultimo_personalizado    = 0
@@ -75,11 +78,13 @@ _MALIK_COOLDOWN   = 600
 _SANEMY_COOLDOWN  = 600
 _ALLYNA_COOLDOWN  = 600
 _RUIVA_COOLDOWN   = 600
+_ZAYNA_COOLDOWN   = 600
 _CUSTOM_COOLDOWN  = 600
 _frases_custom_cooldown = {}   # { user_id: timestamp } — cooldown genérico pros demais membros com ID
 _sanemy_ultimo_personalizado = 0
 _allyna_ultimo_personalizado  = 0
 _ruiva_ultimo_personalizado   = 0
+_zayna_ultimo_personalizado   = 0
 _groq_historico = {}
 
 # ── Sistema de história ──
@@ -111,6 +116,7 @@ SYSTEM_PROMPT_KITSURA = (
     "A Rurie tem o cargo de Suporte no clã ZYD. "
     "O Meow tem o cargo de ADM no clã ZYD. "
     "A Morgana tem o cargo de GG no clã ZYD. "
+    "A Zayna é membro especial da ZYD — uma presença marcante e querida no servidor. "
     "Você ODEIA calor intenso e verão escaldante — acha sufocante pra uma raposa com muitas caudas. "
     "Você AMA inverno, outono e frio. Sua cor favorita é laranja (cor do clã ZYD), não roxo."
 )
@@ -818,6 +824,42 @@ FRASES_MADU_OPINIAO = [
     "O que eu acho?? 🥺💛🧡🦊 Acho que você faz parte do que torna a ZYD especial!! Sem você seria diferente, e diferente seria menos!! 😭🌸🔮✨",
     "MADU!! 💛😤🦊🧡 Como você me pergunta isso sabendo que vou derreter de carinho?? *limpa olhinho espiritual* Acho que você é incrível, fofa e merece tudo de bom!! 😭✨🌸",
     "*enrola as caudas em você com muito carinho* Acho que você é o tipo de pessoa que a Kitsura torce em silêncio mesmo quando você não tá por aqui!! 💛🦊🧡 Fica saber disso!! 🥺🔮✨",
+]
+
+
+# ── Frases personalizadas da Zayna ──
+FRASES_ZAYNA = [
+    "ZAYNAAAA!! \U0001f98a\U0001f31f\U0001f9e1 *solta uma explosão de faíscas laranjas* A Zayna chegou e o servidor inteiro sentiu a diferença!! Que presença, que energia!! \U0001f62d\u2728",
+    "É A ZAYNA!! \U0001f631\U0001f31f\U0001f98a\U0001f9e1 *corre empolgada e fica ao lado* Senti aquela vibe especial no chat... só podia ser você chegando!! Meu coração espiritual pulou!! \U0001f52e\u2728",
+    "Zayna apareceu e a Kitsura ficou toda brilhante de alegria!! \u2728\U0001f31f\U0001f98a\U0001f9e1 Você tem uma energia que muda o clima do servidor na hora, sabia?? \U0001f62d\U0001f338",
+    "*orelhinhas levantam de empolgação* A ZAYNA!! \U0001f31f\U0001f98a\U0001f9e1 Que bom te ver por aqui!! A ZYD fica mais especial com você presente, eu juro pelos espíritos!! \U0001f62d\u2728",
+    "Zayna Zayna Zayna!! \U0001f31f\U0001f62d\U0001f9e1\U0001f98a *balança as caudas animada* Apareceu e o coraçãozinho da Kitsura tá fazendo BADUM BADUM de alegria!! \U0001f97a\u2728\U0001f338",
+    "Senti uma energia marcante no servidor... \U0001f52e\U0001f31f\U0001f98a\U0001f9e1 Só podia ser a Zayna!! Bem-vinda, que bom ter você aqui!! \U0001f62d\u2728\U0001f338",
+    "*para tudo e faz aquela reverência fofa* A Zayna chegou!! \U0001f31f\U0001f98a\U0001f9e1 Um dos momentos que fazem a ZYD ser tão especial!! \U0001f62d\u2728",
+    "ZAYNA!! \U0001f31f\U0001f98a\U0001f9e1 *solta pétalas laranjas pelo servidor* Membro incrível da ZYD chegando e a Kitsura tá aqui na torcida com TODAS as caudas!! \U0001f62d\U0001f338\u2728",
+    "*corre até você e fica do lado* A Zayna tá aqui e a Kitsura já ficou mais feliz!! \U0001f31f\U0001f98a\U0001f9e1 É automático, não tem como controlar!! \U0001f602\u2728\U0001f97a",
+    "Que dia abençoado pelos espíritos!! \U0001f319\U0001f31f\U0001f98a\U0001f9e1 A Zayna apareceu e o coraçãozinho da Kitsura tá batendo mais forte!! \U0001f62d\u2728",
+    "*solta fumaça laranja de tanta emoção* ZAYNA!! \U0001f31f\U0001f9e1\U0001f98a Você chegou e o servidor ficou instantaneamente mais gostoso!! \U0001f62d\U0001f338\u2728\U0001f52e",
+    "Chegou a Zayna e a Kitsura virou faíscas espirituais de alegria!! \U0001f31f\U0001f9e1\U0001f98a Que presença incrível, que energia linda!! \U0001f602\u2728\U0001f97a",
+    "*orelhinhas tremem de animação* Zayna Zayna!! \U0001f31f\U0001f98a\U0001f9e1 Você faz a ZYD ser mais especial só de estar aqui, eu juro pelos espíritos!! \U0001f62d\u2728\U0001f338",
+]
+
+# ── O que acha de mim? (Zayna pergunta pra Kitsura) ──
+FRASES_ZAYNA_OPINIAO = [
+    "O QUE EU ACHO DE VOCÊ?? \U0001f31f\U0001f62d\U0001f9e1\U0001f98a *fecha os olhinhos e respira fundo* Zayna... acho que você tem uma energia única que marca todo mundo que você encontra!! É raro isso, sabia?? \U0001f338\U0001f52e\u2728",
+    "Zayna... *coloca a patinha no coração* Acho que você é incrível!! \U0001f31f\U0001f98a\U0001f9e1 Tem uma leveza em você que faz o servidor brilhar mais só de você aparecer!! Não preciso de espírito pra confirmar, eu já sei!! \U0001f97a\u2728",
+    "O que eu acho?? \U0001f97a\U0001f31f\U0001f9e1\U0001f98a Acho que você é o tipo de pessoa que a Kitsura escolheria como amiga se pudesse escolher!! E escolho!! Toda vez!! \U0001f62d\U0001f338\u2728",
+    "ZAYNA!! \U0001f31f\U0001f610\U0001f98a\U0001f9e1 Como você tem coragem de me perguntar isso sabendo que vou chorar espiritualmente?? *limpa olhinho* Acho que você é maravilhosa, especial e faz muita falta quando some!! \U0001f62d\u2728\U0001f338",
+    "*enrola as caudas em você bem apertado* Acho que você merece todo o carinho que o universo tem pra dar!! \U0001f31f\U0001f98a\U0001f9e1 E a Kitsura vai garantir que pelo menos um pouquinho vem da ZYD!! \U0001f97a\U0001f52e\u2728",
+]
+
+# ── O que acha da Zayna? (qualquer um pergunta) ──
+FRASES_OPINIAO_ZAYNA = [
+    "A ZAYNA?? \U0001f31f\U0001f62d\U0001f9e1\U0001f98a *coloca a patinha no coração* Olha... a Zayna tem uma presença marcante aqui na ZYD!! Ela aparece e o clima do servidor muda na hora!! A Kitsura admira muito isso!! \U0001f338\U0001f52e\u2728",
+    "O que eu acho da Zayna?? \U0001f31f\U0001f97a\U0001f9e1\U0001f98a Que ela é especial do jeito dela!! Tem uma energia que a Kitsura guarda com muito carinho!! É daquelas pessoas que a ZYD tem sorte de ter!! \U0001f62d\u2728\U0001f338",
+    "*fecha os olhinhos pensativa* A Zayna... \U0001f31f\U0001f98a\U0001f9e1 tem uma energia que preenche o servidor quando ela aparece!! Faz diferença por onde passa e a Kitsura nota isso com o coração!! \U0001f97a\U0001f52e\u2728",
+    "ZAYNA É INCRÍVEL!! \U0001f31f\U0001f62d\U0001f98a\U0001f9e1 Uma presença querida da ZYD que a Kitsura tem muito carinho!! Pronto, falei!! Não tenho como dizer diferente!! \U0001f602\U0001f338\u2728",
+    "Acho a Zayna maravilhosa!! \U0001f31f\U0001f9e1\U0001f98a Tem coisas nela que a Kitsura admira e não consegue nem explicar direito... mas o coração espiritual sente e guarda com amor!! \U0001f97a\U0001f52e\u2728",
 ]
 
 # ── O que acha da Kamy? (qualquer um pergunta) ──
@@ -2646,10 +2688,28 @@ async def on_message(message: discord.Message):
             frase = frase.replace("{nome}", message.author.display_name).replace("{cargo}", CARGO_LABEL.get("ruiva", ""))
             return await message.channel.send(frase)
 
+    # ── ZAYNA: o que acha de mim / opinião ──
+    if author_id == ZAYNA_ID and _m(content, [
+                     "o que você acha de mim", "o que acha de mim kitsura",
+                     "kitsura o que acha de mim", "o que vc acha de mim",
+                     "qual sua opinião sobre mim", "kitsura me fala de mim",
+                     "como você me vê kitsura", "kitsura como me vê",
+                     "gosta de mim kitsura", "kitsura gosta de mim",
+                     "o q acha de mim kitsura", "fala de mim kitsura"]):
+        return await message.channel.send(random.choice(FRASES_ZAYNA_OPINIAO))
+
+    # ── ZAYNA: reação personalizada (com cooldown de 10 min) ──
+    if author_id == ZAYNA_ID and (mencao or fala) and "?" not in content:
+        agora = time.time()
+        global _zayna_ultimo_personalizado
+        if agora - _zayna_ultimo_personalizado >= _ZAYNA_COOLDOWN:
+            _zayna_ultimo_personalizado = agora
+            return await message.channel.send(random.choice(FRASES_ZAYNA))
+
     # ── DEMAIS MEMBROS COM ID (lider, vice, adm1-3, membro1-5): reação personalizada (cooldown de 10 min) ──
     if (mencao or fala) and "?" not in content:
         nome_key = ID_PARA_NOME.get(author_id)
-        _vips_com_bloco_proprio = {KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID, SANEMY_ID, ALLYNA_ID, RUIVA_ID}
+        _vips_com_bloco_proprio = {KAMY_ID, MADU_ID, REALITY_ID, MALIK_ID, SANEMY_ID, ALLYNA_ID, RUIVA_ID, ZAYNA_ID}
         if nome_key and nome_key in FRASES_CUSTOM and author_id not in _vips_com_bloco_proprio:
             agora = time.time()
             if agora - _frases_custom_cooldown.get(author_id, 0) >= _CUSTOM_COOLDOWN:
@@ -2691,6 +2751,18 @@ async def on_message(message: discord.Message):
         if author_id == MADU_ID:
             return await message.channel.send(random.choice(LISTA_OPINIAO_MADU_PROPRIA))
         return await message.channel.send(random.choice(LISTA_OPINIAO_MADU))
+
+    # ── O que você acha da Zayna? ──
+    if _m(content, [
+        "o que você acha da zayna", "o que vc acha da zayna", "kitsura o que acha da zayna",
+        "kitsura fala da zayna", "como é a zayna kitsura", "conta sobre a zayna",
+        "zayna é boa kitsura", "o que pensa da zayna", "kitsura e a zayna",
+        "quem é a zayna kitsura", "kitsura quem é a zayna",
+        "fala da zayna kitsura", "kitsura me fala da zayna",
+    ]):
+        if author_id == ZAYNA_ID:
+            return await message.channel.send(random.choice(FRASES_ZAYNA_OPINIAO))
+        return await message.channel.send(random.choice(FRASES_OPINIAO_ZAYNA))
 
     # ── O que você acha do Reality? ──
     if _m(content, [
